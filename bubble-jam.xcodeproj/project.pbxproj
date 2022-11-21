@@ -166,12 +166,15 @@
 				00B82E55292BBE9C0088996B /* Sources */,
 				00B82E56292BBE9C0088996B /* Frameworks */,
 				00B82E57292BBE9C0088996B /* Resources */,
+				00B82E95292BC8AA0088996B /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "bubble-jam";
+			packageProductDependencies = (
+			);
 			productName = "bubble-jam";
 			productReference = 00B82E59292BBE9C0088996B /* bubble-jam.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +247,8 @@
 				Base,
 			);
 			mainGroup = 00B82E50292BBE9C0088996B;
+			packageReferences = (
+			);
 			productRefGroup = 00B82E5A292BBE9C0088996B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,6 +285,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00B82E95292BC8AA0088996B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00B82E55292BBE9C0088996B /* Sources */ = {
