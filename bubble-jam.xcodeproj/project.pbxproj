@@ -15,6 +15,11 @@
 		00B82E74292BBE9D0088996B /* bubble_jamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E73292BBE9D0088996B /* bubble_jamTests.swift */; };
 		00B82E7E292BBE9D0088996B /* bubble_jamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */; };
 		00B82E80292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */; };
+		29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC5292F921C0092FD1F /* AudioService.swift */; };
+		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
+		29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCA292F9B9D0092FD1F /* song2.m4a */; };
+		29B34BCE292FB0D40092FD1F /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCD292FB0D40092FD1F /* song.m4a */; };
+		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		00B82E79292BBE9D0088996B /* bubble-jamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bubble-jamUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITests.swift; sourceTree = "<group>"; };
 		00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		29B34BC5292F921C0092FD1F /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamAudioServiceTests.swift"; sourceTree = "<group>"; };
+		29B34BCA292F9B9D0092FD1F /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
+		29B34BCD292FB0D40092FD1F /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = song.m4a; path = ../../../../Downloads/song.m4a; sourceTree = "<group>"; };
+		29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioQueueExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,8 @@
 		00B82E72292BBE9D0088996B /* bubble-jamTests */ = {
 			isa = PBXGroup;
 			children = (
+				29B34BCC292FB09B0092FD1F /* Resources */,
+				29B34BC7292F95A40092FD1F /* bubble-jamServiceTests */,
 				00B82E73292BBE9D0088996B /* bubble_jamTests.swift */,
 			);
 			path = "bubble-jamTests";
@@ -143,6 +155,8 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				29B34BCF292FB61F0092FD1F /* Extensions */,
+				29B34BC4292F92050092FD1F /* Services */,
 				00B82E8F292BBED80088996B /* View */,
 			);
 			path = Source;
@@ -154,6 +168,39 @@
 				00B82E60292BBE9C0088996B /* ViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		29B34BC4292F92050092FD1F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				29B34BC5292F921C0092FD1F /* AudioService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		29B34BC7292F95A40092FD1F /* bubble-jamServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */,
+			);
+			path = "bubble-jamServiceTests";
+			sourceTree = "<group>";
+		};
+		29B34BCC292FB09B0092FD1F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29B34BCD292FB0D40092FD1F /* song.m4a */,
+				29B34BCA292F9B9D0092FD1F /* song2.m4a */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29B34BCF292FB61F0092FD1F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +321,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */,
+				29B34BCE292FB0D40092FD1F /* song.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,8 +361,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				00B82E61292BBE9C0088996B /* ViewController.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
+				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -323,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00B82E74292BBE9D0088996B /* bubble_jamTests.swift in Sources */,
+				29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +535,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = 8YQ35HP37L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -510,7 +562,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = 8YQ35HP37L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -537,7 +589,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = 8YQ35HP37L;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -557,7 +609,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = 8YQ35HP37L;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -576,8 +628,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = 8YQ35HP37L;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "thiagohba.com.bubble-jamUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -596,6 +649,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "thiagohba.com.bubble-jamUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
