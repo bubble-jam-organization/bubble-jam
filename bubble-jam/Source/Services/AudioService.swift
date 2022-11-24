@@ -8,11 +8,6 @@
 import Foundation
 import AVFoundation
 
-
-enum AudioServiceErrors: Error {
-    case nonExistingAudio
-}
-
 struct AudioService {
     private var player: AVQueuePlayer!
     private var bundle: Bundle!
@@ -29,7 +24,7 @@ struct AudioService {
             player.insert(audioSong, after: nil)
             return
         }
-        throw AudioServiceErrors.nonExistingAudio
+        throw AudioServiceError.nonExistingAudio
     }
     
     private func clearSongQueue() {

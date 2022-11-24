@@ -15,7 +15,7 @@ final class bubble_jamAudioServiceTests: XCTestCase {
         
         do {
             try sut.insertSong(songName: "song", songFormat: "m4a")
-        }catch AudioServiceErrors.nonExistingAudio {
+        }catch AudioServiceError.nonExistingAudio {
             XCTFail("File not found :(")
         }catch {
             XCTFail("Error raised: \(error.localizedDescription) ")
@@ -32,7 +32,7 @@ final class bubble_jamAudioServiceTests: XCTestCase {
         do {
             try sut.insertSong(songName: "", songFormat: "")
             XCTFail("Sound shouldn't exist")
-        } catch AudioServiceErrors.nonExistingAudio { } catch {
+        } catch AudioServiceError.nonExistingAudio { } catch {
             XCTFail("Unexpected error raised \(error.localizedDescription)")
         }
     }
@@ -77,16 +77,16 @@ final class bubble_jamAudioServiceTests: XCTestCase {
 
 }
 
-extension bubble_jamAudioServiceTests {
-    typealias SUTandDependencies = (AudioService,(AVQueuePlayer,Bundle))
+extension bubble_jamAudioServiceTests: Testing {
+    typealias SutAndDoubles = (AudioService,(AVQueuePlayer, Bundle))
     
-    func makeSUT() -> SUTandDependencies{
+    func makeSUT() -> SutAndDoubles {
         let player = AVQueuePlayer()
         let testBundle =  Bundle(for: type(of: self))
         let service = AudioService(player: player, bundle: testBundle)
         return (service, (player,testBundle))
     }
-    
+
     func getItemURL(_ playerItem: AVPlayerItem?)  -> URL? {
         guard let asset = playerItem?.asset else {
             XCTFail("Asset nil")
