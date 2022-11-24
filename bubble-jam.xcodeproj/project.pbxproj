@@ -15,6 +15,11 @@
 		00B82E74292BBE9D0088996B /* bubble_jamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E73292BBE9D0088996B /* bubble_jamTests.swift */; };
 		00B82E7E292BBE9D0088996B /* bubble_jamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */; };
 		00B82E80292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */; };
+		D6676BDA292F8F1B00A70999 /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6676BD9292F8F1B00A70999 /* BubblegumViewController.swift */; };
+		D6676BDE292F8FB700A70999 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6676BDD292F8FB700A70999 /* ViewCoding.swift */; };
+		D6676BE0292F908600A70999 /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6676BDF292F908600A70999 /* SamplerPlayerFrame.swift */; };
+		D6676BE2292F959700A70999 /* SampleTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6676BE1292F959700A70999 /* SampleTexture.swift */; };
+		D6676BE4292F9C9700A70999 /* SamplerPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6676BE3292F9C9700A70999 /* SamplerPlayButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		00B82E79292BBE9D0088996B /* bubble-jamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bubble-jamUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITests.swift; sourceTree = "<group>"; };
 		00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6676BD9292F8F1B00A70999 /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
+		D6676BDD292F8FB700A70999 /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
+		D6676BDF292F908600A70999 /* SamplerPlayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayerFrame.swift; sourceTree = "<group>"; };
+		D6676BE1292F959700A70999 /* SampleTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleTexture.swift; sourceTree = "<group>"; };
+		D6676BE3292F9C9700A70999 /* SamplerPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +153,8 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				D6676BDC292F8F9200A70999 /* Protocol */,
+				D6676BD8292F8EFA00A70999 /* Bubblegum */,
 				00B82E8F292BBED80088996B /* View */,
 			);
 			path = Source;
@@ -154,6 +166,33 @@
 				00B82E60292BBE9C0088996B /* ViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D6676BD8292F8EFA00A70999 /* Bubblegum */ = {
+			isa = PBXGroup;
+			children = (
+				D6676BD9292F8F1B00A70999 /* BubblegumViewController.swift */,
+				D6676BDB292F8F3200A70999 /* Components */,
+			);
+			path = Bubblegum;
+			sourceTree = "<group>";
+		};
+		D6676BDB292F8F3200A70999 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D6676BDF292F908600A70999 /* SamplerPlayerFrame.swift */,
+				D6676BE1292F959700A70999 /* SampleTexture.swift */,
+				D6676BE3292F9C9700A70999 /* SamplerPlayButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D6676BDC292F8F9200A70999 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D6676BDD292F8FB700A70999 /* ViewCoding.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6676BE4292F9C9700A70999 /* SamplerPlayButton.swift in Sources */,
+				D6676BE2292F959700A70999 /* SampleTexture.swift in Sources */,
+				D6676BE0292F908600A70999 /* SamplerPlayerFrame.swift in Sources */,
+				D6676BDE292F8FB700A70999 /* ViewCoding.swift in Sources */,
+				D6676BDA292F8F1B00A70999 /* BubblegumViewController.swift in Sources */,
 				00B82E61292BBE9C0088996B /* ViewController.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
