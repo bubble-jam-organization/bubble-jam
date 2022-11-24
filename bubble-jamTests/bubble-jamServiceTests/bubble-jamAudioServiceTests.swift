@@ -46,10 +46,7 @@ final class bubble_jamAudioServiceTests: XCTestCase {
         
         let currentPlayerQueue = player.items()
         
-        guard let _ = try? sut.insertSong(songName: "song", songFormat: "m4a") else {
-            XCTFail("Insert sound should not raise error")
-            return
-        }
+        insertMockedSong(on: sut)
         
         XCTAssertNotEqual(currentPlayerQueue.count, player.items().count)
     }
@@ -57,10 +54,7 @@ final class bubble_jamAudioServiceTests: XCTestCase {
     func test_playSong_shouldPlayCorrectly() {
         let (sut, (player, _)) = makeSUT()
         
-        guard let _ = try? sut.insertSong(songName: "song", songFormat: "m4a") else {
-            XCTFail("Insert song should not raised error")
-            return
-        }
+        insertMockedSong(on: sut)
         
         sut.playSong()
         XCTAssertTrue(player.isPlaying())
@@ -70,6 +64,37 @@ final class bubble_jamAudioServiceTests: XCTestCase {
         let (sut, (player, _)) = makeSUT()
         
         sut.playSong()
+        
+        XCTAssertFalse(player.isPlaying())
+    }
+    
+    func test_pauseSong_shouldPauseCorrectly() {
+        let (sut, (player, _)) = makeSUT()
+        
+        insertMockedSong(on: sut)
+        
+        sut.playSong()
+        sut.pauseSong()
+        
+        XCTAssertFalse(player.isPlaying())
+    }
+    
+    func test_pauseSong_afterPause_shouldPlayAgain() {
+        let (sut, (player, _)) = makeSUT()
+        
+        insertMockedSong(on: sut)
+        
+        sut.playSong()
+        sut.pauseSong()
+        sut.playSong()
+        
+        XCTAssertTrue(player.isPlaying())
+    }
+    
+    func test_pauseSong_ifThereNotSong_shouldNotPause() {
+        let (sut, (player, _)) = makeSUT()
+        
+        sut.pauseSong()
         
         XCTAssertFalse(player.isPlaying())
     }
@@ -85,6 +110,13 @@ extension bubble_jamAudioServiceTests: Testing {
         let testBundle =  Bundle(for: type(of: self))
         let service = AudioService(player: player, bundle: testBundle)
         return (service, (player,testBundle))
+    }
+    
+    func insertMockedSong(on sut: AudioService) {
+        guard let _ = try? sut.insertSong(songName: "song", songFormat: "m4a") else {
+            XCTFail("Insert song should not raised error")
+            return
+        }
     }
 
     func getItemURL(_ playerItem: AVPlayerItem?)  -> URL? {

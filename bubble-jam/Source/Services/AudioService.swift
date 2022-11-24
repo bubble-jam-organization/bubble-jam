@@ -37,4 +37,10 @@ struct AudioService {
         }
     }
     
+    func pauseSong() {
+        if player.isPlaying() {
+            player.pause()
+        }
+    }
+    
 }
