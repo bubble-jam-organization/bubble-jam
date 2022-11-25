@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0087CB762931214600404615 /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0087CB752931214600404615 /* song2.m4a */; };
+		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
 		00B82E61292BBE9C0088996B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E60292BBE9C0088996B /* ViewController.swift */; };
@@ -16,8 +18,6 @@
 		00B82E80292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */; };
 		29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC5292F921C0092FD1F /* AudioService.swift */; };
 		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
-		29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCA292F9B9D0092FD1F /* song2.m4a */; };
-		29B34BCE292FB0D40092FD1F /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCD292FB0D40092FD1F /* song.m4a */; };
 		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
 		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
 		29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD6292FB9180092FD1F /* AudioServiceError.swift */; };
@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0087CB752931214600404615 /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
+		00B68BC22931210700126314 /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
 		00B82E59292BBE9C0088996B /* bubble-jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bubble-jam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00B82E5E292BBE9C0088996B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		29B34BC5292F921C0092FD1F /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamAudioServiceTests.swift"; sourceTree = "<group>"; };
-		29B34BCA292F9B9D0092FD1F /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
-		29B34BCD292FB0D40092FD1F /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = song.m4a; path = ../../../../Downloads/song.m4a; sourceTree = "<group>"; };
 		29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioQueueExtensions.swift; sourceTree = "<group>"; };
 		29B34BD3292FB8640092FD1F /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		29B34BD6292FB9180092FD1F /* AudioServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceError.swift; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		29B34BCC292FB09B0092FD1F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				29B34BCD292FB0D40092FD1F /* song.m4a */,
-				29B34BCA292F9B9D0092FD1F /* song2.m4a */,
+				00B68BC22931210700126314 /* song.m4a */,
+				0087CB752931214600404615 /* song2.m4a */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -351,8 +351,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */,
-				29B34BCE292FB0D40092FD1F /* song.m4a in Resources */,
+				0087CB762931214600404615 /* song2.m4a in Resources */,
+				00B68BC32931210700126314 /* song.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

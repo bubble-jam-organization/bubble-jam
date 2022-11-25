@@ -53,8 +53,8 @@ final class bubble_jamDownloadServiceTests: XCTestCase {
 
 }
 
-extension bubble_jamDownloadServiceTests: Testing{
-    typealias SutAndDoubles = (DownloadService,(FileManager, Bundle))
+extension bubble_jamDownloadServiceTests: Testing {
+    typealias SutAndDoubles = (DownloadService, (FileManager, Bundle))
     
     func makeSUT() -> SutAndDoubles {
         let manager = FileManager.default

@@ -17,26 +17,20 @@ struct DownloadService {
         self.bundle = bundle
     }
     
-    
-    func downloadAudio(audioName: String, audioExtension: String, completionHandler: @escaping (Result<URL, Error>) -> Void) {
+    func downloadAudio(audioName: String, audioExtension: String) throws {
         guard let audioURL = bundle.url(forResource: audioName, withExtension: audioExtension) else {
-            completionHandler(.failure(DownloadServiceError.fileNotExists))
-            return
+            throw DownloadServiceError.fileNotExists
         }
         
         let documentsDirectoryURL = manager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let destinationURL = documentsDirectoryURL.appending(path: audioURL.lastPathComponent)
         
-        if manager.fileExists(atPath: destinationURL.path()) {
-            completionHandler(.failure(DownloadServiceError.fileAlreadyExists))
-            return
-        }
+        if manager.fileExists(atPath: destinationURL.path()) { throw DownloadServiceError.fileAlreadyExists }
         
         do {
             try manager.copyItem(at: audioURL, to: destinationURL)
-            completionHandler(.success(destinationURL))
         } catch {
-            completionHandler(.failure(DownloadServiceError.unableToDownloadItem(error.localizedDescription)))
+           throw DownloadServiceError.unableToDownloadItem(error.localizedDescription)
         }
         
     }
