@@ -11,19 +11,49 @@ class BubblegumViewController: UIViewController {
     
     let sizeOfFrame: CGFloat = 300
     
+    private lazy var titleLabels: TitleLabels = {
+        
+        let labels = TitleLabels(nameOfChallenge: "Smiling Friends Jam", descriptionOfChallenge: "its smormu")
+        labels.translatesAutoresizingMaskIntoConstraints = false
+        return labels
+        
+    }()
+    
     private lazy var sampleFrame: SamplePlayerFrame = {
        
         let samplerFrame = SamplePlayerFrame(frame: .zero, sizeOfFrame: sizeOfFrame)
         samplerFrame.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(frameFunc)
+        )
+        samplerFrame.isUserInteractionEnabled = true
+        samplerFrame.isMultipleTouchEnabled = true
+        samplerFrame.addGestureRecognizer(tapGesture)
+        
         return samplerFrame
         
     }()
     
-    private lazy var samplerPlayButton: SamplerPlayButton = {
+    @objc func frameFunc() {
+        print("frame was tapped")
+    }
+    
+    private lazy var samplePlayButton: SamplePlayButton = {
         
-        let playButton = SamplerPlayButton(frame: .zero, sizeOfButton: (sizeOfFrame * 0.4))
+        let playButton = SamplePlayButton(frame: .zero, sizeOfButton: (sizeOfFrame * 0.4))
         playButton.translatesAutoresizingMaskIntoConstraints = false
+        
         return playButton
+        
+    }()
+    
+    private lazy var draftPill: DraftPill = {
+        
+        let pill = DraftPill(frame: .zero)
+        pill.translatesAutoresizingMaskIntoConstraints = false
+        return pill
         
     }()
     
@@ -42,22 +72,34 @@ extension BubblegumViewController: ViewCoding {
     }
     
     func setupHierarchy() {
+        view.addSubview(draftPill)
         view.addSubview(sampleFrame)
-        sampleFrame.addSubview(samplerPlayButton)
+        view.addSubview(titleLabels)
+        sampleFrame.addSubview(samplePlayButton)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
             sampleFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            sampleFrame.widthAnchor.constraint(equalTo: sampleFrame.widthAnchor),
-            sampleFrame.heightAnchor.constraint(equalTo: sampleFrame.heightAnchor),
+            sampleFrame.widthAnchor.constraint(equalToConstant: sizeOfFrame),
+            sampleFrame.heightAnchor.constraint(equalToConstant: sizeOfFrame),
             
-            samplerPlayButton.centerXAnchor.constraint(equalTo: sampleFrame.centerXAnchor),
-            samplerPlayButton.centerYAnchor.constraint(equalTo: sampleFrame.centerYAnchor),
-            samplerPlayButton.widthAnchor.constraint(equalTo: samplerPlayButton.widthAnchor),
-            samplerPlayButton.heightAnchor.constraint(equalTo: samplerPlayButton.heightAnchor),
+            samplePlayButton.centerXAnchor.constraint(equalTo: sampleFrame.centerXAnchor),
+            samplePlayButton.centerYAnchor.constraint(equalTo: sampleFrame.centerYAnchor),
+            samplePlayButton.widthAnchor.constraint(equalTo: samplePlayButton.widthAnchor),
+            samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
+            
+            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
+            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabels.bottomAnchor.constraint(equalTo: sampleFrame.topAnchor)
         ])
+        
     }
     
 }

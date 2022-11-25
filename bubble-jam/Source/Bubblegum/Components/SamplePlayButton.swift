@@ -7,13 +7,13 @@
 
 import UIKit
 
-class SamplerPlayButton: UIView {
+class SamplePlayButton: UIView {
     
     var sizeOfButton: CGFloat?
 
     private lazy var playButton: UIView = {
         
-        let button = UIView(frame: CGRectMake(0, 0, sizeOfButton!, sizeOfButton!))
+        let button = UIView(frame: CGRect(x: 0, y: 0, width: sizeOfButton ?? 300, height: sizeOfButton ?? 300))
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = sizeOfButton! / 2
         button.backgroundColor = .white
@@ -42,7 +42,7 @@ class SamplerPlayButton: UIView {
     
 }
 
-extension SamplerPlayButton: ViewCoding {
+extension SamplePlayButton: ViewCoding {
     func setupView() {
         //
     }
@@ -62,7 +62,7 @@ extension SamplerPlayButton: ViewCoding {
             playSymbol.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             playSymbol.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             playSymbol.widthAnchor.constraint(equalToConstant: sizeOfButton! * 0.5),
-            playSymbol.heightAnchor.constraint(equalToConstant: sizeOfButton! * 0.6),
+            playSymbol.heightAnchor.constraint(equalToConstant: sizeOfButton! * 0.6)
         ])
     }
 }

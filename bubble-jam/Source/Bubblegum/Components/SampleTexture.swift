@@ -18,6 +18,8 @@ class SampleTexture: UIImageView {
         texture.translatesAutoresizingMaskIntoConstraints = false
         texture.contentMode = .scaleAspectFit
         texture.clipsToBounds = true
+        
+        
         return texture
         
     }()
@@ -48,7 +50,7 @@ extension SampleTexture: ViewCoding {
             samplerTexture.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             samplerTexture.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             samplerTexture.widthAnchor.constraint(equalToConstant: sizeOfCircle!),
-            samplerTexture.heightAnchor.constraint(equalToConstant: sizeOfCircle!),
+            samplerTexture.heightAnchor.constraint(equalToConstant: sizeOfCircle!)
         ])
     }
 }

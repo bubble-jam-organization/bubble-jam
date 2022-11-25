@@ -8,12 +8,14 @@
 import UIKit
 
 class SamplePlayerFrame: UIView {
+    
+    // TODO: Adicionar drop shadow ao frame.
 
     var sizeOfFrame: CGFloat?
     
     private lazy var samplerFrame: UIView = {
        
-        let circle = UIView(frame: CGRectMake(0, 0, sizeOfFrame ?? 300, sizeOfFrame ?? 300))
+        let circle = UIView(frame: .zero)
         circle.backgroundColor = .clear
         circle.layer.cornerRadius = sizeOfFrame! / 2
         circle.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +31,9 @@ class SamplePlayerFrame: UIView {
         texture.layer.cornerRadius = sizeOfFrame! / 2 
         texture.contentMode = .scaleAspectFit
         texture.clipsToBounds = true
+        
+        
+        
         return texture
         
     }()
@@ -63,9 +68,8 @@ extension SamplePlayerFrame: ViewCoding {
             samplerTexture.centerXAnchor.constraint(equalTo: samplerFrame.centerXAnchor),
             samplerTexture.centerYAnchor.constraint(equalTo: samplerFrame.centerYAnchor),
             samplerTexture.widthAnchor.constraint(equalToConstant: sizeOfFrame!),
-            samplerTexture.heightAnchor.constraint(equalToConstant: sizeOfFrame!),
+            samplerTexture.heightAnchor.constraint(equalToConstant: sizeOfFrame!)
         ])
     }
-    
     
 }
