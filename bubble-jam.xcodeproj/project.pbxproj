@@ -157,9 +157,9 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D6676BDC292F8F9200A70999 /* Protocol */,
 				D6676BD8292F8EFA00A70999 /* Bubblegum */,
 				00B82E8F292BBED80088996B /* View */,
+				D6676BDC292F8F9200A70999 /* Protocol */,
 			);
 			path = Source;
 			sourceTree = "<group>";
