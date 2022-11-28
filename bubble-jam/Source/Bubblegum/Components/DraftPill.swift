@@ -20,7 +20,7 @@ class DraftPill: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
         pill.isUserInteractionEnabled = true
         pill.addGestureRecognizer(tapGesture)
-        
+         
         return pill
     }()
     
