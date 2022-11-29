@@ -31,6 +31,7 @@ class BubblegumViewController: UIViewController {
         samplerFrame.isUserInteractionEnabled = true
         samplerFrame.isMultipleTouchEnabled = true
         samplerFrame.addGestureRecognizer(tapGesture)
+        samplerFrame.clipsToBounds = true
         
         return samplerFrame
         
