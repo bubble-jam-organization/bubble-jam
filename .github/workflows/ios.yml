@@ -2,7 +2,7 @@ name: Testing
 on:
   pull_request:
     branches:
-    - master
+    - dev
 jobs:
   test:
     name: Testing Swift Package and iOS app
