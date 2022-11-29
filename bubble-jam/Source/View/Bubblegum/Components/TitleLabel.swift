@@ -52,6 +52,8 @@ class TitleLabels: UIView {
     
 }
 
+//test comment
+
 extension TitleLabels: ViewCoding {
     func setupView() {
         //
