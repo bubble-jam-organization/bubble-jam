@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
-		00B82E61292BBE9C0088996B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E60292BBE9C0088996B /* ViewController.swift */; };
 		00B82E66292BBE9D0088996B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00B82E65292BBE9D0088996B /* Assets.xcassets */; };
 		00B82E69292BBE9D0088996B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B82E67292BBE9D0088996B /* LaunchScreen.storyboard */; };
 		00B82E7E292BBE9D0088996B /* bubble_jamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */; };
@@ -51,7 +50,6 @@
 		00B82E59292BBE9C0088996B /* bubble-jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bubble-jam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00B82E5E292BBE9C0088996B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		00B82E60292BBE9C0088996B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		00B82E65292BBE9D0088996B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00B82E68292BBE9D0088996B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00B82E6A292BBE9D0088996B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				D6ADD8C0293628C90057095A /* Bubblegum */,
-				00B82E60292BBE9C0088996B /* ViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,7 +424,6 @@
 			files = (
 				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
-				00B82E61292BBE9C0088996B /* ViewController.swift in Sources */,
 				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */,

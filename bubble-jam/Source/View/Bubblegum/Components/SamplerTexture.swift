@@ -19,7 +19,6 @@ class SampleTexture: UIImageView {
         texture.contentMode = .scaleAspectFit
         texture.clipsToBounds = true
         
-        
         return texture
         
     }()
