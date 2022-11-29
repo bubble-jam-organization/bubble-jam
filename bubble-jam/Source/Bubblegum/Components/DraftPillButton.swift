@@ -80,7 +80,7 @@ extension DraftPill: ViewCoding {
 
             pillLabel.topAnchor.constraint(equalTo: pillSymbol.topAnchor),
             pillLabel.leadingAnchor.constraint(equalTo: pillSymbol.trailingAnchor, constant: 15),
-            pillLabel.trailingAnchor.constraint(equalTo: pillBox.trailingAnchor, constant: 15),
+            pillLabel.trailingAnchor.constraint(equalTo: pillBox.trailingAnchor, constant: 5),
             pillLabel.bottomAnchor.constraint(equalTo: pillSymbol.bottomAnchor)
         ])
     }
