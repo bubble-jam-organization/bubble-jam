@@ -11,19 +11,31 @@
 		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
-		00B82E61292BBE9C0088996B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E60292BBE9C0088996B /* ViewController.swift */; };
 		00B82E66292BBE9D0088996B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00B82E65292BBE9D0088996B /* Assets.xcassets */; };
 		00B82E69292BBE9D0088996B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00B82E67292BBE9D0088996B /* LaunchScreen.storyboard */; };
 		00B82E7E292BBE9D0088996B /* bubble_jamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */; };
 		00B82E80292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */; };
 		29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC5292F921C0092FD1F /* AudioService.swift */; };
 		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
-		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
-		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
-		29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD6292FB9180092FD1F /* AudioServiceError.swift */; };
+
+		
 		29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD82930FA560092FD1F /* DownloadService.swift */; };
 		29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */; };
 		29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */; };
+
+		29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCA292F9B9D0092FD1F /* song2.m4a */; };
+		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
+		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
+		29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD6292FB9180092FD1F /* AudioServiceError.swift */; };
+		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
+		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
+		D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C7293629340057095A /* DraftPillButton.swift */; };
+		D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C9293629590057095A /* SamplerPlayButton.swift */; };
+		D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */; };
+		D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CD293629B40057095A /* SamplerTexture.swift */; };
+		D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CF293629C50057095A /* TitleLabel.swift */; };
+		D6ADD8D229362A360057095A /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D6ADD8D129362A360057095A /* song.m4a */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +61,6 @@
 		00B82E59292BBE9C0088996B /* bubble-jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bubble-jam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00B82E5E292BBE9C0088996B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		00B82E60292BBE9C0088996B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		00B82E65292BBE9D0088996B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00B82E68292BBE9D0088996B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00B82E6A292BBE9D0088996B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,13 +70,21 @@
 		00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		29B34BC5292F921C0092FD1F /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamAudioServiceTests.swift"; sourceTree = "<group>"; };
+		29B34BD82930FA560092FD1F /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceErrors.swift; sourceTree = "<group>"; };
+		29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDownloadServiceTests.swift"; sourceTree = "<group>"; };
+		29B34BCA292F9B9D0092FD1F /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioQueueExtensions.swift; sourceTree = "<group>"; };
 		29B34BD3292FB8640092FD1F /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		29B34BD6292FB9180092FD1F /* AudioServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceError.swift; sourceTree = "<group>"; };
-		29B34BD82930FA560092FD1F /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
-		29B34BDA2930FB4A0092FD1F /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
-		29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceErrors.swift; sourceTree = "<group>"; };
-		29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDownloadServiceTests.swift"; sourceTree = "<group>"; };
+		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
+		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
+		D6ADD8C7293629340057095A /* DraftPillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftPillButton.swift; sourceTree = "<group>"; };
+		D6ADD8C9293629590057095A /* SamplerPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayButton.swift; sourceTree = "<group>"; };
+		D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayerFrame.swift; sourceTree = "<group>"; };
+		D6ADD8CD293629B40057095A /* SamplerTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerTexture.swift; sourceTree = "<group>"; };
+		D6ADD8CF293629C50057095A /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		D6ADD8D129362A360057095A /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +184,8 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+
+				D6ADD8C1293628D00057095A /* Protocol */,
 				29B34BCF292FB61F0092FD1F /* Extensions */,
 				29B34BC4292F92050092FD1F /* Services */,
 				00B82E8F292BBED80088996B /* View */,
@@ -175,7 +196,7 @@
 		00B82E8F292BBED80088996B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				00B82E60292BBE9C0088996B /* ViewController.swift */,
+				D6ADD8C0293628C90057095A /* Bubblegum */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +252,35 @@
 				29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */,
 			);
 			path = ServiceErrors;
+			sourceTree = "<group>";
+		};
+		D6ADD8C0293628C90057095A /* Bubblegum */ = {
+			isa = PBXGroup;
+			children = (
+				D6ADD8C62936291E0057095A /* Components */,
+				D6ADD8C42936290B0057095A /* BubblegumViewController.swift */,
+			);
+			path = Bubblegum;
+			sourceTree = "<group>";
+		};
+		D6ADD8C1293628D00057095A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D6ADD8C2293628F40057095A /* ViewCoding.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D6ADD8C62936291E0057095A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D6ADD8C7293629340057095A /* DraftPillButton.swift */,
+				D6ADD8C9293629590057095A /* SamplerPlayButton.swift */,
+				D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */,
+				D6ADD8CD293629B40057095A /* SamplerTexture.swift */,
+				D6ADD8CF293629C50057095A /* TitleLabel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +403,8 @@
 			files = (
 				0087CB762931214600404615 /* song2.m4a in Resources */,
 				00B68BC32931210700126314 /* song.m4a in Resources */,
+				D6ADD8D229362A360057095A /* song.m4a in Resources */,
+				29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,11 +445,18 @@
 				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
 				00B82E61292BBE9C0088996B /* ViewController.swift in Sources */,
-				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
-				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
+				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
+				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
+				D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */,
+				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
+				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
+				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
+				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
+				D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */,
+				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +467,7 @@
 				29B34BD4292FB8640092FD1F /* Testing.swift in Sources */,
 				29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */,
 				29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
