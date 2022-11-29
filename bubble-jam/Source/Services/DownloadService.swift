@@ -17,22 +17,32 @@ struct DownloadService {
         self.bundle = bundle
     }
     
-    func downloadAudio(audioName: String, audioExtension: String) throws {
+    func fetchAudio(audioName: String, audioExtension: String, folderPath: String = "bubblejam.tmp") throws {
         guard let audioURL = bundle.url(forResource: audioName, withExtension: audioExtension) else {
             throw DownloadServiceError.fileNotExists
         }
         
         let documentsDirectoryURL = manager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destinationURL = documentsDirectoryURL.appending(path: audioURL.lastPathComponent)
+        let tmpPath = documentsDirectoryURL.appendingPathComponent(folderPath)
         
+        try createFolder(path: tmpPath)
+        
+        let destinationURL = tmpPath.appending(path: audioURL.lastPathComponent)
         if manager.fileExists(atPath: destinationURL.path()) { throw DownloadServiceError.fileAlreadyExists }
-        
+
         do {
             try manager.copyItem(at: audioURL, to: destinationURL)
         } catch {
            throw DownloadServiceError.unableToDownloadItem(error.localizedDescription)
         }
-        
+
+    }
+    
+    private func createFolder(path: URL) throws {
+        if !manager.fileExists(atPath: path.path()) {
+            try manager.createDirectory(at: path, withIntermediateDirectories: true)
+        }
+
     }
     
 }
