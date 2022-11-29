@@ -2,9 +2,9 @@ name: iOS starter workflow
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "ThiagoHBA-patch-1" ]
   pull_request:
-    branches: [ "dev" ]
+    branches: [ "ThiagoHBA-patch-1" ]
 
 jobs:
   build:
