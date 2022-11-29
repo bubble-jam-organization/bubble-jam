@@ -30,11 +30,7 @@ struct DownloadService {
         let destinationURL = tmpPath.appending(path: audioURL.lastPathComponent)
         if manager.fileExists(atPath: destinationURL.path()) { throw DownloadServiceError.fileAlreadyExists }
 
-        do {
-            try manager.copyItem(at: audioURL, to: destinationURL)
-        } catch {
-           throw DownloadServiceError.unableToDownloadItem(error.localizedDescription)
-        }
+        try manager.copyItem(at: audioURL, to: destinationURL)
 
     }
     

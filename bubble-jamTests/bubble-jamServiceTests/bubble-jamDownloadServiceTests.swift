@@ -49,48 +49,45 @@ final class bubble_jamDownloadServiceTests: XCTestCase {
         XCTAssertTrue(manager.fileExists(atPath: url.path()))
     }
     
-    //
-    //    func test_downloadAudio_shouldDownload() {
-    //        let (service, (manager, _)) = makeSUT()
-    //        clearState(with: manager)
-    //        let expectation = XCTestExpectation(description: "Should download audio successfully")
-    //
-    //        service.downloadAudio(audioName: "song", audioExtension: "m4a") { [weak self] result in
-    //            switch result {
-    //                case .success(let url):
-    //                    let path =  url.path()
-    //                    let hasFile = manager.fileExists(atPath: path)
-    //                    XCTAssertTrue(hasFile)
-    //                    expectation.fulfill()
-    //                case .failure(let error):
-    //                    XCTFail("Download audio should not raise error, but: \(error.localizedDescription)")
-    //            }
-    //        }
-    //
-    //        wait(for: [expectation], timeout: 3)
-    //    }
-    //
-    //    func test_downloadAudio_shouldRaise_fileNotExistError() {
-    //        let (service, (manager, _)) = makeSUT()
-    //        clearState(with: manager)
-    //        let expectation = XCTestExpectation(description: "Should raise error")
-    //
-    //        service.downloadAudio(audioName: "song", audioExtension: "m4a") { result in
-    //            switch result {
-    //                case .success(let url):
-    //                    XCTFail("Method download audio should raise fileNotExist error")
-    //                    self?.clearAddedItems(with: manager, on: url.path())
-    //                case .failure(let error):
-    //                    if let downloadError = error as? DownloadServiceError, downloadError == .fileNotExists {
-    //                        expectation.fulfill()
-    //                    } else {
-    //                        XCTFail("Wrong error was raised: \(error.localizedDescription)")
-    //                    }
-    //            }
-    //        }
-    //        wait(for: [expectation], timeout: 3)
-    //    }
+    func test_fetchAudio_fileShouldNotExist() {
+        let (sut, _) = makeSUT()
+        XCTAssertThrowsError(try sut.fetchAudio(audioName: "a", audioExtension: "a")) { error in
+            XCTAssertNotNil(error as? DownloadServiceError)
+            XCTAssertEqual(error as? DownloadServiceError, .fileNotExists )
+        }
+        
+    }
     
+    func test_fetchAudio_fileShouldAlreadyExist() {
+        let (sut, _) = makeSUT()
+        try? sut.fetchAudio(
+            audioName: Constants.songName.rawValue,
+            audioExtension: Constants.songExtension.rawValue,
+            folderPath: Constants.testPath.rawValue)
+        XCTAssertThrowsError(try sut.fetchAudio(
+            audioName: Constants.songName.rawValue,
+            audioExtension: Constants.songExtension.rawValue,
+            folderPath: Constants.testPath.rawValue)) { error in
+                XCTAssertNotNil(error as? DownloadServiceError)
+                XCTAssertEqual(error as? DownloadServiceError, .fileAlreadyExists)
+            }
+        
+    }
+    
+    func test_createDirectory_shouldCreateDir() {
+        let (sut, _) = makeSUT()
+        let testFolderURL = destinationUrl.appending(path: "folderTeste")
+        do {
+            try sut.fetchAudio(audioName: Constants.songName.rawValue, audioExtension: Constants.songExtension.rawValue, folderPath: Constants.testPath.rawValue + "folderTeste")
+            print(testFolderURL.path())
+            print(manager.fileExists(atPath: testFolderURL.path()))
+            XCTAssertTrue(manager.fileExists(atPath: testFolderURL.path()))
+        }
+        catch {
+            XCTFail(error.localizedDescription)
+        }
+
+    }
 }
 
 extension bubble_jamDownloadServiceTests: Testing {
@@ -101,17 +98,5 @@ extension bubble_jamDownloadServiceTests: Testing {
         let service = DownloadService(manager: self.manager, bundle: testBundle)
         return (service, (manager, testBundle))
     }
-    //
-    //    func clearState(with manager: FileManager) {
-    //        let documentPath = manager.urls(for: .documentDirectory, in: .userDomainMask).first!
-    //        let filePath = documentPath.appending(path: "")
-    //
-    //        if let fileExists = try? manager.fileExists(atPath: path), fileExists {
-    //            guard let _ = try? manager.removeItem(atPath: path) else {
-    //                XCTFail("Could not clear the state of test!!!")
-    //                return
-    //            }
-    //        }
-    //
-    //    }
+
 }
