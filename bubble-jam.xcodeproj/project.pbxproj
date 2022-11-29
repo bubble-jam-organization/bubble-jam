@@ -172,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				D6ADD8C1293628D00057095A /* Protocol */,
-				D6ADD8C0293628C90057095A /* Bubblegum */,
 				29B34BCF292FB61F0092FD1F /* Extensions */,
 				29B34BC4292F92050092FD1F /* Services */,
 				00B82E8F292BBED80088996B /* View */,
@@ -183,6 +182,7 @@
 		00B82E8F292BBED80088996B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D6ADD8C0293628C90057095A /* Bubblegum */,
 				00B82E60292BBE9C0088996B /* ViewController.swift */,
 			);
 			path = View;
