@@ -17,7 +17,5 @@ jobs:
     name: test iOS (${{ matrix.ios }})
     steps:
     - uses: actions/checkout@v1
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_$.app && /usr/bin/xcodebuild -version
     - name: Run unit tests
       run: xcodebuild test -scheme bubble-jam -project bubble-jam.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 14,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
