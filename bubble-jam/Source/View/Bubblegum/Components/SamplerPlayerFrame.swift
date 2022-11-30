@@ -26,25 +26,10 @@ class SamplePlayerFrame: UIView {
         
     }()
 
-//    private lazy var samplerTexture: SampleTexture = {
-//
-//        let texture = SampleTexture(frame: .zero, sizeOfCircle: 300)
-//        texture.translatesAutoresizingMaskIntoConstraints = false
-//        texture.layer.cornerRadius = sizeOfFrame! / 2
-//        texture.contentMode = .scaleAspectFit
-//        texture.clipsToBounds = true
-//
-//        return texture
-//
-//    }()
-//
     init(frame: CGRect, sizeOfFrame: CGFloat) {
         super.init(frame: .zero)
         self.sizeOfFrame = sizeOfFrame
         self.layer.cornerRadius = sizeOfFrame/2
-//        self.layer.backgroundColor = UIColor.red.cgColor
-//        self.layer.borderColor = UIColor.systemRed.cgColor
-//        self.layer.borderWidth = 2
         self.layer.masksToBounds = true
         buildLayout()
     }
@@ -58,23 +43,17 @@ class SamplePlayerFrame: UIView {
         return pow(center.x-point.x, 2) + pow(center.y - point.y, 2) <= pow(bounds.size.width/2, 2)
     }
     
-    
 }
 
 extension SamplePlayerFrame: ViewCoding {
     func setupView() {}
     
     func setupHierarchy() {
-//        self.addSubview(samplerFrame)
         addSubview(samplerTexture)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-//            samplerFrame.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            samplerFrame.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-//            samplerFrame.widthAnchor.constraint(equalToConstant: sizeOfFrame!),
-//            samplerFrame.heightAnchor.constraint(equalToConstant: sizeOfFrame!),
             
             samplerTexture.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             samplerTexture.centerYAnchor.constraint(equalTo: self.centerYAnchor),
