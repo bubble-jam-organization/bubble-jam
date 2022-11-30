@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum AudioServiceError: Error {
+enum AudioServiceError: Error, Equatable {
     case nonExistingAudio
 }

@@ -11,15 +11,9 @@ import AVFoundation
 
 final class bubble_jamAudioServiceTests: XCTestCase {
     func test_insertSong_shouldInsertCorrectly() {
-        let (sut,(player, bundle)) = makeSUT()
-        
-        do {
-            try sut.insertSong(songName: "song", songFormat: "m4a")
-        }catch AudioServiceError.nonExistingAudio {
-            XCTFail("File not found :(")
-        }catch {
-            XCTFail("Error raised: \(error.localizedDescription) ")
-        }
+        let (sut, (player, bundle)) = makeSUT()
+
+        XCTAssertNoThrow(try sut.insertSong(songName: "song", songFormat: "m4a"))
         
         let itemArray = [AVPlayerItem(url: bundle.url(forResource: "song", withExtension: "m4a")!)]
         XCTAssertEqual(getItemURL(itemArray.first), getItemURL(player.items().first))
@@ -29,11 +23,8 @@ final class bubble_jamAudioServiceTests: XCTestCase {
     func test_insertSong_notExistingSong() {
         let (sut, _) = makeSUT()
         
-        do {
-            try sut.insertSong(songName: "", songFormat: "")
-            XCTFail("Sound shouldn't exist")
-        } catch AudioServiceError.nonExistingAudio { } catch {
-            XCTFail("Unexpected error raised \(error.localizedDescription)")
+        XCTAssertThrowsError(try sut.insertSong(songName: "", songFormat: "")) { error in
+            XCTAssertEqual(error as? AudioServiceError, AudioServiceError.nonExistingAudio)
         }
     }
     
@@ -98,33 +89,31 @@ final class bubble_jamAudioServiceTests: XCTestCase {
         
         XCTAssertFalse(player.isPlaying())
     }
-    
-
 }
 
 extension bubble_jamAudioServiceTests: Testing {
-    typealias SutAndDoubles = (AudioService,(AVQueuePlayer, Bundle))
+    typealias SutAndDoubles = (AudioService, (AVQueuePlayer, Bundle))
     
     func makeSUT() -> SutAndDoubles {
         let player = AVQueuePlayer()
         let testBundle =  Bundle(for: type(of: self))
         let service = AudioService(player: player, bundle: testBundle)
-        return (service, (player,testBundle))
+        return (service, (player, testBundle))
     }
     
     func insertMockedSong(on sut: AudioService) {
-        guard let _ = try? sut.insertSong(songName: "song", songFormat: "m4a") else {
+        if (try? sut.insertSong(songName: "song", songFormat: "m4a")) == nil {
             XCTFail("Insert song should not raised error")
             return
         }
     }
 
-    func getItemURL(_ playerItem: AVPlayerItem?)  -> URL? {
+    func getItemURL(_ playerItem: AVPlayerItem?) -> URL? {
         guard let asset = playerItem?.asset else {
             XCTFail("Asset nil")
             return nil
         }
-        guard let urlasset = (asset as? AVURLAsset) else{
+        guard let urlasset = (asset as? AVURLAsset) else {
             XCTFail("NonExistant URLAsset")
             return nil
         }
