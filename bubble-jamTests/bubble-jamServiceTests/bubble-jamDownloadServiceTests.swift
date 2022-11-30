@@ -78,12 +78,13 @@ final class bubble_jamDownloadServiceTests: XCTestCase {
         let (sut, _) = makeSUT()
         let testFolderURL = destinationUrl.appending(path: "folderTeste")
         do {
-            try sut.fetchAudio(audioName: Constants.songName.rawValue, audioExtension: Constants.songExtension.rawValue, folderPath: Constants.testPath.rawValue + "folderTeste")
-            print(testFolderURL.path())
-            print(manager.fileExists(atPath: testFolderURL.path()))
+            try sut.fetchAudio(
+                audioName: Constants.songName.rawValue,
+                audioExtension: Constants.songExtension.rawValue,
+                folderPath: Constants.testPath.rawValue + "folderTeste"
+            )
             XCTAssertTrue(manager.fileExists(atPath: testFolderURL.path()))
-        }
-        catch {
+        } catch {
             XCTFail(error.localizedDescription)
         }
 
