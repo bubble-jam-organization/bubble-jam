@@ -108,15 +108,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0087CBB329377A3600404615 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				D6ADD8D129362A360057095A /* song.m4a */,
-				29B34BCA292F9B9D0092FD1F /* song2.m4a */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		00B82E50292BBE9C0088996B = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +180,6 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				29B34BF0293774F20092FD1F /* Factory */,
 				29B34BEB2936546C0092FD1F /* Presenter */,
 				D6ADD8C1293628D00057095A /* Protocol */,
 				29B34BCF292FB61F0092FD1F /* Extensions */,
@@ -275,13 +265,6 @@
 				29B34BEC2936546C0092FD1F /* Presenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		29B34BF0293774F20092FD1F /* Factory */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Factory;
 			sourceTree = "<group>";
 		};
 		D6ADD8C0293628C90057095A /* Bubblegum */ = {
