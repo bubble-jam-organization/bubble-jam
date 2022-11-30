@@ -10,11 +10,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v1
 
-    - name: Set Gems
-      run: |
-        gem install bundler
-        bundle install
-
     - name: Set Xcode version
       uses: maxim-lobanov/setup-xcode@v1.1
       with:
