@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - xcode: "14.0"
+          - xcode: "2396"
             ios: "16.1"
             destination: ['platform=iOS Simulator,OS=16.0,name=iPhone 14']
     name: test iOS (${{ matrix.ios }})
