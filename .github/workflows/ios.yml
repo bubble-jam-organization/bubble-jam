@@ -18,8 +18,8 @@ jobs:
     - name: Build
       run: |
         xcodebuild build-for-testing \
-        -scheme iOSGitHubActions \
-        -destination 'platform=iOS Simulator,name=iPhone 11 Pro' \
+        -scheme bubble-jam \
+        -destination 'platform=iOS Simulator,name=iPhone 14' \
         -derivedDataPath build \
         | xcpretty
 
@@ -45,7 +45,7 @@ jobs:
     - name: Test
       run: |
         xcodebuild test-without-building \
-        -scheme iOSGitHubActions \
+        -scheme bubble-jam \
         -destination 'platform=iOS Simulator,name=iPhone 14' \
         -derivedDataPath build \
         -enableCodeCoverage YES \
