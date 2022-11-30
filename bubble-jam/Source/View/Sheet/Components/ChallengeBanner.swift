@@ -20,6 +20,19 @@ class ChallengeBanner: UIImageView {
         
     }()
     
+    private lazy var inprintTexture: UIImageView = {
+        
+        let texture = UIImageView(frame: .zero)
+        texture.image = UIImage(named: "Inprint")
+        texture.translatesAutoresizingMaskIntoConstraints = false
+        texture.contentMode = .scaleAspectFit
+        texture.clipsToBounds = true
+        texture.layer.opacity = 0.75
+        
+        return texture
+        
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         buildLayout()
@@ -36,6 +49,7 @@ extension ChallengeBanner: ViewCoding {
     
     func setupHierarchy() {
         self.addSubview(banner)
+        self.addSubview(inprintTexture)
     }
     
     func setupConstraints() {
@@ -44,6 +58,10 @@ extension ChallengeBanner: ViewCoding {
             banner.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             banner.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             banner.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            inprintTexture.topAnchor.constraint(equalTo: self.topAnchor),
+            inprintTexture.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            inprintTexture.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
     }
     

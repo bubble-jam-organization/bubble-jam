@@ -52,7 +52,7 @@ extension InformationSheetViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            challengeBanner.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            challengeBanner.topAnchor.constraint(equalTo: view.topAnchor),
             challengeBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
             challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
