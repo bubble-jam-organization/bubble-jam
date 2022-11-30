@@ -17,7 +17,6 @@
 		00B82E80292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */; };
 		29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC5292F921C0092FD1F /* AudioService.swift */; };
 		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
-		29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCA292F9B9D0092FD1F /* song2.m4a */; };
 		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
 		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
 		29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD6292FB9180092FD1F /* AudioServiceError.swift */; };
@@ -32,7 +31,6 @@
 		D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */; };
 		D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CD293629B40057095A /* SamplerTexture.swift */; };
 		D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CF293629C50057095A /* TitleLabel.swift */; };
-		D6ADD8D229362A360057095A /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D6ADD8D129362A360057095A /* song.m4a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0087CBB329377A3600404615 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D6ADD8D129362A360057095A /* song.m4a */,
+				29B34BCA292F9B9D0092FD1F /* song2.m4a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		00B82E50292BBE9C0088996B = {
 			isa = PBXGroup;
 			children = (
@@ -426,8 +433,6 @@
 			files = (
 				0087CB762931214600404615 /* song2.m4a in Resources */,
 				00B68BC32931210700126314 /* song.m4a in Resources */,
-				D6ADD8D229362A360057095A /* song.m4a in Resources */,
-				29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8YQ35HP37L;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -679,7 +684,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8YQ35HP37L;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
