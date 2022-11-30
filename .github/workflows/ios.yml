@@ -1,24 +1,15 @@
-name: iOS starter workflow
+name: Swift
 
-on:
-  push:
-    branches: [ "ThiagoHBA-patch-1" ]
-  pull_request:
-    branches: [ "ThiagoHBA-patch-1" ]
-    
+on: [push]
+
 jobs:
-  run_tests:
-    runs-on: macOS-latest
-    strategy:
-      matrix:
-        include:
-          - xcode: "2396"
-            ios: "16.1"
-            destination: ['platform=iOS Simulator,OS=16.0,name=iPhone 14']
-    name: test iOS (${{ matrix.ios }})
+  build:
+
+    runs-on: macos-latest
+
     steps:
-    - uses: actions/checkout@v1
-    - name: Set xcode Version
-      run: xcode-select -switch /Applications/Xcode${{ matrix.xcode }}/Xcode.app
-    - name: Run unit tests
-      run: xcodebuild test -scheme bubble-jam -project bubble-jam.xcodeproj -destination ${{ matrix.destination }} | xcpretty && exit ${PIPESTATUS[0]}
+      - uses: actions/checkout@v3
+      - name: Build
+        run: swift build
+      - name: Run tests
+        run: swift test
