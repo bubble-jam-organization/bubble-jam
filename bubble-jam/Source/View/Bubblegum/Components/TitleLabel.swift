@@ -22,6 +22,8 @@ class TitleLabels: UIView {
         label.text = nameOfChallenge
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
         
         return label
         
@@ -34,6 +36,7 @@ class TitleLabels: UIView {
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         
         return label
         

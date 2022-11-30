@@ -38,7 +38,16 @@ class BubblegumViewController: UIViewController {
     }()
     
     @objc func frameFunc() {
-        print("frame was tapped")
+        
+        let sheet = InformationSheetViewController()
+        
+        let guide = view.safeAreaLayoutGuide
+        let labels = CGFloat(titleLabels.frame.height)
+        let height = guide.layoutFrame.size.height - labels
+        
+        sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
+            
+        present(sheet, animated: true)
     }
     
     private lazy var samplePlayButton: SamplePlayButton = {
