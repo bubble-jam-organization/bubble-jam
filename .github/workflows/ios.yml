@@ -18,4 +18,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run unit tests
-      run: xcodebuild test -scheme bubble-jam -project bubble-jam.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 14,OS=$' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme bubble-jam -project bubble-jam.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 14,OS=${{ matrix.ios }}' | xcpretty && exit ${PIPESTATUS[0]}
