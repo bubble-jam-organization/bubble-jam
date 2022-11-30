@@ -14,10 +14,11 @@ jobs:
         include:
           - xcode: "14.1"
             ios: "16.1"
+            destination: ['platform=iOS Simulator,OS=16.0,name=iPhone 14']
     name: test iOS (${{ matrix.ios }})
     steps:
     - uses: actions/checkout@v1
     - name: Set xcode Version
       run: xcode-select -switch /Applications/Xcode${{ matrix.xcode }}/Xcode.app
     - name: Run unit tests
-      run: xcodebuild test -scheme bubble-jam -project bubble-jam.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 14,OS=${{ matrix.ios }}' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme bubble-jam -project bubble-jam.xcodeproj -destination ${{ matrix.destination }} | xcpretty && exit ${PIPESTATUS[0]}
