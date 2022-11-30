@@ -13,7 +13,7 @@ class BubblegumViewController: UIViewController {
     
     private lazy var titleLabels: TitleLabels = {
         
-        let labels = TitleLabels(nameOfChallenge: "Smiling Friends Jam", descriptionOfChallenge: "its smormu")
+        let labels = TitleLabels(nameOfChallenge: "Placeholder Jam", descriptionOfChallenge: "N Days Left")
         labels.translatesAutoresizingMaskIntoConstraints = false
         return labels
         
@@ -63,9 +63,21 @@ class BubblegumViewController: UIViewController {
         
         let pill = DraftPill(frame: .zero)
         pill.translatesAutoresizingMaskIntoConstraints = false
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
+        pill.isUserInteractionEnabled = true
+        pill.addGestureRecognizer(tapGesture)
+        
         return pill
         
     }()
+    
+    @objc func pillFunc() {
+        let alert = UIAlertController(title: "Oops, this is not ready yet!", message: "We're still working on this feature, hang tight!", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default))
+        
+        self.present(alert, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +119,7 @@ extension BubblegumViewController: ViewCoding {
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            titleLabels.heightAnchor.constraint(equalToConstant: 128),
             titleLabels.bottomAnchor.constraint(equalTo: sampleFrame.topAnchor)
         ])
         

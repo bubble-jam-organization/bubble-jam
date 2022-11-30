@@ -26,15 +26,10 @@ class InformationSheetViewController: UIViewController {
         
     }()
     
-    private lazy var testLabel: UILabel = {
-        
-        let label = UILabel(frame: .zero)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "this label is cented to x and anchored to bottom. i am now extrapolating the size limit of this"
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        return label
-        
+    private lazy var downloadBox: DownloadButton = {
+        let box = DownloadButton(frame: .zero)
+        box.translatesAutoresizingMaskIntoConstraints = false
+        return box
     }()
 
     override func viewDidLoad() {
@@ -52,15 +47,20 @@ extension InformationSheetViewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(challengeBanner)
+        view.addSubview(downloadBox)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            challengeBanner.topAnchor.constraint(equalTo: view.topAnchor, constant: 45),
+            challengeBanner.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
             challengeBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
-            challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)
-)
+            challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
+            
+//            downloadBox.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
+            downloadBox.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            downloadBox.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            downloadBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90),
         ])
     }
      

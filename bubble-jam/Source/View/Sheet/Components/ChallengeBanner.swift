@@ -14,7 +14,7 @@ class ChallengeBanner: UIImageView {
         let banner = UIImageView(frame: .zero)
         banner.image = UIImage(named: "placeholderBanner")
         banner.translatesAutoresizingMaskIntoConstraints = false
-        banner.contentMode = .scaleAspectFit
+        banner.contentMode = .scaleToFill
         
         return banner
         
