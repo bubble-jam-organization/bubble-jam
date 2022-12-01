@@ -9,6 +9,7 @@ import UIKit
 
 protocol BubblegumViewDelegate: AnyObject {
     func audioHasBeenLoaded(_ audio: Audio)
+    func errorWhenLoadingAudio(title: String, description: String)
 }
 
 class BubblegumViewController: UIViewController, AlertPresentable {
@@ -90,6 +91,10 @@ class BubblegumViewController: UIViewController, AlertPresentable {
 }
 
 extension BubblegumViewController: BubblegumViewDelegate {
+    func errorWhenLoadingAudio(title: String, description: String) {
+        showAlert(title: title, message: description)
+    }
+    
     func audioHasBeenLoaded(_ audio: Audio) {
         presenter.playAudio()
         

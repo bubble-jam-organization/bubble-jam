@@ -8,10 +8,10 @@
 import Foundation
 
 class BubblegumPresenter: BubblegumPresenting {
-    let service: AudioService
+    let service: AudioServicing
     weak var viewDelegate: BubblegumViewDelegate?
     
-    init(service: AudioService) {
+    init(service: AudioServicing) {
         self.service = service
     }
     
@@ -32,12 +32,21 @@ class BubblegumPresenter: BubblegumPresenting {
         )
         
         do {
-            try service.insertSong(songName: audio.localAudioName ?? "song", songFormat: audio.format.rawValue) // TODO remover audio mockado por audio com Data
-            service.playSong()
+            try service.insertSong(songName: audio.localAudioName!, songFormat: audio.format.rawValue) // TODO remover audio mockado por audio com Data
+            viewDelegate?.audioHasBeenLoaded(audio)
         } catch {
-            print(error)
+            if error is AudioServiceError {
+                viewDelegate?.errorWhenLoadingAudio(
+                    title: "Erro!",
+                    description: error.localizedDescription
+                )
+                return
+            }
+            
+            viewDelegate?.errorWhenLoadingAudio(
+                title: "Erro!",
+                description: AudioServiceError.unkwownError.localizedDescription
+            )
         }
-        
-        viewDelegate?.audioHasBeenLoaded(audio)
     }
 }

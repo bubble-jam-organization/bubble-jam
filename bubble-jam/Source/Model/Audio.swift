@@ -7,14 +7,22 @@
 
 import Foundation
 
-struct Audio {
+struct Audio: Equatable {
+    
     let data: Data
     let localAudioName: String?
     let format: AudioFormat
     let details: AudioDetails
+    
+    static func == (lhs: Audio, rhs: Audio) -> Bool {
+        return lhs.data == rhs.data &&
+        lhs.localAudioName == rhs.localAudioName &&
+        lhs.format == rhs.format &&
+        lhs.details == rhs.details
+    }
 }
 
-struct AudioDetails {
+struct AudioDetails: Equatable {
     let notes: [Note]?
     let description: String?
     let bpm: Int
