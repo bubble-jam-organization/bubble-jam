@@ -7,9 +7,21 @@
 
 import UIKit
 
+protocol BubblegumViewDelegate: AnyObject {
+    func audioHasBeenLoaded(_ audio: Audio)
+}
+
 class BubblegumViewController: UIViewController, AlertPresentable {
     
     let sizeOfFrame: CGFloat = 300
+    let presenter: BubblegumPresenting
+    
+    init(presenter: BubblegumPresenting) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private lazy var titleLabels: TitleLabels = {
         
@@ -38,16 +50,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     }()
     
     @objc func frameFunc() {
-        
-        let sheet = InformationSheetViewController()
-        
-        let guide = view.safeAreaLayoutGuide
-        let labels = CGFloat(titleLabels.frame.height)
-        let height = guide.layoutFrame.size.height - labels
-        
-        sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
-            
-        present(sheet, animated: true)
+        presenter.loadAudio()
     }
     
     private lazy var samplePlayButton: SamplePlayButton = {
@@ -60,7 +63,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     }()
     
     private lazy var draftPill: DraftPill = {
-        
         let pill = DraftPill(frame: .zero)
         pill.translatesAutoresizingMaskIntoConstraints = false
         
@@ -85,6 +87,20 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         buildLayout()
     }
 
+}
+
+extension BubblegumViewController: BubblegumViewDelegate {
+    func audioHasBeenLoaded(_ audio: Audio) {
+        presenter.playAudio()
+        
+        let sheet = InformationSheetViewController(audio: audio, presenter: presenter)
+        let guide = view.safeAreaLayoutGuide
+        let labels = CGFloat(titleLabels.frame.height)
+        let height = guide.layoutFrame.size.height - labels
+        sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
+        
+        present(sheet, animated: true)
+    }
 }
 
 extension BubblegumViewController: ViewCoding {

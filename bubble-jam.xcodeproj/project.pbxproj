@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0087CB762931214600404615 /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0087CB752931214600404615 /* song2.m4a */; };
 		0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB42938E1C500404615 /* AlertPresentable.swift */; };
+		0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB82938E26F00404615 /* BubblegumPresenting.swift */; };
+		0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBBA2938E27800404615 /* BubblegumPresenter.swift */; };
+		0087CBBE2938E3D900404615 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBBD2938E3D900404615 /* Audio.swift */; };
+		0087CBBF2938E8C600404615 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
+		0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */; };
 		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
@@ -57,6 +62,10 @@
 /* Begin PBXFileReference section */
 		0087CB752931214600404615 /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		0087CBB42938E1C500404615 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		0087CBB82938E26F00404615 /* BubblegumPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenting.swift; sourceTree = "<group>"; };
+		0087CBBA2938E27800404615 /* BubblegumPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenter.swift; sourceTree = "<group>"; };
+		0087CBBD2938E3D900404615 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInformationGroup.swift; sourceTree = "<group>"; };
 		00B68BC22931210700126314 /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
 		00B82E59292BBE9C0088996B /* bubble-jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bubble-jam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +125,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0087CBB62938E23E00404615 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0087CBB72938E25100404615 /* BubblegumPresenter */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0087CBB72938E25100404615 /* BubblegumPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				0087CBB82938E26F00404615 /* BubblegumPresenting.swift */,
+				0087CBBA2938E27800404615 /* BubblegumPresenter.swift */,
+			);
+			path = BubblegumPresenter;
+			sourceTree = "<group>";
+		};
+		0087CBBC2938E2EC00404615 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0087CBBD2938E3D900404615 /* Audio.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		00B82E50292BBE9C0088996B = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +222,8 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				0087CBBC2938E2EC00404615 /* Model */,
+				0087CBB62938E23E00404615 /* Presenter */,
 				D6ADD8C1293628D00057095A /* Protocol */,
 				29B34BCF292FB61F0092FD1F /* Extensions */,
 				29B34BC4292F92050092FD1F /* Services */,
@@ -282,6 +318,7 @@
 				D657FEDD293786CF005ADD07 /* Background.swift */,
 				D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */,
 				D657FEE129379E8F005ADD07 /* DownloadButton.swift */,
+				0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -425,6 +462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0087CBBF2938E8C600404615 /* song.m4a in Resources */,
 				00B82E69292BBE9D0088996B /* LaunchScreen.storyboard in Resources */,
 				00B82E66292BBE9D0088996B /* Assets.xcassets in Resources */,
 			);
@@ -475,8 +513,10 @@
 			files = (
 				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
+				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
+				0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */,
 				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */,
@@ -485,6 +525,8 @@
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
+				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
+				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
 				0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
@@ -662,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MCC2B4P5MZ;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
@@ -695,7 +737,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MCC2B4P5MZ;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
