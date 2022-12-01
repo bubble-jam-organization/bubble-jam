@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BubblegumViewController: UIViewController {
+class BubblegumViewController: UIViewController, AlertPresentable {
     
     let sizeOfFrame: CGFloat = 300
     
@@ -73,13 +73,10 @@ class BubblegumViewController: UIViewController {
     }()
     
     @objc func pillFunc() {
-        let alert = UIAlertController(
+        showAlert(
             title: "Oops, this is not ready yet!",
-            message: "We're still working on this feature, hang tight!",
-            preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default))
-        
-        self.present(alert, animated: true)
+            message: "We're still working on this feature, hang tight!"
+        )
     }
     
     override func viewDidLoad() {

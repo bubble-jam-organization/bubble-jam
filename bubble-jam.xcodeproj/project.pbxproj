@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0087CB762931214600404615 /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0087CB752931214600404615 /* song2.m4a */; };
+		0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB42938E1C500404615 /* AlertPresentable.swift */; };
 		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		0087CB752931214600404615 /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
+		0087CBB42938E1C500404615 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		00B68BC22931210700126314 /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
 		00B82E59292BBE9C0088996B /* bubble-jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bubble-jam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				D6ADD8C2293628F40057095A /* ViewCoding.swift */,
+				0087CBB42938E1C500404615 /* AlertPresentable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
+				0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
 				D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */,
