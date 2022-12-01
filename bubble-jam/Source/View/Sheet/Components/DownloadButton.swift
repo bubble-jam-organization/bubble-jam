@@ -68,7 +68,7 @@ extension DownloadButton: ViewCoding {
             boxSymbol.heightAnchor.constraint(equalToConstant: 28),
             
             exportLabel.bottomAnchor.constraint(equalTo: downloadButton.bottomAnchor),
-            exportLabel.centerXAnchor.constraint(equalTo: downloadButton.centerXAnchor),
+            exportLabel.centerXAnchor.constraint(equalTo: downloadButton.centerXAnchor)
         ])
     }
     

@@ -65,5 +65,4 @@ extension ChallengeBanner: ViewCoding {
         ])
     }
     
-    
 }

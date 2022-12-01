@@ -46,7 +46,7 @@ extension Background: ViewCoding {
             backgroundTexture.topAnchor.constraint(equalTo: self.topAnchor),
             backgroundTexture.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             backgroundTexture.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            backgroundTexture.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            backgroundTexture.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }
