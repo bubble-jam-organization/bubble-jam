@@ -26,6 +26,10 @@
 		29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD82930FA560092FD1F /* DownloadService.swift */; };
 		29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */; };
 		29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */; };
+		D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */; };
+		D657FEDE293786CF005ADD07 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDD293786CF005ADD07 /* Background.swift */; };
+		D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */; };
+		D657FEE229379E8F005ADD07 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEE129379E8F005ADD07 /* DownloadButton.swift */; };
 		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
 		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
 		D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C7293629340057095A /* DraftPillButton.swift */; };
@@ -79,6 +83,10 @@
 		29B34BD82930FA560092FD1F /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceErrors.swift; sourceTree = "<group>"; };
 		29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDownloadServiceTests.swift"; sourceTree = "<group>"; };
+		D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSheetViewController.swift; sourceTree = "<group>"; };
+		D657FEDD293786CF005ADD07 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
+		D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeBanner.swift; sourceTree = "<group>"; };
+		D657FEE129379E8F005ADD07 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
 		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
 		D6ADD8C7293629340057095A /* DraftPillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftPillButton.swift; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 		00B82E8F292BBED80088996B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C0293628C90057095A /* Bubblegum */,
 			);
 			path = View;
@@ -264,6 +273,25 @@
 				29B34BCA292F9B9D0092FD1F /* song2.m4a */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D657FED9293781A4005ADD07 /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				D657FEDC293786A8005ADD07 /* Components */,
+				D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		D657FEDC293786A8005ADD07 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D657FEDD293786CF005ADD07 /* Background.swift */,
+				D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */,
+				D657FEE129379E8F005ADD07 /* DownloadButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		D6ADD8C0293628C90057095A /* Bubblegum */ = {
@@ -459,13 +487,17 @@
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
 				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
+				D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */,
+				D657FEE229379E8F005ADD07 /* DownloadButton.swift in Sources */,
 				D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */,
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
+				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
 				D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */,
+				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
 				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,15 +669,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -653,9 +686,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "thiagohba.com.bubble-jam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -666,15 +702,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = MCC2B4P5MZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "bubble-jam/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,9 +719,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "thiagohba.com.bubble-jam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

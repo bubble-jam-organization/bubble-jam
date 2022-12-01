@@ -22,6 +22,8 @@ class TitleLabels: UIView {
         label.text = nameOfChallenge
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
         
         return label
         
@@ -34,6 +36,7 @@ class TitleLabels: UIView {
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
         
         return label
         
@@ -64,10 +67,12 @@ extension TitleLabels: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            nameOfChallengeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
             nameOfChallengeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
             nameOfChallengeLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             nameOfChallengeLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            
             nameOfChallengeLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
             
             descriptionOfChallengeLabel.topAnchor.constraint(equalTo: nameOfChallengeLabel.bottomAnchor),
