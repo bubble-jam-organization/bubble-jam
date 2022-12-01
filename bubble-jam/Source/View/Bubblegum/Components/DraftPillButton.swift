@@ -16,17 +16,9 @@ class DraftPill: UIView {
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.layer.cornerRadius = 20
         pill.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
-        pill.isUserInteractionEnabled = true
-        pill.addGestureRecognizer(tapGesture)
          
         return pill
     }()
-    
-    @objc func pillFunc() {
-        print("pill was tapped")
-    }
     
     private lazy var pillSymbol: UIImageView = {
         let mic = UIImageView(image: UIImage(systemName: "music.mic.circle.fill"))
