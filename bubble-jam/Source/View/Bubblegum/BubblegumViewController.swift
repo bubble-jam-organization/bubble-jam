@@ -73,7 +73,10 @@ class BubblegumViewController: UIViewController {
     }()
     
     @objc func pillFunc() {
-        let alert = UIAlertController(title: "Oops, this is not ready yet!", message: "We're still working on this feature, hang tight!", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(
+            title: "Oops, this is not ready yet!",
+            message: "We're still working on this feature, hang tight!",
+            preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default))
         
         self.present(alert, animated: true)
@@ -104,8 +107,9 @@ extension BubblegumViewController: ViewCoding {
         NSLayoutConstraint.activate([
             sampleFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            sampleFrame.widthAnchor.constraint(equalToConstant: sizeOfFrame),
-            sampleFrame.heightAnchor.constraint(equalToConstant: sizeOfFrame),
+            sampleFrame.widthAnchor.constraint(greaterThanOrEqualToConstant: sizeOfFrame),
+            sampleFrame.heightAnchor.constraint(greaterThanOrEqualToConstant: sizeOfFrame),
+            sampleFrame.topAnchor.constraint(equalTo: titleLabels.bottomAnchor),
             
             samplePlayButton.centerXAnchor.constraint(equalTo: sampleFrame.centerXAnchor),
             samplePlayButton.centerYAnchor.constraint(equalTo: sampleFrame.centerYAnchor),
@@ -119,8 +123,7 @@ extension BubblegumViewController: ViewCoding {
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabels.heightAnchor.constraint(equalToConstant: 128),
-            titleLabels.bottomAnchor.constraint(equalTo: sampleFrame.topAnchor)
+            titleLabels.heightAnchor.constraint(equalToConstant: 128)
         ])
         
     }
