@@ -28,7 +28,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     private lazy var titleLabels: TitleLabels = {
         
-        let labels = TitleLabels(nameOfChallenge: "Placeholder Jam", descriptionOfChallenge: "N Days Left")
+        let labels = TitleLabels(nameOfChallenge: "Protojam", descriptionOfChallenge: "3 ")
         labels.translatesAutoresizingMaskIntoConstraints = false
         return labels
         
@@ -84,6 +84,12 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         )
     }
     
+    private lazy var gumPacks: PacksTexture = {
+        let image = PacksTexture(frame: .zero)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 0.8862745098, blue: 0.9529411765, alpha: 1)
@@ -124,7 +130,8 @@ extension BubblegumViewController: ViewCoding {
     }
     
     func setupHierarchy() {
-//        view.addSubview(draftPill)
+        view.addSubview(gumPacks)
+        view.addSubview(draftPill)
         view.addSubview(sampleFrame)
         view.addSubview(titleLabels)
         sampleFrame.addSubview(samplePlayButton)
@@ -132,6 +139,11 @@ extension BubblegumViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            gumPacks.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            gumPacks.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: 48),
+            gumPacks.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.6),
+            gumPacks.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 1)),
+            
             sampleFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             sampleFrame.widthAnchor.constraint(greaterThanOrEqualToConstant: sizeOfFrame),

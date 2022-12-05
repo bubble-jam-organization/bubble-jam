@@ -32,7 +32,7 @@ class TitleLabels: UIView {
     private lazy var descriptionOfChallengeLabel: UILabel = {
         
         let label = UILabel()
-        label.text = descriptionOfChallenge
+        label.text = descriptionOfChallenge! + "days left"
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
