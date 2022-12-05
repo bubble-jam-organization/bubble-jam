@@ -8,7 +8,9 @@
 import UIKit
 
 protocol BubblegumViewDelegate: AnyObject {
-    func audioHasBeenLoaded(_ audio: Audio)
+    func audioHasBeenLoaded()
+    func startLoading()
+    func audioIsPlaying(_ audio: Audio)
     func errorWhenLoadingAudio(title: String, description: String)
 }
 
@@ -51,7 +53,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     }()
     
     @objc func frameFunc() {
-        presenter.loadAudio()
+        presenter.playAudio()
     }
     
     private lazy var samplePlayButton: SamplePlayButton = {
@@ -86,18 +88,13 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 0.8862745098, blue: 0.9529411765, alpha: 1)
         buildLayout()
+        presenter.initAudioDownload(in: nil)
     }
 
 }
 
 extension BubblegumViewController: BubblegumViewDelegate {
-    func errorWhenLoadingAudio(title: String, description: String) {
-        showAlert(title: title, message: description)
-    }
-    
-    func audioHasBeenLoaded(_ audio: Audio) {
-        presenter.playAudio()
-        
+    func audioIsPlaying(_ audio: Audio) {
         let sheet = InformationSheetViewController(audio: audio, presenter: presenter)
         let guide = view.safeAreaLayoutGuide
         let labels = CGFloat(titleLabels.frame.height)
@@ -105,6 +102,18 @@ extension BubblegumViewController: BubblegumViewDelegate {
         sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
         
         present(sheet, animated: true)
+    }
+    
+    func startLoading() {
+        print("Starting load")
+    }
+    
+    func errorWhenLoadingAudio(title: String, description: String) {
+        showAlert(title: title, message: description)
+    }
+    
+    func audioHasBeenLoaded() {
+        print("Hide loading")
     }
 }
 
@@ -115,7 +124,7 @@ extension BubblegumViewController: ViewCoding {
     }
     
     func setupHierarchy() {
-        view.addSubview(draftPill)
+//        view.addSubview(draftPill)
         view.addSubview(sampleFrame)
         view.addSubview(titleLabels)
         sampleFrame.addSubview(samplePlayButton)
@@ -134,10 +143,10 @@ extension BubblegumViewController: ViewCoding {
             samplePlayButton.widthAnchor.constraint(equalTo: samplePlayButton.widthAnchor),
             samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
             
-            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
-            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+//            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
+//            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

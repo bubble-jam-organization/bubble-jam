@@ -18,6 +18,8 @@
 		0087CBC92939367D00404615 /* AudioServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC82939367D00404615 /* AudioServiceSpy.swift */; };
 		0087CBCD293936C200404615 /* AudioServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBCC293936C200404615 /* AudioServicing.swift */; };
 		0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */; };
+		0087CBD5293A540900404615 /* DownloadServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBD4293A540900404615 /* DownloadServicing.swift */; };
+		0087CBD7293E337900404615 /* DownloadServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBD6293E337900404615 /* DownloadServiceSpy.swift */; };
 		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
@@ -74,6 +76,8 @@
 		0087CBC82939367D00404615 /* AudioServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceSpy.swift; sourceTree = "<group>"; };
 		0087CBCC293936C200404615 /* AudioServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServicing.swift; sourceTree = "<group>"; };
 		0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewDelegateSpy.swift; sourceTree = "<group>"; };
+		0087CBD4293A540900404615 /* DownloadServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServicing.swift; sourceTree = "<group>"; };
+		0087CBD6293E337900404615 /* DownloadServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceSpy.swift; sourceTree = "<group>"; };
 		00B68BC22931210700126314 /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
 		00B82E59292BBE9C0088996B /* bubble-jam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bubble-jam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			children = (
 				0087CBC82939367D00404615 /* AudioServiceSpy.swift */,
 				0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */,
+				0087CBD6293E337900404615 /* DownloadServiceSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				29B34BD82930FA560092FD1F /* DownloadService.swift */,
+				0087CBD4293A540900404615 /* DownloadServicing.swift */,
 			);
 			path = DownloadService;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
+				0087CBD5293A540900404615 /* DownloadServicing.swift in Sources */,
 				0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 				0087CBCD293936C200404615 /* AudioServicing.swift in Sources */,
@@ -598,6 +605,7 @@
 				29B34BD4292FB8640092FD1F /* Testing.swift in Sources */,
 				0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */,
 				29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */,
+				0087CBD7293E337900404615 /* DownloadServiceSpy.swift in Sources */,
 				0087CBC92939367D00404615 /* AudioServiceSpy.swift in Sources */,
 				29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */,
 			);

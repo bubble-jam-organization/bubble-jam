@@ -17,6 +17,8 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         super.init(nibName: nil, bundle: nil)
     }
     
+    deinit { presenter.pauseAudio() }
+
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private lazy var information: UIView = {

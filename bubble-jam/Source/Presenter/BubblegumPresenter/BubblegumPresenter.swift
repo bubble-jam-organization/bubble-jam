@@ -8,45 +8,49 @@
 import Foundation
 
 class BubblegumPresenter: BubblegumPresenting {
-    let service: AudioServicing
+    
+    let audioService: AudioServicing
+    let downloadService: DownloadServicing
     weak var viewDelegate: BubblegumViewDelegate?
     
-    init(service: AudioServicing) {
-        self.service = service
+    private var mockedAudio = Audio(
+        data: Data(),
+        localAudioName: "song",
+        format: .m4a,
+        details: AudioDetails(notes: [], description: "Lorem ipsum", bpm: 130)
+    )
+    
+    init(audioService: AudioServicing, downloadService: DownloadServicing) {
+        self.audioService = audioService
+        self.downloadService = downloadService
+    }
+    
+    func initAudioDownload(in path: String?) {
+        viewDelegate?.startLoading()
+        viewDelegate?.audioHasBeenLoaded()
+//        do {
+//            try downloadService.downloadAudio(
+//                audioName: audio.localAudioName!,
+//                audioExtension: audio.format.rawValue
+//            )
+//            try audioService.insertSong(songName: audio.localAudioName!, songFormat: audio.format.rawValue)
+//            viewDelegate?.audioHasBeenLoaded()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
     }
     
     func playAudio() {
-        service.playSong()
+        do {
+            try audioService.insertSong(songName: mockedAudio.localAudioName!, songFormat: mockedAudio.format.rawValue)
+            audioService.playSong()
+            viewDelegate?.audioIsPlaying(mockedAudio)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func pauseAudio() {
-        service.pauseSong()
-    }
-    
-    func loadAudio() {
-        let audio = Audio(
-            data: Data(),
-            localAudioName: "song",
-            format: .m4a,
-            details: AudioDetails(notes: [], description: "Lorem ipsum", bpm: 0)
-        )
-        
-        do {
-            try service.insertSong(songName: audio.localAudioName!, songFormat: audio.format.rawValue) // TODO remover audio mockado por audio com Data
-            viewDelegate?.audioHasBeenLoaded(audio)
-        } catch {
-            if error is AudioServiceError {
-                viewDelegate?.errorWhenLoadingAudio(
-                    title: "Erro!",
-                    description: error.localizedDescription
-                )
-                return
-            }
-            
-            viewDelegate?.errorWhenLoadingAudio(
-                title: "Erro!",
-                description: AudioServiceError.unkwownError.localizedDescription
-            )
-        }
+        audioService.pauseSong()
     }
 }

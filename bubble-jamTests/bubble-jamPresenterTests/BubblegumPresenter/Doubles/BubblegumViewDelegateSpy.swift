@@ -12,15 +12,21 @@ class BubblegumViewDelegateSpy {
     private(set) var receivedMessages: [Message] = [Message]()
     
     enum Message: Equatable {
-        case audioHasBeenLoaded(Audio)
+        case audioHasBeenLoaded
         case errorWhenLoadingAudio(String, String)
+        case startLoading
+        case isPlaying
         
         var description: String {
             switch self {
-                case .audioHasBeenLoaded(let audio):
-                    return "audioHasBeenLoaded with data: \(String(describing: audio.localAudioName))"
+                case .audioHasBeenLoaded:
+                    return "audioHasBeenLoaded called"
                 case .errorWhenLoadingAudio(let title, let description):
                     return "errorWhenLoadingAudio raised with: \(title) ; \(description)"
+                case .startLoading:
+                        return "startLoading called"
+                case .isPlaying:
+                    return "isPlaying called"
             }
         }
     }
@@ -28,11 +34,19 @@ class BubblegumViewDelegateSpy {
 }
 
 extension BubblegumViewDelegateSpy: BubblegumViewDelegate {
-    func errorWhenLoadingAudio(title: String, description: String) {
-        receivedMessages.append(.errorWhenLoadingAudio(title, description))
+    func audioHasBeenLoaded() {
+        receivedMessages.append(.audioHasBeenLoaded)
     }
     
-    func audioHasBeenLoaded(_ audio: bubble_jam.Audio) {
-        receivedMessages.append(.audioHasBeenLoaded(audio))
+    func audioIsPlaying(_ audio: bubble_jam.Audio) {
+        receivedMessages.append(.isPlaying)
+    }
+    
+    func startLoading() {
+        receivedMessages.append(.startLoading)
+    }
+    
+    func errorWhenLoadingAudio(title: String, description: String) {
+        receivedMessages.append(.errorWhenLoadingAudio(title, description))
     }
 }

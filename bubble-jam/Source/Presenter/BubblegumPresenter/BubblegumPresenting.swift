@@ -8,7 +8,7 @@
 import Foundation
 
 protocol BubblegumPresenting {
+    func initAudioDownload(in path: String?)
     func playAudio()
     func pauseAudio()
-    func loadAudio()
 }

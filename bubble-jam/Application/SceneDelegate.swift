@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.frame = UIScreen.main.bounds
         
-        let service = AudioService()
-        let presenter = BubblegumPresenter(service: service)
+        let audioService = AudioService()
+        let downloadService = DownloadService()
+        let presenter = BubblegumPresenter(audioService: audioService, downloadService: downloadService)
         let viewController = BubblegumViewController(presenter: presenter)
         presenter.viewDelegate = viewController
         
