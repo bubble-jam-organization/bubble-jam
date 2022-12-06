@@ -39,6 +39,9 @@
 		D657FEDE293786CF005ADD07 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDD293786CF005ADD07 /* Background.swift */; };
 		D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */; };
 		D657FEE229379E8F005ADD07 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEE129379E8F005ADD07 /* DownloadButton.swift */; };
+		D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA2FB293E1C6B008DF1B2 /* PacksTexture.swift */; };
+		D65CA2FF293E36E2008DF1B2 /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */; };
+		D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */; };
 		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
 		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
 		D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C7293629340057095A /* DraftPillButton.swift */; };
@@ -102,6 +105,9 @@
 		D657FEDD293786CF005ADD07 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeBanner.swift; sourceTree = "<group>"; };
 		D657FEE129379E8F005ADD07 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
+		D65CA2FB293E1C6B008DF1B2 /* PacksTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacksTexture.swift; sourceTree = "<group>"; };
+		D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
+		D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftTexture.swift; sourceTree = "<group>"; };
 		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
 		D6ADD8C7293629340057095A /* DraftPillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftPillButton.swift; sourceTree = "<group>"; };
@@ -293,6 +299,7 @@
 		00B82E8F292BBED80088996B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D65CA2FD293E36CA008DF1B2 /* Draft */,
 				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C0293628C90057095A /* Bubblegum */,
 			);
@@ -381,6 +388,23 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		D65CA2FD293E36CA008DF1B2 /* Draft */ = {
+			isa = PBXGroup;
+			children = (
+				D65CA300293F5AC7008DF1B2 /* Components */,
+				D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */,
+			);
+			path = Draft;
+			sourceTree = "<group>";
+		};
+		D65CA300293F5AC7008DF1B2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		D6ADD8C0293628C90057095A /* Bubblegum */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +431,7 @@
 				D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */,
 				D6ADD8CD293629B40057095A /* SamplerTexture.swift */,
 				D6ADD8CF293629C50057095A /* TitleLabel.swift */,
+				D65CA2FB293E1C6B008DF1B2 /* PacksTexture.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -574,8 +599,10 @@
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
+				D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */,
 				0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */,
 				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
+				D65CA2FF293E36E2008DF1B2 /* DraftsViewController.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */,
 				D657FEE229379E8F005ADD07 /* DownloadButton.swift in Sources */,
@@ -585,6 +612,7 @@
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
+				D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
 				0087CBD5293A540900404615 /* DownloadServicing.swift in Sources */,
 				0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */,
