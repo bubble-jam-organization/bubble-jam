@@ -66,7 +66,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     @objc func downloadFunc() {
         let audioPath = presenter.getAudioUrl().appending(path: "\(audio.localAudioName).\(audio.format.rawValue)")
         activityQueue.append(audioPath)
-        self.dismiss(animated: true)
+        show(activityView, sender: self)
     }
 
     override func viewDidLoad() {
