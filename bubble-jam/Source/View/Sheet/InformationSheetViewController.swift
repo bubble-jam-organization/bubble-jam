@@ -56,17 +56,19 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return box
     }()
     
-    private lazy var activityView: UIActivityViewController = {
-        let activityView = UIActivityViewController(activityItems: activityQueue, applicationActivities: nil)
-        activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
-        
-        return activityView
-    }()
-    
     @objc func downloadFunc() {
-        let audioPath = presenter.getAudioUrl().appending(path: "\(audio.localAudioName).\(audio.format.rawValue)")
-        activityQueue.append(audioPath)
-        show(activityView, sender: self)
+        let audioName = "\(audio.localAudioName ?? "").\(audio.format.rawValue)"
+        do {
+            let audioPath = try presenter.getAudioUrl()
+            activityQueue.append(audioPath)
+            let activityView = UIActivityViewController(activityItems: activityQueue, applicationActivities: nil)
+            activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
+            
+            show(activityView, sender: self)
+        } catch {
+            showAlert(title: "An error has ocurred :(", message: "Um erro aconteceu, tente novamente")
+        }
+        activityQueue.removeAll()
     }
 
     override func viewDidLoad() {

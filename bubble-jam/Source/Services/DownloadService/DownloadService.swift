@@ -47,14 +47,14 @@ struct DownloadService: DownloadServicing {
         throw DownloadServiceError.fileNotExists
     }
     
-    private func loadAudioUrl(_ name: String, _ format: String) throws -> URL {
+    func loadAudioUrl(_ name: String, _ format: String) throws -> URL {
         guard let url = bundle.url(forResource: name, withExtension: format) else {
             throw DownloadServiceError.fileNotExists
         }
         return url
     }
     
-    func loadTmpPathUrl() -> URL {
+    private func loadTmpPathUrl() -> URL {
         let documentsDirectoryURL = manager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let tmpPath = documentsDirectoryURL.appendingPathComponent(self.folderPath)
         return tmpPath

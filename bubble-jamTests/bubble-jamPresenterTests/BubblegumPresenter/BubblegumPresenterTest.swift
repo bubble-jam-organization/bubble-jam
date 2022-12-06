@@ -57,7 +57,7 @@ final class BubblegumPresenterTest: XCTestCase {
 extension BubblegumPresenterTest: Testing {
     typealias SutAndDoubles = (
         sut: BubblegumPresenter,
-        doubles: (
+        doubles:(
             audioServiceSpy: AudioServiceSpy,
             downloadServicespy: DownloadServiceSpy,
             delegateSpy: BubblegumViewDelegateSpy
