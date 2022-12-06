@@ -56,7 +56,7 @@ class BubblegumPresenter: BubblegumPresenting {
         audioService.pauseSong()
     }
     
-    func getAudioUrl() -> URL {
-        return downloadService.loadTmpPathUrl()
+    func getAudioUrl() throws -> URL {
+        return try downloadService.loadAudioUrl(mockedAudio.localAudioName!, mockedAudio.format.rawValue)
     }
 }

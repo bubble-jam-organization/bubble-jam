@@ -31,6 +31,9 @@
 		29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */; };
 		29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC5292F921C0092FD1F /* AudioService.swift */; };
 		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
+
+		
+		29B34BCB292F9B9D0092FD1F /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 29B34BCA292F9B9D0092FD1F /* song2.m4a */; };
 		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
 		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
 		29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD6292FB9180092FD1F /* AudioServiceError.swift */; };
@@ -51,6 +54,8 @@
 		D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */; };
 		D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CD293629B40057095A /* SamplerTexture.swift */; };
 		D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CF293629C50057095A /* TitleLabel.swift */; };
+		D6ADD8D229362A360057095A /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D6ADD8D129362A360057095A /* song.m4a */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +103,9 @@
 		29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeServicing.swift; sourceTree = "<group>"; };
 		29B34BC5292F921C0092FD1F /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamAudioServiceTests.swift"; sourceTree = "<group>"; };
+		29B34BD82930FA560092FD1F /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceErrors.swift; sourceTree = "<group>"; };
+		29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDownloadServiceTests.swift"; sourceTree = "<group>"; };
 		29B34BCA292F9B9D0092FD1F /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioQueueExtensions.swift; sourceTree = "<group>"; };
 		29B34BD3292FB8640092FD1F /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
@@ -282,6 +290,7 @@
 		00B82E8D292BBEB20088996B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				29B34BDA2930FB4A0092FD1F /* song.m4a */,
 				00B82E65292BBE9D0088996B /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -610,6 +619,7 @@
 			files = (
 				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
+				00B82E61292BBE9C0088996B /* ViewController.swift in Sources */,
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,

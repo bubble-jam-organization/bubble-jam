@@ -43,6 +43,4 @@ extension DraftTexture: ViewCoding {
             draftBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-    
-    
 }
