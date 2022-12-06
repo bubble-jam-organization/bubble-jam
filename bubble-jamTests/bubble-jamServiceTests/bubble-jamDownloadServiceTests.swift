@@ -34,13 +34,12 @@ final class bubble_jamDownloadServiceTests: XCTestCase {
         }
     }
 
-    func test_fetchAudio_shouldDownload() {
+    func test_downloadAudio_shouldDownload() {
         let (sut, (manager, _)) = makeSUT()
         XCTAssertNoThrow(
-            try sut.fetchAudio(
+            try sut.downloadAudio(
                 audioName: Constants.songName.rawValue,
-                audioExtension: Constants.songExtension.rawValue,
-                folderPath: Constants.testPath.rawValue
+                audioExtension: Constants.songExtension.rawValue
             )
         )
         let fileName = "\(Constants.songName.rawValue).\(Constants.songExtension.rawValue)"
@@ -49,45 +48,54 @@ final class bubble_jamDownloadServiceTests: XCTestCase {
         XCTAssertTrue(manager.fileExists(atPath: url.path()))
     }
     
-    func test_fetchAudio_fileShouldNotExist() {
+    func test_downloadAudio_fileShouldNotExist() {
         let (sut, _) = makeSUT()
-        XCTAssertThrowsError(try sut.fetchAudio(audioName: "a", audioExtension: "a")) { error in
+        XCTAssertThrowsError(try sut.downloadAudio(audioName: "a", audioExtension: "a")) { error in
             XCTAssertNotNil(error as? DownloadServiceError)
             XCTAssertEqual(error as? DownloadServiceError, .fileNotExists )
         }
         
     }
     
-    func test_fetchAudio_fileShouldAlreadyExist() {
+    func test_downloadAudio_fileShouldAlreadyExist() {
         let (sut, _) = makeSUT()
-        try? sut.fetchAudio(
+        try? sut.downloadAudio(
             audioName: Constants.songName.rawValue,
-            audioExtension: Constants.songExtension.rawValue,
-            folderPath: Constants.testPath.rawValue)
-        XCTAssertThrowsError(try sut.fetchAudio(
+            audioExtension: Constants.songExtension.rawValue
+        )
+        XCTAssertThrowsError(try sut.downloadAudio(
             audioName: Constants.songName.rawValue,
-            audioExtension: Constants.songExtension.rawValue,
-            folderPath: Constants.testPath.rawValue)) { error in
+            audioExtension: Constants.songExtension.rawValue)) { error in
                 XCTAssertNotNil(error as? DownloadServiceError)
                 XCTAssertEqual(error as? DownloadServiceError, .fileAlreadyExists)
             }
         
     }
     
-    func test_createDirectory_shouldCreateDir() {
-        let (sut, _) = makeSUT()
-        let testFolderURL = destinationUrl.appending(path: "folderTeste")
-        do {
-            try sut.fetchAudio(
+//    func test_createDirectory_shouldCreateDir() {
+//        let (sut, _) = makeSUT()
+//        let testFolderURL = destinationUrl.appending(path: "folderTeste")
+//        do {
+//            try sut.downloadAudio(
+//                audioName: Constants.songName.rawValue,
+//                audioExtension: Constants.songExtension.rawValue,
+//                folderPath: Constants.testPath.rawValue + "folderTeste"
+//            )
+//            XCTAssertTrue(manager.fileExists(atPath: testFolderURL.path()))
+//        } catch {
+//            XCTFail(error.localizedDescription)
+//        }
+//    }
+//
+    func test_loadSandboxAudio_shouldLoadCorrectly() {
+        let (sut, (manager, bundle)) = makeSUT()
+        XCTAssertNoThrow(
+            try sut.downloadAudio(
                 audioName: Constants.songName.rawValue,
-                audioExtension: Constants.songExtension.rawValue,
-                folderPath: Constants.testPath.rawValue + "folderTeste"
+                audioExtension: Constants.songExtension.rawValue
             )
-            XCTAssertTrue(manager.fileExists(atPath: testFolderURL.path()))
-        } catch {
-            XCTFail(error.localizedDescription)
-        }
-
+        )
+        XCTAssertNoThrow(try sut.loadSandboxAudio())
     }
 }
 
@@ -96,7 +104,7 @@ extension bubble_jamDownloadServiceTests: Testing {
     
     func makeSUT() -> SutAndDoubles {
         let testBundle = Bundle(for: type(of: self))
-        let service = DownloadService(manager: self.manager, bundle: testBundle)
+        let service = DownloadService(manager: self.manager, bundle: testBundle, folderPath: Constants.testPath.rawValue)
         return (service, (manager, testBundle))
     }
 
