@@ -10,5 +10,5 @@ import Foundation
 protocol DownloadServicing {
     func downloadAudio(audioName: String, audioExtension: String) throws
     func loadSandboxAudio() throws -> Audio
-    func loadTmpPathUrl() -> URL
+    func loadAudioUrl(_ name: String, _ format: String) throws -> URL
 }
