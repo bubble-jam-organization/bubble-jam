@@ -19,7 +19,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     }
     
     deinit { presenter.pauseAudio() }
-
+    
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private lazy var information: UIView = {
@@ -56,8 +56,13 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return box
     }()
     
+    private var playerProgressBar: PlayerProgressBar = {
+        let playerBar = PlayerProgressBar()
+        playerBar.translatesAutoresizingMaskIntoConstraints = false
+        return playerBar
+    }()
+
     @objc func downloadFunc() {
-        let audioName = "\(audio.localAudioName ?? "").\(audio.format.rawValue)"
         do {
             let audioPath = try presenter.getAudioUrl()
             activityQueue.append(audioPath)
@@ -88,6 +93,7 @@ extension InformationSheetViewController: ViewCoding {
         view.addSubview(challengeBanner)
         view.addSubview(information)
         view.addSubview(downloadBox)
+        view.addSubview(playerProgressBar)
     }
     
     func setupConstraints() {
@@ -97,15 +103,22 @@ extension InformationSheetViewController: ViewCoding {
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
             challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
             
-            information.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor),
+            playerProgressBar.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 12),
+            playerProgressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            playerProgressBar.widthAnchor.constraint(equalTo: view.widthAnchor),
+            playerProgressBar.heightAnchor.constraint(equalToConstant: 64),
+//            playerProgressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            playerProgressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            information.topAnchor.constraint(equalTo: playerProgressBar.bottomAnchor, constant: 8),
             information.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
             information.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 12),
             
-//            downloadBox.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
-            downloadBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90),
+            downloadBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -45),
             downloadBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             downloadBox.heightAnchor.constraint(equalToConstant: 90),
             downloadBox.widthAnchor.constraint(equalToConstant: 185)
+            
         ])
     }
      
