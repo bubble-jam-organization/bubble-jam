@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let vc2 = DraftsViewController()
         
-        window?.rootViewController = vc2
+        window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
 

@@ -48,7 +48,6 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     private lazy var downloadBox: DownloadButton = {
         let box = DownloadButton(frame: .zero)
         box.translatesAutoresizingMaskIntoConstraints = false
-        box.backgroundColor = .yellow
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
         box.isUserInteractionEnabled = true
