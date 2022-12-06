@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-struct AudioService {
+struct AudioService: AudioServicing {
     private var player: AVQueuePlayer!
     private var bundle: Bundle!
     

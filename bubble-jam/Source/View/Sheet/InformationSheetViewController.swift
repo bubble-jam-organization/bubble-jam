@@ -7,7 +7,26 @@
 
 import UIKit
 
-class InformationSheetViewController: UIViewController {
+class InformationSheetViewController: UIViewController, AlertPresentable {
+    let audio: Audio
+    let presenter: BubblegumPresenting
+    var activityQueue: [URL] = []
+    
+    init(audio: Audio, presenter: BubblegumPresenting) {
+        self.audio = audio
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    deinit { presenter.pauseAudio() }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    
+    private lazy var information: UIView = {
+        let group = AudioInformationGroup(frame: .zero, audioDetails: audio.details)
+        group.translatesAutoresizingMaskIntoConstraints = false
+        return group
+    }()
     
     private lazy var backgroundImage: UIImageView = {
         
@@ -29,8 +48,27 @@ class InformationSheetViewController: UIViewController {
     private lazy var downloadBox: DownloadButton = {
         let box = DownloadButton(frame: .zero)
         box.translatesAutoresizingMaskIntoConstraints = false
+        box.backgroundColor = .yellow
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
+        box.isUserInteractionEnabled = true
+        box.addGestureRecognizer(tapGesture)
+        
         return box
     }()
+    
+    private lazy var activityView: UIActivityViewController = {
+        let activityView = UIActivityViewController(activityItems: activityQueue, applicationActivities: nil)
+        activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
+        
+        return activityView
+    }()
+    
+    @objc func downloadFunc() {
+        let audioPath = presenter.getAudioUrl().appending(path: "\(audio.localAudioName).\(audio.format.rawValue)")
+        activityQueue.append(audioPath)
+        self.dismiss(animated: true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +85,7 @@ extension InformationSheetViewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(challengeBanner)
+        view.addSubview(information)
         view.addSubview(downloadBox)
     }
     
@@ -56,6 +95,10 @@ extension InformationSheetViewController: ViewCoding {
             challengeBanner.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
             challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
+            
+            information.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor),
+            information.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            information.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 12),
             
 //            downloadBox.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
             downloadBox.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
