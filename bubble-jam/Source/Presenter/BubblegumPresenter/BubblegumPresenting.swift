@@ -11,4 +11,5 @@ protocol BubblegumPresenting {
     func initAudioDownload(in path: String?)
     func playAudio()
     func pauseAudio()
+    func getAudioUrl() -> URL
 }

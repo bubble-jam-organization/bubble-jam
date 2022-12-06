@@ -10,6 +10,7 @@ import UIKit
 class InformationSheetViewController: UIViewController, AlertPresentable {
     let audio: Audio
     let presenter: BubblegumPresenting
+    var activityQueue: [URL] = []
     
     init(audio: Audio, presenter: BubblegumPresenting) {
         self.audio = audio
@@ -47,6 +48,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     private lazy var downloadBox: DownloadButton = {
         let box = DownloadButton(frame: .zero)
         box.translatesAutoresizingMaskIntoConstraints = false
+        box.backgroundColor = .yellow
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
         box.isUserInteractionEnabled = true
@@ -55,11 +57,17 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return box
     }()
     
+    private lazy var activityView: UIActivityViewController = {
+        let activityView = UIActivityViewController(activityItems: activityQueue, applicationActivities: nil)
+        activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
+        
+        return activityView
+    }()
+    
     @objc func downloadFunc() {
-        showAlert(
-            title: "Oops, this is not ready yet!",
-            message: "We're still working on this feature, hang tight!"
-        )
+        let audioPath = presenter.getAudioUrl().appending(path: "\(audio.localAudioName).\(audio.format.rawValue)")
+        activityQueue.append(audioPath)
+        self.dismiss(animated: true)
     }
 
     override func viewDidLoad() {

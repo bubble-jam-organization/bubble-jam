@@ -8,7 +8,6 @@
 import Foundation
 
 class BubblegumPresenter: BubblegumPresenting {
-    
     let audioService: AudioServicing
     let downloadService: DownloadServicing
     weak var viewDelegate: BubblegumViewDelegate?
@@ -42,7 +41,10 @@ class BubblegumPresenter: BubblegumPresenting {
     
     func playAudio() {
         do {
-            try audioService.insertSong(songName: mockedAudio.localAudioName!, songFormat: mockedAudio.format.rawValue)
+            try audioService.insertSong(
+                songName: mockedAudio.localAudioName!,
+                songFormat: mockedAudio.format.rawValue
+            )
             audioService.playSong()
             viewDelegate?.audioIsPlaying(mockedAudio)
         } catch {
@@ -52,5 +54,9 @@ class BubblegumPresenter: BubblegumPresenting {
     
     func pauseAudio() {
         audioService.pauseSong()
+    }
+    
+    func getAudioUrl() -> URL {
+        return downloadService.loadTmpPathUrl()
     }
 }

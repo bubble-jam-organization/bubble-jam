@@ -27,6 +27,11 @@ class DownloadServiceSpy {
 }
 
 extension DownloadServiceSpy: DownloadServicing {
+    func loadTmpPathUrl() -> URL {
+        //
+        return URL(string: "")!
+    }
+    
     func downloadAudio(audioName: String, audioExtension: String) throws {
         receivedMessages.append(.downloadAudio(audioName, audioExtension))
     }

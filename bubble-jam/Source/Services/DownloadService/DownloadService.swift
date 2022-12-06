@@ -54,7 +54,7 @@ struct DownloadService: DownloadServicing {
         return url
     }
     
-    private func loadTmpPathUrl() -> URL {
+    func loadTmpPathUrl() -> URL {
         let documentsDirectoryURL = manager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let tmpPath = documentsDirectoryURL.appendingPathComponent(self.folderPath)
         return tmpPath
