@@ -48,7 +48,6 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     private lazy var downloadBox: DownloadButton = {
         let box = DownloadButton(frame: .zero)
         box.translatesAutoresizingMaskIntoConstraints = false
-        box.backgroundColor = .yellow
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
         box.isUserInteractionEnabled = true
@@ -101,9 +100,10 @@ extension InformationSheetViewController: ViewCoding {
             information.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 12),
             
 //            downloadBox.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
-            downloadBox.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            downloadBox.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            downloadBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90)
+            downloadBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90),
+            downloadBox.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            downloadBox.heightAnchor.constraint(equalToConstant: 90),
+            downloadBox.widthAnchor.constraint(equalToConstant: 185)
         ])
     }
      

@@ -25,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = BubblegumViewController(presenter: presenter)
         presenter.viewDelegate = viewController
         
+        let vc2 = DraftsViewController()
+        
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
