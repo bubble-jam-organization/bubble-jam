@@ -45,6 +45,10 @@
 		D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA2FB293E1C6B008DF1B2 /* PacksTexture.swift */; };
 		D65CA2FF293E36E2008DF1B2 /* DraftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */; };
 		D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */; };
+		D673C95B2940C5F700C6B207 /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */; };
+		D673C95D2940C60900C6B207 /* ScrollMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95C2940C60900C6B207 /* ScrollMovement.swift */; };
+		D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95F2940C62A00C6B207 /* ManagerViewController.swift */; };
+		D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C9612940C8F400C6B207 /* BackToSample.swift */; };
 		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
 		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
 		D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C7293629340057095A /* DraftPillButton.swift */; };
@@ -114,6 +118,10 @@
 		D65CA2FB293E1C6B008DF1B2 /* PacksTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacksTexture.swift; sourceTree = "<group>"; };
 		D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewController.swift; sourceTree = "<group>"; };
 		D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftTexture.swift; sourceTree = "<group>"; };
+		D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
+		D673C95C2940C60900C6B207 /* ScrollMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovement.swift; sourceTree = "<group>"; };
+		D673C95F2940C62A00C6B207 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
+		D673C9612940C8F400C6B207 /* BackToSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToSample.swift; sourceTree = "<group>"; };
 		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
 		D6ADD8C7293629340057095A /* DraftPillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftPillButton.swift; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				0087CBBD2938E3D900404615 /* Audio.swift */,
+				D673C95C2940C60900C6B207 /* ScrollMovement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -305,6 +314,7 @@
 		00B82E8F292BBED80088996B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D673C95E2940C61900C6B207 /* Manager */,
 				D65CA2FD293E36CA008DF1B2 /* Draft */,
 				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C0293628C90057095A /* Bubblegum */,
@@ -355,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */,
+				D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,8 +429,17 @@
 			isa = PBXGroup;
 			children = (
 				D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */,
+				D673C9612940C8F400C6B207 /* BackToSample.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		D673C95E2940C61900C6B207 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D673C95F2940C62A00C6B207 /* ManagerViewController.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		D6ADD8C0293628C90057095A /* Bubblegum */ = {
@@ -612,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
+				D673C95B2940C5F700C6B207 /* ScrollViewExtensions.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
@@ -619,6 +640,7 @@
 				D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */,
 				0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */,
 				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
+				D673C95D2940C60900C6B207 /* ScrollMovement.swift in Sources */,
 				D65CA2FF293E36E2008DF1B2 /* DraftsViewController.swift in Sources */,
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */,
@@ -628,6 +650,7 @@
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
+				D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */,
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
 				D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */,
@@ -639,6 +662,7 @@
 				0087CBCD293936C200404615 /* AudioServicing.swift in Sources */,
 				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
 				D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */,
+				D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
 				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
 			);

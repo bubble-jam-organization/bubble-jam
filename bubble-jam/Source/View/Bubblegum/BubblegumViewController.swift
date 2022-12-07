@@ -18,9 +18,11 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     let sizeOfFrame: CGFloat = 300
     let presenter: BubblegumPresenting
+    weak var managerDelegate: ManagerDelegate?
     
-    init(presenter: BubblegumPresenting) {
+    init(presenter: BubblegumPresenting, managerDelegate: ManagerDelegate) {
         self.presenter = presenter
+        self.managerDelegate = managerDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -65,23 +67,19 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         
     }()
     
-//    private lazy var draftPill: DraftPill = {
-//        let pill = DraftPill(frame: .zero)
-//        pill.translatesAutoresizingMaskIntoConstraints = false
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
-//        pill.isUserInteractionEnabled = true
-//        pill.addGestureRecognizer(tapGesture)
-//
-//        return pill
-//
-//    }()
+    private lazy var draftPill: DraftPill = {
+        let pill = DraftPill(frame: .zero)
+        pill.translatesAutoresizingMaskIntoConstraints = false
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
+        pill.isUserInteractionEnabled = true
+        pill.addGestureRecognizer(tapGesture)
+
+        return pill
+    }()
     
     @objc func pillFunc() {
-        showAlert(
-            title: "Oops, this is not ready yet!",
-            message: "We're still working on this feature, hang tight!"
-        )
+        self.managerDelegate?.scrollToBottom()
     }
     
     private lazy var gumPacks: PacksTexture = {
@@ -92,7 +90,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 1, green: 0.8862745098, blue: 0.9529411765, alpha: 1)
         buildLayout()
         presenter.initAudioDownload(in: nil)
     }
@@ -126,12 +123,11 @@ extension BubblegumViewController: BubblegumViewDelegate {
 extension BubblegumViewController: ViewCoding {
     
     func setupView() {
-        //
+        view.backgroundColor = .clear
     }
     
     func setupHierarchy() {
-        view.addSubview(gumPacks)
-//        view.addSubview(draftPill)
+        view.addSubview(draftPill)
         view.addSubview(sampleFrame)
         view.addSubview(titleLabels)
         sampleFrame.addSubview(samplePlayButton)
@@ -139,10 +135,6 @@ extension BubblegumViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            gumPacks.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gumPacks.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: 48),
-            gumPacks.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.6),
-            gumPacks.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 1)),
             
             sampleFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -155,10 +147,10 @@ extension BubblegumViewController: ViewCoding {
             samplePlayButton.widthAnchor.constraint(equalTo: samplePlayButton.widthAnchor),
             samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
             
-//            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
-//            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
+            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

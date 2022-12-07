@@ -19,16 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.frame = UIScreen.main.bounds
         
-        let audioService = AudioService()
-        let downloadService = DownloadService()
-        let datetimeService = DatetimeService()
-        let presenter = BubblegumPresenter(audioService: audioService, downloadService: downloadService, datetimeService: datetimeService)
-        let viewController = BubblegumViewController(presenter: presenter)
-        presenter.viewDelegate = viewController
-        
-        let vc2 = DraftsViewController()
-        
-        window?.rootViewController = viewController
+        window?.rootViewController = ManagerViewController()
         window?.makeKeyAndVisible()
     }
 
