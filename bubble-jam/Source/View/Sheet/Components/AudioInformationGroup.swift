@@ -14,9 +14,9 @@ class AudioInformationGroup: UIView {
     private lazy var audioLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "DESCRIÇÃO"
+        label.text = "Descrição"
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         return label
     }()
 
@@ -25,7 +25,8 @@ class AudioInformationGroup: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = audioDetails.description
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -71,15 +72,15 @@ extension AudioInformationGroup: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            audioLabel.bottomAnchor.constraint(equalTo: audioDescription.topAnchor),
-            
             audioDescription.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            audioDescription.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
+            audioDescription.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6),
             audioDescription.widthAnchor.constraint(equalTo: self.widthAnchor),
+            audioLabel.bottomAnchor.constraint(equalTo: audioDescription.topAnchor, constant: -4),
+
             
             audioBPM.topAnchor.constraint(equalTo: audioDescription.bottomAnchor, constant: 12),
             
-            audioNotes.topAnchor.constraint(equalTo: audioBPM.bottomAnchor)
+            audioNotes.topAnchor.constraint(equalTo: audioBPM.bottomAnchor, constant: 4)
         ])
     }
     

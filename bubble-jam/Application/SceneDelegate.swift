@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let audioService = AudioService()
         let downloadService = DownloadService()
-        let presenter = BubblegumPresenter(audioService: audioService, downloadService: downloadService)
+        let datetimeService = DatetimeService()
+        let presenter = BubblegumPresenter(audioService: audioService, downloadService: downloadService, datetimeService: datetimeService)
         let viewController = BubblegumViewController(presenter: presenter)
         presenter.viewDelegate = viewController
         

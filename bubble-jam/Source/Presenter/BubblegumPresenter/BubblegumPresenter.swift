@@ -10,18 +10,20 @@ import Foundation
 class BubblegumPresenter: BubblegumPresenting {
     let audioService: AudioServicing
     let downloadService: DownloadServicing
+    let datetimeService: DateServicing
     weak var viewDelegate: BubblegumViewDelegate?
     
     private var mockedAudio = Audio(
         data: Data(),
         localAudioName: "song",
         format: .m4a,
-        details: AudioDetails(notes: [], description: "Lorem ipsum", bpm: 130)
+        details: AudioDetails(notes: [], description: "Challenge com um simples riff de guitarra! Divirta-se com nosso sample e faça a sua melhor composição de rock", bpm: 130)
     )
     
-    init(audioService: AudioServicing, downloadService: DownloadServicing) {
+    init(audioService: AudioServicing, downloadService: DownloadServicing, datetimeService: DateServicing) {
         self.audioService = audioService
         self.downloadService = downloadService
+        self.datetimeService = datetimeService
     }
     
     func initAudioDownload(in path: String?) {
@@ -58,5 +60,9 @@ class BubblegumPresenter: BubblegumPresenting {
     
     func getAudioUrl() throws -> URL {
         return try downloadService.loadAudioUrl(mockedAudio.localAudioName!, mockedAudio.format.rawValue)
+    }
+    
+    func getDaysRemaining() -> String {
+        return String(datetimeService.daysRemaining())
     }
 }

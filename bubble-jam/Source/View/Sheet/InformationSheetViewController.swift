@@ -97,7 +97,7 @@ extension InformationSheetViewController: ViewCoding {
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
             challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
             
-            information.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor),
+            information.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 14),
             information.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
             information.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 12),
             
