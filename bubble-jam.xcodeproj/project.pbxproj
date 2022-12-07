@@ -48,6 +48,7 @@
 		D673C95B2940C5F700C6B207 /* ScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */; };
 		D673C95D2940C60900C6B207 /* ScrollMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95C2940C60900C6B207 /* ScrollMovement.swift */; };
 		D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95F2940C62A00C6B207 /* ManagerViewController.swift */; };
+		D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C9612940C8F400C6B207 /* BackToSample.swift */; };
 		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
 		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
 		D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C7293629340057095A /* DraftPillButton.swift */; };
@@ -120,6 +121,7 @@
 		D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewExtensions.swift; sourceTree = "<group>"; };
 		D673C95C2940C60900C6B207 /* ScrollMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovement.swift; sourceTree = "<group>"; };
 		D673C95F2940C62A00C6B207 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
+		D673C9612940C8F400C6B207 /* BackToSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToSample.swift; sourceTree = "<group>"; };
 		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
 		D6ADD8C7293629340057095A /* DraftPillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftPillButton.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */,
+				D673C9612940C8F400C6B207 /* BackToSample.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
+				D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */,
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
 				D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */,

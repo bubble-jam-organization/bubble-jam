@@ -76,7 +76,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         pill.addGestureRecognizer(tapGesture)
 
         return pill
-
     }()
     
     @objc func pillFunc() {
@@ -136,6 +135,7 @@ extension BubblegumViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
+            
             gumPacks.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gumPacks.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: 48),
             gumPacks.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.6),
