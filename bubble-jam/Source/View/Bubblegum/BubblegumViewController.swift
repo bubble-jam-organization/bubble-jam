@@ -28,7 +28,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     private lazy var titleLabels: TitleLabels = {
         
-        let labels = TitleLabels(nameOfChallenge: "Protojam", descriptionOfChallenge: "3 ")
+        let labels = TitleLabels(nameOfChallenge: "Protojam", descriptionOfChallenge: "\(presenter.getDaysRemaining()) ")
         labels.translatesAutoresizingMaskIntoConstraints = false
         return labels
         
@@ -65,17 +65,17 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         
     }()
     
-    private lazy var draftPill: DraftPill = {
-        let pill = DraftPill(frame: .zero)
-        pill.translatesAutoresizingMaskIntoConstraints = false
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
-        pill.isUserInteractionEnabled = true
-        pill.addGestureRecognizer(tapGesture)
-        
-        return pill
-        
-    }()
+//    private lazy var draftPill: DraftPill = {
+//        let pill = DraftPill(frame: .zero)
+//        pill.translatesAutoresizingMaskIntoConstraints = false
+//
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
+//        pill.isUserInteractionEnabled = true
+//        pill.addGestureRecognizer(tapGesture)
+//
+//        return pill
+//
+//    }()
     
     @objc func pillFunc() {
         showAlert(
@@ -131,7 +131,7 @@ extension BubblegumViewController: ViewCoding {
     
     func setupHierarchy() {
         view.addSubview(gumPacks)
-        view.addSubview(draftPill)
+//        view.addSubview(draftPill)
         view.addSubview(sampleFrame)
         view.addSubview(titleLabels)
         sampleFrame.addSubview(samplePlayButton)
@@ -155,14 +155,14 @@ extension BubblegumViewController: ViewCoding {
             samplePlayButton.widthAnchor.constraint(equalTo: samplePlayButton.widthAnchor),
             samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
             
-            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
-            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+//            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
+//            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabels.heightAnchor.constraint(equalToConstant: 128)
+            titleLabels.heightAnchor.constraint(equalToConstant: 134)
         ])
         
     }

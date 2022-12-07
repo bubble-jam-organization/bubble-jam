@@ -33,7 +33,13 @@ struct AudioService: AudioServicing {
     
     func playSong() {
         if !player.items().isEmpty {
-            player.play()
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+                player.play()
+            } catch {
+                print(error.localizedDescription)
+            }
+            
         }
     }
     

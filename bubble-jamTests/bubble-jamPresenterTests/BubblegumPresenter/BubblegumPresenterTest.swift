@@ -68,7 +68,8 @@ extension BubblegumPresenterTest: Testing {
         let audioServiceSpy = AudioServiceSpy()
         let downloadServiceSpy = DownloadServiceSpy()
         let delegateSpy = BubblegumViewDelegateSpy()
-        let sut = BubblegumPresenter(audioService: audioServiceSpy, downloadService: downloadServiceSpy)
+        let datetimeServiceSpy = DatetimeService()
+        let sut = BubblegumPresenter(audioService: audioServiceSpy, downloadService: downloadServiceSpy, datetimeService: datetimeServiceSpy)
         sut.viewDelegate = delegateSpy
         return (sut, (audioServiceSpy, downloadServiceSpy, delegateSpy))
     }

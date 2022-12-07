@@ -71,7 +71,7 @@ extension TitleLabels: ViewCoding {
             nameOfChallengeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             nameOfChallengeLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             nameOfChallengeLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            nameOfChallengeLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
+            nameOfChallengeLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
             
             descriptionOfChallengeLabel.topAnchor.constraint(equalTo: nameOfChallengeLabel.bottomAnchor),
             descriptionOfChallengeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
