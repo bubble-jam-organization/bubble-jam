@@ -90,7 +90,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 1, green: 0.8862745098, blue: 0.9529411765, alpha: 1)
         buildLayout()
         presenter.initAudioDownload(in: nil)
     }
@@ -123,10 +122,11 @@ extension BubblegumViewController: BubblegumViewDelegate {
 
 extension BubblegumViewController: ViewCoding {
     
-    func setupView() {}
+    func setupView() {
+        view.backgroundColor = .clear
+    }
     
     func setupHierarchy() {
-        view.addSubview(gumPacks)
         view.addSubview(draftPill)
         view.addSubview(sampleFrame)
         view.addSubview(titleLabels)
@@ -135,11 +135,6 @@ extension BubblegumViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            
-            gumPacks.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gumPacks.centerYAnchor.constraint(equalTo: view.bottomAnchor, constant: 48),
-            gumPacks.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.6),
-            gumPacks.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 1)),
             
             sampleFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor),

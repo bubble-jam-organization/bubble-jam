@@ -51,7 +51,7 @@ class DraftsViewController: UIViewController {
 
 extension DraftsViewController: ViewCoding {
     func setupView() {
-        view.backgroundColor = .blue
+        view.backgroundColor = .clear
     }
     
     func setupHierarchy() {
@@ -62,13 +62,14 @@ extension DraftsViewController: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             gumPacks.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gumPacks.centerYAnchor.constraint(equalTo: view.topAnchor, constant: -48),
+            gumPacks.centerYAnchor.constraint(equalTo: view.topAnchor),
             gumPacks.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.6),
             gumPacks.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 1)),
             
             samplePill.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             samplePill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            samplePill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            samplePill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
     

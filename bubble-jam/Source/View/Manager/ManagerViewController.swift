@@ -69,6 +69,7 @@ extension ManagerViewController: ViewCoding {
    
     func setupView() {
         managerScrollView.contentInsetAdjustmentBehavior = .never
+        managerScrollView.backgroundColor = #colorLiteral(red: 1, green: 0.8862745098, blue: 0.9529411765, alpha: 1)
         self.managerScrollView.contentSize = CGSize(
             width: view.frame.width,
             height: 2 * view.frame.height
@@ -87,11 +88,14 @@ extension ManagerViewController: ViewCoding {
         bubblegumView.willMove(toParent: self)
         managerScrollView.addSubview(bubblegumView.view)
         bubblegumView.didMove(toParent: self)
-        
     }
     
     func setupConstraints() {
+        draftView.view.translatesAutoresizingMaskIntoConstraints = false
+        bubblegumView.view.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
+            
             managerScrollView.topAnchor.constraint(equalTo: view.topAnchor),
             managerScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             managerScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
