@@ -9,6 +9,17 @@ import UIKit
 
 class DraftsViewController: UIViewController {
     
+    weak var managerDelegate: ManagerDelegate?
+        
+    init(managerDelegate: ManagerDelegate) {
+        self.managerDelegate = managerDelegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var gumPacks: PacksTexture = {
         let image = PacksTexture(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false

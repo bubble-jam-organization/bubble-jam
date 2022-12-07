@@ -76,8 +76,7 @@ extension AudioInformationGroup: ViewCoding {
             audioDescription.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6),
             audioDescription.widthAnchor.constraint(equalTo: self.widthAnchor),
             audioLabel.bottomAnchor.constraint(equalTo: audioDescription.topAnchor, constant: -4),
-
-            
+ 
             audioBPM.topAnchor.constraint(equalTo: audioDescription.bottomAnchor, constant: 12),
             
             audioNotes.topAnchor.constraint(equalTo: audioBPM.bottomAnchor, constant: 4)

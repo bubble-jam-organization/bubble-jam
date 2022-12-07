@@ -99,7 +99,7 @@ extension InformationSheetViewController: ViewCoding {
             
             information.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 14),
             information.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
-            information.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 12),
+            information.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
             
 //            downloadBox.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
             downloadBox.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90),
