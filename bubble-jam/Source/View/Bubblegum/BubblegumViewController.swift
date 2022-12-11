@@ -124,6 +124,7 @@ extension BubblegumViewController: ViewCoding {
     
     func setupView() {
         view.backgroundColor = .clear
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func setupHierarchy() {
@@ -148,8 +149,7 @@ extension BubblegumViewController: ViewCoding {
             samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
             
             draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
-            draftPill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            draftPill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            draftPill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
