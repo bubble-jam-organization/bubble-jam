@@ -51,7 +51,6 @@ class Page3ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(goToMainScreen))
         button.isUserInteractionEnabled = true
         button.addGestureRecognizer(tap)
-        button.backgroundColor = .yellow
         return button
     }()
     
