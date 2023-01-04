@@ -60,11 +60,9 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         buildLayout()
 
 
-
     }
 
     
-
 }
 
 extension OnboardingViewController: ViewCoding {
@@ -82,7 +80,6 @@ extension OnboardingViewController: ViewCoding {
         pageControl.isUserInteractionEnabled = false
         setViewControllers([pages[initialPage]], direction: .forward, animated: true)
         
-
     }
     
     func setupHierarchy() {
@@ -91,7 +88,7 @@ extension OnboardingViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -240),
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -180),
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
             pageControl.heightAnchor.constraint(equalToConstant: 30),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
