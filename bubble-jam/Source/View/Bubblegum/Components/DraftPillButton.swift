@@ -12,7 +12,7 @@ class DraftPill: UIView {
     // TODO: Adicionar sublinhado ao "Start Drafting"
 
     private lazy var pillBox: UIView = {
-        let pill = UIView(frame: CGRect(x: 0, y: 0, width: 230, height: 60))
+        let pill = UIView()
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.layer.cornerRadius = 20
         pill.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
@@ -27,7 +27,7 @@ class DraftPill: UIView {
         return mic
     }()
     
-    private lazy var pillLabel: UILabel = {
+    lazy var pillLabel: UILabel = {
         let label = UILabel()
         label.text = "Start Drafting"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +62,7 @@ extension DraftPill: ViewCoding {
         NSLayoutConstraint.activate([
             pillBox.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             pillBox.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            pillBox.widthAnchor.constraint(equalToConstant: 230),
+            pillBox.widthAnchor.constraint(equalTo: self.widthAnchor),
             pillBox.heightAnchor.constraint(equalToConstant: 60),
             
             pillSymbol.leadingAnchor.constraint(equalTo: pillBox.leadingAnchor, constant: 5),
@@ -72,7 +72,7 @@ extension DraftPill: ViewCoding {
 
             pillLabel.topAnchor.constraint(equalTo: pillSymbol.topAnchor),
             pillLabel.leadingAnchor.constraint(equalTo: pillSymbol.trailingAnchor, constant: 15),
-            pillLabel.trailingAnchor.constraint(equalTo: pillBox.trailingAnchor, constant: 5),
+            pillLabel.trailingAnchor.constraint(equalTo: pillBox.trailingAnchor, constant: -10),
             pillLabel.bottomAnchor.constraint(equalTo: pillSymbol.bottomAnchor)
         ])
     }
