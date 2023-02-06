@@ -20,8 +20,9 @@ class DraftsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var samplePill: BackToSample = {
-        let pill = BackToSample(frame: .zero)
+    private lazy var samplePill: DraftPill = {
+        let pill = DraftPill()
+        pill.pillLabel.text = "Back to Sample"
         pill.translatesAutoresizingMaskIntoConstraints = false
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
@@ -67,8 +68,7 @@ extension DraftsViewController: ViewCoding {
             gumPacks.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 1)),
             
             samplePill.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            samplePill.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            samplePill.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            samplePill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }

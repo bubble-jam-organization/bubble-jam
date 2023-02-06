@@ -19,7 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.frame = UIScreen.main.bounds
         
-        window?.rootViewController = ManagerViewController()
+
+        if UIApplication.isFirstLaunch() {
+            let onboarding = OnboardingViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+            window?.rootViewController = UINavigationController(rootViewController: onboarding)
+        }else{
+            window?.rootViewController = ManagerViewController()
+        }
+
         window?.makeKeyAndVisible()
     }
 
@@ -52,3 +59,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
 }
+extension UIApplication {
+       class func isFirstLaunch() -> Bool {
+           if !UserDefaults.standard.bool(forKey: "hasBeenLaunchedBeforeFlag") {
+               UserDefaults.standard.set(true, forKey: "hasBeenLaunchedBeforeFlag")
+               UserDefaults.standard.synchronize()
+               return true
+           }
+           return false
+       }
+   }
