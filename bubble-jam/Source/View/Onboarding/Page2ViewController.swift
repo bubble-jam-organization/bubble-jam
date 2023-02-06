@@ -35,7 +35,7 @@ class Page2ViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.attributedText = attributedText(
-            withString: "Tap on the Bubble at the middle of the screen this will play the sample of the week and open a screen that allow you to download it.",
+            withString: "Tap on the Bubble at the middle of the screen. this will play the sample of the week and open a screen that allow you to download it.",
             boldString: ["Tap on the Bubble", "play the sample", "open a screen",
                          "allow", "download it"],
             font: UIFont.systemFont(ofSize: 18, weight: .regular))
