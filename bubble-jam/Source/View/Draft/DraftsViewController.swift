@@ -69,7 +69,7 @@ extension DraftsViewController: ViewCoding {
             
             samplePill.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             samplePill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
