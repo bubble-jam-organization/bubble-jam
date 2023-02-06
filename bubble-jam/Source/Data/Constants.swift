@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let containerIdentifier = ""
+    static let containerIdentifier = "iCloud.bubble-jam-container"
 }
