@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */; };
+		00786979299145D30018B384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786978299145D30018B384 /* Constants.swift */; };
 		0087CB762931214600404615 /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0087CB752931214600404615 /* song2.m4a */; };
 		0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB42938E1C500404615 /* AlertPresentable.swift */; };
 		0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB82938E26F00404615 /* BubblegumPresenting.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
+		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0087CB752931214600404615 /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		0087CBB42938E1C500404615 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		0087CBB82938E26F00404615 /* BubblegumPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenting.swift; sourceTree = "<group>"; };
@@ -165,6 +169,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00786972299143240018B384 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				29B34BC4292F92050092FD1F /* Services */,
+				0087CBBC2938E2EC00404615 /* Model */,
+				00B82E8F292BBED80088996B /* View */,
+				0087CBB62938E23E00404615 /* Presenter */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		00786973299144780018B384 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				007869742991447E0018B384 /* DownloadAudioRoutine */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		007869742991447E0018B384 /* DownloadAudioRoutine */ = {
+			isa = PBXGroup;
+			children = (
+				00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */,
+			);
+			path = DownloadAudioRoutine;
+			sourceTree = "<group>";
+		};
+		00786977299145BE0018B384 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				00786978299145D30018B384 /* Constants.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		0087CBB62938E23E00404615 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,12 +348,11 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0087CBBC2938E2EC00404615 /* Model */,
-				0087CBB62938E23E00404615 /* Presenter */,
-				D6ADD8C1293628D00057095A /* Protocol */,
+				00786977299145BE0018B384 /* Data */,
+				00786972299143240018B384 /* Presentation */,
+				00786973299144780018B384 /* Domain */,
 				29B34BCF292FB61F0092FD1F /* Extensions */,
-				29B34BC4292F92050092FD1F /* Services */,
-				00B82E8F292BBED80088996B /* View */,
+				D6ADD8C1293628D00057095A /* Protocol */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -666,12 +704,14 @@
 				00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */,
 				D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */,
 				D657FEE229379E8F005ADD07 /* DownloadButton.swift in Sources */,
+				00786979299145D30018B384 /* Constants.swift in Sources */,
 				29788A4C2940DCC1004F82DB /* Page2ViewController.swift in Sources */,
 				D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */,
 				29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */,
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
+				00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */,
 				D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */,
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
