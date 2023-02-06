@@ -13,7 +13,7 @@ class DownloadServiceSpy {
     
     enum Message: Equatable {
         case downloadAudio(String, String)
-        case loadAudioUrl(String,String)
+        case loadAudioUrl(String, String)
         case loadSandboxAudio
         
         var description: String {
