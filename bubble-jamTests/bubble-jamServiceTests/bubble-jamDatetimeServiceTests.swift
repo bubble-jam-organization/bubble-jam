@@ -11,7 +11,7 @@ import XCTest
 final class bubble_jamDatetimeServiceTests: XCTestCase {
 
     func test_datetime_shouldGetCurrentDate() {
-        let (sut,_) = makeSUT()
+        let (sut, _) = makeSUT()
         XCTAssertEqual(Date.now, sut.getCurrentDate())
         
     }
@@ -22,10 +22,9 @@ extension bubble_jamDatetimeServiceTests: Testing {
     func makeSUT() -> (bubble_jam.DatetimeService, Calendar) {
         let calendar = Calendar(identifier: .gregorian)
         let sut = DatetimeService(calendar: calendar)
-        return(sut,calendar)
+        return (sut, calendar)
     }
     
     typealias SutAndDoubles = (DatetimeService, Calendar)
-    
     
 }

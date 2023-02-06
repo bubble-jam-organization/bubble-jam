@@ -41,7 +41,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
                 return nil
             }
         }
-        
         return nil
     }
     
@@ -56,13 +55,9 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         buildLayout()
-
-
     }
 
-    
 }
 
 extension OnboardingViewController: ViewCoding {

@@ -17,7 +17,11 @@ class BubblegumPresenter: BubblegumPresenting {
         data: Data(),
         localAudioName: "song",
         format: .m4a,
-        details: AudioDetails(notes: [], description: "Challenge com um simples riff de guitarra! Divirta-se com nosso sample e faça a sua melhor composição", bpm: 130)
+        details: AudioDetails(
+            notes: [],
+            description: "Challenge com um simples riff de guitarra! Divirta-se com nosso sample e faça a sua melhor composição",
+            bpm: 130
+        )
     )
     
     init(audioService: AudioServicing, downloadService: DownloadServicing, datetimeService: DateServicing) {

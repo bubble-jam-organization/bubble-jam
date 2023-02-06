@@ -18,12 +18,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.frame = UIScreen.main.bounds
-        
-
+    
         if UIApplication.isFirstLaunch() {
             let onboarding = OnboardingViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
             window?.rootViewController = UINavigationController(rootViewController: onboarding)
-        }else{
+        } else {
             window?.rootViewController = ManagerViewController()
         }
 

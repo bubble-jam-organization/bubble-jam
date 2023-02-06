@@ -30,10 +30,9 @@ struct DatetimeService: DateServicing {
     func daysRemaining() -> Int {
         let date = getCurrentDate()
         let deadline = Calendar.current.date(from: limitDate)!
-        let daysRemaining = calendar.dateComponents([.day,.month,.year], from: date, to: deadline)
+        let daysRemaining = calendar.dateComponents([.day, .month, .year], from: date, to: deadline)
         return daysRemaining.day! + 1
         
     }
     
-
 }
