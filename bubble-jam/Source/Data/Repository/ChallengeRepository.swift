@@ -20,7 +20,6 @@ class ChallengeRepository: ChallengeRepositoryProtocol {
     func loadCurrentChallenge() async throws -> Challenge {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Challenge", predicate: predicate)
-        query.sortDescriptors = [ NSSortDescriptor(key: "modificationDate", ascending: true)]
         
         do {
             let result = try await database.records(matching: query, inZoneWith: nil)

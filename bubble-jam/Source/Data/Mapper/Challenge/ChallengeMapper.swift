@@ -33,11 +33,16 @@ class ChallengeMapper: ChallengeMapperProtocol {
     
     func fetchChallengeAudio(reference: CKRecord.Reference) async throws -> AudioAndPropeties {
         let audioRecord = try await database.record(for: reference.recordID)
-        if let data = audioRecord["data"] as? Data,
+        if let dataAsset = audioRecord["data"] as? CKAsset,
            let format = audioRecord["format"] as? String,
            let notes = audioRecord["notes"] as? [String],
            let bpm = audioRecord ["bpm"] as? UInt {
-            return AudioAndPropeties(data: data, format: format, notes: notes, bpm: bpm)
+            do {
+                let audioData = try Data(contentsOf: dataAsset.fileURL!)
+                return AudioAndPropeties(data: audioData, format: format, notes: notes, bpm: bpm)
+            } catch {
+                throw MapperError.couldNotMapData
+            }
         }
         throw MapperError.couldNotMapData
     }
