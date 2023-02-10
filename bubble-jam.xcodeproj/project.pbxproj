@@ -9,6 +9,23 @@
 /* Begin PBXBuildFile section */
 		00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */; };
 		00786979299145D30018B384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786978299145D30018B384 /* Constants.swift */; };
+		0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078697C29928B030018B384 /* ChallengeRepository.swift */; };
+		0078698029928B390018B384 /* ChallengeRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078697F29928B390018B384 /* ChallengeRepositoryProtocol.swift */; };
+		0078698629928BBE0018B384 /* ChallengeRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078698529928BBE0018B384 /* ChallengeRepositoryTests.swift */; };
+		0078699C2992950E0018B384 /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078699B2992950E0018B384 /* DatabaseProtocol.swift */; };
+		007869A4299299580018B384 /* DatabaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869A3299299580018B384 /* DatabaseSpy.swift */; };
+		007869A729929DAF0018B384 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869A629929DAF0018B384 /* Challenge.swift */; };
+		007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869A829929DEE0018B384 /* AudioAndPropeties.swift */; };
+		007869AD2993F9CD0018B384 /* CloudKitDatabaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869AC2993F9CD0018B384 /* CloudKitDatabaseExtension.swift */; };
+		007869AF29951EAD0018B384 /* ChallengeMapperSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869AE29951EAD0018B384 /* ChallengeMapperSpy.swift */; };
+		007869B129951F1E0018B384 /* DomainEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869B029951F1E0018B384 /* DomainEntityMapper.swift */; };
+		007869B529951F480018B384 /* ChallengeMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869B429951F480018B384 /* ChallengeMapperProtocol.swift */; };
+		007869B829951F5F0018B384 /* ChallengeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869B729951F5F0018B384 /* ChallengeMapper.swift */; };
+		007869BB2995277D0018B384 /* ChallengeMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869BA2995277D0018B384 /* ChallengeMapperTests.swift */; };
+		007869C429953D4D0018B384 /* MapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869C329953D4D0018B384 /* MapperError.swift */; };
+		007869C72996672F0018B384 /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869C62996672F0018B384 /* RepositoryError.swift */; };
+		007869C929966A370018B384 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869C829966A370018B384 /* ErrorHandler.swift */; };
+		007869CB29966F420018B384 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869CA29966F420018B384 /* ErrorExtension.swift */; };
 		0087CB762931214600404615 /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0087CB752931214600404615 /* song2.m4a */; };
 		0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB42938E1C500404615 /* AlertPresentable.swift */; };
 		0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB82938E26F00404615 /* BubblegumPresenting.swift */; };
@@ -85,6 +102,23 @@
 		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
 		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0078697A299146CB0018B384 /* bubble-jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "bubble-jam.entitlements"; sourceTree = "<group>"; };
+		0078697C29928B030018B384 /* ChallengeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRepository.swift; sourceTree = "<group>"; };
+		0078697F29928B390018B384 /* ChallengeRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRepositoryProtocol.swift; sourceTree = "<group>"; };
+		0078698529928BBE0018B384 /* ChallengeRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRepositoryTests.swift; sourceTree = "<group>"; };
+		0078699B2992950E0018B384 /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		007869A3299299580018B384 /* DatabaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseSpy.swift; sourceTree = "<group>"; };
+		007869A629929DAF0018B384 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		007869A829929DEE0018B384 /* AudioAndPropeties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAndPropeties.swift; sourceTree = "<group>"; };
+		007869AC2993F9CD0018B384 /* CloudKitDatabaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDatabaseExtension.swift; sourceTree = "<group>"; };
+		007869AE29951EAD0018B384 /* ChallengeMapperSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMapperSpy.swift; sourceTree = "<group>"; };
+		007869B029951F1E0018B384 /* DomainEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainEntityMapper.swift; sourceTree = "<group>"; };
+		007869B429951F480018B384 /* ChallengeMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMapperProtocol.swift; sourceTree = "<group>"; };
+		007869B729951F5F0018B384 /* ChallengeMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMapper.swift; sourceTree = "<group>"; };
+		007869BA2995277D0018B384 /* ChallengeMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeMapperTests.swift; sourceTree = "<group>"; };
+		007869C329953D4D0018B384 /* MapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperError.swift; sourceTree = "<group>"; };
+		007869C62996672F0018B384 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
+		007869C829966A370018B384 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		007869CA29966F420018B384 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		0087CB752931214600404615 /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		0087CBB42938E1C500404615 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		0087CBB82938E26F00404615 /* BubblegumPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenting.swift; sourceTree = "<group>"; };
@@ -173,6 +207,7 @@
 		00786972299143240018B384 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				29B34BCF292FB61F0092FD1F /* Extensions */,
 				29B34BC4292F92050092FD1F /* Services */,
 				0087CBBC2938E2EC00404615 /* Model */,
 				00B82E8F292BBED80088996B /* View */,
@@ -184,6 +219,7 @@
 		00786973299144780018B384 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				0078697E29928B200018B384 /* Repository */,
 				007869742991447E0018B384 /* DownloadAudioRoutine */,
 			);
 			path = Domain;
@@ -200,9 +236,152 @@
 		00786977299145BE0018B384 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				00786978299145D30018B384 /* Constants.swift */,
+				0078699A299293EF0018B384 /* Protocol */,
+				007869AB2993F9BB0018B384 /* Extensions */,
+				0078697B29928AEF0018B384 /* Repository */,
+				007869B329951F360018B384 /* Mapper */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		0078697B29928AEF0018B384 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				007869C52996671B0018B384 /* Error */,
+				0078697C29928B030018B384 /* ChallengeRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		0078697E29928B200018B384 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				0078697F29928B390018B384 /* ChallengeRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		0078698129928B710018B384 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0078698329928B9C0018B384 /* Data */,
+				0078698229928B8E0018B384 /* Presentation */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0078698229928B8E0018B384 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				29B34BC7292F95A40092FD1F /* bubble-jamServiceTests */,
+				0087CBC42939356500404615 /* bubble-jamPresenterTests */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		0078698329928B9C0018B384 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				007869BC299528140018B384 /* Doubles */,
+				007869B9299527670018B384 /* Mapper */,
+				0078698429928BA90018B384 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		0078698429928BA90018B384 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				007869A02992993C0018B384 /* Doubles */,
+				0078698529928BBE0018B384 /* ChallengeRepositoryTests.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		0078699A299293EF0018B384 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0078699B2992950E0018B384 /* DatabaseProtocol.swift */,
+				007869B029951F1E0018B384 /* DomainEntityMapper.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		007869A02992993C0018B384 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				007869AE29951EAD0018B384 /* ChallengeMapperSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		007869A529929DA40018B384 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				007869A629929DAF0018B384 /* Challenge.swift */,
+				007869A829929DEE0018B384 /* AudioAndPropeties.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		007869AB2993F9BB0018B384 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				007869AC2993F9CD0018B384 /* CloudKitDatabaseExtension.swift */,
+				007869CA29966F420018B384 /* ErrorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		007869B329951F360018B384 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				007869C229953D430018B384 /* Error */,
+				007869B629951F4D0018B384 /* Challenge */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		007869B629951F4D0018B384 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				007869B429951F480018B384 /* ChallengeMapperProtocol.swift */,
+				007869B729951F5F0018B384 /* ChallengeMapper.swift */,
+			);
+			path = Challenge;
+			sourceTree = "<group>";
+		};
+		007869B9299527670018B384 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				007869BA2995277D0018B384 /* ChallengeMapperTests.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		007869BC299528140018B384 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				007869A3299299580018B384 /* DatabaseSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
+		007869C229953D430018B384 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				007869C329953D4D0018B384 /* MapperError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		007869C52996671B0018B384 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				007869C829966A370018B384 /* ErrorHandler.swift */,
+				007869C62996672F0018B384 /* RepositoryError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		0087CBB62938E23E00404615 /* Presenter */ = {
@@ -312,10 +491,9 @@
 		00B82E72292BBE9D0088996B /* bubble-jamTests */ = {
 			isa = PBXGroup;
 			children = (
+				0078698129928B710018B384 /* Source */,
 				29B34BD2292FB8550092FD1F /* Protocols */,
 				29B34BCC292FB09B0092FD1F /* Resources */,
-				29B34BC7292F95A40092FD1F /* bubble-jamServiceTests */,
-				0087CBC42939356500404615 /* bubble-jamPresenterTests */,
 			);
 			path = "bubble-jamTests";
 			sourceTree = "<group>";
@@ -332,6 +510,7 @@
 		00B82E8C292BBEA80088996B /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				00786978299145D30018B384 /* Constants.swift */,
 				00B82E5C292BBE9C0088996B /* AppDelegate.swift */,
 				00B82E5E292BBE9C0088996B /* SceneDelegate.swift */,
 				00B82E67292BBE9D0088996B /* LaunchScreen.storyboard */,
@@ -350,10 +529,10 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				007869A529929DA40018B384 /* Entity */,
 				00786977299145BE0018B384 /* Data */,
 				00786972299143240018B384 /* Presentation */,
 				00786973299144780018B384 /* Domain */,
-				29B34BCF292FB61F0092FD1F /* Extensions */,
 				D6ADD8C1293628D00057095A /* Protocol */,
 			);
 			path = Source;
@@ -693,8 +872,10 @@
 			files = (
 				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				D673C95B2940C5F700C6B207 /* ScrollViewExtensions.swift in Sources */,
+				007869B529951F480018B384 /* ChallengeMapperProtocol.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
+				007869C929966A370018B384 /* ErrorHandler.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
 				D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */,
@@ -708,20 +889,26 @@
 				D657FEE229379E8F005ADD07 /* DownloadButton.swift in Sources */,
 				00786979299145D30018B384 /* Constants.swift in Sources */,
 				29788A4C2940DCC1004F82DB /* Page2ViewController.swift in Sources */,
+				007869B129951F1E0018B384 /* DomainEntityMapper.swift in Sources */,
 				D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */,
 				29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */,
+				0078698029928B390018B384 /* ChallengeRepositoryProtocol.swift in Sources */,
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
 				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
+				007869B829951F5F0018B384 /* ChallengeMapper.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */,
 				D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */,
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
+				0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */,
 				D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */,
+				007869C72996672F0018B384 /* RepositoryError.swift in Sources */,
 				29788A3B293F7FCB004F82DB /* DatetimeService.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
 				0087CBD5293A540900404615 /* DownloadServicing.swift in Sources */,
 				0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */,
+				007869AD2993F9CD0018B384 /* CloudKitDatabaseExtension.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 				0087CBCD293936C200404615 /* AudioServicing.swift in Sources */,
 				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
@@ -729,8 +916,13 @@
 				D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */,
 				29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */,
 				29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */,
+				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
 				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
+				0078699C2992950E0018B384 /* DatabaseProtocol.swift in Sources */,
+				007869A729929DAF0018B384 /* Challenge.swift in Sources */,
+				007869C429953D4D0018B384 /* MapperError.swift in Sources */,
+				007869CB29966F420018B384 /* ErrorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,8 +930,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0078698629928BBE0018B384 /* ChallengeRepositoryTests.swift in Sources */,
 				0087CBC7293935B500404615 /* BubblegumPresenterTest.swift in Sources */,
+				007869AF29951EAD0018B384 /* ChallengeMapperSpy.swift in Sources */,
 				29788A3F293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift in Sources */,
+				007869BB2995277D0018B384 /* ChallengeMapperTests.swift in Sources */,
+				007869A4299299580018B384 /* DatabaseSpy.swift in Sources */,
 				29B34BD4292FB8640092FD1F /* Testing.swift in Sources */,
 				0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */,
 				29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */,
