@@ -13,7 +13,6 @@ final class bubble_jamDatetimeServiceTests: XCTestCase {
     func test_datetime_shouldGetCurrentDate() {
         let (sut, _) = makeSUT()
         XCTAssertEqual(Date.now, sut.getCurrentDate())
-        
     }
 
 }
