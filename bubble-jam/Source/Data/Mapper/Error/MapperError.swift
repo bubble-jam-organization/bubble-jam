@@ -7,6 +7,13 @@
 
 import Foundation
 
-enum MapperError: Error {
+enum MapperError: LocalizedError {
     case couldNotMapData
+    
+    var errorDescription: String? {
+        switch self {
+            case .couldNotMapData:
+                return "Ocorreu um erro no mapeamento dos dados! Verifique se existe alguma atualização do aplicativo e tente novamente!"
+        }
+    }
 }

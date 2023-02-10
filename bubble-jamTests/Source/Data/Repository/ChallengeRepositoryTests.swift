@@ -55,14 +55,41 @@ final class ChallengeRepositoryTests: XCTestCase {
         }
     }
     
-    func test_loadCurrentChallenge_when_mapper_() async throws {
-        database.fetchRecordsError = { throw CKError(CKError.Code(rawValue: 4)!) }
+    func test_loadCurrentChallenge_when_challengeNotFound_should_handle_correcly() async throws {
+        database.fetchRecordsData = []
+        do {
+            _ = try await sut.loadCurrentChallenge()
+        } catch {
+            XCTAssertNotNil(error as? RepositoryError)
+        }
+    }
+    
+    func test_loadCurrentChallenge_when_challengeNotFound_should_raise_correct_description() async throws {
+        database.fetchRecordsData = []
+        do {
+            _ = try await sut.loadCurrentChallenge()
+        } catch {
+            XCTAssertEqual(error.localizedDescription, "Não foi possível encontrar um challenge!")
+        }
+    }
+    
+    func test_loadCurrentChallenge_when_mapper_fails_error_should_be_MapperError() async throws {
+        mapper.mapToDomainError = { throw MapperError.couldNotMapData }
+        do {
+            _ = try await sut.loadCurrentChallenge()
+        } catch {
+            XCTAssertNotNil(error as? MapperError)
+        }
+    }
+    
+    func test_loadCurrentChallenge_when_mapper_fails_should_raise_correct_description() async throws {
+        mapper.mapToDomainError = { throw MapperError.couldNotMapData }
         do {
             _ = try await sut.loadCurrentChallenge()
         } catch {
             XCTAssertEqual(
                 error.localizedDescription,
-                "Não foi possível concluir a operação devido uma falha na comunicação da internet! Verifique sua conexão e tente novamente"
+                "Ocorreu um erro no mapeamento dos dados! Verifique se existe alguma atualização do aplicativo e tente novamente!"
             )
         }
     }

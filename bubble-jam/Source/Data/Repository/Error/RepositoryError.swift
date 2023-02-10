@@ -7,7 +7,13 @@
 
 import Foundation
 
-enum RepositoryError: Error {
+enum RepositoryError: Error, Equatable, LocalizedError {
     case challengeNotFound
-
+    
+    var errorDescription: String? {
+        switch self {
+            case .challengeNotFound:
+                return "Não foi possível encontrar um challenge!"
+        }
+    }
 }
