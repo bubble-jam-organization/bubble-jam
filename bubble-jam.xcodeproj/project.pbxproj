@@ -30,6 +30,8 @@
 		00B82E7E292BBE9D0088996B /* bubble_jamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */; };
 		00B82E80292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */; };
 		290E72BA29465CCC008EBBEE /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E72B929465CCC008EBBEE /* Page3ViewController.swift */; };
+		2926211D299523A80075A372 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2926211C299523A80075A372 /* AppIntentVocabulary.plist */; };
+		2926213B299524040075A372 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2926213D299524040075A372 /* Localizable.strings */; };
 		29788A3B293F7FCB004F82DB /* DatetimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3A293F7FCB004F82DB /* DatetimeService.swift */; };
 		29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */; };
 		29788A3F293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */; };
@@ -108,6 +110,9 @@
 		00B82E7D292BBE9D0088996B /* bubble_jamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITests.swift; sourceTree = "<group>"; };
 		00B82E7F292BBE9D0088996B /* bubble_jamUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bubble_jamUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		290E72B929465CCC008EBBEE /* Page3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
+		2926211C299523A80075A372 /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
+		2926213C299524040075A372 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2926213E2995240C0075A372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		29788A3A293F7FCB004F82DB /* DatetimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeService.swift; sourceTree = "<group>"; };
 		29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeServicing.swift; sourceTree = "<group>"; };
 		29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDatetimeServiceTests.swift"; sourceTree = "<group>"; };
@@ -331,8 +336,10 @@
 			isa = PBXGroup;
 			children = (
 				00B82E5C292BBE9C0088996B /* AppDelegate.swift */,
+				2926211C299523A80075A372 /* AppIntentVocabulary.plist */,
 				00B82E5E292BBE9C0088996B /* SceneDelegate.swift */,
 				00B82E67292BBE9D0088996B /* LaunchScreen.storyboard */,
+				2926213D299524040075A372 /* Localizable.strings */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -620,6 +627,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 00B82E50292BBE9C0088996B;
 			packageReferences = (
@@ -640,8 +648,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2926213B299524040075A372 /* Localizable.strings in Resources */,
 				0087CBBF2938E8C600404615 /* song.m4a in Resources */,
 				00B82E69292BBE9D0088996B /* LaunchScreen.storyboard in Resources */,
+				2926211D299523A80075A372 /* AppIntentVocabulary.plist in Resources */,
 				00B82E66292BBE9D0088996B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +788,15 @@
 				00B82E68292BBE9D0088996B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2926213D299524040075A372 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2926213C299524040075A372 /* pt-BR */,
+				2926213E2995240C0075A372 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

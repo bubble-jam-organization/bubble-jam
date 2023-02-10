@@ -29,7 +29,7 @@ class DraftPill: UIView {
     
     lazy var pillLabel: UILabel = {
         let label = UILabel()
-        label.text = "Start Drafting"
+        label.text = NSLocalizedString("Start Drafting", comment: "Drafting button")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)

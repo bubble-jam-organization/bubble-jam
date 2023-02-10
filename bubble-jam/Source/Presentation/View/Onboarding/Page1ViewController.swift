@@ -35,8 +35,10 @@ class Page1ViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.attributedText = attributedText(
-            withString: "Every week BubbleJam will have a challenge based on a short melody or sound, try to make the best song you can using it.",
-            boldString: ["Every week", "short melody", "make the best song you can"],
+            withString: NSLocalizedString("page1tutorial", comment: "page 1 tutorial label"),
+            boldString: [NSLocalizedString("Every week", comment: "Every week" ),
+                         NSLocalizedString("short melody", comment: "short melody"),
+                         NSLocalizedString("make the best song you can", comment: "make the best song you can")],
             font: UIFont.systemFont(ofSize: 18, weight: .regular))
         label.textColor = .gray
 

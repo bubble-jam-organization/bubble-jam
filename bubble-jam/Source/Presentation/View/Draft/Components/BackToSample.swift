@@ -27,7 +27,7 @@ class BackToSample: UIView {
     
     private lazy var pillLabel: UILabel = {
         let label = UILabel()
-        label.text = "Back to Sample"
+        label.text = NSLocalizedString("Back to sample", comment: "Back to Sample button label")
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)

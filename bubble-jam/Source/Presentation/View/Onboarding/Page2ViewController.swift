@@ -20,7 +20,7 @@ class Page2ViewController: UIViewController {
     
     private lazy var tutorialTitle: UILabel = {
         let label = UILabel()
-        label.text = "Listening to a Sample"
+        label.text = NSLocalizedString("Listening to a Sample", comment: "Listening to a Sample")
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
@@ -35,11 +35,9 @@ class Page2ViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.attributedText = attributedText(
-            withString: """
-                Tap on the Bubble at the middle of the screen. this will play the sample of the week and open a screen that allow you to download it.
-            """,
-            boldString: ["Tap on the Bubble", "play the sample", "open a screen",
-                         "allow", "download it"],
+            withString: NSLocalizedString("page2tutorial", comment: "page 2 tutorial text"),
+            boldString: [NSLocalizedString("Tap on the Bubble", comment: "Tap on the Bubble"), NSLocalizedString("play the sample", comment: "play the sample"), "open a screen",
+                         NSLocalizedString("allows", comment: "allows"), NSLocalizedString("download it", comment: "download it")],
             font: UIFont.systemFont(ofSize: 18, weight: .regular))
         label.textColor = .gray
 

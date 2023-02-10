@@ -19,7 +19,7 @@ class Page3ViewController: UIViewController {
     
     private lazy var tutorialTitle: UILabel = {
         let label = UILabel()
-        label.text = "Downloading a Sample"
+        label.text = NSLocalizedString("Downloading a Sample", comment: "Downloading a Sample")
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
@@ -34,12 +34,10 @@ class Page3ViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.attributedText = attributedText(
-            withString:
-            """
-            To download the sample of a jam, simply tap on the ”Download Sample”
-            button that appears at the bottom of the screen after you listen to it. Good luck!
-            """,
-            boldString: ["download the sample", "tap on the ”Download Sample”", "Good luck!"],
+            withString: NSLocalizedString("page3tutorial", comment: "page 3 tutorial text"),
+            boldString: [NSLocalizedString("download the sample", comment: "bold1"),
+                         NSLocalizedString("tap on the ”Download Sample”", comment: "bold2"),
+                         NSLocalizedString("Good luck!", comment: "bold3")],
             font: UIFont.systemFont(ofSize: 18, weight: .regular))
         label.textColor = .gray
 
@@ -50,7 +48,7 @@ class Page3ViewController: UIViewController {
     
     private lazy var goToMainScreenButton: DraftPill = {
         let button = DraftPill(frame: .zero)
-        button.pillLabel.text = "Start Now!"
+        button.pillLabel.text = NSLocalizedString("Start Now!", comment: "Start Now!")
         button.translatesAutoresizingMaskIntoConstraints = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(goToMainScreen))
         button.isUserInteractionEnabled = true

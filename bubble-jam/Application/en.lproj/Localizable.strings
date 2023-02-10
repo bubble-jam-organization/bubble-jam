@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  bubble-jam
+
+  Created by Otávio Albuquerque on 09/02/23.
+  
+*/
+"Days left" = "Days left";
+"Start Drafting" = "Start drafting";
+"Export audio" = "Export audio";
+"Back to sample" = "Back to sample";
+"download the sample" = "download the sample";
+"tap on the ”Download Sample”" =  "tap on the ”Download Sample”";
+"Good luck!" = "Good luck!";
+"page3tutorial" = "To download the sample of a jam, simply tap on the ”Download Sample” button that appears at the bottom of the screen after you listen to it. Good luck!";
+"page2tutorial" = "Tap on the Bubble at the middle of the screen. This will play the sample of the week and open a screen that allows you to download it.";
+"Tap on the Bubble" = "Tap on the Bubble";
+"play the sample" = "play the sample";
+"allows" = "allows";
+"download it" = "download it";
+"page1tutorial" = "Every week BubbleJam will have a challenge based on a short melody or sound, try to make the best song you can using it.";
+"Every week" = "Every week";
+"short melody" = "short melody";
+"make the best song you can" = "make the best song you can";
+"Listening to a Sample" = "Listening to a Sample";
+"Downloading a Sample" =  "Downloading a Sample";
+"Start Now!" = "Start Now!";
