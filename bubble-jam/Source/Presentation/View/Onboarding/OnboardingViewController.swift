@@ -83,7 +83,7 @@ extension OnboardingViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
             pageControl.heightAnchor.constraint(equalToConstant: 30),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
