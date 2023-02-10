@@ -108,7 +108,8 @@ extension ChallengeMapperTests {
     }
     
     func generateAudioAndPropetiesData() -> (input: CKRecord, expected: AudioAndPropeties) {
-        let data = Data()
+        let bundle = Bundle(for: type(of: self))
+        let dataAsset = CKAsset(fileURL: bundle.url(forResource: "song", withExtension: "m4a")!)
         let bpm: UInt = 0
         let format = "m4a"
         let notes = ["c", "a"]
@@ -116,7 +117,7 @@ extension ChallengeMapperTests {
         func generateDTO() -> CKRecord {
             let inputRecord = CKRecord(recordType: "AudioAndPropeties")
             inputRecord.setValuesForKeys([
-                "data": data,
+                "data": dataAsset,
                 "bpm": bpm,
                 "format": format,
                 "notes": notes
@@ -125,7 +126,8 @@ extension ChallengeMapperTests {
         }
         
         func generateExpectedData() -> AudioAndPropeties {
-            return AudioAndPropeties(data: data, format: format, notes: notes, bpm: bpm)
+            let audioData = try? Data(contentsOf: dataAsset.fileURL!)
+            return AudioAndPropeties(data: audioData!, format: format, notes: notes, bpm: bpm)
         }
         
         return (generateDTO(), generateExpectedData())

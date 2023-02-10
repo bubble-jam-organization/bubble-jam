@@ -49,7 +49,6 @@
 		290E72BA29465CCC008EBBEE /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E72B929465CCC008EBBEE /* Page3ViewController.swift */; };
 		29788A3B293F7FCB004F82DB /* DatetimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3A293F7FCB004F82DB /* DatetimeService.swift */; };
 		29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */; };
-		29788A3F293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */; };
 		29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A472940DC30004F82DB /* OnboardingViewController.swift */; };
 		29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A492940DC76004F82DB /* Page1ViewController.swift */; };
 		29788A4C2940DCC1004F82DB /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A4B2940DCC1004F82DB /* Page2ViewController.swift */; };
@@ -145,7 +144,6 @@
 		290E72B929465CCC008EBBEE /* Page3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
 		29788A3A293F7FCB004F82DB /* DatetimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeService.swift; sourceTree = "<group>"; };
 		29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeServicing.swift; sourceTree = "<group>"; };
-		29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDatetimeServiceTests.swift"; sourceTree = "<group>"; };
 		29788A472940DC30004F82DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		29788A492940DC76004F82DB /* Page1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1ViewController.swift; sourceTree = "<group>"; };
 		29788A4B2940DCC1004F82DB /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
@@ -586,7 +584,6 @@
 			children = (
 				29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */,
 				29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */,
-				29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */,
 			);
 			path = "bubble-jamServiceTests";
 			sourceTree = "<group>";
@@ -933,7 +930,6 @@
 				0078698629928BBE0018B384 /* ChallengeRepositoryTests.swift in Sources */,
 				0087CBC7293935B500404615 /* BubblegumPresenterTest.swift in Sources */,
 				007869AF29951EAD0018B384 /* ChallengeMapperSpy.swift in Sources */,
-				29788A3F293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift in Sources */,
 				007869BB2995277D0018B384 /* ChallengeMapperTests.swift in Sources */,
 				007869A4299299580018B384 /* DatabaseSpy.swift in Sources */,
 				29B34BD4292FB8640092FD1F /* Testing.swift in Sources */,
