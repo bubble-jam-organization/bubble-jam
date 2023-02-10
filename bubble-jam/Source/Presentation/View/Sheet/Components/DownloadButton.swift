@@ -31,6 +31,7 @@ class DownloadButton: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = NSLocalizedString("Export audio", comment: "Export Audio Button")
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     

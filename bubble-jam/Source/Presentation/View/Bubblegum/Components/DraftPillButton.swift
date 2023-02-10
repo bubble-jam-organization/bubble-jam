@@ -33,6 +33,9 @@ class DraftPill: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.preferredFont(for: .body, weight: .bold)
+        label.adjustsFontForContentSizeCategory = true
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
    

@@ -17,6 +17,8 @@ class AudioInformationGroup: UIView {
         label.text = "Descrição"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont.preferredFont(for: .title2, weight: .bold)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
 
@@ -26,7 +28,9 @@ class AudioInformationGroup: UIView {
         label.text = audioDetails.description
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -36,16 +40,20 @@ class AudioInformationGroup: UIView {
         label.text = String(audioDetails.bpm) + " bpm"
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.preferredFont(for: .title3, weight: .regular)
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
     private lazy var audioNotes: UILabel = {
-        let noets = UILabel(frame: .zero)
-        noets.translatesAutoresizingMaskIntoConstraints = false
-        noets.text = "E G D B F#"
-        noets.textColor = .white
-        noets.font = UIFont.systemFont(ofSize: 18)
-        return noets
+        let notes = UILabel(frame: .zero)
+        notes.translatesAutoresizingMaskIntoConstraints = false
+        notes.text = "E G D B F#"
+        notes.textColor = .white
+        notes.font = UIFont.systemFont(ofSize: 18)
+        notes.font = UIFont.preferredFont(for: .title3, weight: .regular)
+        notes.adjustsFontForContentSizeCategory = true
+        return notes
     }()
     
     init(frame: CGRect, audioDetails: AudioDetails) {

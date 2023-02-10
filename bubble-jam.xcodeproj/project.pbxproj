@@ -32,6 +32,7 @@
 		290E72BA29465CCC008EBBEE /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E72B929465CCC008EBBEE /* Page3ViewController.swift */; };
 		2926211D299523A80075A372 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2926211C299523A80075A372 /* AppIntentVocabulary.plist */; };
 		2926213B299524040075A372 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2926213D299524040075A372 /* Localizable.strings */; };
+		292621402996836E0075A372 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2926213F2996836E0075A372 /* UIFontExtensions.swift */; };
 		29788A3B293F7FCB004F82DB /* DatetimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3A293F7FCB004F82DB /* DatetimeService.swift */; };
 		29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */; };
 		29788A3F293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */; };
@@ -113,6 +114,7 @@
 		2926211C299523A80075A372 /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		2926213C299524040075A372 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2926213E2995240C0075A372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2926213F2996836E0075A372 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		29788A3A293F7FCB004F82DB /* DatetimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeService.swift; sourceTree = "<group>"; };
 		29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeServicing.swift; sourceTree = "<group>"; };
 		29788A3E293F88F1004F82DB /* bubble-jamDatetimeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDatetimeServiceTests.swift"; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			children = (
 				29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */,
 				D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */,
+				2926213F2996836E0075A372 /* UIFontExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				D673C95B2940C5F700C6B207 /* ScrollViewExtensions.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
+				292621402996836E0075A372 /* UIFontExtensions.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
 				D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */,

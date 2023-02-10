@@ -22,8 +22,9 @@ class Page3ViewController: UIViewController {
         label.text = NSLocalizedString("Downloading a Sample", comment: "Downloading a Sample")
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        label.font = UIFont.preferredFont(for: .title1, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -38,10 +39,12 @@ class Page3ViewController: UIViewController {
             boldString: [NSLocalizedString("download the sample", comment: "bold1"),
                          NSLocalizedString("tap on the ”Download Sample”", comment: "bold2"),
                          NSLocalizedString("Good luck!", comment: "bold3")],
-            font: UIFont.systemFont(ofSize: 18, weight: .regular))
+            font: UIFont.preferredFont(for: .body, weight: .regular))
+        
         label.textColor = .gray
 
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         return label
         
     }()
