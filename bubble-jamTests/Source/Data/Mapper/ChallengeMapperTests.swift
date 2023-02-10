@@ -127,7 +127,6 @@ extension ChallengeMapperTests {
         
         func generateExpectedData() -> AudioAndPropeties {
             let audioData = try? Data(contentsOf: dataAsset.fileURL!)
-            XCTAssertNotNil(audioData)
             return AudioAndPropeties(data: audioData!, format: format, notes: notes, bpm: bpm)
         }
         
