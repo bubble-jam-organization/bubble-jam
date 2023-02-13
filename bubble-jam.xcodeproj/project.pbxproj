@@ -49,7 +49,6 @@
 		290E72BA29465CCC008EBBEE /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290E72B929465CCC008EBBEE /* Page3ViewController.swift */; };
 		2926211D299523A80075A372 /* AppIntentVocabulary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2926211C299523A80075A372 /* AppIntentVocabulary.plist */; };
 		2926213B299524040075A372 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2926213D299524040075A372 /* Localizable.strings */; };
-		292621402996836E0075A372 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2926213F2996836E0075A372 /* UIFontExtensions.swift */; };
 		29788A3B293F7FCB004F82DB /* DatetimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3A293F7FCB004F82DB /* DatetimeService.swift */; };
 		29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */; };
 		29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A472940DC30004F82DB /* OnboardingViewController.swift */; };
@@ -63,6 +62,7 @@
 		29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD82930FA560092FD1F /* DownloadService.swift */; };
 		29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */; };
 		29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */; };
+		29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60101299A57D700AAE025 /* UIFontExtension.swift */; };
 		D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */; };
 		D657FEDE293786CF005ADD07 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDD293786CF005ADD07 /* Background.swift */; };
 		D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */; };
@@ -148,7 +148,6 @@
 		2926211C299523A80075A372 /* AppIntentVocabulary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppIntentVocabulary.plist; sourceTree = "<group>"; };
 		2926213C299524040075A372 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2926213E2995240C0075A372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2926213F2996836E0075A372 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		29788A3A293F7FCB004F82DB /* DatetimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeService.swift; sourceTree = "<group>"; };
 		29788A3C293F7FD5004F82DB /* DatetimeServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatetimeServicing.swift; sourceTree = "<group>"; };
 		29788A472940DC30004F82DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +162,7 @@
 		29B34BD82930FA560092FD1F /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		29B34BDB2930FC250092FD1F /* DownloadServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceErrors.swift; sourceTree = "<group>"; };
 		29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDownloadServiceTests.swift"; sourceTree = "<group>"; };
+		29F60101299A57D700AAE025 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSheetViewController.swift; sourceTree = "<group>"; };
 		D657FEDD293786CF005ADD07 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeBanner.swift; sourceTree = "<group>"; };
@@ -611,7 +611,7 @@
 			children = (
 				29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */,
 				D673C95A2940C5F700C6B207 /* ScrollViewExtensions.swift */,
-				2926213F2996836E0075A372 /* UIFontExtensions.swift */,
+				29F60101299A57D700AAE025 /* UIFontExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -885,7 +885,6 @@
 				007869B529951F480018B384 /* ChallengeMapperProtocol.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
-				292621402996836E0075A372 /* UIFontExtensions.swift in Sources */,
 				007869C929966A370018B384 /* ErrorHandler.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
@@ -927,6 +926,7 @@
 				D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */,
 				29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */,
 				29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */,
+				29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */,
 				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
 				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
