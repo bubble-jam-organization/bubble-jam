@@ -37,12 +37,9 @@ class ChallengeMapper: ChallengeMapperProtocol {
            let format = audioRecord["format"] as? String,
            let notes = audioRecord["notes"] as? [String],
            let bpm = audioRecord ["bpm"] as? UInt {
-            do {
-                let audioData = try Data(contentsOf: dataAsset.fileURL!)
-                return AudioAndPropeties(data: audioData, format: format, notes: notes, bpm: bpm)
-            } catch {
-                throw MapperError.couldNotMapData
-            }
+            guard let dataURL = dataAsset.fileURL else { throw MapperError.couldNotMapData }
+        
+            return AudioAndPropeties(path: dataURL, format: format, notes: notes, bpm: bpm)
         }
         throw MapperError.couldNotMapData
     }

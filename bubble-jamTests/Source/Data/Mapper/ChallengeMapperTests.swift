@@ -68,6 +68,19 @@ final class ChallengeMapperTests: XCTestCase {
             XCTFail("Error should be throwed")
         } catch {}
     }
+    
+    func test_mapToDomain_should_map_correctly() async throws {
+        let (sut, db) = makeSUT()
+        let challengeData = generateChallengeData()
+        let audioData = generateAudioAndPropetiesData()
+        db.fetchRecordPerIdData = audioData.input
+        do {
+            let challenge = try await sut.mapToDomain(challengeData.input)
+            XCTAssertEqual(challenge, challengeData.expected)
+        } catch {
+            XCTFail("Test should not raise any error, but: \(error.localizedDescription)")
+        }
+    }
 }
 
 extension ChallengeMapperTests {
@@ -126,8 +139,7 @@ extension ChallengeMapperTests {
         }
         
         func generateExpectedData() -> AudioAndPropeties {
-            let audioData = try? Data(contentsOf: dataAsset.fileURL!)
-            return AudioAndPropeties(data: audioData!, format: format, notes: notes, bpm: bpm)
+            return AudioAndPropeties(path: dataAsset.fileURL!, format: format, notes: notes, bpm: bpm)
         }
         
         return (generateDTO(), generateExpectedData())

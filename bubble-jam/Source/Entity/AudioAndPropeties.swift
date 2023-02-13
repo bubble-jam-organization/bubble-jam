@@ -8,7 +8,7 @@
 import Foundation
 
 struct AudioAndPropeties: Equatable {
-    let data: Data
+    let path: URL
     let format: String
     let notes: [String]
     let bpm: UInt

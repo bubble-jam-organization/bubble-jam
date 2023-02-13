@@ -101,6 +101,8 @@ extension ChallengeRepositoryTests {
     }
     
     func generateExpectedChallenge() -> Challenge {
+        let bundle = Bundle(for: type(of: self))
+        let fileUrl = bundle.url(forResource: "song", withExtension: "m4a")
         return Challenge(
             title: "",
             description: "",
@@ -108,7 +110,7 @@ extension ChallengeRepositoryTests {
             initialDate: Date.now,
             deadline: Date.distantFuture,
             audio: AudioAndPropeties(
-                data: Data(),
+                path: fileUrl!,
                 format: "",
                 notes: [],
                 bpm: 0
