@@ -556,6 +556,7 @@
 			children = (
 				00786978299145D30018B384 /* Constants.swift */,
 				00B82E5C292BBE9C0088996B /* AppDelegate.swift */,
+				2926211C299523A80075A372 /* AppIntentVocabulary.plist */,
 				00B82E5E292BBE9C0088996B /* SceneDelegate.swift */,
 				2926211C299523A80075A372 /* AppIntentVocabulary.plist */,
 				00B82E67292BBE9D0088996B /* LaunchScreen.storyboard */,
