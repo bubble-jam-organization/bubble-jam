@@ -21,10 +21,11 @@ class TitleLabels: UIView {
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.text = nameOfChallenge
         label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.font = UIFont.preferredFont(for: .title1, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
-        
+        label.adjustsFontForContentSizeCategory = true
         return label
         
     }()
@@ -32,12 +33,13 @@ class TitleLabels: UIView {
     private lazy var descriptionOfChallengeLabel: UILabel = {
         
         let label = UILabel()
-        label.text = descriptionOfChallenge! + "days left"
+        label.text = descriptionOfChallenge! + NSLocalizedString("Days left", comment: "Days remaining label")
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        label.font = UIFont.preferredFont(for: .title3, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        
+        label.adjustsFontForContentSizeCategory = true
         return label
         
     }()

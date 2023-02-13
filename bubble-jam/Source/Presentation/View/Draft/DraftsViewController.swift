@@ -22,7 +22,7 @@ class DraftsViewController: UIViewController {
     
     private lazy var samplePill: DraftPill = {
         let pill = DraftPill()
-        pill.pillLabel.text = "Back to Sample"
+        pill.pillLabel.text = NSLocalizedString("Back to sample", comment: "Back to Sample button label")
         pill.translatesAutoresizingMaskIntoConstraints = false
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))

@@ -23,8 +23,9 @@ class Page1ViewController: UIViewController {
         label.text = "Jams"
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        label.font = UIFont.preferredFont(for: .title1, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         return label
     }()
     
@@ -35,12 +36,14 @@ class Page1ViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.attributedText = attributedText(
-            withString: "Every week BubbleJam will have a challenge based on a short melody or sound, try to make the best song you can using it.",
-            boldString: ["Every week", "short melody", "make the best song you can"],
-            font: UIFont.systemFont(ofSize: 18, weight: .regular))
+            withString: NSLocalizedString("page1tutorial", comment: "page 1 tutorial label"),
+            boldString: [NSLocalizedString("Every week", comment: "Every week" ),
+                         NSLocalizedString("short melody", comment: "short melody"),
+                         NSLocalizedString("make the best song you can", comment: "make the best song you can")],
+            font: UIFont.preferredFont(for: .body, weight: .regular))
         label.textColor = .gray
-
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontForContentSizeCategory = true
         return label
         
     }()
