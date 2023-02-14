@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,6 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.frame = UIScreen.main.bounds
+        
+        let database = CKContainer(identifier: Constants.containerIdentifier).privateCloudDatabase
+        let repository = DraftRepository(database: database)
+        
+        Task {
+            
+            let url = URL(filePath: "song.m4a")
+            let draft = Draft(audio: url)
+            do {
+                try await repository.uploadDraft(draft)
+            } catch {
+                print(error)
+            }
+            
+        }
     
         if UIApplication.isFirstLaunch() {
             let onboarding = OnboardingViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
