@@ -17,7 +17,8 @@ class DraftRepository: DraftRepositoryProtocol {
     
     func uploadDraft(_ draft: Draft) async throws {
         let record = CKRecord(recordType: "Draft")
-        record.setValue(CKAsset(fileURL: draft.audio), forKey: "audio")
+        let asset = CKAsset(fileURL: draft.audio)
+        record.setValue(asset, forKey: "audio")
         do {
             _ = try await database.save(record)
         } catch {
