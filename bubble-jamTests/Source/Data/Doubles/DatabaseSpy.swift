@@ -12,6 +12,7 @@ import CloudKit
 class DatabaseSpy: Database {
     private(set) var fetchRecordsCalled = 0
     private(set) var fetchRecordPerIdCalled = 0
+    private(set) var saveRecordCalled = 0
     
     // MARK: - Data
     var fetchRecordsData: [CKRecord] = []
@@ -19,6 +20,9 @@ class DatabaseSpy: Database {
     
     var fetchRecordPerIdData: CKRecord?
     var fetchRecordsPerIdError: (() throws -> Void)?
+    
+    var saveRecordData: CKRecord?
+    var saveRecordError: (() throws -> Void)?
 
     // MARK: - Protocol Functions
     func records(matching query: CKQuery, inZoneWith zoneID: CKRecordZone.ID?) async throws -> [CKRecord] {
@@ -32,5 +36,11 @@ class DatabaseSpy: Database {
         try fetchRecordsPerIdError?()
         assert(fetchRecordPerIdData != nil)
         return fetchRecordPerIdData!
+    }
+    
+    func save(_ record: CKRecord) async throws -> CKRecord {
+        saveRecordCalled += 1
+        try saveRecordError?()
+        return saveRecordData!
     }
 }
