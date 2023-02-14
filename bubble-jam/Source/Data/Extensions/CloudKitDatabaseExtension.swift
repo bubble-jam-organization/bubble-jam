@@ -9,3 +9,9 @@ import Foundation
 import CloudKit
 
 extension CKDatabase: Database { }
+
+extension CKQuery {
+    convenience init(queryType: CloudKitQueryType, predicate: NSPredicate) {
+        self.init(recordType: queryType.recordType, predicate: predicate)
+    }
+}

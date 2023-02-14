@@ -97,7 +97,8 @@ final class ChallengeRepositoryTests: XCTestCase {
 
 extension ChallengeRepositoryTests {
     func generateDatabaseChallengeResponse() -> CKRecord {
-        return CKRecord(recordType: "Challenge")
+        let challengeRecordType = ChallengeRecordType()
+        return CKRecord(recordType: challengeRecordType.recordType)
     }
     
     func generateExpectedChallenge() -> Challenge {

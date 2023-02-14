@@ -19,7 +19,7 @@ class ChallengeRepository: ChallengeRepositoryProtocol {
     
     func loadCurrentChallenge() async throws -> Challenge {
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Challenge", predicate: predicate)
+        let query = CKQuery(queryType: ChallengeRecordType(), predicate: predicate)
         
         do {
             let result = try await database.records(matching: query, inZoneWith: nil)

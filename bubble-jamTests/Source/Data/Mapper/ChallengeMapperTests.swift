@@ -51,7 +51,8 @@ final class ChallengeMapperTests: XCTestCase {
     
     func test_mapToDomain_should_throw_map_error_when_could_not_map() async throws {
         let (sut, _) = makeSUT()
-        let inputRecord = CKRecord(recordType: "Challenge")
+        let challengeType = ChallengeRecordType()
+        let inputRecord = CKRecord(recordType: challengeType.recordType)
         inputRecord.setValuesForKeys([
             "title": 1,
             "description": "",
@@ -94,7 +95,8 @@ extension ChallengeMapperTests {
         let inputAudioRecord =  audioData.input
         
         func generateDTO() -> CKRecord {
-            let inputRecord = CKRecord(recordType: "Challenge")
+            let challengeType = ChallengeRecordType()
+            let inputRecord = CKRecord(recordType: challengeType.recordType)
             inputRecord.setValuesForKeys([
                 "title": title,
                 "description": description,
