@@ -10,6 +10,7 @@
 		00523CDC299BD5890075393A /* CloudKitQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CDB299BD5890075393A /* CloudKitQueryType.swift */; };
 		00523CDF299BD61E0075393A /* ChallengeRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CDE299BD61E0075393A /* ChallengeRecordType.swift */; };
 		00523CE1299BD7410075393A /* DraftRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE0299BD7410075393A /* DraftRecordType.swift */; };
+		00523CE4299BD9A90075393A /* AudioAndPropetiesRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */; };
 		00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */; };
 		00786979299145D30018B384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786978299145D30018B384 /* Constants.swift */; };
 		0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078697C29928B030018B384 /* ChallengeRepository.swift */; };
@@ -111,6 +112,7 @@
 		00523CDB299BD5890075393A /* CloudKitQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitQueryType.swift; sourceTree = "<group>"; };
 		00523CDE299BD61E0075393A /* ChallengeRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRecordType.swift; sourceTree = "<group>"; };
 		00523CE0299BD7410075393A /* DraftRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRecordType.swift; sourceTree = "<group>"; };
+		00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAndPropetiesRecordType.swift; sourceTree = "<group>"; };
 		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
 		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0078697A299146CB0018B384 /* bubble-jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "bubble-jam.entitlements"; sourceTree = "<group>"; };
@@ -232,6 +234,14 @@
 			path = Challenge;
 			sourceTree = "<group>";
 		};
+		00523CE2299BD9910075393A /* AudioAndPropeties */ = {
+			isa = PBXGroup;
+			children = (
+				00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */,
+			);
+			path = AudioAndPropeties;
+			sourceTree = "<group>";
+		};
 		00786972299143240018B384 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,9 +285,10 @@
 		0078697B29928AEF0018B384 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				00523CE2299BD9910075393A /* AudioAndPropeties */,
+				007869C52996671B0018B384 /* Error */,
 				00523CDD299BD6080075393A /* Challenge */,
 				D6F34589299A7FD400E11E92 /* Drafts */,
-				007869C52996671B0018B384 /* Error */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -971,6 +982,7 @@
 				29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */,
 				29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */,
 				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
+				00523CE4299BD9A90075393A /* AudioAndPropetiesRecordType.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
 				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
 				0078699C2992950E0018B384 /* DatabaseProtocol.swift in Sources */,

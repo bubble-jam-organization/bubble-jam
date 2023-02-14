@@ -59,7 +59,7 @@ final class ChallengeMapperTests: XCTestCase {
             "deadline": Date.distantFuture,
             "rules": [],
             "audio": CKRecord.Reference(
-                record: CKRecord(recordType: "AudioAndPropeties"),
+                record: CKRecord(type: AudioAndPropetiesRecordType()),
                 action: .deleteSelf
             )
         ])
@@ -128,7 +128,7 @@ extension ChallengeMapperTests {
         let notes = ["c", "a"]
         
         func generateDTO() -> CKRecord {
-            let inputRecord = CKRecord(recordType: "AudioAndPropeties")
+            let inputRecord = CKRecord(type: AudioAndPropetiesRecordType())
             inputRecord.setValuesForKeys([
                 "data": dataAsset,
                 "bpm": bpm,
