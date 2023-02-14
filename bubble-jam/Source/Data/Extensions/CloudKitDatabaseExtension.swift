@@ -15,3 +15,9 @@ extension CKQuery {
         self.init(recordType: queryType.recordType, predicate: predicate)
     }
 }
+
+extension CKRecord {
+    convenience init(type: CloudKitQueryType, recordID: CKRecord.ID = CKRecord.ID()) {
+        self.init(recordType: type.recordType, recordID: recordID)
+    }
+}
