@@ -14,7 +14,7 @@ final class DraftRepositoryTests: XCTestCase {
     func test_uploadDraft_when_valid_should_sucessfullyCallDatabaseToSave() async throws {
         let (sut, database) = makeSUT()
         
-        database.saveRecordData = CKRecord(recordType: "Draft")
+        database.saveRecordData = CKRecord(type: DraftRecordType())
         let bundle = Bundle(for: type(of: self))
         let fileUrl = bundle.url(forResource: "song", withExtension: "m4a")
         let draft = Draft(audio: fileUrl!)
@@ -26,7 +26,7 @@ final class DraftRepositoryTests: XCTestCase {
     
     func test_uploadDraft_when_valid_should_beCalledAsManyTimesAsNeeded() async throws {
         let (sut, database) = makeSUT()
-        database.saveRecordData = CKRecord(recordType: "Draft")
+        database.saveRecordData = CKRecord(type: DraftRecordType())
         let bundle = Bundle(for: type(of: self))
         let fileUrl = bundle.url(forResource: "song", withExtension: "m4a")
         let draft = Draft(audio: fileUrl!)
@@ -49,7 +49,10 @@ final class DraftRepositoryTests: XCTestCase {
         do {
             try await sut.uploadDraft(draft)
         } catch {
-            XCTAssertEqual(error.localizedDescription, "Não foi possível concluir a operação devido uma falha na comunicação da internet! Verifique sua conexão e tente novamente")
+            XCTAssertEqual(
+                error.localizedDescription,
+                "Não foi possível concluir a operação devido uma falha na comunicação da internet! Verifique sua conexão e tente novamente"
+            )
         }
     }
     
