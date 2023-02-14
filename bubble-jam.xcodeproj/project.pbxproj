@@ -84,6 +84,7 @@
 		D6F34587299A7F3200E11E92 /* Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F34586299A7F3200E11E92 /* Draft.swift */; };
 		D6F3458B299A7FE500E11E92 /* DraftRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3458A299A7FE500E11E92 /* DraftRepository.swift */; };
 		D6F3458D299A802200E11E92 /* DraftRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3458C299A802200E11E92 /* DraftRepositoryProtocol.swift */; };
+		D6F3458F299BC1FE00E11E92 /* DraftRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3458E299BC1FE00E11E92 /* DraftRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		D6F34586299A7F3200E11E92 /* Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draft.swift; sourceTree = "<group>"; };
 		D6F3458A299A7FE500E11E92 /* DraftRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepository.swift; sourceTree = "<group>"; };
 		D6F3458C299A802200E11E92 /* DraftRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepositoryProtocol.swift; sourceTree = "<group>"; };
+		D6F3458E299BC1FE00E11E92 /* DraftRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 			children = (
 				007869A02992993C0018B384 /* Doubles */,
 				0078698529928BBE0018B384 /* ChallengeRepositoryTests.swift */,
+				D6F3458E299BC1FE00E11E92 /* DraftRepositoryTests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -966,6 +969,7 @@
 				007869AF29951EAD0018B384 /* ChallengeMapperSpy.swift in Sources */,
 				007869BB2995277D0018B384 /* ChallengeMapperTests.swift in Sources */,
 				007869A4299299580018B384 /* DatabaseSpy.swift in Sources */,
+				D6F3458F299BC1FE00E11E92 /* DraftRepositoryTests.swift in Sources */,
 				29B34BD4292FB8640092FD1F /* Testing.swift in Sources */,
 				0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */,
 				29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */,
