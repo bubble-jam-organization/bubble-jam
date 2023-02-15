@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00523CDC299BD5890075393A /* CloudKitQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CDB299BD5890075393A /* CloudKitQueryType.swift */; };
+		00523CDF299BD61E0075393A /* ChallengeRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CDE299BD61E0075393A /* ChallengeRecordType.swift */; };
+		00523CE1299BD7410075393A /* DraftRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE0299BD7410075393A /* DraftRecordType.swift */; };
+		00523CE4299BD9A90075393A /* AudioAndPropetiesRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */; };
 		00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */; };
 		00786979299145D30018B384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786978299145D30018B384 /* Constants.swift */; };
 		0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078697C29928B030018B384 /* ChallengeRepository.swift */; };
@@ -105,6 +109,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00523CDB299BD5890075393A /* CloudKitQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitQueryType.swift; sourceTree = "<group>"; };
+		00523CDE299BD61E0075393A /* ChallengeRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRecordType.swift; sourceTree = "<group>"; };
+		00523CE0299BD7410075393A /* DraftRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRecordType.swift; sourceTree = "<group>"; };
+		00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAndPropetiesRecordType.swift; sourceTree = "<group>"; };
 		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
 		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0078697A299146CB0018B384 /* bubble-jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "bubble-jam.entitlements"; sourceTree = "<group>"; };
@@ -217,6 +225,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00523CDD299BD6080075393A /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				0078697C29928B030018B384 /* ChallengeRepository.swift */,
+				00523CDE299BD61E0075393A /* ChallengeRecordType.swift */,
+			);
+			path = Challenge;
+			sourceTree = "<group>";
+		};
+		00523CE2299BD9910075393A /* AudioAndPropeties */ = {
+			isa = PBXGroup;
+			children = (
+				00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */,
+			);
+			path = AudioAndPropeties;
+			sourceTree = "<group>";
+		};
 		00786972299143240018B384 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,9 +285,10 @@
 		0078697B29928AEF0018B384 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D6F34589299A7FD400E11E92 /* Drafts */,
+				00523CE2299BD9910075393A /* AudioAndPropeties */,
 				007869C52996671B0018B384 /* Error */,
-				0078697C29928B030018B384 /* ChallengeRepository.swift */,
+				00523CDD299BD6080075393A /* Challenge */,
+				D6F34589299A7FD400E11E92 /* Drafts */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -319,6 +345,7 @@
 			children = (
 				0078699B2992950E0018B384 /* DatabaseProtocol.swift */,
 				007869B029951F1E0018B384 /* DomainEntityMapper.swift */,
+				00523CDB299BD5890075393A /* CloudKitQueryType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -735,6 +762,7 @@
 			isa = PBXGroup;
 			children = (
 				D6F3458A299A7FE500E11E92 /* DraftRepository.swift */,
+				00523CE0299BD7410075393A /* DraftRecordType.swift */,
 			);
 			path = Drafts;
 			sourceTree = "<group>";
@@ -905,10 +933,13 @@
 				007869B529951F480018B384 /* ChallengeMapperProtocol.swift in Sources */,
 				D6F3458D299A802200E11E92 /* DraftRepositoryProtocol.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
+				00523CDF299BD61E0075393A /* ChallengeRecordType.swift in Sources */,
 				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
 				007869C929966A370018B384 /* ErrorHandler.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
+				00523CE1299BD7410075393A /* DraftRecordType.swift in Sources */,
+				00523CDC299BD5890075393A /* CloudKitQueryType.swift in Sources */,
 				D65CA302293F5AE7008DF1B2 /* DraftTexture.swift in Sources */,
 				0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */,
 				D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */,
@@ -951,6 +982,7 @@
 				29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */,
 				29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */,
 				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
+				00523CE4299BD9A90075393A /* AudioAndPropetiesRecordType.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
 				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
 				0078699C2992950E0018B384 /* DatabaseProtocol.swift in Sources */,
