@@ -14,7 +14,7 @@ final class DraftRepositoryTests: XCTestCase {
     func test_uploadDraft_when_valid_should_sucessfullyCallDatabaseToSave() async throws {
         let (sut, database) = makeSUT()
         
-        database.saveRecordData = CKRecord(type: DraftRecordType())
+        database.saveRecordData = CKRecord(.draftType)
         let bundle = Bundle(for: type(of: self))
         let fileUrl = bundle.url(forResource: "song", withExtension: "m4a")
         let draft = Draft(audio: fileUrl!)
@@ -26,7 +26,7 @@ final class DraftRepositoryTests: XCTestCase {
     
     func test_uploadDraft_when_valid_should_beCalledAsManyTimesAsNeeded() async throws {
         let (sut, database) = makeSUT()
-        database.saveRecordData = CKRecord(type: DraftRecordType())
+        database.saveRecordData = CKRecord(.draftType)
         let bundle = Bundle(for: type(of: self))
         let fileUrl = bundle.url(forResource: "song", withExtension: "m4a")
         let draft = Draft(audio: fileUrl!)

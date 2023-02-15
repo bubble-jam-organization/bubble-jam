@@ -10,3 +10,7 @@ import Foundation
 struct AudioAndPropetiesRecordType: CloudKitQueryType {
     var recordType: String = "AudioAndPropeties"
 }
+
+extension CloudKitQueryType where Self == AudioAndPropetiesRecordType {
+    static var audioAndPropetiesType: Self { .init() }
+}
