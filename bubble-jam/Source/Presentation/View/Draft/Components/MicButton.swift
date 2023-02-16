@@ -28,6 +28,7 @@ class MicButton: UIView {
         let pill = PillButtonComponent(frame: .zero)
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.pillLabel.text = "Adicionar Jam"
+        pill.radius = 32
         pill.contentHorizontalAlignment = .center
         return pill
     }()

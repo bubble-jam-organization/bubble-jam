@@ -49,7 +49,8 @@ extension UploadButton: ViewCoding {
             uploadIcon.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             uploadLabel.topAnchor.constraint(equalTo: uploadIcon.bottomAnchor, constant: 10),
             uploadLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
-            uploadLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            uploadLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            uploadLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
         
         ])
     }

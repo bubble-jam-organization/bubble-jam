@@ -33,16 +33,17 @@ class DraftTableViewCell: UITableViewCell {
         image.tintColor = .black
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.frame = .zero
         return image
     }()
     
     private var draftTitle: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.lineBreakMode = .byWordWrapping
-        label.preferredMaxLayoutWidth = 36
+        label.lineBreakMode = .byCharWrapping
         label.font = UIFont.preferredFont(for: .body, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.frame = .zero
         return label
     }()
     
@@ -52,19 +53,23 @@ class DraftTableViewCell: UITableViewCell {
         stack.alignment = .top
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.spacing = UIStackView.spacingUseSystem
+        stack.frame = .zero
         return stack
     }()
     
     private var draftDuration: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(for: .caption1, weight: .regular)
+        label.font = UIFont.preferredFont(for: .callout, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.frame = .zero
         return label
     }()
     
     private lazy var playStateButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "play.circle"), for: .normal)
+        let config = UIImage.SymbolConfiguration(pointSize: 24.0)
+        let image = UIImage(systemName: "play.circle", withConfiguration: config)
+        button.setImage(image, for: .normal)
         button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
         button.tintColor = .black
         return button
@@ -74,26 +79,14 @@ class DraftTableViewCell: UITableViewCell {
         buttonState.toggle()
     }
     
-    private var horizontalStack: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .horizontal
-        stack.alignment = .center
-        stack.distribution = .fillProportionally
-        stack.spacing = UIStackView.spacingUseSystem
-        stack.layoutMargins = UIEdgeInsets(top: 5, left: 18, bottom: 5, right: 12)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.isLayoutMarginsRelativeArrangement = true
-        return stack
-    }()
-    
     private var verticalStack: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
         stack.distribution = .fillProportionally
-        stack.spacing = UIStackView.spacingUseSystem
         stack.layoutMargins = UIEdgeInsets(top: 5, left: 12, bottom: 5, right: 5)
         stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.frame = .zero
         stack.isLayoutMarginsRelativeArrangement = true
         return stack
     }()
@@ -112,20 +105,30 @@ extension DraftTableViewCell: ViewCoding {
     }
     
     func setupHierarchy() {
-        self.addSubview(horizontalStack)
-        horizontalStack.addArrangedSubview(draftImage)
-        horizontalStack.addArrangedSubview(draftTitle)
+        self.addSubview(draftImage)
+        self.addSubview(draftTitle)
         verticalStack.addArrangedSubview(draftDuration)
         verticalStack.addArrangedSubview(playStateButton)
-        horizontalStack.addArrangedSubview(verticalStack)
+        self.addSubview(verticalStack)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            horizontalStack.topAnchor.constraint(equalTo: self.topAnchor),
-            horizontalStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            horizontalStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            horizontalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            verticalStack.topAnchor.constraint(equalTo: self.topAnchor),
+            verticalStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            verticalStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 60),
+
+            draftImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            draftImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            draftImage.widthAnchor.constraint(equalToConstant: 56),
+            draftImage.heightAnchor.constraint(equalToConstant: 56),
+            
+            draftTitle.leadingAnchor.constraint(equalTo: draftImage.trailingAnchor, constant: 32),
+            draftTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            draftTitle.trailingAnchor.constraint(equalTo: verticalStack.leadingAnchor, constant: -16),
+            draftTitle.widthAnchor.constraint(equalToConstant: 100)
+
         ])
     }
 }
