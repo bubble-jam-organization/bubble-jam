@@ -16,7 +16,7 @@ struct DraftViewModel {
 extension DraftViewModel {
     static let bundle = Bundle.main
     static let mock = [
-        DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
+        DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00")
     ]
 }
 #endif

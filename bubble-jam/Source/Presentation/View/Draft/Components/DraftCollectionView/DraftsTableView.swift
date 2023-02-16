@@ -22,4 +22,15 @@ class DraftTableView: UITableView {
     }
     
     required init?(coder: NSCoder) { nil }
+    
+    override var intrinsicContentSize: CGSize {
+        return contentSize
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        if bounds.size != intrinsicContentSize {
+            invalidateIntrinsicContentSize()
+        }
+    }
 }

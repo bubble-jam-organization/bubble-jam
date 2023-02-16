@@ -31,10 +31,11 @@ class DraftsViewController: UIViewController {
         return label
     }()
     
-    private var draftsCollection: DraftTableView = {
-        let collection = DraftTableView()
-        collection.translatesAutoresizingMaskIntoConstraints = false
-        return collection
+    private var draftsTableView: DraftTableView = {
+        let tableView = DraftTableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .red
+        return tableView
     }()
     
     private lazy var gumPacks: PacksTexture = {
@@ -59,15 +60,14 @@ class DraftsViewController: UIViewController {
 extension DraftsViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .clear
-        draftsCollection.dataSource = self
-        draftsCollection.delegate = self
+        draftsTableView.dataSource = self
+        draftsTableView.delegate = self
         dataSource = DraftViewModel.mock
-        draftsCollection.estimatedRowHeight = 86
     }
     
     func setupHierarchy() {
         view.addSubview(gumPacks)
-        view.addSubview(draftsCollection)
+        view.addSubview(draftsTableView)
         view.addSubview(micButton)
         view.addSubview(titleLabel)
     }
@@ -82,10 +82,10 @@ extension DraftsViewController: ViewCoding {
             titleLabel.topAnchor.constraint(equalTo: gumPacks.bottomAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            draftsCollection.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            draftsCollection.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            draftsCollection.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
-            draftsCollection.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
+            draftsTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            draftsTableView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            draftsTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            draftsTableView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: 0.4),
             
             micButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             micButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
