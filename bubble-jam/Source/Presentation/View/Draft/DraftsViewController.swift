@@ -63,16 +63,19 @@ class DraftsViewController: UIViewController {
         super.viewDidLoad()
         buildLayout()
     }
-
+    
+   @objc func onSwipeDown() { managerDelegate?.scrollToTop() }
 }
 
 extension DraftsViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .clear
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeDown))
+        swipeGesture.direction = .down
+        view.addGestureRecognizer(swipeGesture)
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
         dataSource = DraftViewModel.mock
-
     }
     
     func setupHierarchy() {
