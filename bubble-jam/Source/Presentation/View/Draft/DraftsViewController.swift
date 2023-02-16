@@ -10,6 +10,8 @@ import UIKit
 class DraftsViewController: UIViewController {
     
     weak var managerDelegate: ManagerDelegate?
+    
+    var dataSource = [DraftViewModel]()
         
     init(managerDelegate: ManagerDelegate) {
         self.managerDelegate = managerDelegate
@@ -20,21 +22,12 @@ class DraftsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var samplePill: PillButtonComponent = {
-        let pill = PillButtonComponent()
-        pill.pillLabel.text = NSLocalizedString("Back to sample", comment: "Back to Sample button label")
-        pill.translatesAutoresizingMaskIntoConstraints = false
-        pill.leftSideSymbol = UIImage(systemName: "music.mic.circle.fill")
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
-        pill.isUserInteractionEnabled = true
-        pill.addGestureRecognizer(tapGesture)
-
-        return pill
+    private var draftsCollection: DraftTableView = {
+        let collection = DraftTableView()
+        collection.backgroundColor = .red
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
     }()
-    
-    @objc func pillFunc() {
-        self.managerDelegate?.scrollToTop()
-    }
     
     private lazy var gumPacks: PacksTexture = {
         let image = PacksTexture(frame: .zero)
@@ -58,11 +51,14 @@ class DraftsViewController: UIViewController {
 extension DraftsViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .clear
+        draftsCollection.dataSource = self
+        draftsCollection.delegate = self
+        dataSource = DraftViewModel.mock
     }
     
     func setupHierarchy() {
         view.addSubview(gumPacks)
-        view.addSubview(samplePill)
+        view.addSubview(draftsCollection)
         view.addSubview(micButton)
     }
     
@@ -73,9 +69,10 @@ extension DraftsViewController: ViewCoding {
             gumPacks.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.6),
             gumPacks.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 1)),
             
-            samplePill.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            samplePill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            draftsCollection.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            draftsCollection.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            draftsCollection.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            draftsCollection.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.4),
             
             micButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             micButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -84,4 +81,25 @@ extension DraftsViewController: ViewCoding {
         ])
     }
     
+}
+
+extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: DraftTableViewCell.cellID,
+            for: indexPath
+        ) as? DraftTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.draft = dataSource[indexPath.row]
+        return cell
+    }
 }

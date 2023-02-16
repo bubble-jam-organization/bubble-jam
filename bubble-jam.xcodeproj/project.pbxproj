@@ -72,6 +72,9 @@
 		29F60108299BAF2700AAE025 /* DraftGumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60107299BAF2700AAE025 /* DraftGumView.swift */; };
 		29F6010A299BB1B200AAE025 /* UploadButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60109299BB1B200AAE025 /* UploadButtonView.swift */; };
 		29F6010C299CFB0300AAE025 /* MicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F6010B299CFB0300AAE025 /* MicButton.swift */; };
+		29F6010E299E559300AAE025 /* DraftsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F6010D299E559300AAE025 /* DraftsTableView.swift */; };
+		29F60111299E568100AAE025 /* DraftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60110299E568100AAE025 /* DraftTableViewCell.swift */; };
+		29F60113299E57DE00AAE025 /* DraftsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60112299E57DE00AAE025 /* DraftsViewModel.swift */; };
 		D657FEDB293781BC005ADD07 /* InformationSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */; };
 		D657FEDE293786CF005ADD07 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDD293786CF005ADD07 /* Background.swift */; };
 		D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */; };
@@ -185,6 +188,9 @@
 		29F60107299BAF2700AAE025 /* DraftGumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftGumView.swift; sourceTree = "<group>"; };
 		29F60109299BB1B200AAE025 /* UploadButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadButtonView.swift; sourceTree = "<group>"; };
 		29F6010B299CFB0300AAE025 /* MicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicButton.swift; sourceTree = "<group>"; };
+		29F6010D299E559300AAE025 /* DraftsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsTableView.swift; sourceTree = "<group>"; };
+		29F60110299E568100AAE025 /* DraftTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftTableViewCell.swift; sourceTree = "<group>"; };
+		29F60112299E57DE00AAE025 /* DraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewModel.swift; sourceTree = "<group>"; };
 		D657FEDA293781BC005ADD07 /* InformationSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationSheetViewController.swift; sourceTree = "<group>"; };
 		D657FEDD293786CF005ADD07 /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		D657FEDF29378F0E005ADD07 /* ChallengeBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeBanner.swift; sourceTree = "<group>"; };
@@ -700,6 +706,15 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
+		29F6010F299E563D00AAE025 /* DraftCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				29F6010D299E559300AAE025 /* DraftsTableView.swift */,
+				29F60110299E568100AAE025 /* DraftTableViewCell.swift */,
+			);
+			path = DraftCollectionView;
+			sourceTree = "<group>";
+		};
 		D657FED9293781A4005ADD07 /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +741,7 @@
 				D65CA300293F5AC7008DF1B2 /* Components */,
 				D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */,
 				29F60105299A832200AAE025 /* DraftViewFactory.swift */,
+				29F60112299E57DE00AAE025 /* DraftsViewModel.swift */,
 			);
 			path = Draft;
 			sourceTree = "<group>";
@@ -733,6 +749,7 @@
 		D65CA300293F5AC7008DF1B2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				29F6010F299E563D00AAE025 /* DraftCollectionView */,
 				D65CA301293F5AE7008DF1B2 /* DraftTexture.swift */,
 				D673C9612940C8F400C6B207 /* BackToSample.swift */,
 				29F60107299BAF2700AAE025 /* DraftGumView.swift */,
@@ -975,9 +992,11 @@
 				29F6010C299CFB0300AAE025 /* MicButton.swift in Sources */,
 				29F6010A299BB1B200AAE025 /* UploadButtonView.swift in Sources */,
 				00786979299145D30018B384 /* Constants.swift in Sources */,
+				29F60111299E568100AAE025 /* DraftTableViewCell.swift in Sources */,
 				29788A4C2940DCC1004F82DB /* Page2ViewController.swift in Sources */,
 				007869B129951F1E0018B384 /* DomainEntityMapper.swift in Sources */,
 				D6F34587299A7F3200E11E92 /* Draft.swift in Sources */,
+				29F6010E299E559300AAE025 /* DraftsTableView.swift in Sources */,
 				D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */,
 				29F60106299A832200AAE025 /* DraftViewFactory.swift in Sources */,
 				29788A3D293F7FD5004F82DB /* DatetimeServicing.swift in Sources */,
@@ -1001,6 +1020,7 @@
 				007869AD2993F9CD0018B384 /* CloudKitDatabaseExtension.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 				29F60108299BAF2700AAE025 /* DraftGumView.swift in Sources */,
+				29F60113299E57DE00AAE025 /* DraftsViewModel.swift in Sources */,
 				0087CBCD293936C200404615 /* AudioServicing.swift in Sources */,
 				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
 				D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */,
