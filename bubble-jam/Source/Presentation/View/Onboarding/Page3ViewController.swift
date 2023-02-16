@@ -49,8 +49,8 @@ class Page3ViewController: UIViewController {
         
     }()
     
-    private lazy var goToMainScreenButton: DraftPill = {
-        let button = DraftPill(frame: .zero)
+    private lazy var goToMainScreenButton: PillButtonComponent = {
+        let button = PillButtonComponent(frame: .zero)
         button.pillLabel.text = NSLocalizedString("Start Now!", comment: "Start Now!")
         button.translatesAutoresizingMaskIntoConstraints = false
         let tap = UITapGestureRecognizer(target: self, action: #selector(goToMainScreen))

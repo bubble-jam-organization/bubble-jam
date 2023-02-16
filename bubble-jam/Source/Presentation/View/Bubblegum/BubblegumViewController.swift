@@ -15,21 +15,11 @@ protocol BubblegumViewDelegate: AnyObject {
 }
 
 class BubblegumViewController: UIViewController, AlertPresentable {
-    
     let sizeOfFrame: CGFloat = 300
     let presenter: BubblegumPresenting
     weak var managerDelegate: ManagerDelegate?
     
-    init(presenter: BubblegumPresenting, managerDelegate: ManagerDelegate) {
-        self.presenter = presenter
-        self.managerDelegate = managerDelegate
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
     private lazy var titleLabels: TitleLabels = {
-        
         let labels = TitleLabels(nameOfChallenge: "Protojam", descriptionOfChallenge: "\(presenter.getDaysRemaining()) ")
         labels.translatesAutoresizingMaskIntoConstraints = false
         return labels
@@ -37,7 +27,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     }()
     
     private lazy var sampleFrame: SamplePlayerFrame = {
-       
         let samplerFrame = SamplePlayerFrame(frame: .zero, sizeOfFrame: sizeOfFrame)
         samplerFrame.translatesAutoresizingMaskIntoConstraints = false
         
@@ -49,38 +38,26 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         samplerFrame.isMultipleTouchEnabled = true
         samplerFrame.addGestureRecognizer(tapGesture)
         samplerFrame.clipsToBounds = true
-        
         return samplerFrame
-        
     }()
     
-    @objc func frameFunc() {
-        presenter.playAudio()
-    }
-    
     private lazy var samplePlayButton: SamplePlayButton = {
-        
         let playButton = SamplePlayButton(frame: .zero, sizeOfButton: (sizeOfFrame * 0.4))
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        
         return playButton
         
     }()
     
-    private lazy var draftPill: DraftPill = {
-        let pill = DraftPill(frame: .zero)
-        pill.translatesAutoresizingMaskIntoConstraints = false
-
+    private lazy var draftPill: PillButtonComponent = {
+        let pill = PillButtonComponent(frame: .zero)
+        pill.pillLabel.text = NSLocalizedString("Start Drafting", comment: "Drafting button")
+        pill.leftSideSymbol = UIImage(systemName: "music.mic.circle.fill")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
+        pill.translatesAutoresizingMaskIntoConstraints = false
         pill.isUserInteractionEnabled = true
         pill.addGestureRecognizer(tapGesture)
-
         return pill
     }()
-    
-    @objc func pillFunc() {
-        self.managerDelegate?.scrollToBottom()
-    }
     
     private lazy var gumPacks: PacksTexture = {
         let image = PacksTexture(frame: .zero)
@@ -88,12 +65,27 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         return image
     }()
     
+    init(presenter: BubblegumPresenting, managerDelegate: ManagerDelegate) {
+        self.presenter = presenter
+        self.managerDelegate = managerDelegate
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) { nil}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
         presenter.initAudioDownload(in: nil)
     }
-
+    
+    @objc func frameFunc() {
+        presenter.playAudio()
+    }
+    
+    @objc func pillFunc() {
+        self.managerDelegate?.scrollToBottom()
+    }
 }
 
 extension BubblegumViewController: BubblegumViewDelegate {
@@ -136,7 +128,6 @@ extension BubblegumViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             sampleFrame.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             sampleFrame.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             sampleFrame.widthAnchor.constraint(greaterThanOrEqualToConstant: sizeOfFrame),

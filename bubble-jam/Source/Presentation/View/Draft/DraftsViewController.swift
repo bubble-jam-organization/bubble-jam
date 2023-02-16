@@ -20,11 +20,11 @@ class DraftsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var samplePill: DraftPill = {
-        let pill = DraftPill()
+    private lazy var samplePill: PillButtonComponent = {
+        let pill = PillButtonComponent()
         pill.pillLabel.text = NSLocalizedString("Back to sample", comment: "Back to Sample button label")
         pill.translatesAutoresizingMaskIntoConstraints = false
-
+        pill.leftSideSymbol = UIImage(systemName: "music.mic.circle.fill")
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(pillFunc))
         pill.isUserInteractionEnabled = true
         pill.addGestureRecognizer(tapGesture)
@@ -42,9 +42,14 @@ class DraftsViewController: UIViewController {
         return image
     }()
     
+    private var micButton: MicButton = {
+        let button = MicButton(frame: .zero)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         buildLayout()
     }
 
@@ -58,6 +63,7 @@ extension DraftsViewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(gumPacks)
         view.addSubview(samplePill)
+        view.addSubview(micButton)
     }
     
     func setupConstraints() {
@@ -69,7 +75,12 @@ extension DraftsViewController: ViewCoding {
             
             samplePill.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             samplePill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            samplePill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            micButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            micButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            micButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            micButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 180)
         ])
     }
     
