@@ -15,14 +15,12 @@ struct DraftViewModel {
 #if DEBUG
 extension DraftViewModel {
     static let bundle = Bundle.main
-    static let mock = [
+    static let mock: [DraftViewModel] = [
         DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
         DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
+        
         DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
-        DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
-        DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
-        DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
-        DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
+        
         DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00"),
         DraftViewModel(audioPath: bundle.url(forResource: "song", withExtension: "m4a")!, audioName: "Santa's New House", audioDuration: "5:00")
     ]

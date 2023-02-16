@@ -12,6 +12,7 @@
 		00523CE1299BD7410075393A /* DraftRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE0299BD7410075393A /* DraftRecordType.swift */; };
 		00523CE4299BD9A90075393A /* AudioAndPropetiesRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */; };
 		00523CE7299D08790075393A /* PillButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE6299D08790075393A /* PillButtonComponent.swift */; };
+		00523CE9299ECAD30075393A /* DraftEmptyStateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE8299ECAD30075393A /* DraftEmptyStateViewCell.swift */; };
 		00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */; };
 		00786979299145D30018B384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786978299145D30018B384 /* Constants.swift */; };
 		0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078697C29928B030018B384 /* ChallengeRepository.swift */; };
@@ -122,6 +123,7 @@
 		00523CE0299BD7410075393A /* DraftRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRecordType.swift; sourceTree = "<group>"; };
 		00523CE3299BD9A90075393A /* AudioAndPropetiesRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAndPropetiesRecordType.swift; sourceTree = "<group>"; };
 		00523CE6299D08790075393A /* PillButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonComponent.swift; sourceTree = "<group>"; };
+		00523CE8299ECAD30075393A /* DraftEmptyStateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftEmptyStateViewCell.swift; sourceTree = "<group>"; };
 		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
 		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0078697A299146CB0018B384 /* bubble-jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "bubble-jam.entitlements"; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 			children = (
 				29F6010D299E559300AAE025 /* DraftsTableView.swift */,
 				29F60110299E568100AAE025 /* DraftTableViewCell.swift */,
+				00523CE8299ECAD30075393A /* DraftEmptyStateViewCell.swift */,
 			);
 			path = DraftCollectionView;
 			sourceTree = "<group>";
@@ -1036,6 +1039,7 @@
 				007869A729929DAF0018B384 /* Challenge.swift in Sources */,
 				007869C429953D4D0018B384 /* MapperError.swift in Sources */,
 				00523CE7299D08790075393A /* PillButtonComponent.swift in Sources */,
+				00523CE9299ECAD30075393A /* DraftEmptyStateViewCell.swift in Sources */,
 				007869CB29966F420018B384 /* ErrorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

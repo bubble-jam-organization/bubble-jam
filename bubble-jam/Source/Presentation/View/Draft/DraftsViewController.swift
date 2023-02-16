@@ -12,7 +12,7 @@ class DraftsViewController: UIViewController {
     weak var managerDelegate: ManagerDelegate?
     
     var dataSource = [DraftViewModel]()
-        
+    
     init(managerDelegate: ManagerDelegate) {
         self.managerDelegate = managerDelegate
         super.init(nibName: nil, bundle: nil)
@@ -40,6 +40,13 @@ class DraftsViewController: UIViewController {
         return tableView
     }()
     
+    private var tableViewHeader: UIView = {
+        let headerView =  UIView()
+        headerView.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        return headerView
+    }()
+    
     private lazy var gumPacks: PacksTexture = {
         let image = PacksTexture(frame: .zero)
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -65,12 +72,14 @@ extension DraftsViewController: ViewCoding {
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
         dataSource = DraftViewModel.mock
+
     }
     
     func setupHierarchy() {
         view.addSubview(gumPacks)
         view.addSubview(draftsTableView)
         view.addSubview(micButton)
+        view.addSubview(tableViewHeader)
         view.addSubview(titleLabel)
     }
     
@@ -87,12 +96,17 @@ extension DraftsViewController: ViewCoding {
             draftsTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             draftsTableView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             draftsTableView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
-            draftsTableView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: 0.4),
+            draftsTableView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: 0.35),
             
             micButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             micButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             micButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            micButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 180)
+            micButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 160),
+            
+            tableViewHeader.bottomAnchor.constraint(equalTo: draftsTableView.topAnchor),
+            tableViewHeader.leadingAnchor.constraint(equalTo: draftsTableView.leadingAnchor),
+            tableViewHeader.trailingAnchor.constraint(equalTo: draftsTableView.trailingAnchor),
+            tableViewHeader.heightAnchor.constraint(equalToConstant: 25)
         ])
     }
     
@@ -100,20 +114,25 @@ extension DraftsViewController: ViewCoding {
 
 extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataSource.isEmpty { return 1 }
+        
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 86
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if dataSource.isEmpty { return DraftEmptyStateViewCell() }
+        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: DraftTableViewCell.cellID,
             for: indexPath
         ) as? DraftTableViewCell else {
             return UITableViewCell()
         }
+        
         cell.draft = dataSource[indexPath.row]
         return cell
     }

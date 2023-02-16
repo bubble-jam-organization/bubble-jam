@@ -50,7 +50,7 @@ extension MicButton: ViewCoding {
         ]
         
         let jamButtonConstraints = [
-            jamButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+            jamButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 36),
             jamButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             jamButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ]

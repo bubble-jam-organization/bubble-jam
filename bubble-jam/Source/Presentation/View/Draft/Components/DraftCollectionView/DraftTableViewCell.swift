@@ -120,8 +120,8 @@ extension DraftTableViewCell: ViewCoding {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             verticalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            verticalStack.topAnchor.constraint(equalTo: self.topAnchor),
-            verticalStack.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            verticalStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
+            verticalStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
             verticalStack.widthAnchor.constraint(greaterThanOrEqualToConstant: 60),
 
             draftImage.centerYAnchor.constraint(equalTo: self.centerYAnchor),
