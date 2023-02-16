@@ -740,8 +740,8 @@
 			children = (
 				D65CA300293F5AC7008DF1B2 /* Components */,
 				D65CA2FE293E36E2008DF1B2 /* DraftsViewController.swift */,
-				29F60105299A832200AAE025 /* DraftViewFactory.swift */,
 				29F60112299E57DE00AAE025 /* DraftsViewModel.swift */,
+				29F60105299A832200AAE025 /* DraftViewFactory.swift */,
 			);
 			path = Draft;
 			sourceTree = "<group>";

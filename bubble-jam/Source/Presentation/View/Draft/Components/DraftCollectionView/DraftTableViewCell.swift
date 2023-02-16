@@ -97,6 +97,11 @@ class DraftTableViewCell: UITableViewCell {
     }
     
     required init?(coder: NSCoder) { nil }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = CGRect(x: 0.0, y: 0.0, width: 200, height: 90)
+    }
 }
 
 extension DraftTableViewCell: ViewCoding {
@@ -125,7 +130,7 @@ extension DraftTableViewCell: ViewCoding {
             draftImage.heightAnchor.constraint(equalToConstant: 56),
             
             draftTitle.leadingAnchor.constraint(equalTo: draftImage.trailingAnchor, constant: 32),
-            draftTitle.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            draftTitle.topAnchor.constraint(equalTo: draftImage.topAnchor),
             draftTitle.trailingAnchor.constraint(equalTo: verticalStack.leadingAnchor, constant: -16),
             draftTitle.widthAnchor.constraint(equalToConstant: 100)
 

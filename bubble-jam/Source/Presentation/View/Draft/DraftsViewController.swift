@@ -34,7 +34,9 @@ class DraftsViewController: UIViewController {
     private var draftsTableView: DraftTableView = {
         let tableView = DraftTableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .clear
+        tableView.layer.borderColor = #colorLiteral(red: 0.368627451, green: 0, blue: 0.5960784314, alpha: 0.5)
+        tableView.layer.borderWidth = 10
         return tableView
     }()
     
