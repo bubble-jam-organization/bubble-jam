@@ -76,6 +76,7 @@ extension DraftsViewController: ViewCoding {
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
         dataSource = DraftViewModel.mock
+        micButton.addJamButtonTap = { print("aksdoaskd") }
     }
     
     func setupHierarchy() {

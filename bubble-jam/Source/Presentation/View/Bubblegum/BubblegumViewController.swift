@@ -139,9 +139,9 @@ extension BubblegumViewController: ViewCoding {
             samplePlayButton.widthAnchor.constraint(equalTo: samplePlayButton.widthAnchor),
             samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
             
-            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
             draftPill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            draftPill.heightAnchor.constraint(greaterThanOrEqualToConstant: draftPill.horizontalStack.layer.cornerRadius * 3),
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
