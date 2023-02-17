@@ -7,6 +7,8 @@ protocol ViewCoding: AnyObject {
 }
 
 extension ViewCoding {
+    func setupView() {}
+    
     func buildLayout() {
         setupView()
         setupHierarchy()
