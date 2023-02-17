@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
 
 class DraftsViewController: UIViewController {
-    
     weak var managerDelegate: ManagerDelegate?
+//    let presenter: DraftsPresenting
     
     var dataSource = [DraftViewModel]()
     
@@ -67,6 +68,20 @@ class DraftsViewController: UIViewController {
    @objc func onSwipeDown() { managerDelegate?.scrollToTop() }
 }
 
+extension DraftsViewController: UIDocumentPickerDelegate {
+    func loadUserAudios() {
+        weak var weakSelf = self
+        let document = UIDocumentPickerViewController(forOpeningContentTypes: [.audio])
+        document.allowsMultipleSelection = false
+        weakSelf?.present(document, animated: true)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let url = urls.first else { return }
+//        presenter.uploadJam(url)
+    }
+}
+
 extension DraftsViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .clear
@@ -76,7 +91,7 @@ extension DraftsViewController: ViewCoding {
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
         dataSource = DraftViewModel.mock
-        micButton.addJamButtonTap = { print("aksdoaskd") }
+        micButton.addJamButtonTap = loadUserAudios
     }
     
     func setupHierarchy() {
