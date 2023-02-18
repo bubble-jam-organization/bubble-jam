@@ -8,6 +8,6 @@
 import Foundation
 
 protocol UploadJamUseCaseOutput {
-    func successfulyUploadJam()
+    func successfulyUploadJam(_ jam: Draft)
     func failWhileUploadingJam(_ error: Error)
 }

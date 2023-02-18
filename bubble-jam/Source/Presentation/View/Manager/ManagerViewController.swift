@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 protocol ManagerDelegate: AnyObject {
     func scrollToTop()
@@ -34,7 +35,18 @@ class ManagerViewController: UIViewController {
         return viewController
     }()
     
-    private lazy var draftView = DraftsViewController(managerDelegate: self)
+    private lazy var draftView: DraftsViewController = {
+        let database = CKContainer(identifier: Constants.containerIdentifier).privateCloudDatabase
+        let repository = DraftRepository(database: database)
+        let useCase = UploadJamUseCase(repository: repository)
+        let presenter = DraftsPresenter(uploadJamUseCase: useCase)
+        let view = DraftsViewController(managerDelegate: self, presenter: presenter)
+        
+        useCase.output = [presenter]
+        presenter.view = view
+        
+        return view
+    }()
     
     private lazy var managerScrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)

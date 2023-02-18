@@ -8,14 +8,22 @@
 import UIKit
 import UniformTypeIdentifiers
 
-class DraftsViewController: UIViewController {
+protocol DraftViewDelegate: AnyObject {
+    func startLoading()
+    func hideLoading()
+    func succesfullyUploadDraft(_ jam: Draft)
+    func failWhileUploadingDraft(_ error: Error)
+}
+
+class DraftsViewController: UIViewController, AlertPresentable {
     weak var managerDelegate: ManagerDelegate?
-//    let presenter: DraftsPresenting
+    private let presenter: DraftsPresenting
     
     var dataSource = [DraftViewModel]()
     
-    init(managerDelegate: ManagerDelegate) {
+    init(managerDelegate: ManagerDelegate, presenter: DraftsPresenting) {
         self.managerDelegate = managerDelegate
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -78,7 +86,8 @@ extension DraftsViewController: UIDocumentPickerDelegate {
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let url = urls.first else { return }
-//        presenter.uploadJam(url)
+        let draftJam = Draft(audio: url)
+        Task { await presenter.uploadJam(draft: draftJam) }
     }
 }
 
@@ -154,5 +163,31 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.draft = dataSource[indexPath.row]
         return cell
+    }
+}
+
+extension DraftsViewController: DraftViewDelegate {
+    func startLoading() {
+        print("Presenter says: \(#function)")
+    }
+    
+    func hideLoading() {
+        print("Presenter says: \(#function)")
+    }
+    
+    func succesfullyUploadDraft(_ jam: Draft) {
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource.removeAll()
+            self?.dataSource.append(
+                DraftViewModel(audioPath: jam.audio, audioName: "My new jam!", audioDuration: "1:00")
+            )
+            self?.draftsTableView.reloadData()
+        }
+    }
+    
+    func failWhileUploadingDraft(_ error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.showAlert(title: "Presenter says error", message: error.localizedDescription)
+        }
     }
 }

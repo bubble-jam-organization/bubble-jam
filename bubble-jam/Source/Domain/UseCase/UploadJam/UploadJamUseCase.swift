@@ -8,21 +8,22 @@
 import Foundation
 
 class UploadJamUseCase {
-    var input: Draft
-    var output: UploadJamUseCaseOutput?
+    var input: Draft?
+    var output: [UploadJamUseCaseOutput]?
     var repository: DraftRepositoryProtocol
     
-    init(input: Draft, repository: DraftRepositoryProtocol) {
+    init(repository: DraftRepositoryProtocol) {
         self.repository = repository
-        self.input = input
     }
     
     func execute() async {
-        do {
-            try await repository.uploadDraft(input)
-            output?.successfulyUploadJam()
-        } catch {
-            output?.failWhileUploadingJam(error)
+        if let input = input {
+            do {
+                try await repository.uploadDraft(input)
+                output?.forEach { $0.successfulyUploadJam(input) }
+            } catch {
+                output?.forEach { $0.failWhileUploadingJam(error) }
+            }
         }
     }
 }
