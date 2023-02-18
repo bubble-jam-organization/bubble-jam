@@ -374,8 +374,8 @@
 		0078698229928B8E0018B384 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				29B34BC7292F95A40092FD1F /* bubble-jamServiceTests */,
-				0087CBC42939356500404615 /* bubble-jamPresenterTests */,
+				29B34BC7292F95A40092FD1F /* Service */,
+				0087CBC42939356500404615 /* Presenter */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -515,12 +515,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		0087CBC42939356500404615 /* bubble-jamPresenterTests */ = {
+		0087CBC42939356500404615 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
 				0087CBCE293938D300404615 /* BubblegumPresenter */,
 			);
-			path = "bubble-jamPresenterTests";
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		0087CBC52939359200404615 /* Doubles */ = {
@@ -689,13 +689,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		29B34BC7292F95A40092FD1F /* bubble-jamServiceTests */ = {
+		29B34BC7292F95A40092FD1F /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */,
 				29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */,
 			);
-			path = "bubble-jamServiceTests";
+			path = Service;
 			sourceTree = "<group>";
 		};
 		29B34BCC292FB09B0092FD1F /* Resources */ = {
