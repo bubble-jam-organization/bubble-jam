@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UploadJamUseCase: UseCase {
+class UploadJamUseCase: UploadJamUseCaseProtocol {
     var input: Draft?
     var output: [UploadJamUseCaseOutput]?
     var repository: DraftRepositoryProtocol

@@ -8,7 +8,7 @@
 import Foundation
 
 class DraftsPresenter: DraftsPresenting {
-    let uploadJamUseCase: UploadJamUseCase
+    var uploadJamUseCase: any UploadJamUseCaseProtocol
     weak var view: DraftViewDelegate?
     
     init(uploadJamUseCase: UploadJamUseCase) {
