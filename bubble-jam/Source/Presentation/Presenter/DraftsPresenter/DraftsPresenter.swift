@@ -8,10 +8,10 @@
 import Foundation
 
 class DraftsPresenter: DraftsPresenting {
-    var uploadJamUseCase: any UploadJamUseCaseProtocol
+    private var uploadJamUseCase: any UploadJamUseCaseProtocol
     weak var view: DraftViewDelegate?
     
-    init(uploadJamUseCase: UploadJamUseCase) {
+    init(uploadJamUseCase: any UploadJamUseCaseProtocol) {
         self.uploadJamUseCase = uploadJamUseCase
     }
     

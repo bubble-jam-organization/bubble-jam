@@ -10,7 +10,7 @@ import XCTest
 
 final class DraftsPresenterTests: XCTestCase {
     var sut: DraftsPresenter!
-    var useCase: UploadJamUseCase!
+    var useCase: UploadJamUseCaseDummy!
     var view: DraftViewDelegateSpy!
     
     override func setUp() {
@@ -18,20 +18,40 @@ final class DraftsPresenterTests: XCTestCase {
         XCTAssertNotNil(useCase.output)
         XCTAssertNotNil(sut.view)
     }
-    func test_successfullyUploadJam_when_useCase_call_method_should_call_view() async {
-        let url = Bundle(for: type(of: self)).url(forResource: "song", withExtension: "m4a")
-        let inputDraft = Draft(audio: url!)
+    func test_uploadJam_when_useCase_succeded_should_call_view_correctly() async {
+        let inputDraft = Draft(audio: generateMockedResourceUrl())
         await sut.uploadJam(draft: inputDraft)
         useCase.output!.forEach { $0.successfulyUploadJam(inputDraft) }
-//        XCTAssertEqual([], )
+        XCTAssertEqual(
+            view.receivedMessages,
+            [.startLoading, .hideLoading, .succesfullyUploadDraft(inputDraft)]
+        )
     }
+    
+    func test_uploadJam_when_useCase_fails_should_call_view_correctly() async {
+        let inputDraft = Draft(audio: generateMockedResourceUrl())
+        let inputError = NSError(domain: "ERROR", code: 0)
+        await sut.uploadJam(draft: inputDraft)
+        useCase.output!.forEach { $0.failWhileUploadingJam(inputError) }
+        XCTAssertEqual(
+            view.receivedMessages,
+            [.startLoading, .hideLoading, .failWhileUploadingDraft]
+        )
+    }
+}
 
+extension DraftsPresenterTests {
+    func generateMockedResourceUrl() -> URL {
+        let url = Bundle(for: type(of: self)).url(forResource: "song", withExtension: "m4a")
+        XCTAssertNotNil(url)
+        return url!
+    }
 }
 
 extension DraftsPresenterTests: Testing {
     typealias SutAndDoubles = (
         sut: DraftsPresenter, (
-            useCase: UploadJamUseCase,
+            useCase: UploadJamUseCaseDummy,
             viewDelegate: DraftViewDelegateSpy
         )
     )
@@ -39,7 +59,7 @@ extension DraftsPresenterTests: Testing {
     func makeSUT() -> SutAndDoubles {
         let database = DatabaseStub()
         let repository = DraftRepositoryStub(database: database)
-        let useCase = UploadJamUseCase(repository: repository)
+        let useCase = UploadJamUseCaseDummy(repository: repository)
         let sut = DraftsPresenter(uploadJamUseCase: useCase)
         let viewDelegate = DraftViewDelegateSpy()
         
