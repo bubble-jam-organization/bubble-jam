@@ -58,7 +58,7 @@ extension DraftsPresenterTests: Testing {
     
     func makeSUT() -> SutAndDoubles {
         let database = DatabaseStub()
-        let repository = DraftRepositoryStub(database: database)
+        let repository = DraftRepositoryDummy(database: database)
         let useCase = UploadJamUseCaseDummy(repository: repository)
         let sut = DraftsPresenter(uploadJamUseCase: useCase)
         let viewDelegate = DraftViewDelegateSpy()

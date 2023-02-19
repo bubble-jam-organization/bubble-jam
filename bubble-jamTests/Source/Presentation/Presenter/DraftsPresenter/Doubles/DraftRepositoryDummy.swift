@@ -8,7 +8,7 @@
 import Foundation
 @testable import bubble_jam
 
-class DraftRepositoryStub: DraftRepositoryProtocol {
+class DraftRepositoryDummy: DraftRepositoryProtocol {
     var database: Database
     
     func uploadDraft(_ draft: Draft) async throws { }

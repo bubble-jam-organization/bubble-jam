@@ -19,8 +19,8 @@
 		00523CF6299FCCF50075393A /* DraftsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CF5299FCCF50075393A /* DraftsPresenter.swift */; };
 		00523CF929A1919A0075393A /* DraftsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CF829A1919A0075393A /* DraftsPresenterTests.swift */; };
 		00523CFC29A194670075393A /* DraftsViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CFB29A194670075393A /* DraftsViewDelegateSpy.swift */; };
-		00523CFE29A1947B0075393A /* DraftRepositoryStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CFD29A1947B0075393A /* DraftRepositoryStub.swift */; };
-		00523D0029A1948B0075393A /* DatabaseDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CFF29A1948B0075393A /* DatabaseDummy.swift */; };
+		00523CFE29A1947B0075393A /* DraftRepositoryDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CFD29A1947B0075393A /* DraftRepositoryDummy.swift */; };
+		00523D0029A1948B0075393A /* DatabaseStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CFF29A1948B0075393A /* DatabaseStub.swift */; };
 		00523D0229A19C250075393A /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0129A19C250075393A /* UseCaseProtocol.swift */; };
 		00523D0429A19CFA0075393A /* UploadJamUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0329A19CFA0075393A /* UploadJamUseCaseProtocol.swift */; };
 		00523D0629A1A2350075393A /* UploadJamUseCaseDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0529A1A2350075393A /* UploadJamUseCaseDummy.swift */; };
@@ -141,8 +141,8 @@
 		00523CF5299FCCF50075393A /* DraftsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsPresenter.swift; sourceTree = "<group>"; };
 		00523CF829A1919A0075393A /* DraftsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsPresenterTests.swift; sourceTree = "<group>"; };
 		00523CFB29A194670075393A /* DraftsViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftsViewDelegateSpy.swift; sourceTree = "<group>"; };
-		00523CFD29A1947B0075393A /* DraftRepositoryStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepositoryStub.swift; sourceTree = "<group>"; };
-		00523CFF29A1948B0075393A /* DatabaseDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDummy.swift; sourceTree = "<group>"; };
+		00523CFD29A1947B0075393A /* DraftRepositoryDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepositoryDummy.swift; sourceTree = "<group>"; };
+		00523CFF29A1948B0075393A /* DatabaseStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStub.swift; sourceTree = "<group>"; };
 		00523D0129A19C250075393A /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
 		00523D0329A19CFA0075393A /* UploadJamUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadJamUseCaseProtocol.swift; sourceTree = "<group>"; };
 		00523D0529A1A2350075393A /* UploadJamUseCaseDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadJamUseCaseDummy.swift; sourceTree = "<group>"; };
@@ -331,8 +331,8 @@
 			isa = PBXGroup;
 			children = (
 				00523CFB29A194670075393A /* DraftsViewDelegateSpy.swift */,
-				00523CFD29A1947B0075393A /* DraftRepositoryStub.swift */,
-				00523CFF29A1948B0075393A /* DatabaseDummy.swift */,
+				00523CFD29A1947B0075393A /* DraftRepositoryDummy.swift */,
+				00523CFF29A1948B0075393A /* DatabaseStub.swift */,
 				00523D0529A1A2350075393A /* UploadJamUseCaseDummy.swift */,
 			);
 			path = Doubles;
@@ -1140,8 +1140,8 @@
 				0087CBC92939367D00404615 /* AudioServiceSpy.swift in Sources */,
 				00523CFC29A194670075393A /* DraftsViewDelegateSpy.swift in Sources */,
 				29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */,
-				00523CFE29A1947B0075393A /* DraftRepositoryStub.swift in Sources */,
-				00523D0029A1948B0075393A /* DatabaseDummy.swift in Sources */,
+				00523CFE29A1947B0075393A /* DraftRepositoryDummy.swift in Sources */,
+				00523D0029A1948B0075393A /* DatabaseStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
