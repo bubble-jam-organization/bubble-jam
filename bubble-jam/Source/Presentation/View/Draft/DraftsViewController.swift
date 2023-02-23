@@ -169,10 +169,39 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DraftsViewController: DraftViewDelegate {
     func startLoading() {
         print("Presenter says: \(#function)")
+        
+        /*
+         
+         let loadingView = UIView(frame: UIScreen.main.bounds)
+         loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+         let spinner = UIActivityIndicatorView(style: .gray)
+         spinner.center = loadingView.center
+         spinner.startAnimating()
+         loadingView.addSubview(spinner)
+         view.addSubview(loadingView)
+         view.isUserInteractionEnabled = false
+         
+         Encontrei uma explicação de como fazer uma loadingView e foi isso que encontrei.
+         Testar quando conseguir compilar no telefone.
+         
+         */
     }
     
     func hideLoading() {
         print("Presenter says: \(#function)")
+        
+        /*
+         
+         for subview in view.subviews {
+                 if subview is UIActivityIndicatorView {
+                     subview.removeFromSuperview()
+                 }
+             }
+             view.isUserInteractionEnabled = true
+         
+         Idem do bloco acima.
+         
+         */
     }
     
     func succesfullyUploadDraft(_ jam: Draft) {
