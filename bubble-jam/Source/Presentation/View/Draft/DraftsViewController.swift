@@ -31,6 +31,15 @@ class DraftsViewController: UIViewController, AlertPresentable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private var loadingView: UIActivityIndicatorView = {
+        var view = UIActivityIndicatorView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.style = .large
+        view.color = .gray
+        view.hidesWhenStopped = true
+        return view
+    }()
+    
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Jams"
@@ -112,6 +121,8 @@ extension DraftsViewController: ViewCoding {
         view.addSubview(micButton)
         view.addSubview(tableViewHeader)
         view.addSubview(titleLabel)
+        
+        view.addSubview(loadingView)
     }
     
     func setupConstraints() {
@@ -137,7 +148,13 @@ extension DraftsViewController: ViewCoding {
             tableViewHeader.bottomAnchor.constraint(equalTo: draftsTableView.topAnchor),
             tableViewHeader.leadingAnchor.constraint(equalTo: draftsTableView.leadingAnchor),
             tableViewHeader.trailingAnchor.constraint(equalTo: draftsTableView.trailingAnchor),
-            tableViewHeader.heightAnchor.constraint(equalToConstant: 25)
+            tableViewHeader.heightAnchor.constraint(equalToConstant: 25),
+            
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
         ])
     }
     
@@ -172,39 +189,12 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
 extension DraftsViewController: DraftViewDelegate {
     func startLoading() {
         print("Presenter says: \(#function)")
-        
-        /*
-         
-         let loadingView = UIView(frame: UIScreen.main.bounds)
-         loadingView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-         let spinner = UIActivityIndicatorView(style: .gray)
-         spinner.center = loadingView.center
-         spinner.startAnimating()
-         loadingView.addSubview(spinner)
-         view.addSubview(loadingView)
-         view.isUserInteractionEnabled = false
-         
-         Encontrei uma explicação de como fazer uma loadingView e foi isso que encontrei.
-         Testar quando conseguir compilar no telefone.
-         
-         */
+        DispatchQueue.main.async { [weak self] in self?.loadingView.startAnimating() }
     }
     
     func hideLoading() {
         print("Presenter says: \(#function)")
-        
-        /*
-         
-         for subview in view.subviews {
-                 if subview is UIActivityIndicatorView {
-                     subview.removeFromSuperview()
-                 }
-             }
-             view.isUserInteractionEnabled = true
-         
-         Idem do bloco acima.
-         
-         */
+        DispatchQueue.main.async { [weak self] in self?.loadingView.stopAnimating() }
     }
     
     func succesfullyUploadDraft(_ jam: Draft) {
