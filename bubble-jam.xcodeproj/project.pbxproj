@@ -602,8 +602,8 @@
 			children = (
 				007869A529929DA40018B384 /* Entity */,
 				00786977299145BE0018B384 /* Data */,
-				00786972299143240018B384 /* Presentation */,
 				00786973299144780018B384 /* Domain */,
+				00786972299143240018B384 /* Presentation */,
 				D6ADD8C1293628D00057095A /* Protocol */,
 			);
 			path = Source;
