@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CloudKit
 
 protocol ManagerDelegate: AnyObject {
     func scrollToTop()
@@ -23,14 +24,17 @@ class ManagerViewController: UIViewController {
     }
     
     private lazy var bubblegumView: BubblegumViewController = {
-        let audioService = AudioService()
-        let downloadService = DownloadService()
         let datetimeService = DatetimeService()
-        let presenter = BubblegumPresenter(audioService: audioService, downloadService: downloadService, datetimeService: datetimeService)
-        let delegate = self
-        let viewController = BubblegumViewController(presenter: presenter, managerDelegate: delegate)
-        presenter.viewDelegate = viewController
+        let database = CKContainer(identifier: Constants.containerIdentifier).publicCloudDatabase
+        let mapper = ChallengeMapper(database: database)
+        let repository = ChallengeRepository(database: database, mapper: mapper)
+        let downloadUseCase = DownloadAudioRoutineUseCase(repository: repository)
+        let presenter = BubblegumPresenter(downloadAudioUseCase: downloadUseCase)
+        let viewController = BubblegumViewController(presenter: presenter, managerDelegate: self)
         
+        presenter.viewDelegate = viewController
+        downloadUseCase.output = [presenter]
+    
         return viewController
     }()
     

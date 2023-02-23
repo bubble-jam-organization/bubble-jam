@@ -8,9 +8,6 @@
 import Foundation
 
 protocol BubblegumPresenting {
-    func initAudioDownload(in path: String?)
+    func initChallengeDownload() async
     func playAudio()
-    func pauseAudio()
-    func getAudioUrl() throws -> URL
-    func getDaysRemaining() -> String
 }
