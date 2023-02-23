@@ -74,20 +74,23 @@ class DraftsViewController: UIViewController, AlertPresentable {
     }
     
    @objc func onSwipeDown() { managerDelegate?.scrollToTop() }
+    
+    func loadUserAudios() {
+        let document = UIDocumentPickerViewController(forOpeningContentTypes: [.audio])
+        document.delegate = self
+        document.allowsMultipleSelection = false
+        present(document, animated: true)
+    }
 }
 
 extension DraftsViewController: UIDocumentPickerDelegate {
-    func loadUserAudios() {
-        weak var weakSelf = self
-        let document = UIDocumentPickerViewController(forOpeningContentTypes: [.audio])
-        document.allowsMultipleSelection = false
-        weakSelf?.present(document, animated: true)
-    }
-    
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let url = urls.first else { return }
         let draftJam = Draft(audio: url)
-        Task { await presenter.uploadJam(draft: draftJam) }
+        Task {
+            _ = url.startAccessingSecurityScopedResource()
+            await presenter.uploadJam(draft: draftJam)
+        }
     }
 }
 
