@@ -9,10 +9,12 @@ import Foundation
 import CloudKit
 
 class DraftRepository: DraftRepositoryProtocol {
-    let database: Database
+    var database: Database
+    var mapper: any DraftMapperProtocol
     
-    required init(database: Database) {
+    required init(database: Database, mapper: any DraftMapperProtocol) {
         self.database = database
+        self.mapper = mapper
     }
     
     func uploadDraft(_ draft: Draft) async throws {
@@ -29,4 +31,24 @@ class DraftRepository: DraftRepositoryProtocol {
         }
     }
     
+    func downloadDraft() async throws -> Draft {
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(.draftType, predicate: predicate)
+        
+        query.sortDescriptors = [NSSortDescriptor(key: "modificationDate", ascending: true)]
+        
+        do {
+            let result = try await database.records(matching: query, inZoneWith: nil)
+            if let mostRecentDraft = result.last {
+                let domainEntity = try await mapper.mapToDomain(mostRecentDraft)
+                return domainEntity
+            }
+            throw RepositoryError.draftNotFound
+        } catch {
+            if let error = error as? CKError {
+                throw DataSourceErrorHandler.handleError(error)
+            }
+            throw error
+        }
+    }
 }

@@ -13,6 +13,8 @@ protocol DraftViewDelegate: AnyObject {
     func hideLoading()
     func succesfullyUploadDraft(_ jam: Draft)
     func failWhileUploadingDraft(_ error: Error)
+    func draftHasBeenDownloaded(_ jam: Draft)
+    func failWhileDownloadingDraft(_ error: Error)
 }
 
 class DraftsViewController: UIViewController, AlertPresentable {
@@ -80,6 +82,9 @@ class DraftsViewController: UIViewController, AlertPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
+        Task {
+            _ = await presenter.downloadJam
+        }
     }
     
    @objc func onSwipeDown() { managerDelegate?.scrollToTop() }
@@ -111,7 +116,7 @@ extension DraftsViewController: ViewCoding {
         view.addGestureRecognizer(swipeGesture)
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
-        dataSource = DraftViewModel.mock
+//        dataSource = DraftViewModel.mock
         micButton.addJamButtonTap = loadUserAudios
     }
     
@@ -187,6 +192,16 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension DraftsViewController: DraftViewDelegate {
+    func draftHasBeenDownloaded(_ jam: Draft) {
+        print("dun")
+        dataSource = [DraftViewModel(audioPath: jam.audio, audioName: "Most recent jam", audioDuration: "")]
+        DispatchQueue.main.async { [weak self] in self?.draftsTableView.reloadData() }
+    }
+    
+    func failWhileDownloadingDraft(_ error: Error) {
+        print("goof")
+    }
+    
     func startLoading() {
         print("Presenter says: \(#function)")
         DispatchQueue.main.async { [weak self] in self?.loadingView.startAnimating() }

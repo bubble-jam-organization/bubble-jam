@@ -10,5 +10,6 @@ import Foundation
 protocol DraftRepositoryProtocol {
     var database: Database { get }
     func uploadDraft(_ draft: Draft) async throws
-    init(database: Database)
+    func downloadDraft() async throws -> Draft
+    init(database: Database, mapper: any DraftMapperProtocol)
 }

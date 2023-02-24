@@ -37,12 +37,15 @@ class ManagerViewController: UIViewController {
     
     private lazy var draftView: DraftsViewController = {
         let database = CKContainer(identifier: Constants.containerIdentifier).privateCloudDatabase
-        let repository = DraftRepository(database: database)
-        let useCase = UploadJamUseCase(repository: repository)
-        let presenter = DraftsPresenter(uploadJamUseCase: useCase)
+        let mapper = DraftMapper()
+        let repository = DraftRepository(database: database, mapper: mapper)
+        let uploadUseCase = UploadJamUseCase(repository: repository)
+        let downloadUseCase = DownloadJamUseCase(repository: repository)
+        let presenter = DraftsPresenter(uploadJamUseCase: uploadUseCase, downloadJamUseCase: downloadUseCase)
         let view = DraftsViewController(managerDelegate: self, presenter: presenter)
         
-        useCase.output = [presenter]
+        uploadUseCase.output = [presenter]
+        downloadUseCase.output = [presenter]
         presenter.view = view
         
         return view

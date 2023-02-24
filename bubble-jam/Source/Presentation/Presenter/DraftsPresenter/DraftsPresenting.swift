@@ -8,5 +8,6 @@
 import Foundation
 
 protocol DraftsPresenting {
-    func uploadJam(draft: Draft) async 
+    func uploadJam(draft: Draft) async
+    func downloadJam() async 
 }

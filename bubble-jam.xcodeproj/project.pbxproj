@@ -104,6 +104,11 @@
 		D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */; };
 		D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CD293629B40057095A /* SamplerTexture.swift */; };
 		D6ADD8D0293629C50057095A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CF293629C50057095A /* TitleLabel.swift */; };
+		D6C3FF9929A8E2C800D81D90 /* DownloadJamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FF9829A8E2C800D81D90 /* DownloadJamUseCase.swift */; };
+		D6C3FF9B29A8E2F500D81D90 /* DownloadJamUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FF9A29A8E2F500D81D90 /* DownloadJamUseCaseProtocol.swift */; };
+		D6C3FF9D29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FF9C29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift */; };
+		D6C3FFA029A8E8F300D81D90 /* DraftMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FF9F29A8E8F300D81D90 /* DraftMapperProtocol.swift */; };
+		D6C3FFA229A8E9A200D81D90 /* DraftMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FFA129A8E9A200D81D90 /* DraftMapper.swift */; };
 		D6F34587299A7F3200E11E92 /* Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F34586299A7F3200E11E92 /* Draft.swift */; };
 		D6F3458B299A7FE500E11E92 /* DraftRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3458A299A7FE500E11E92 /* DraftRepository.swift */; };
 		D6F3458D299A802200E11E92 /* DraftRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3458C299A802200E11E92 /* DraftRepositoryProtocol.swift */; };
@@ -233,6 +238,11 @@
 		D6ADD8CD293629B40057095A /* SamplerTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerTexture.swift; sourceTree = "<group>"; };
 		D6ADD8CF293629C50057095A /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		D6ADD8D129362A360057095A /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
+		D6C3FF9829A8E2C800D81D90 /* DownloadJamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadJamUseCase.swift; sourceTree = "<group>"; };
+		D6C3FF9A29A8E2F500D81D90 /* DownloadJamUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadJamUseCaseProtocol.swift; sourceTree = "<group>"; };
+		D6C3FF9C29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadJamUseCaseOutput.swift; sourceTree = "<group>"; };
+		D6C3FF9F29A8E8F300D81D90 /* DraftMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftMapperProtocol.swift; sourceTree = "<group>"; };
+		D6C3FFA129A8E9A200D81D90 /* DraftMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftMapper.swift; sourceTree = "<group>"; };
 		D6F34586299A7F3200E11E92 /* Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draft.swift; sourceTree = "<group>"; };
 		D6F3458A299A7FE500E11E92 /* DraftRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepository.swift; sourceTree = "<group>"; };
 		D6F3458C299A802200E11E92 /* DraftRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -302,6 +312,7 @@
 		00523CED299FC4F10075393A /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				D6C3FF9729A8E2B100D81D90 /* DownloadJam */,
 				007869742991447E0018B384 /* DownloadAudioRoutine */,
 				00523CEC299FC4AE0075393A /* UploadJam */,
 				00523D0129A19C250075393A /* UseCaseProtocol.swift */,
@@ -476,6 +487,7 @@
 		007869B329951F360018B384 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
+				D6C3FF9E29A8E8E700D81D90 /* Draft */,
 				007869C229953D430018B384 /* Error */,
 				007869B629951F4D0018B384 /* Challenge */,
 			);
@@ -873,6 +885,25 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		D6C3FF9729A8E2B100D81D90 /* DownloadJam */ = {
+			isa = PBXGroup;
+			children = (
+				D6C3FF9829A8E2C800D81D90 /* DownloadJamUseCase.swift */,
+				D6C3FF9A29A8E2F500D81D90 /* DownloadJamUseCaseProtocol.swift */,
+				D6C3FF9C29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift */,
+			);
+			path = DownloadJam;
+			sourceTree = "<group>";
+		};
+		D6C3FF9E29A8E8E700D81D90 /* Draft */ = {
+			isa = PBXGroup;
+			children = (
+				D6C3FF9F29A8E8F300D81D90 /* DraftMapperProtocol.swift */,
+				D6C3FFA129A8E9A200D81D90 /* DraftMapper.swift */,
+			);
+			path = Draft;
+			sourceTree = "<group>";
+		};
 		D6F34589299A7FD400E11E92 /* Drafts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1091,8 +1122,10 @@
 				0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */,
 				D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */,
 				00523CF4299FCCDD0075393A /* DraftsPresenting.swift in Sources */,
+				D6C3FF9929A8E2C800D81D90 /* DownloadJamUseCase.swift in Sources */,
 				007869C72996672F0018B384 /* RepositoryError.swift in Sources */,
 				29788A3B293F7FCB004F82DB /* DatetimeService.swift in Sources */,
+				D6C3FF9D29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
 				D6F3458B299A7FE500E11E92 /* DraftRepository.swift in Sources */,
 				0087CBD5293A540900404615 /* DownloadServicing.swift in Sources */,
@@ -1107,6 +1140,8 @@
 				D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */,
 				29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */,
 				29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */,
+				D6C3FFA229A8E9A200D81D90 /* DraftMapper.swift in Sources */,
+				D6C3FF9B29A8E2F500D81D90 /* DownloadJamUseCaseProtocol.swift in Sources */,
 				29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */,
 				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
@@ -1117,6 +1152,7 @@
 				00523CE7299D08790075393A /* PillButtonComponent.swift in Sources */,
 				00523CE9299ECAD30075393A /* DraftEmptyStateViewCell.swift in Sources */,
 				007869CB29966F420018B384 /* ErrorExtension.swift in Sources */,
+				D6C3FFA029A8E8F300D81D90 /* DraftMapperProtocol.swift in Sources */,
 				00523CEB299FB5C80075393A /* AudioAndPropetiesRecordType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
