@@ -65,10 +65,14 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     @objc func downloadFunc() {
         let filePath = challenge.audio.path
         let newPath = filePath.appendingPathExtension(challenge.audio.format.rawValue)
-        try? FileManager.default.moveItem(at: filePath, to: newPath)
-        let activityView = UIActivityViewController(activityItems: [newPath], applicationActivities: nil)
-        activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
-        show(activityView, sender: self)
+        do {
+            try FileManager.default.copyItem(at: filePath, to: newPath)
+            let activityView = UIActivityViewController(activityItems: [newPath], applicationActivities: nil)
+            activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
+            show(activityView, sender: self)
+        } catch {
+            showAlert(title: "Erro", message: "Não foi possível exportar o áudio devido a um erro desconhecido.")
+        }
     }
 
     override func viewDidLoad() {
