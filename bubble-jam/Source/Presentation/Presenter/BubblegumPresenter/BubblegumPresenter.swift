@@ -8,13 +8,17 @@
 import Foundation
 import AVFoundation
 
-class BubblegumPresenter: BubblegumPresenting {    
+class BubblegumPresenter: NSObject, BubblegumPresenting {
     var downloadAudioUseCase: DownloadAudioRoutineUseCase
     weak var viewDelegate: BubblegumViewDelegate?
     private(set) var currentChallenge: Challenge?
+    private(set) var player: AVAudioPlayer!
     
-    init(downloadAudioUseCase: DownloadAudioRoutineUseCase) {
+    init(downloadAudioUseCase: DownloadAudioRoutineUseCase,
+         player: AVAudioPlayer = AVAudioPlayer()
+    ) {
         self.downloadAudioUseCase = downloadAudioUseCase
+        self.player = player
     }
     
     func initChallengeDownload() async {
@@ -25,9 +29,11 @@ class BubblegumPresenter: BubblegumPresenting {
     func playAudio() {
         if let challenge = currentChallenge {
             do {
-                let player = try AVAudioPlayer(contentsOf: challenge.audio.path, fileTypeHint: AVFileType.m4a.rawValue)
+                let audioData = try Data(contentsOf: challenge.audio.path)
+                player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
+                player.delegate = self
+                player.numberOfLoops = 0
                 player.prepareToPlay()
-                player.numberOfLoops = 1
                 if player.play() { viewDelegate?.audioIsPlaying(challenge.audio) }
             } catch {
                 print("Erro: \(error.localizedDescription)")
@@ -35,6 +41,8 @@ class BubblegumPresenter: BubblegumPresenting {
         }
     }
 }
+
+extension BubblegumPresenter: AVAudioPlayerDelegate {}
 
 extension BubblegumPresenter: DownloadAudioRoutineOutput {
     func successfullyLoadChallenge(_ challenge: Challenge) {
