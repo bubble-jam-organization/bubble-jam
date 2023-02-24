@@ -9,44 +9,16 @@ import Foundation
 import AVFoundation
 
 struct AudioService: AudioServicing {
-    private var player: AVQueuePlayer!
-    private var bundle: Bundle!
+    private var audioUrl: URL!
+    private var player: AVAudioPlayer?
     
-    init(player: AVQueuePlayer = AVQueuePlayer(), bundle: Bundle = Bundle.main) {
-        self.player = player
-        self.bundle = bundle
-    }
-    
-    func insertSong(songName: String, songFormat: String) throws {
-        clearSongQueue()
-        if let song = bundle.url(forResource: songName, withExtension: songFormat) {
-            let audioSong = AVPlayerItem(url: song)
-            player.insert(audioSong, after: nil)
-            return
-        }
-        throw AudioServiceError.nonExistingAudio
-    }
-    
-    private func clearSongQueue() {
-        player.removeAllItems()
+    init(audioUrl: URL) {
+        self.audioUrl = audioUrl
+        self.player = try? AVAudioPlayer(contentsOf: audioUrl, fileTypeHint: AVFileType.m4a.rawValue)
     }
     
     func playSong() {
-        if !player.items().isEmpty {
-            do {
-                try AVAudioSession.sharedInstance().setCategory(.playback)
-                player.play()
-            } catch {
-                print(error.localizedDescription)
-            }
-            
-        }
+        guard let player = self.player else { return }
+        player.play()
     }
-    
-    func pauseSong() {
-        if player.isPlaying() {
-            player.pause()
-        }
-    }
-    
 }
