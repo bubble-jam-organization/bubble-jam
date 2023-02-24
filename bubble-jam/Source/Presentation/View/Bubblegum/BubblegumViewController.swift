@@ -10,7 +10,7 @@ import UIKit
 protocol BubblegumViewDelegate: AnyObject {
     func showChallenge(title: String, daysLeft: String)
     func startLoading()
-    func audioIsPlaying(_ audio: AudioAndPropeties)
+    func audioIsPlaying(challenge: Challenge)
     func errorWhenLoadingChallenge(title: String, description: String)
 }
 
@@ -97,13 +97,13 @@ extension BubblegumViewController: BubblegumViewDelegate {
         showAlert(title: title, message: description)
     }
     
-    func audioIsPlaying(_ audio: AudioAndPropeties) {
-//        let sheet = InformationSheetViewController(audio: audio, presenter: presenter)
-//        let guide = view.safeAreaLayoutGuide
-//        let labels = CGFloat(titleLabels.frame.height)
-//        let height = guide.layoutFrame.size.height - labels
-//        sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
-//        present(sheet, animated: true)
+    func audioIsPlaying(challenge: Challenge) {
+        let sheet = InformationSheetViewController(challenge: challenge, presenter: presenter)
+        let guide = view.safeAreaLayoutGuide
+        let labels = CGFloat(titleLabels.frame.height)
+        let height = guide.layoutFrame.size.height - labels
+        sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
+        present(sheet, animated: true)
     }
     
     func showChallenge(title: String, daysLeft: String) {

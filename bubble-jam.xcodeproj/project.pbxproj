@@ -616,7 +616,6 @@
 				29788A462940DAE7004F82DB /* Onboarding */,
 				D673C95E2940C61900C6B207 /* Manager */,
 				D65CA2FD293E36CA008DF1B2 /* Draft */,
-				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C0293628C90057095A /* Bubblegum */,
 			);
 			path = View;
@@ -790,6 +789,7 @@
 		D6ADD8C62936291E0057095A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C7293629340057095A /* DraftPillButton.swift */,
 				D6ADD8C9293629590057095A /* SamplerPlayButton.swift */,
 				D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */,

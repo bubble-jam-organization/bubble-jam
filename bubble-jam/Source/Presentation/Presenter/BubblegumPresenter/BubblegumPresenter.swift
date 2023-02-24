@@ -9,13 +9,14 @@ import Foundation
 import AVFoundation
 
 class BubblegumPresenter: NSObject, BubblegumPresenting {
-    var downloadAudioUseCase: DownloadAudioRoutineUseCase
-    weak var viewDelegate: BubblegumViewDelegate?
     private(set) var currentChallenge: Challenge?
     private(set) var player: AVAudioPlayer!
+    var downloadAudioUseCase: DownloadAudioRoutineUseCase
+    weak var viewDelegate: BubblegumViewDelegate?
     
-    init(downloadAudioUseCase: DownloadAudioRoutineUseCase,
-         player: AVAudioPlayer = AVAudioPlayer()
+    init(
+        downloadAudioUseCase: DownloadAudioRoutineUseCase,
+        player: AVAudioPlayer = AVAudioPlayer()
     ) {
         self.downloadAudioUseCase = downloadAudioUseCase
         self.player = player
@@ -30,14 +31,21 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
         if let challenge = currentChallenge {
             do {
                 let audioData = try Data(contentsOf: challenge.audio.path)
+                AVAudioSession.sharedInstance()
                 player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
                 player.delegate = self
                 player.numberOfLoops = 0
                 player.prepareToPlay()
-                if player.play() { viewDelegate?.audioIsPlaying(challenge.audio) }
+                if player.play() { viewDelegate?.audioIsPlaying(challenge: challenge) }
             } catch {
                 print("Erro: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    func stopAudio() {
+        if let player = player, player.isPlaying {
+            player.stop()
         }
     }
 }

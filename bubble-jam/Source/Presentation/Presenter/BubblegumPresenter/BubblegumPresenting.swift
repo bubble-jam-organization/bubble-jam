@@ -10,4 +10,5 @@ import Foundation
 protocol BubblegumPresenting {
     func initChallengeDownload() async
     func playAudio()
+    func stopAudio()
 }
