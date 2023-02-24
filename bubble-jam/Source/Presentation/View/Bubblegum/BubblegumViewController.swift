@@ -38,6 +38,10 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         samplerFrame.isMultipleTouchEnabled = true
         samplerFrame.addGestureRecognizer(tapGesture)
         samplerFrame.clipsToBounds = true
+        samplerFrame.isAccessibilityElement = true
+        samplerFrame.accessibilityLabel = NSLocalizedString("Jam Button", comment: "Jam Button")
+        samplerFrame.accessibilityTraits = .button
+        samplerFrame.accessibilityHint = NSLocalizedString("Plays the jam", comment: "play jam")
         return samplerFrame
     }()
     
