@@ -47,8 +47,11 @@ class AudioInformationGroup: UIView {
     
     private lazy var audioNotes: UILabel = {
         let notes = UILabel(frame: .zero)
+        let notesArray = audioDetails.notes?.compactMap { $0.rawValue.uppercased() }
+        var notesText = ""
+        notesArray?.forEach { notesText += " \($0)" }
         notes.translatesAutoresizingMaskIntoConstraints = false
-        notes.text = "E G D B F#"
+        notes.text = notesText
         notes.textColor = .white
         notes.font = UIFont.systemFont(ofSize: 18)
         notes.font = UIFont.preferredFont(for: .title3, weight: .regular)
@@ -69,8 +72,6 @@ class AudioInformationGroup: UIView {
 }
 
 extension AudioInformationGroup: ViewCoding {
-    func setupView() {}
-    
     func setupHierarchy() {
         self.addSubview(audioLabel)
         self.addSubview(audioDescription)
@@ -80,10 +81,10 @@ extension AudioInformationGroup: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            audioDescription.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            audioDescription.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.6),
+            audioLabel.topAnchor.constraint(equalTo: self.topAnchor),
+        
+            audioDescription.topAnchor.constraint(equalTo: audioLabel.bottomAnchor, constant: 10),
             audioDescription.widthAnchor.constraint(equalTo: self.widthAnchor),
-            audioLabel.bottomAnchor.constraint(equalTo: audioDescription.topAnchor, constant: -4),
  
             audioBPM.topAnchor.constraint(equalTo: audioDescription.bottomAnchor, constant: 12),
             

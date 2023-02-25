@@ -8,5 +8,19 @@
 import Foundation
 
 class DownloadAudioRoutineUseCase {
-    func execute() {}
+    let repository: ChallengeRepositoryProtocol
+    var output: [DownloadAudioRoutineOutput]?
+    
+    init(repository: ChallengeRepositoryProtocol) {
+        self.repository = repository
+    }
+    
+    func execute() async {
+        do {
+            let challenge = try await repository.loadCurrentChallenge()
+            output?.forEach { $0.successfullyLoadChallenge(challenge) }
+        } catch {
+            output?.forEach { $0.failWhileLoadingChallenge(error) }
+        }
+    }
 }

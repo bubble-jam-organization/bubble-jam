@@ -8,7 +8,5 @@
 import Foundation
 
 protocol AudioServicing {
-    func insertSong(songName: String, songFormat: String) throws
     func playSong()
-    func pauseSong()
 }

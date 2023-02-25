@@ -13,6 +13,7 @@
 		00523CE7299D08790075393A /* PillButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE6299D08790075393A /* PillButtonComponent.swift */; };
 		00523CE9299ECAD30075393A /* DraftEmptyStateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE8299ECAD30075393A /* DraftEmptyStateViewCell.swift */; };
 		00523CEB299FB5C80075393A /* AudioAndPropetiesRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CEA299FB5C80075393A /* AudioAndPropetiesRecordType.swift */; };
+		00523D0829A79F640075393A /* DownloadAudioRoutineOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0729A79F640075393A /* DownloadAudioRoutineOutput.swift */; };
 		00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */; };
 		00786979299145D30018B384 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00786978299145D30018B384 /* Constants.swift */; };
 		0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0078697C29928B030018B384 /* ChallengeRepository.swift */; };
@@ -36,7 +37,6 @@
 		0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB42938E1C500404615 /* AlertPresentable.swift */; };
 		0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB82938E26F00404615 /* BubblegumPresenting.swift */; };
 		0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBBA2938E27800404615 /* BubblegumPresenter.swift */; };
-		0087CBBE2938E3D900404615 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBBD2938E3D900404615 /* Audio.swift */; };
 		0087CBBF2938E8C600404615 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */; };
 		0087CBC7293935B500404615 /* BubblegumPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC6293935B500404615 /* BubblegumPresenterTest.swift */; };
@@ -124,6 +124,7 @@
 		00523CE6299D08790075393A /* PillButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButtonComponent.swift; sourceTree = "<group>"; };
 		00523CE8299ECAD30075393A /* DraftEmptyStateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftEmptyStateViewCell.swift; sourceTree = "<group>"; };
 		00523CEA299FB5C80075393A /* AudioAndPropetiesRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAndPropetiesRecordType.swift; sourceTree = "<group>"; };
+		00523D0729A79F640075393A /* DownloadAudioRoutineOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineOutput.swift; sourceTree = "<group>"; };
 		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
 		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0078697A299146CB0018B384 /* bubble-jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "bubble-jam.entitlements"; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		0087CBB42938E1C500404615 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		0087CBB82938E26F00404615 /* BubblegumPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenting.swift; sourceTree = "<group>"; };
 		0087CBBA2938E27800404615 /* BubblegumPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenter.swift; sourceTree = "<group>"; };
-		0087CBBD2938E3D900404615 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInformationGroup.swift; sourceTree = "<group>"; };
 		0087CBC6293935B500404615 /* BubblegumPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenterTest.swift; sourceTree = "<group>"; };
 		0087CBC82939367D00404615 /* AudioServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceSpy.swift; sourceTree = "<group>"; };
@@ -292,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */,
+				00523D0729A79F640075393A /* DownloadAudioRoutineOutput.swift */,
 			);
 			path = DownloadAudioRoutine;
 			sourceTree = "<group>";
@@ -473,7 +474,6 @@
 		0087CBBC2938E2EC00404615 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0087CBBD2938E3D900404615 /* Audio.swift */,
 				D673C95C2940C60900C6B207 /* ScrollMovement.swift */,
 			);
 			path = Model;
@@ -602,8 +602,8 @@
 			children = (
 				007869A529929DA40018B384 /* Entity */,
 				00786977299145BE0018B384 /* Data */,
-				00786972299143240018B384 /* Presentation */,
 				00786973299144780018B384 /* Domain */,
+				00786972299143240018B384 /* Presentation */,
 				D6ADD8C1293628D00057095A /* Protocol */,
 			);
 			path = Source;
@@ -616,7 +616,6 @@
 				29788A462940DAE7004F82DB /* Onboarding */,
 				D673C95E2940C61900C6B207 /* Manager */,
 				D65CA2FD293E36CA008DF1B2 /* Draft */,
-				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C0293628C90057095A /* Bubblegum */,
 			);
 			path = View;
@@ -790,6 +789,7 @@
 		D6ADD8C62936291E0057095A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D657FED9293781A4005ADD07 /* Sheet */,
 				D6ADD8C7293629340057095A /* DraftPillButton.swift */,
 				D6ADD8C9293629590057095A /* SamplerPlayButton.swift */,
 				D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */,
@@ -976,7 +976,6 @@
 				D6F3458D299A802200E11E92 /* DraftRepositoryProtocol.swift in Sources */,
 				29B34BD7292FB9180092FD1F /* AudioServiceError.swift in Sources */,
 				00523CDF299BD61E0075393A /* ChallengeRecordType.swift in Sources */,
-				0087CBBE2938E3D900404615 /* Audio.swift in Sources */,
 				007869C929966A370018B384 /* ErrorHandler.swift in Sources */,
 				29B34BDC2930FC250092FD1F /* DownloadServiceErrors.swift in Sources */,
 				29B34BD92930FA560092FD1F /* DownloadService.swift in Sources */,
@@ -1028,6 +1027,7 @@
 				D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */,
 				29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */,
 				29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */,
+				00523D0829A79F640075393A /* DownloadAudioRoutineOutput.swift in Sources */,
 				29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */,
 				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
