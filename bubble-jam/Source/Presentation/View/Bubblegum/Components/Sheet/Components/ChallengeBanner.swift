@@ -10,14 +10,11 @@ import UIKit
 class ChallengeBanner: UIImageView {
 
     private lazy var banner: UIImageView = {
-        
         let banner = UIImageView(frame: .zero)
-        banner.image = UIImage(named: "placeholderBanner")
         banner.translatesAutoresizingMaskIntoConstraints = false
+        banner.image = image
         banner.contentMode = .scaleToFill
-        
         return banner
-        
     }()
     
     private lazy var inprintTexture: UIImageView = {

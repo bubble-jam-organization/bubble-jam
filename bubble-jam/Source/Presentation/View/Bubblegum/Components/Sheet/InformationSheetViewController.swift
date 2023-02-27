@@ -36,20 +36,18 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return group
     }()
     
-    private var backgroundImage: UIImageView = {
-        
+    private lazy var backgroundImage: UIImageView = {
         let background = Background(frame: .zero)
         background.translatesAutoresizingMaskIntoConstraints = false
         return background
-        
     }()
     
-    private var challengeBanner: UIImageView = {
+    private lazy var challengeBanner: UIImageView = {
         let banner = ChallengeBanner(frame: .zero)
         banner.translatesAutoresizingMaskIntoConstraints = false
         banner.layer.cornerRadius = 50
+        banner.image = downloadBannerImage(challenge.banner)
         return banner
-        
     }()
     
     private lazy var downloadBox: DownloadButton = {
@@ -73,6 +71,12 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         } catch {
             showAlert(title: "Erro", message: "Não foi possível exportar o áudio devido a um erro desconhecido.")
         }
+    }
+    
+    func downloadBannerImage(_ url: URL) -> UIImage? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        let image = UIImage(data: data)
+        return image
     }
 
     override func viewDidLoad() {
