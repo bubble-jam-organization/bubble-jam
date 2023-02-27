@@ -43,6 +43,7 @@ class DraftTableViewCell: UITableViewCell {
         label.lineBreakMode = .byCharWrapping
         label.font = UIFont.preferredFont(for: .body, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
         label.frame = .zero
         return label
     }()
