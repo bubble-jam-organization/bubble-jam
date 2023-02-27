@@ -46,6 +46,7 @@ extension MicButton: ViewCoding {
     }
     
     func setupConstraints() {
+        
         let micConstraints = [
             micImage.topAnchor.constraint(equalTo: self.topAnchor),
             micImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
