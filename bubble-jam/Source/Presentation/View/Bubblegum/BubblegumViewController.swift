@@ -8,10 +8,10 @@
 import UIKit
 
 protocol BubblegumViewDelegate: AnyObject {
-    func audioHasBeenLoaded()
+    func showChallenge(title: String, daysLeft: String)
     func startLoading()
-    func audioIsPlaying(_ audio: Audio)
-    func errorWhenLoadingAudio(title: String, description: String)
+    func audioIsPlaying(challenge: Challenge)
+    func errorWhenLoadingChallenge(title: String, description: String)
 }
 
 class BubblegumViewController: UIViewController, AlertPresentable {
@@ -19,17 +19,22 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     let presenter: BubblegumPresenting
     weak var managerDelegate: ManagerDelegate?
     
-    private lazy var titleLabels: TitleLabels = {
-        let labels = TitleLabels(nameOfChallenge: "Protojam", descriptionOfChallenge: "\(presenter.getDaysRemaining()) ")
+    private var titleLabels: TitleLabels = {
+        let labels = TitleLabels()
         labels.translatesAutoresizingMaskIntoConstraints = false
         return labels
-        
+    }()
+    
+    private var loadingIndicator: UIActivityIndicatorView = {
+        let loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.color = .black
+        return loadingIndicator
     }()
     
     private lazy var sampleFrame: SamplePlayerFrame = {
         let samplerFrame = SamplePlayerFrame(frame: .zero, sizeOfFrame: sizeOfFrame)
         samplerFrame.translatesAutoresizingMaskIntoConstraints = false
-        
         let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(frameFunc)
@@ -49,7 +54,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         let playButton = SamplePlayButton(frame: .zero, sizeOfButton: (sizeOfFrame * 0.4))
         playButton.translatesAutoresizingMaskIntoConstraints = false
         return playButton
-        
     }()
     
     private lazy var draftPill: PillButtonComponent = {
@@ -81,7 +85,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
-        presenter.initAudioDownload(in: nil)
+        Task { await presenter.initChallengeDownload() }
     }
     
     @objc func frameFunc() {
@@ -94,26 +98,31 @@ class BubblegumViewController: UIViewController, AlertPresentable {
 }
 
 extension BubblegumViewController: BubblegumViewDelegate {
-    func audioIsPlaying(_ audio: Audio) {
-        let sheet = InformationSheetViewController(audio: audio, presenter: presenter)
+    func errorWhenLoadingChallenge(title: String, description: String) {
+        showAlert(title: title, message: description)
+    }
+    
+    func audioIsPlaying(challenge: Challenge) {
+        let sheet = InformationSheetViewController(challenge: challenge, presenter: presenter)
         let guide = view.safeAreaLayoutGuide
         let labels = CGFloat(titleLabels.frame.height)
         let height = guide.layoutFrame.size.height - labels
         sheet.sheetPresentationController?.detents = [ .custom { _ in return height } ]
-        
         present(sheet, animated: true)
     }
     
+    func showChallenge(title: String, daysLeft: String) {
+        DispatchQueue.main.async { [weak self] in
+            self?.loadingIndicator.stopAnimating()
+            self?.titleLabels.nameOfChallenge = title
+            self?.titleLabels.descriptionOfChallenge = daysLeft
+        }
+    }
+    
     func startLoading() {
-        print("Starting load")
-    }
-    
-    func errorWhenLoadingAudio(title: String, description: String) {
-        showAlert(title: title, message: description)
-    }
-    
-    func audioHasBeenLoaded() {
-        print("Hide loading")
+        DispatchQueue.main.async { [weak self] in
+            self?.loadingIndicator.startAnimating()
+        }
     }
 }
 
@@ -128,6 +137,7 @@ extension BubblegumViewController: ViewCoding {
         view.addSubview(draftPill)
         view.addSubview(sampleFrame)
         view.addSubview(titleLabels)
+        view.addSubview(loadingIndicator)
         sampleFrame.addSubview(samplePlayButton)
     }
     
@@ -144,13 +154,16 @@ extension BubblegumViewController: ViewCoding {
             samplePlayButton.widthAnchor.constraint(equalTo: samplePlayButton.widthAnchor),
             samplePlayButton.heightAnchor.constraint(equalTo: samplePlayButton.heightAnchor),
             
-            draftPill.topAnchor.constraint(equalTo: sampleFrame.bottomAnchor),
             draftPill.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            draftPill.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            draftPill.heightAnchor.constraint(greaterThanOrEqualToConstant: draftPill.horizontalStack.layer.cornerRadius * 3),
             
             titleLabels.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabels.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            titleLabels.heightAnchor.constraint(equalToConstant: 134)
+            titleLabels.heightAnchor.constraint(equalToConstant: 134),
+            
+            loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
         
     }

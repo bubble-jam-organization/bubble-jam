@@ -39,7 +39,12 @@ class ChallengeMapper: ChallengeMapperProtocol {
            let bpm = audioRecord ["bpm"] as? UInt {
             guard let dataURL = dataAsset.fileURL else { throw MapperError.couldNotMapData }
         
-            return AudioAndPropeties(path: dataURL, format: format, notes: notes, bpm: bpm)
+            return AudioAndPropeties(
+                path: dataURL,
+                format: AudioFormat(rawValue: format.lowercased()),
+                notes: notes.compactMap { Note(rawValue: $0.lowercased() )},
+                bpm: bpm
+            )
         }
         throw MapperError.couldNotMapData
     }

@@ -6,67 +6,63 @@
 //
 
 import Foundation
+import AVFoundation
 
-class BubblegumPresenter: BubblegumPresenting {
-    let audioService: AudioServicing
-    let downloadService: DownloadServicing
-    let datetimeService: DateServicing
+class BubblegumPresenter: NSObject, BubblegumPresenting {
+    private(set) var currentChallenge: Challenge?
+    private(set) var player: AVAudioPlayer!
+    var downloadAudioUseCase: DownloadAudioRoutineUseCase
     weak var viewDelegate: BubblegumViewDelegate?
     
-    private var mockedAudio = Audio(
-        data: Data(),
-        localAudioName: "song",
-        format: .m4a,
-        details: AudioDetails(
-            notes: [],
-            description: "Challenge com um simples riff de guitarra! Divirta-se com nosso sample e faça a sua melhor composição",
-            bpm: 130
-        )
-    )
-    
-    init(audioService: AudioServicing, downloadService: DownloadServicing, datetimeService: DateServicing) {
-        self.audioService = audioService
-        self.downloadService = downloadService
-        self.datetimeService = datetimeService
+    init(
+        downloadAudioUseCase: DownloadAudioRoutineUseCase,
+        player: AVAudioPlayer = AVAudioPlayer()
+    ) {
+        self.downloadAudioUseCase = downloadAudioUseCase
+        self.player = player
     }
     
-    func initAudioDownload(in path: String?) {
+    func initChallengeDownload() async {
         viewDelegate?.startLoading()
-        viewDelegate?.audioHasBeenLoaded()
-//        do {
-//            try downloadService.downloadAudio(
-//                audioName: audio.localAudioName!,
-//                audioExtension: audio.format.rawValue
-//            )
-//            try audioService.insertSong(songName: audio.localAudioName!, songFormat: audio.format.rawValue)
-//            viewDelegate?.audioHasBeenLoaded()
-//        } catch {
-//            print(error.localizedDescription)
-//        }
+        await downloadAudioUseCase.execute()
     }
-    
+
     func playAudio() {
-        do {
-            try audioService.insertSong(
-                songName: mockedAudio.localAudioName!,
-                songFormat: mockedAudio.format.rawValue
-            )
-            audioService.playSong()
-            viewDelegate?.audioIsPlaying(mockedAudio)
-        } catch {
-            print(error.localizedDescription)
+        if let challenge = currentChallenge {
+            do {
+                let audioData = try Data(contentsOf: challenge.audio.path)
+                AVAudioSession.sharedInstance()
+                player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
+                player.delegate = self
+                player.numberOfLoops = 0
+                player.prepareToPlay()
+                if player.play() { viewDelegate?.audioIsPlaying(challenge: challenge) }
+            } catch {
+                print("Erro: \(error.localizedDescription)")
+            }
         }
     }
     
-    func pauseAudio() {
-        audioService.pauseSong()
+    func stopAudio() {
+        if let player = player, player.isPlaying {
+            player.stop()
+        }
+    }
+}
+
+extension BubblegumPresenter: AVAudioPlayerDelegate {}
+
+extension BubblegumPresenter: DownloadAudioRoutineOutput {
+    func successfullyLoadChallenge(_ challenge: Challenge) {
+        currentChallenge = challenge
+        let deadline = Calendar.current.dateComponents([.day], from: Date.now, to: challenge.deadline)
+        viewDelegate?.showChallenge(
+            title: challenge.title,
+            daysLeft: "\(String(describing: deadline.day!))"
+        )
     }
     
-    func getAudioUrl() throws -> URL {
-        return try downloadService.loadAudioUrl(mockedAudio.localAudioName!, mockedAudio.format.rawValue)
-    }
-    
-    func getDaysRemaining() -> String {
-        return String(datetimeService.daysRemaining())
+    func failWhileLoadingChallenge(_ error: Error) {
+        viewDelegate?.errorWhenLoadingChallenge(title: "Erro!", description: error.localizedDescription)
     }
 }

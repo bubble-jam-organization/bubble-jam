@@ -20,7 +20,7 @@ class PillButtonComponent: UIButton {
         }
     }
     
-    private var horizontalStack: UIStackView = {
+    var horizontalStack: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -30,6 +30,7 @@ class PillButtonComponent: UIButton {
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         stackView.layer.cornerRadius = 20
+        stackView.isUserInteractionEnabled = false
         return stackView
     }()
     
@@ -76,9 +77,8 @@ extension PillButtonComponent: ViewCoding {
         NSLayoutConstraint.activate([
             horizontalStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             horizontalStack.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            horizontalStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            horizontalStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            horizontalStack.heightAnchor.constraint(equalToConstant: 60)
+            horizontalStack.heightAnchor.constraint(equalTo: self.heightAnchor),
+            horizontalStack.widthAnchor.constraint(equalTo: self.widthAnchor)
         ])
     }
 }

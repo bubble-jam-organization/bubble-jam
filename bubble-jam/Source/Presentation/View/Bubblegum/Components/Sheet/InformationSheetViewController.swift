@@ -6,29 +6,37 @@
 //
 
 import UIKit
+import AVFoundation
 
 class InformationSheetViewController: UIViewController, AlertPresentable {
-    let audio: Audio
     let presenter: BubblegumPresenting
+    let challenge: Challenge
     var activityQueue: [URL] = []
     
-    init(audio: Audio, presenter: BubblegumPresenting) {
-        self.audio = audio
+    init(challenge: Challenge, presenter: BubblegumPresenting) {
         self.presenter = presenter
+        self.challenge = challenge
         super.init(nibName: nil, bundle: nil)
     }
     
-    deinit { presenter.pauseAudio() }
+    deinit { presenter.stopAudio() }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     private lazy var information: UIView = {
-        let group = AudioInformationGroup(frame: .zero, audioDetails: audio.details)
+        let group = AudioInformationGroup(
+            frame: .zero,
+            audioDetails: AudioDetails(
+                            notes: challenge.audio.notes,
+                            description: challenge.description,
+                            bpm: Int(challenge.audio.bpm)
+                        )
+        )
         group.translatesAutoresizingMaskIntoConstraints = false
         return group
     }()
     
-    private lazy var backgroundImage: UIImageView = {
+    private var backgroundImage: UIImageView = {
         
         let background = Background(frame: .zero)
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -36,8 +44,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         
     }()
     
-    private lazy var challengeBanner: UIImageView = {
-        
+    private var challengeBanner: UIImageView = {
         let banner = ChallengeBanner(frame: .zero)
         banner.translatesAutoresizingMaskIntoConstraints = false
         banner.layer.cornerRadius = 50
@@ -48,7 +55,6 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     private lazy var downloadBox: DownloadButton = {
         let box = DownloadButton(frame: .zero)
         box.translatesAutoresizingMaskIntoConstraints = false
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
         box.isUserInteractionEnabled = true
         box.addGestureRecognizer(tapGesture)
@@ -57,32 +63,25 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     }()
     
     @objc func downloadFunc() {
-        let audioName = "\(audio.localAudioName ?? "").\(audio.format.rawValue)"
+        let filePath = challenge.audio.path
+        let newPath = filePath.appendingPathExtension(challenge.audio.format.rawValue)
         do {
-            let audioPath = try presenter.getAudioUrl()
-            activityQueue.append(audioPath)
-            let activityView = UIActivityViewController(activityItems: activityQueue, applicationActivities: nil)
+            try FileManager.default.copyItem(at: filePath, to: newPath)
+            let activityView = UIActivityViewController(activityItems: [newPath], applicationActivities: nil)
             activityView.excludedActivityTypes = [.markupAsPDF, .assignToContact]
-            
             show(activityView, sender: self)
         } catch {
-            showAlert(title: "An error has ocurred :(", message: "Um erro aconteceu, tente novamente")
+            showAlert(title: "Erro", message: "Não foi possível exportar o áudio devido a um erro desconhecido.")
         }
-        activityQueue.removeAll()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
     }
-
 }
 
 extension InformationSheetViewController: ViewCoding {
-    func setupView() {
-        
-    }
-    
     func setupHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(challengeBanner)
