@@ -141,7 +141,7 @@ class DataSourceErrorHandler {
                     .userDeletedZone,
                     .referenceViolation:
                 return DataSourceError(
-                    dataSourceErrorDescription: "Ocorreu um problema interno!",
+                    dataSourceErrorDescription: "Ocorreu um problema interno!" ,
                     recoverySuggestion: "Verifique se existe alguma atualização do aplicativo disponível. Se o error persistir, busque suporte em nossos canais de comunicação"
                 )
             @unknown default:

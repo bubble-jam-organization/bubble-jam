@@ -38,7 +38,21 @@ class ManagerViewController: UIViewController {
         return viewController
     }()
     
-    private lazy var draftView = DraftsViewController(managerDelegate: self)
+    private lazy var draftView: DraftsViewController = {
+        let database = CKContainer(identifier: Constants.containerIdentifier).privateCloudDatabase
+        let mapper = DraftMapper()
+        let repository = DraftRepository(database: database, mapper: mapper)
+        let uploadUseCase = UploadJamUseCase(repository: repository)
+        let downloadUseCase = DownloadJamUseCase(repository: repository)
+        let presenter = DraftsPresenter(uploadJamUseCase: uploadUseCase, downloadJamUseCase: downloadUseCase)
+        let view = DraftsViewController(managerDelegate: self, presenter: presenter)
+        
+        uploadUseCase.output = [presenter]
+        downloadUseCase.output = [presenter]
+        presenter.view = view
+        
+        return view
+    }()
     
     private lazy var managerScrollView: UIScrollView = {
         let view = UIScrollView(frame: .zero)

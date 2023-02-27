@@ -6,21 +6,41 @@
 //
 
 import UIKit
+import UniformTypeIdentifiers
 
-class DraftsViewController: UIViewController {
-    
+protocol DraftViewDelegate: AnyObject {
+    func startLoading()
+    func hideLoading()
+    func succesfullyUploadDraft(_ jam: Draft)
+    func failWhileUploadingDraft(_ error: Error)
+    func draftHasBeenDownloaded(_ jam: Draft)
+    func failWhileDownloadingDraft(_ error: Error)
+}
+
+class DraftsViewController: UIViewController, AlertPresentable {
     weak var managerDelegate: ManagerDelegate?
+    private let presenter: DraftsPresenting
     
     var dataSource = [DraftViewModel]()
     
-    init(managerDelegate: ManagerDelegate) {
+    init(managerDelegate: ManagerDelegate, presenter: DraftsPresenting) {
         self.managerDelegate = managerDelegate
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private var loadingView: UIActivityIndicatorView = {
+        var view = UIActivityIndicatorView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.style = .large
+        view.color = .gray
+        view.hidesWhenStopped = true
+        return view
+    }()
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -62,9 +82,30 @@ class DraftsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
+        Task {
+            _ = await presenter.downloadJam()
+        }
     }
     
    @objc func onSwipeDown() { managerDelegate?.scrollToTop() }
+    
+    func loadUserAudios() {
+        let document = UIDocumentPickerViewController(forOpeningContentTypes: [.audio])
+        document.delegate = self
+        document.allowsMultipleSelection = false
+        present(document, animated: true)
+    }
+}
+
+extension DraftsViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let url = urls.first else { return }
+        let draftJam = Draft(audio: url)
+        Task {
+            _ = url.startAccessingSecurityScopedResource()
+            await presenter.uploadJam(draft: draftJam)
+        }
+    }
 }
 
 extension DraftsViewController: ViewCoding {
@@ -75,7 +116,8 @@ extension DraftsViewController: ViewCoding {
         view.addGestureRecognizer(swipeGesture)
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
-        dataSource = DraftViewModel.mock
+//        dataSource = DraftViewModel.mock
+        micButton.addJamButtonTap = loadUserAudios
     }
     
     func setupHierarchy() {
@@ -84,6 +126,8 @@ extension DraftsViewController: ViewCoding {
         view.addSubview(micButton)
         view.addSubview(tableViewHeader)
         view.addSubview(titleLabel)
+        
+        view.addSubview(loadingView)
     }
     
     func setupConstraints() {
@@ -109,7 +153,13 @@ extension DraftsViewController: ViewCoding {
             tableViewHeader.bottomAnchor.constraint(equalTo: draftsTableView.topAnchor),
             tableViewHeader.leadingAnchor.constraint(equalTo: draftsTableView.leadingAnchor),
             tableViewHeader.trailingAnchor.constraint(equalTo: draftsTableView.trailingAnchor),
-            tableViewHeader.heightAnchor.constraint(equalToConstant: 25)
+            tableViewHeader.heightAnchor.constraint(equalToConstant: 25),
+            
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
         ])
     }
     
@@ -138,5 +188,42 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.draft = dataSource[indexPath.row]
         return cell
+    }
+}
+
+extension DraftsViewController: DraftViewDelegate {
+    func draftHasBeenDownloaded(_ jam: Draft) {
+        dataSource = [DraftViewModel(audioPath: jam.audio, audioName: "Most recent jam", audioDuration: "")]
+        DispatchQueue.main.async { [weak self] in self?.draftsTableView.reloadData() }
+    }
+    
+    func failWhileDownloadingDraft(_ error: Error) {
+        print("failWhileDownloadingDraft")
+    }
+    
+    func startLoading() {
+        print("Presenter says: \(#function)")
+        DispatchQueue.main.async { [weak self] in self?.loadingView.startAnimating() }
+    }
+    
+    func hideLoading() {
+        print("Presenter says: \(#function)")
+        DispatchQueue.main.async { [weak self] in self?.loadingView.stopAnimating() }
+    }
+    
+    func succesfullyUploadDraft(_ jam: Draft) {
+        DispatchQueue.main.async { [weak self] in
+            self?.dataSource.removeAll()
+            self?.dataSource.append(
+                DraftViewModel(audioPath: jam.audio, audioName: "My new jam!", audioDuration: "1:00")
+            )
+            self?.draftsTableView.reloadData()
+        }
+    }
+    
+    func failWhileUploadingDraft(_ error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.showAlert(title: "Presenter says error", message: error.localizedDescription)
+        }
     }
 }

@@ -18,6 +18,8 @@ class MicButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var addJamButtonTap: (() -> Void)?
+    
     private lazy var micImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: "MIC"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -28,11 +30,13 @@ class MicButton: UIView {
         let pill = PillButtonComponent(frame: .zero)
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.pillLabel.text = "Adicionar Jam"
-        pill.radius = 32
+        pill.radius = 20
+        pill.addTarget(self, action: #selector(onTap), for: .touchUpInside)
         pill.contentHorizontalAlignment = .center
         return pill
     }()
     
+    @objc func onTap() { addJamButtonTap?() }
 }
 
 extension MicButton: ViewCoding {
@@ -50,9 +54,9 @@ extension MicButton: ViewCoding {
         ]
         
         let jamButtonConstraints = [
-            jamButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 36),
+            jamButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 56),
             jamButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            jamButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            jamButton.heightAnchor.constraint(greaterThanOrEqualToConstant: jamButton.radius! * 3)
         ]
         
         NSLayoutConstraint.activate(micConstraints)
