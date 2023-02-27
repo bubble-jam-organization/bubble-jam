@@ -8,12 +8,11 @@
 import Foundation
 
 class DraftsPresenter: DraftsPresenting {
-    
     private var uploadJamUseCase: any UploadJamUseCaseProtocol
-    private var downloadJamUseCase: any DownloadJamUseCaseProtocol
+    private var downloadJamUseCase: DownloadJamUseCase
     weak var view: DraftViewDelegate?
     
-    init(uploadJamUseCase: any UploadJamUseCaseProtocol, downloadJamUseCase: any DownloadJamUseCaseProtocol) {
+    init(uploadJamUseCase: any UploadJamUseCaseProtocol, downloadJamUseCase: DownloadJamUseCase) {
         self.uploadJamUseCase = uploadJamUseCase
         self.downloadJamUseCase = downloadJamUseCase
     }
@@ -45,12 +44,10 @@ extension DraftsPresenter: UploadJamUseCaseOutput {
 
 extension DraftsPresenter: DownloadJamUseCaseOutput {
     func sucessfullyDownloadJams(_ jam: Draft) {
-        print("ayo")
         view?.draftHasBeenDownloaded(jam)
     }
     
     func failWhileDownloadingJam(_ error: Error) {
-        print("ayo but differente")
         view?.failWhileDownloadingDraft(error)
     }
 }

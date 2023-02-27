@@ -83,7 +83,7 @@ class DraftsViewController: UIViewController, AlertPresentable {
         super.viewDidLoad()
         buildLayout()
         Task {
-            _ = await presenter.downloadJam
+            _ = await presenter.downloadJam()
         }
     }
     
@@ -193,13 +193,12 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension DraftsViewController: DraftViewDelegate {
     func draftHasBeenDownloaded(_ jam: Draft) {
-        print("dun")
         dataSource = [DraftViewModel(audioPath: jam.audio, audioName: "Most recent jam", audioDuration: "")]
         DispatchQueue.main.async { [weak self] in self?.draftsTableView.reloadData() }
     }
     
     func failWhileDownloadingDraft(_ error: Error) {
-        print("goof")
+        print("failWhileDownloadingDraft")
     }
     
     func startLoading() {

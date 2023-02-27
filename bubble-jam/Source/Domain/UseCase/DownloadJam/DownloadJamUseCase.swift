@@ -7,21 +7,22 @@
 
 import Foundation
 
-class DownloadJamUseCase: DownloadJamUseCaseProtocol {
-    var input: Any? = nil
+class DownloadJamUseCase {
     var output: [DownloadJamUseCaseOutput]?
     var repository: DraftRepositoryProtocol
     
-    required init(repository: DraftRepositoryProtocol) {
+    init(repository: DraftRepositoryProtocol) {
         self.repository = repository
     }
     
     func execute() async {
         do {
             let draft = try await repository.downloadDraft()
-            output?.forEach{ $0.sucessfullyDownloadJams(draft) }
+            print("sending output")
+            output?.forEach{$0.sucessfullyDownloadJams(draft)}
         } catch {
-            output?.forEach{ $0.failWhileDownloadingJam(error) }
+            print(error)
+            output?.forEach{$0.failWhileDownloadingJam(error)}
         }
     }
 }
