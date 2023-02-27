@@ -56,6 +56,8 @@ class Page3ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(goToMainScreen))
         button.isUserInteractionEnabled = true
         button.addGestureRecognizer(tap)
+        button.accessibilityLabel = NSLocalizedString("Start Now!", comment: "Start Now!")
+        button.isAccessibilityElement = true
         return button
     }()
     

@@ -60,6 +60,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.isUserInteractionEnabled = true
         pill.addGestureRecognizer(tapGesture)
+        pill.accessibilityLabel = NSLocalizedString("Start Drafting", comment: "Start Drafting")
         return pill
     }()
     

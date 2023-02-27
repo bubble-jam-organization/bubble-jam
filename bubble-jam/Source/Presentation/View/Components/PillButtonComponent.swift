@@ -49,6 +49,7 @@ class PillButtonComponent: UIButton {
         label.font = UIFont.preferredFont(for: .body, weight: .bold)
         label.adjustsFontForContentSizeCategory = true
         label.lineBreakMode = .byWordWrapping
+        label.lineBreakStrategy = .pushOut
         return label
     }()
 
