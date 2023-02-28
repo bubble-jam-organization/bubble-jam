@@ -14,7 +14,7 @@ class AudioInformationGroup: UIView {
     private var audioLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Descrição"
+        label.text = NSLocalizedString("Description", comment: "Description of challenge")
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.font = UIFont.preferredFont(for: .title2, weight: .bold)
@@ -25,7 +25,7 @@ class AudioInformationGroup: UIView {
     private let rulesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Regras"
+        label.text = NSLocalizedString("Rules", comment: "Rules of challenge")
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.font = UIFont.preferredFont(for: .title2, weight: .bold)
