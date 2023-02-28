@@ -59,6 +59,7 @@ extension DownloadButton: ViewCoding {
         NSLayoutConstraint.activate([
             downloadButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             downloadButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            downloadButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             downloadButton.widthAnchor.constraint(equalToConstant: 185),
             downloadButton.heightAnchor.constraint(equalToConstant: 90),
             

@@ -11,13 +11,36 @@ class AudioInformationGroup: UIView {
     
     var audioDetails: AudioDetails
     
-    private lazy var audioLabel: UILabel = {
+    private var audioLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Descrição"
+        label.text = NSLocalizedString("Description", comment: "Description of challenge")
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         label.font = UIFont.preferredFont(for: .title2, weight: .bold)
+        label.adjustsFontForContentSizeCategory = true
+        return label
+    }()
+    
+    private let rulesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = NSLocalizedString("Rules", comment: "Rules of challenge")
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.font = UIFont.preferredFont(for: .title2, weight: .bold)
+        label.adjustsFontForContentSizeCategory = true
+        return label
+    }()
+    
+    private lazy var rulesDescription: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.attributedText = bulletPointList(audioDetails.rules)
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.adjustsFontForContentSizeCategory = true
         return label
     }()
@@ -69,6 +92,25 @@ class AudioInformationGroup: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bulletPointList(_ strings: [String]) -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = 15
+        paragraphStyle.minimumLineHeight = 22
+        paragraphStyle.maximumLineHeight = 22
+        paragraphStyle.tabStops = [NSTextTab(textAlignment: .left, location: 15)]
+
+        let stringAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .light),
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.paragraphStyle: paragraphStyle
+        ]
+
+        let string = strings.map({ "•\t\($0)" }).joined(separator: "\n")
+
+        return NSAttributedString(string: string,
+                                  attributes: stringAttributes)
+    }
+    
 }
 
 extension AudioInformationGroup: ViewCoding {
@@ -77,6 +119,8 @@ extension AudioInformationGroup: ViewCoding {
         self.addSubview(audioDescription)
         self.addSubview(audioBPM)
         self.addSubview(audioNotes)
+        self.addSubview(rulesLabel)
+        self.addSubview(rulesDescription)
     }
     
     func setupConstraints() {
@@ -85,8 +129,13 @@ extension AudioInformationGroup: ViewCoding {
         
             audioDescription.topAnchor.constraint(equalTo: audioLabel.bottomAnchor, constant: 10),
             audioDescription.widthAnchor.constraint(equalTo: self.widthAnchor),
+            
+            rulesLabel.topAnchor.constraint(equalTo: audioDescription.bottomAnchor, constant: 10),
+            
+            rulesDescription.topAnchor.constraint(equalTo: rulesLabel.bottomAnchor, constant: 10),
+            rulesDescription.widthAnchor.constraint(equalTo: self.widthAnchor),
  
-            audioBPM.topAnchor.constraint(equalTo: audioDescription.bottomAnchor, constant: 12),
+            audioBPM.topAnchor.constraint(equalTo: rulesDescription.bottomAnchor, constant: 12),
             
             audioNotes.topAnchor.constraint(equalTo: audioBPM.bottomAnchor, constant: 4)
         ])
