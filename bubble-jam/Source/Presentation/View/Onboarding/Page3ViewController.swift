@@ -17,22 +17,24 @@ class Page3ViewController: UIViewController {
         return image
     }()
     
-    private lazy var tutorialTitle: UILabel = {
-        let label = UILabel()
+    private lazy var tutorialTitle: UITextView = {
+        let label = UITextView()
+        label.backgroundColor = .clear
         label.text = NSLocalizedString("Downloading a Sample", comment: "Downloading a Sample")
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.preferredFont(for: .title1, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+        label.isEditable = false
         return label
     }()
     
-    private lazy var tutorialText: UILabel = {
+    private lazy var tutorialText: UITextView = {
         
-       let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+       let label = UITextView()
+        label.backgroundColor = .clear
+        label.textContainer.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.attributedText = attributedText(
             withString: NSLocalizedString("page3tutorial", comment: "page 3 tutorial text"),
@@ -40,13 +42,11 @@ class Page3ViewController: UIViewController {
                          NSLocalizedString("tap on the ”Download Sample”", comment: "bold2"),
                          NSLocalizedString("Good luck!", comment: "bold3")],
             font: UIFont.preferredFont(for: .body, weight: .regular))
-        
         label.textColor = .gray
-
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+        label.isEditable = false
         return label
-        
     }()
     
     private lazy var goToMainScreenButton: PillButtonComponent = {
@@ -93,16 +93,18 @@ extension Page3ViewController: ViewCoding {
             tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
             tutorialImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialImage.widthAnchor.constraint(equalToConstant: 240),
-            tutorialImage.heightAnchor.constraint(equalToConstant: 240),
-            tutorialTitle.topAnchor.constraint(equalTo: tutorialImage.bottomAnchor, constant: 20),
+            tutorialImage.heightAnchor.constraint(equalToConstant: 100),
+            tutorialTitle.topAnchor.constraint(equalTo: tutorialImage.bottomAnchor, constant: 10),
             tutorialTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialTitle.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -12),
+            tutorialTitle.heightAnchor.constraint(equalToConstant: 125),
             tutorialText.topAnchor.constraint(equalTo: tutorialTitle.bottomAnchor, constant: 40),
             tutorialText.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
             tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goToMainScreenButton.topAnchor.constraint(equalTo: tutorialText.bottomAnchor, constant: 90),
+            tutorialText.heightAnchor.constraint(equalToConstant: 150),
+            goToMainScreenButton.topAnchor.constraint(equalTo: tutorialText.bottomAnchor, constant: 20),
             goToMainScreenButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goToMainScreenButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            goToMainScreenButton.heightAnchor.constraint(equalToConstant: ((goToMainScreenButton.radius ?? 20) * 3))
 
         ])
     }

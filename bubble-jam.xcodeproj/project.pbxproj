@@ -108,7 +108,6 @@
 		D6C3FF9D29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FF9C29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift */; };
 		D6C3FFA029A8E8F300D81D90 /* DraftMapperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FF9F29A8E8F300D81D90 /* DraftMapperProtocol.swift */; };
 		D6C3FFA229A8E9A200D81D90 /* DraftMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FFA129A8E9A200D81D90 /* DraftMapper.swift */; };
-		D6C3FFA429A97B2900D81D90 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = D6C3FFA329A97B2900D81D90 /* .gitattributes */; };
 		D6C3FFA929AB090B00D81D90 /* DownloadAudioRoutineOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C3FFA829AB090B00D81D90 /* DownloadAudioRoutineOutput.swift */; };
 		D6F34587299A7F3200E11E92 /* Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F34586299A7F3200E11E92 /* Draft.swift */; };
 		D6F3458B299A7FE500E11E92 /* DraftRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F3458A299A7FE500E11E92 /* DraftRepository.swift */; };
@@ -243,7 +242,6 @@
 		D6C3FF9C29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadJamUseCaseOutput.swift; sourceTree = "<group>"; };
 		D6C3FF9F29A8E8F300D81D90 /* DraftMapperProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftMapperProtocol.swift; sourceTree = "<group>"; };
 		D6C3FFA129A8E9A200D81D90 /* DraftMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftMapper.swift; sourceTree = "<group>"; };
-		D6C3FFA329A97B2900D81D90 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		D6C3FFA829AB090B00D81D90 /* DownloadAudioRoutineOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineOutput.swift; sourceTree = "<group>"; };
 		D6F34586299A7F3200E11E92 /* Draft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Draft.swift; sourceTree = "<group>"; };
 		D6F3458A299A7FE500E11E92 /* DraftRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRepository.swift; sourceTree = "<group>"; };
@@ -614,7 +612,6 @@
 		00B82E50292BBE9C0088996B = {
 			isa = PBXGroup;
 			children = (
-				D6C3FFA329A97B2900D81D90 /* .gitattributes */,
 				00B82E5B292BBE9C0088996B /* bubble-jam */,
 				00B82E72292BBE9D0088996B /* bubble-jamTests */,
 				00B82E7C292BBE9D0088996B /* bubble-jamUITests */,
@@ -1027,7 +1024,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2926213B299524040075A372 /* Localizable.strings in Resources */,
-				D6C3FFA429A97B2900D81D90 /* .gitattributes in Resources */,
 				0087CBBF2938E8C600404615 /* song.m4a in Resources */,
 				00B82E69292BBE9D0088996B /* LaunchScreen.storyboard in Resources */,
 				2926211D299523A80075A372 /* AppIntentVocabulary.plist in Resources */,
