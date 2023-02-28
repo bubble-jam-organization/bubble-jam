@@ -90,6 +90,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     @objc func frameFunc() {
         presenter.playAudio()
+
     }
     
     @objc func pillFunc() {
@@ -103,6 +104,9 @@ extension BubblegumViewController: BubblegumViewDelegate {
     }
     
     func audioIsPlaying(challenge: Challenge) {
+        if UIAccessibility.isVoiceOverRunning {
+            presenter.stopAudio()
+        }
         let sheet = InformationSheetViewController(challenge: challenge, presenter: presenter)
         let guide = view.safeAreaLayoutGuide
         let labels = CGFloat(titleLabels.frame.height)

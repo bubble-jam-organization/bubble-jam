@@ -12,6 +12,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     let presenter: BubblegumPresenting
     let challenge: Challenge
     var activityQueue: [URL] = []
+    var isPlaying: Bool = false
     
     init(challenge: Challenge, presenter: BubblegumPresenting) {
         self.presenter = presenter
@@ -44,6 +45,15 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         
     }()
     
+    private lazy var playButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "AppButton"), for: .normal)
+        button.addTarget(self, action: #selector(toggleAudio), for: .touchUpInside)
+        button.setTitle("Play", for: .normal)
+        return button
+    }()
+    
     private var challengeBanner: UIImageView = {
         let banner = ChallengeBanner(frame: .zero)
         banner.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +68,6 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
         box.isUserInteractionEnabled = true
         box.addGestureRecognizer(tapGesture)
-        
         return box
     }()
     
@@ -74,6 +83,15 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
             showAlert(title: "Erro", message: "Não foi possível exportar o áudio devido a um erro desconhecido.")
         }
     }
+    
+    @objc func toggleAudio() {
+        if isPlaying {
+            presenter.forcePlayAudio()
+        }else{
+            presenter.stopAudio()
+        }
+        isPlaying.toggle()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +105,10 @@ extension InformationSheetViewController: ViewCoding {
         view.addSubview(challengeBanner)
         view.addSubview(information)
         view.addSubview(downloadBox)
+        if UIAccessibility.isVoiceOverRunning{
+            view.addSubview(playButton)
+        }
+
     }
     
     func setupConstraints() {
@@ -106,6 +128,15 @@ extension InformationSheetViewController: ViewCoding {
             downloadBox.heightAnchor.constraint(equalToConstant: 90),
             downloadBox.widthAnchor.constraint(equalToConstant: 185)
         ])
+        if UIAccessibility.isVoiceOverRunning {
+            NSLayoutConstraint.activate([
+                playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+                playButton.centerXAnchor.constraint(equalTo: challengeBanner.centerXAnchor),
+                playButton.widthAnchor.constraint(equalToConstant: 150),
+                playButton.heightAnchor.constraint(equalToConstant: 150)
+            
+            ])
+        }
     }
      
 }
