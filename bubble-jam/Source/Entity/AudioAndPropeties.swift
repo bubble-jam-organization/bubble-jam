@@ -17,7 +17,7 @@ struct AudioAndPropeties: Equatable {
 struct AudioDetails: Equatable {
     let notes: [Note]?
     let description: String?
-    var rules: [String]
+    let rules: [String]
     let bpm: Int
 }
 
