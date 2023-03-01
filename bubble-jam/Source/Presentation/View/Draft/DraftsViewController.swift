@@ -76,6 +76,7 @@ class DraftsViewController: UIViewController, AlertPresentable {
     private var micButton: MicButton = {
         let button = MicButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityLabel = "Adicionar Jam"
         return button
     }()
     
@@ -83,6 +84,7 @@ class DraftsViewController: UIViewController, AlertPresentable {
         let pill = PillButtonComponent(frame: .zero)
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.pillLabel.text = "Voltar para o Challenge"
+        pill.accessibilityLabel = "Voltar para o Challenge"
         pill.radius = 20
         pill.addTarget(self, action: #selector(onSwipeDown), for: .touchUpInside)
         pill.contentHorizontalAlignment = .center
