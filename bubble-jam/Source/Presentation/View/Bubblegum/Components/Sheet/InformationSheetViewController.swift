@@ -12,6 +12,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     let presenter: BubblegumPresenting
     let challenge: Challenge
     var activityQueue: [URL] = []
+    var isPlaying: Bool = false
     
     init(challenge: Challenge, presenter: BubblegumPresenting) {
         self.presenter = presenter
@@ -56,6 +57,15 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return background
     }()
     
+    private lazy var playButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "AppButton"), for: .normal)
+        button.addTarget(self, action: #selector(toggleAudio), for: .touchUpInside)
+        button.setTitle("Play", for: .normal)
+        return button
+    }()
+    
     private lazy var challengeBanner: UIImageView = {
         let banner = ChallengeBanner(frame: .zero)
         banner.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +80,6 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(downloadFunc))
         box.isUserInteractionEnabled = true
         box.addGestureRecognizer(tapGesture)
-        
         return box
     }()
     
@@ -88,6 +97,14 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         }
     }
     
+    @objc func toggleAudio() {
+        if isPlaying {
+            presenter.forcePlayAudio()
+        }else{
+            presenter.stopAudio()
+        }
+        isPlaying.toggle()
+    }
     func downloadBannerImage(_ url: URL) -> UIImage? {
         guard let data = try? Data(contentsOf: url) else { return nil }
         let image = UIImage(data: data)
@@ -104,6 +121,11 @@ extension InformationSheetViewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(challengeBanner)
+        view.addSubview(information)
+        view.addSubview(downloadBox)
+        if UIAccessibility.isVoiceOverRunning{
+            view.addSubview(playButton)
+        }
         view.addSubview(scrollInformations)
         verticalStack.addArrangedSubview(information)
         verticalStack.addArrangedSubview(downloadBox)
@@ -128,6 +150,15 @@ extension InformationSheetViewController: ViewCoding {
             verticalStack.bottomAnchor.constraint(equalTo: scrollInformations.bottomAnchor),
             verticalStack.widthAnchor.constraint(equalTo: scrollInformations.widthAnchor)
         ])
+        if UIAccessibility.isVoiceOverRunning {
+            NSLayoutConstraint.activate([
+                playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+                playButton.centerXAnchor.constraint(equalTo: challengeBanner.centerXAnchor),
+                playButton.widthAnchor.constraint(equalToConstant: 150),
+                playButton.heightAnchor.constraint(equalToConstant: 150)
+            
+            ])
+        }
     }
      
 }
