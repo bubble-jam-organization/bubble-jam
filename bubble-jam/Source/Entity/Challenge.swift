@@ -10,6 +10,7 @@ import Foundation
 struct Challenge: Equatable {
     let title: String
     let description: String
+    let banner: URL
     let rules: [String]
     let initialDate: Date
     let deadline: Date

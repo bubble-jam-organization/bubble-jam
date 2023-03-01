@@ -27,6 +27,7 @@ class Page2ViewController: UIViewController {
         label.font = UIFont.preferredFont(for: .title1, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+        
         label.isEditable = false
         return label
     }()
@@ -41,6 +42,7 @@ class Page2ViewController: UIViewController {
             boldString: [NSLocalizedString("Tap on the Bubble", comment: "Tap on the Bubble"), NSLocalizedString("play the sample", comment: "play the sample"), "open a screen",
                          NSLocalizedString("allows", comment: "allows"), NSLocalizedString("download it", comment: "download it")],
             font: UIFont.preferredFont(for: .body, weight: .regular))
+        label.adjustsFontForContentSizeCategory = true
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
@@ -76,8 +78,9 @@ extension Page2ViewController: ViewCoding {
             tutorialImage.heightAnchor.constraint(equalToConstant: 240),
             tutorialTitle.topAnchor.constraint(equalTo: tutorialImage.bottomAnchor, constant: 20),
             tutorialTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tutorialTitle.heightAnchor.constraint(equalToConstant: 125),
-            tutorialText.topAnchor.constraint(equalTo: tutorialTitle.bottomAnchor, constant: 40),
+            tutorialTitle.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            tutorialTitle.heightAnchor.constraint(lessThanOrEqualToConstant: 75),
+            tutorialText.topAnchor.constraint(equalTo: tutorialTitle.bottomAnchor, constant: 10),
             tutorialText.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
             tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialText.heightAnchor.constraint(equalToConstant: 150)

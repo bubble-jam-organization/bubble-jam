@@ -11,6 +11,16 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     
     var pages = [UIViewController]()
     
+    override var accessibilityTraits: UIAccessibilityTraits {
+        get {
+            return .adjustable
+        }
+        set {
+            super.accessibilityTraits = newValue
+        }
+    }
+    
+    
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.frame = CGRect()
@@ -18,8 +28,29 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         pageControl.currentPageIndicatorTintColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.addTarget(self, action: #selector(pageControllerHandle), for: .valueChanged)
         return pageControl
     }()
+    
+    override func accessibilityIncrement() {
+        pageControl.currentPage += 1
+        setViewControllers([pages[pageControl.currentPage]], direction: .forward, animated: true)
+    }
+    
+    override func accessibilityDecrement() {
+        pageControl.currentPage -= 1
+        setViewControllers([pages[pageControl.currentPage]], direction: .reverse, animated: true)
+    }
+
+    @objc private func pageControllerHandle(sender: UIPageControl) {
+        if pageControl.currentPage > self.pages.firstIndex(of: (self.viewControllers?.first)!)! {
+            setViewControllers([pages[pageControl.currentPage]], direction: .forward, animated: true)
+        }else {
+            setViewControllers([pages[pageControl.currentPage]], direction: .reverse, animated: true)
+        }
+    }
+
+    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
@@ -32,6 +63,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         return nil
         
     }
+    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let viewContollerIndex = self.pages.firstIndex(of: viewController) {
@@ -48,6 +80,7 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         if let viewControllers = pageViewController.viewControllers {
             if let viewControllerIndex = self.pages.firstIndex(of: viewControllers[0]) {
                 self.pageControl.currentPage = viewControllerIndex
+                
             }
                 
         }
@@ -72,7 +105,7 @@ extension OnboardingViewController: ViewCoding {
         pages.append(page2)
         pages.append(page3)
         pageControl.currentPage = initialPage
-        pageControl.isUserInteractionEnabled = false
+        pageControl.isUserInteractionEnabled = true
         setViewControllers([pages[initialPage]], direction: .forward, animated: true)
         
     }

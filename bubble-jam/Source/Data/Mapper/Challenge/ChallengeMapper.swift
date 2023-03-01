@@ -15,6 +15,7 @@ class ChallengeMapper: ChallengeMapperProtocol {
     func mapToDomain(_ dto: CKRecord) async throws -> Challenge {
         if let title = dto["title"] as? String,
            let description = dto["description"] as? String,
+           let banner = dto["banner"] as? CKAsset,
            let rules = dto["rules"] as? [String],
            let initialDate = dto["init"] as? Date,
            let deadline = dto["deadline"] as? Date,
@@ -22,6 +23,7 @@ class ChallengeMapper: ChallengeMapperProtocol {
             return Challenge(
                 title: title,
                 description: description,
+                banner: banner.fileURL!,
                 rules: rules,
                 initialDate: initialDate,
                 deadline: deadline,

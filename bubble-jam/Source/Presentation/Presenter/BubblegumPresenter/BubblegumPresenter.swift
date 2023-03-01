@@ -31,7 +31,6 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
         if let challenge = currentChallenge {
             do {
                 let audioData = try Data(contentsOf: challenge.audio.path)
-                AVAudioSession.sharedInstance()
                 player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
                 player.delegate = self
                 player.numberOfLoops = 0
@@ -41,6 +40,22 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
                 print("Erro: \(error.localizedDescription)")
             }
         }
+    }
+    func forcePlayAudio() {
+        if let challenge = currentChallenge {
+            do {
+                let audioData = try Data(contentsOf: challenge.audio.path)
+                AVAudioSession.sharedInstance()
+                player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
+                player.delegate = self
+                player.numberOfLoops = 0
+                player.prepareToPlay()
+                player.play()
+            } catch {
+                print("Erro: \(error.localizedDescription)")
+            }
+        }
+
     }
     
     func stopAudio() {
