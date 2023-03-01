@@ -39,6 +39,7 @@ enum Note: String {
 enum AudioFormat: String {
     case m4a
     case mp3
+    case wav
     case unkwown
     
     init(rawValue: String) {
@@ -47,6 +48,8 @@ enum AudioFormat: String {
                 self = .m4a
             case "mp3":
                 self = .mp3
+            case "wav":
+                self = .wav
             default:
                 self = .unkwown
         }
