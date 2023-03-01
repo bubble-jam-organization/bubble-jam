@@ -18,22 +18,24 @@ class Page2ViewController: UIViewController {
         return image
     }()
     
-    private lazy var tutorialTitle: UILabel = {
-        let label = UILabel()
+    private lazy var tutorialTitle: UITextView = {
+        let label = UITextView()
+        label.backgroundColor = .clear
         label.text = NSLocalizedString("Listening to a Sample", comment: "Listening to a Sample")
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.preferredFont(for: .title1, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+        
+        label.isEditable = false
         return label
     }()
     
-    private lazy var tutorialText: UILabel = {
+    private lazy var tutorialText: UITextView = {
         
-       let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        let label = UITextView()
+        label.backgroundColor = .clear
         label.textAlignment = .center
         label.attributedText = attributedText(
             withString: NSLocalizedString("page2tutorial", comment: "page 2 tutorial text"),
@@ -42,9 +44,9 @@ class Page2ViewController: UIViewController {
             font: UIFont.preferredFont(for: .body, weight: .regular))
         label.adjustsFontForContentSizeCategory = true
         label.textColor = .gray
-
         label.translatesAutoresizingMaskIntoConstraints = false
-
+        label.adjustsFontForContentSizeCategory = true
+        label.isEditable = false
         return label
         
     }()
@@ -76,10 +78,14 @@ extension Page2ViewController: ViewCoding {
             tutorialImage.heightAnchor.constraint(equalToConstant: 240),
             tutorialTitle.topAnchor.constraint(equalTo: tutorialImage.bottomAnchor, constant: 20),
             tutorialTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            tutorialText.topAnchor.constraint(equalTo: tutorialTitle.bottomAnchor, constant: 40),
+            tutorialTitle.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),
+            tutorialTitle.heightAnchor.constraint(lessThanOrEqualToConstant: 75),
+            tutorialText.topAnchor.constraint(equalTo: tutorialTitle.bottomAnchor, constant: 10),
             tutorialText.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
-            tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tutorialText.heightAnchor.constraint(equalToConstant: 150)
         ])
+        
     }
     
 }

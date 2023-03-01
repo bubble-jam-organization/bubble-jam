@@ -21,6 +21,7 @@ class Page1ViewController: UIViewController {
     private lazy var tutorialTitle: UILabel = {
         let label = UILabel()
         label.text = "Jams"
+        label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
         label.textAlignment = .center
         label.font = UIFont.preferredFont(for: .title1, weight: .bold)
@@ -29,11 +30,9 @@ class Page1ViewController: UIViewController {
         return label
     }()
     
-    private lazy var tutorialText: UILabel = {
-        
-       let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+    private lazy var tutorialText: UITextView = {
+        let label = UITextView()
+        label.textContainer.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
         label.attributedText = attributedText(
             withString: NSLocalizedString("page1tutorial", comment: "page 1 tutorial label"),
@@ -44,6 +43,8 @@ class Page1ViewController: UIViewController {
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+        label.isEditable = false
+        label.backgroundColor = .clear
         return label
         
     }()
@@ -88,7 +89,8 @@ extension Page1ViewController: ViewCoding {
             tutorialTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialText.topAnchor.constraint(equalTo: tutorialTitle.bottomAnchor, constant: 40),
             tutorialText.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
-            tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            tutorialText.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }
