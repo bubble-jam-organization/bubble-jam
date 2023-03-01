@@ -43,6 +43,10 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         samplerFrame.isMultipleTouchEnabled = true
         samplerFrame.addGestureRecognizer(tapGesture)
         samplerFrame.clipsToBounds = true
+        samplerFrame.isAccessibilityElement = true
+        samplerFrame.accessibilityLabel = NSLocalizedString("Jam Button", comment: "Jam Button")
+        samplerFrame.accessibilityTraits = .button
+        samplerFrame.accessibilityHint = NSLocalizedString("Plays the jam", comment: "play jam")
         return samplerFrame
     }()
     
@@ -60,6 +64,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         pill.translatesAutoresizingMaskIntoConstraints = false
         pill.isUserInteractionEnabled = true
         pill.addGestureRecognizer(tapGesture)
+        pill.accessibilityLabel = NSLocalizedString("Start Drafting", comment: "Start Drafting")
         return pill
     }()
     
@@ -85,6 +90,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     
     @objc func frameFunc() {
         presenter.playAudio()
+
     }
     
     @objc func pillFunc() {
@@ -98,6 +104,9 @@ extension BubblegumViewController: BubblegumViewDelegate {
     }
     
     func audioIsPlaying(challenge: Challenge) {
+        if UIAccessibility.isVoiceOverRunning {
+            presenter.stopAudio()
+        }
         let sheet = InformationSheetViewController(challenge: challenge, presenter: presenter)
         let guide = view.safeAreaLayoutGuide
         let labels = CGFloat(titleLabels.frame.height)

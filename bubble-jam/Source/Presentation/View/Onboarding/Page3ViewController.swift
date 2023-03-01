@@ -56,6 +56,8 @@ class Page3ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(goToMainScreen))
         button.isUserInteractionEnabled = true
         button.addGestureRecognizer(tap)
+        button.accessibilityLabel = NSLocalizedString("Start Now!", comment: "Start Now!")
+        button.isAccessibilityElement = true
         return button
     }()
     
@@ -102,7 +104,7 @@ extension Page3ViewController: ViewCoding {
             tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             goToMainScreenButton.topAnchor.constraint(equalTo: tutorialText.bottomAnchor, constant: 90),
             goToMainScreenButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            goToMainScreenButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            goToMainScreenButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40)
 
         ])
     }

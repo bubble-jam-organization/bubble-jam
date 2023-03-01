@@ -44,9 +44,14 @@ class DraftsViewController: UIViewController, AlertPresentable {
     
     private var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Jams"
-        label.font = UIFont.preferredFont(for: .largeTitle, weight: .bold)
-        label.textColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
+        let strokeTextAttr: [NSAttributedString.Key: Any] = [
+            .strokeColor: UIColor.white,
+            .foregroundColor: #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1),
+            .strokeWidth: -4.0,
+            .font: UIFont.preferredFont(for: .largeTitle, weight: .heavy),
+        ]
+        label.attributedText = NSMutableAttributedString(string: "Jams", attributes: strokeTextAttr)
+        label.adjustsFontForContentSizeCategory = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

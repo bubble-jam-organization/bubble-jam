@@ -40,10 +40,11 @@ class Page2ViewController: UIViewController {
             boldString: [NSLocalizedString("Tap on the Bubble", comment: "Tap on the Bubble"), NSLocalizedString("play the sample", comment: "play the sample"), "open a screen",
                          NSLocalizedString("allows", comment: "allows"), NSLocalizedString("download it", comment: "download it")],
             font: UIFont.preferredFont(for: .body, weight: .regular))
+        label.adjustsFontForContentSizeCategory = true
         label.textColor = .gray
 
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontForContentSizeCategory = true
+
         return label
         
     }()

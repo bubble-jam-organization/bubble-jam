@@ -29,10 +29,11 @@ class MicButton: UIView {
     private lazy var jamButton: PillButtonComponent = {
         let pill = PillButtonComponent(frame: .zero)
         pill.translatesAutoresizingMaskIntoConstraints = false
-        pill.pillLabel.text = "Adicionar Jam"
+        pill.pillLabel.text = NSLocalizedString("Adicionar Jam", comment: "Adicionar Jam")
         pill.radius = 20
         pill.addTarget(self, action: #selector(onTap), for: .touchUpInside)
         pill.contentHorizontalAlignment = .center
+        pill.accessibilityLabel = NSLocalizedString("upload draft", comment: "add jam")
         return pill
     }()
     
