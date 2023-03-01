@@ -31,7 +31,6 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
         if let challenge = currentChallenge {
             do {
                 let audioData = try Data(contentsOf: challenge.audio.path)
-                AVAudioSession.sharedInstance()
                 player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
                 player.delegate = self
                 player.numberOfLoops = 0
