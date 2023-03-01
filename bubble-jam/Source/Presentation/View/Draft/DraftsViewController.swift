@@ -81,7 +81,19 @@ class DraftsViewController: UIViewController, AlertPresentable {
     private var micButton: MicButton = {
         let button = MicButton(frame: .zero)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityLabel = "Adicionar Jam"
         return button
+    }()
+    
+    private lazy var returnButton: PillButtonComponent = {
+        let pill = PillButtonComponent(frame: .zero)
+        pill.translatesAutoresizingMaskIntoConstraints = false
+        pill.pillLabel.text = "Voltar para o Challenge"
+        pill.accessibilityLabel = "Voltar para o Challenge"
+        pill.radius = 20
+        pill.addTarget(self, action: #selector(onSwipeDown), for: .touchUpInside)
+        pill.contentHorizontalAlignment = .center
+        return pill
     }()
     
     override func viewDidLoad() {
@@ -133,9 +145,24 @@ extension DraftsViewController: ViewCoding {
         view.addSubview(titleLabel)
         
         view.addSubview(loadingView)
+        
+        if UIAccessibility.isVoiceOverRunning == true {
+            view.addSubview(returnButton)
+        }
     }
     
     func setupConstraints() {
+        
+        let returnButtonConstraints = [
+            returnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            returnButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            returnButton.heightAnchor.constraint(equalToConstant: returnButton.radius! * 3)
+        ]
+        
+        if UIAccessibility.isVoiceOverRunning == true {
+            NSLayoutConstraint.activate(returnButtonConstraints)
+        }
+        
         NSLayoutConstraint.activate([
             gumPacks.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             gumPacks.centerYAnchor.constraint(equalTo: view.topAnchor),
