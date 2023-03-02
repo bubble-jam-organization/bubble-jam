@@ -83,10 +83,13 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return box
     }()
     
-    private var playerBar: CustomPlayer = {
+    private lazy var playerBar: CustomPlayer = {
         let customPlayer = CustomPlayer()
-        customPlayer.backgroundColor = .black
         customPlayer.translatesAutoresizingMaskIntoConstraints = false
+        customPlayer.playButtonTapped = presenter.forcePlayAudio
+        customPlayer.pauseButtonTapepd = presenter.pauseAudio
+        customPlayer.duration = presenter.audioDuration()
+        customPlayer.isPlaying = true
         return customPlayer
     }()
     
@@ -145,7 +148,7 @@ extension InformationSheetViewController: ViewCoding {
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
             challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
             
-            playerBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
+            playerBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -8),
             playerBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14),
             playerBar.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 10),
             playerBar.heightAnchor.constraint(equalToConstant: 60),

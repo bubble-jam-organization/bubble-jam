@@ -41,6 +41,7 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
             }
         }
     }
+    
     func forcePlayAudio() {
         if let challenge = currentChallenge {
             do {
@@ -62,6 +63,21 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
         if let player = player, player.isPlaying {
             player.stop()
         }
+    }
+    
+    func pauseAudio() {
+        if let player = player, player.isPlaying {
+            player.pause()
+        }
+    }
+    
+    func audioDuration() -> String? {
+        guard let duration = player?.duration else { return nil }
+        let date = Date(timeIntervalSinceReferenceDate: duration)
+        let format = DateFormatter()
+        format.dateFormat = "mm:ss"
+        
+        return format.string(from: date)
     }
 }
 

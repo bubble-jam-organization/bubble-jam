@@ -12,4 +12,6 @@ protocol BubblegumPresenting {
     func playAudio()
     func stopAudio()
     func forcePlayAudio()
+    func pauseAudio()
+    func audioDuration() -> String?
 }
