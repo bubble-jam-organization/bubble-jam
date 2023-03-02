@@ -48,7 +48,7 @@ class DraftsViewController: UIViewController, AlertPresentable {
             .strokeColor: UIColor.white,
             .foregroundColor: #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1),
             .strokeWidth: -4.0,
-            .font: UIFont.preferredFont(for: .largeTitle, weight: .heavy),
+            .font: UIFont.preferredFont(for: .largeTitle, weight: .heavy)
         ]
         label.attributedText = NSMutableAttributedString(string: "Jams", attributes: strokeTextAttr)
         label.adjustsFontForContentSizeCategory = true
@@ -133,7 +133,7 @@ extension DraftsViewController: ViewCoding {
         view.addGestureRecognizer(swipeGesture)
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
-//        dataSource = DraftViewModel.mock
+        dataSource = DraftViewModel.mock
         micButton.addJamButtonTap = loadUserAudios
     }
     
@@ -216,11 +216,13 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.draft = dataSource[indexPath.row]
+        cell.delegate = self
         return cell
     }
 }
 
 extension DraftsViewController: DraftViewDelegate {
+    
     func draftHasBeenDownloaded(_ jam: Draft) {
         dataSource = [DraftViewModel(audioPath: jam.audio, audioName: "Most recent jam", audioDuration: "")]
         DispatchQueue.main.async { [weak self] in self?.draftsTableView.reloadData() }
@@ -255,4 +257,16 @@ extension DraftsViewController: DraftViewDelegate {
             self?.showAlert(title: "Presenter says error", message: error.localizedDescription)
         }
     }
+}
+
+extension DraftsViewController: DraftCellDelegate {
+    
+    func playDraftAudio(draft: Draft) {
+        presenter.playAudio(draft: draft)
+    }
+    
+    func stopDraftAudio() {
+        presenter.stopAudio()
+    }
+    
 }

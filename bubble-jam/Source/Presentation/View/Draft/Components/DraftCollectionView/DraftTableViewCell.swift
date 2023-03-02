@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol DraftCellDelegate: AnyObject {
+    func playDraftAudio(draft: Draft)
+    func stopDraftAudio()
+}
+
 class DraftTableViewCell: UITableViewCell {
     static let cellID = "DraftCellID"
+    weak var delegate: DraftCellDelegate?
     
     var draft: DraftViewModel? {
         didSet {
@@ -20,9 +26,11 @@ class DraftTableViewCell: UITableViewCell {
     var buttonState: Bool = false {
         didSet {
             if !buttonState {
-                playStateButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
-            } else {
                 playStateButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+                delegate?.stopDraftAudio()
+            } else {
+                playStateButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+                delegate?.playDraftAudio(draft: Draft(audio: draft!.audioPath))
             }
 
         }
@@ -138,3 +146,4 @@ extension DraftTableViewCell: ViewCoding {
         ])
     }
 }
+
