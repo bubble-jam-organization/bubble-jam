@@ -143,24 +143,21 @@ extension DraftsViewController: ViewCoding {
         view.addSubview(micButton)
         view.addSubview(tableViewHeader)
         view.addSubview(titleLabel)
-        
         view.addSubview(loadingView)
         
-        if UIAccessibility.isVoiceOverRunning == true {
+        if UIAccessibility.isVoiceOverRunning {
             view.addSubview(returnButton)
         }
     }
     
     func setupConstraints() {
         
-        let returnButtonConstraints = [
-            returnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            returnButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
-            returnButton.heightAnchor.constraint(equalToConstant: returnButton.radius! * 3)
-        ]
-        
-        if UIAccessibility.isVoiceOverRunning == true {
-            NSLayoutConstraint.activate(returnButtonConstraints)
+        if UIAccessibility.isVoiceOverRunning {
+            NSLayoutConstraint.activate([
+                returnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                returnButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+                returnButton.heightAnchor.constraint(equalToConstant: returnButton.radius! * 3)
+            ])
         }
         
         NSLayoutConstraint.activate([
