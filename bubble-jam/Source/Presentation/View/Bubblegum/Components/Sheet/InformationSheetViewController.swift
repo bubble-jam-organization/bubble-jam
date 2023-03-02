@@ -100,7 +100,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     @objc func toggleAudio() {
         if isPlaying {
             presenter.forcePlayAudio()
-        }else{
+        } else {
             presenter.stopAudio()
         }
         isPlaying.toggle()
@@ -123,10 +123,8 @@ extension InformationSheetViewController: ViewCoding {
         view.addSubview(challengeBanner)
         view.addSubview(information)
         view.addSubview(downloadBox)
-        if UIAccessibility.isVoiceOverRunning{
-            view.addSubview(playButton)
-        }
         view.addSubview(scrollInformations)
+        if UIAccessibility.isVoiceOverRunning { view.addSubview(playButton) }
         verticalStack.addArrangedSubview(information)
         verticalStack.addArrangedSubview(downloadBox)
         scrollInformations.addSubview(verticalStack)
