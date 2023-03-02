@@ -205,6 +205,10 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if dataSource.isEmpty { return DraftEmptyStateViewCell() }
         
@@ -217,6 +221,7 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.draft = dataSource[indexPath.row]
         cell.delegate = self
+        cell.selectionStyle = .none
         return cell
     }
 }
