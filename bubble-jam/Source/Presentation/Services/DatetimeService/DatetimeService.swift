@@ -23,16 +23,46 @@ struct DatetimeService: DateServicing {
         return dateComponent
     }()
     
-    func getCurrentDate() -> Date {
-        return Date.now
+    func getCurrentDate() async -> Date? {
+        let url = URL(string: "https://www.google.com")!
+        let request = URLRequest(url: url)
+        
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+            let httpRespone = response as? HTTPURLResponse
+            if let content = httpRespone!.allHeaderFields["Date"] as? String {
+                print(content)
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ssz"
+                formatter.timeZone = TimeZone.current
+                formatter.locale = Locale.current
+                let serverDate = utcToLocal(dateStr: content)
+                return serverDate
+            } else {
+                raise(1)
+            }
+        } catch {
+            print("deu merda")
+        }
+        return nil
     }
     
-    func daysRemaining() -> Int {
-        let date = getCurrentDate()
-        let deadline = Calendar.current.date(from: limitDate)!
-        let daysRemaining = calendar.dateComponents([.day, .month, .year], from: date, to: deadline)
-        return daysRemaining.day! + 1
+
+
+    func utcToLocal(dateStr: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ssz"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         
+        if let date = dateFormatter.date(from: dateStr) {
+            dateFormatter.timeZone = TimeZone.current
+            dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ssz"
+            dateFormatter.locale = Locale(identifier: "pt_BR")
+        
+            return date
+        }
+        return nil
     }
     
 }

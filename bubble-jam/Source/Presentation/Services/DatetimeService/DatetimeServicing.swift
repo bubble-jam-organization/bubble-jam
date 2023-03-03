@@ -8,6 +8,5 @@
 import Foundation
 protocol DateServicing {
     var limitDate: DateComponents { get }
-    func getCurrentDate() -> Date
-    func daysRemaining() -> Int
+    func getCurrentDate() async -> Date?
 }
