@@ -40,10 +40,14 @@ class CustomPlayer: UIView {
         return icon
     }()
     
-    let progressBar: UISlider = {
+    lazy var progressBar: UISlider = {
         let slider = UISlider()
         slider.minimumTrackTintColor = #colorLiteral(red: 0.368627451, green: 0, blue: 0.5960784314, alpha: 0.5)
         slider.setThumbImage(UIImage(), for: .normal)
+        slider.thumbTintColor = #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1)
+        slider.isContinuous = false
+        slider.addTarget(self, action: #selector(didBeginDraggingSlider), for: .touchDown)
+        slider.addTarget(self, action: #selector(didEndDraggingSlider), for: .valueChanged)
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
@@ -53,6 +57,18 @@ class CustomPlayer: UIView {
         let playbackProgress = Float(player.currentTime / player.duration)
         updatePlayerDuration(currentDuration)
         progressBar.setValue(playbackProgress, animated: true)
+    }
+    
+    @objc func didBeginDraggingSlider() {
+        displayLink?.isPaused = true
+    }
+
+    @objc func didEndDraggingSlider() {
+        let newPosition = player.duration * Double(progressBar.value)
+        let newDuration = player.duration - player.currentTime
+        updatePlayerDuration(newDuration)
+        player.currentTime = newPosition
+        displayLink?.isPaused = false
     }
     
     func startUpdatingPlaybackStatus() {
@@ -143,7 +159,7 @@ extension CustomPlayer: ViewCoding {
         ]
         
         let audioDurationConstraints = [
-            audioDuration.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 10),
+            audioDuration.topAnchor.constraint(equalTo: progressBar.bottomAnchor),
             audioDuration.leadingAnchor.constraint(equalTo: playButton.trailingAnchor),
             audioDuration.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ]
