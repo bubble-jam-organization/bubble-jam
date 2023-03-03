@@ -8,6 +8,6 @@
 import Foundation
 
 protocol DownloadAudioRoutineOutput {
-    func successfullyLoadChallenge(_ challenge: Challenge)
+    func successfullyLoadChallenge(_ challenge: Challenge, date: Date)
     func failWhileLoadingChallenge(_ error: Error)
 }

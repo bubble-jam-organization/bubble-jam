@@ -68,9 +68,10 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
 extension BubblegumPresenter: AVAudioPlayerDelegate {}
 
 extension BubblegumPresenter: DownloadAudioRoutineOutput {
-    func successfullyLoadChallenge(_ challenge: Challenge) {
+    
+    func successfullyLoadChallenge(_ challenge: Challenge, date: Date) {
         currentChallenge = challenge
-        let deadline = Calendar.current.dateComponents([.day], from: Date.now, to: challenge.deadline)
+        let deadline = Calendar.current.dateComponents([.day], from: date, to: challenge.deadline)
         viewDelegate?.showChallenge(
             title: challenge.title,
             daysLeft: "\(String(describing: deadline.day!))"
