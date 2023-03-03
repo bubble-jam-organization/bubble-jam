@@ -27,28 +27,19 @@ struct DatetimeService: DateServicing {
         let url = URL(string: "https://www.google.com")!
         let request = URLRequest(url: url)
         
-        do {
-            let (_, response) = try await URLSession.shared.data(for: request)
-            let httpRespone = response as? HTTPURLResponse
-            if let content = httpRespone!.allHeaderFields["Date"] as? String {
-                print(content)
+        guard let (_, response) = try? await URLSession.shared.data(for: request) else {return nil}
+            let httpResponse = response as? HTTPURLResponse
+            if let content = httpResponse!.allHeaderFields["Date"] as? String {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ssz"
                 formatter.timeZone = TimeZone.current
                 formatter.locale = Locale.current
                 let serverDate = utcToLocal(dateStr: content)
                 return serverDate
-            } else {
-                raise(1)
             }
-        } catch {
-            print("deu merda")
-        }
         return nil
     }
     
-
-
     func utcToLocal(dateStr: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ssz"

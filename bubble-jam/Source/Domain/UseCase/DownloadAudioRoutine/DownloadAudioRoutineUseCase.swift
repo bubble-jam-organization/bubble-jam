@@ -17,29 +17,20 @@ class DownloadAudioRoutineUseCase {
     
     func execute() async {
         let dateService = DatetimeService()
-        let group = DispatchGroup()
 
-        group.enter()
-        var currentDate = await dateService.getCurrentDate()
-        group.leave()
-        
-        group.enter()
         do {
-            let challenge = try await repository.loadCurrentChallenge()
-            group.leave()
-            group.notify(queue: .global()) { [weak self] in
-                if let currentDate = currentDate {
-                    self?.output?.forEach { $0.successfullyLoadChallenge(challenge, date: currentDate) }
-                } else {
-                    self?.output?.forEach { $0.successfullyLoadChallenge(challenge, date: Date.now) }
-                }
-                
+            async let challenge: Challenge = try await repository.loadCurrentChallenge()
+            async let currentDate: Date? = await dateService.getCurrentDate()
+            let (fetchedChallenge, fetchedDate) = await (try challenge, currentDate)
+            if let fetchedDate = fetchedDate {
+                self.output?.forEach { $0.successfullyLoadChallenge(fetchedChallenge, date: fetchedDate) }
+            } else {
+                self.output?.forEach { $0.successfullyLoadChallenge(fetchedChallenge, date: Date.now) }
             }
 
         } catch {
             output?.forEach { $0.failWhileLoadingChallenge(error) }
         }
     
-        
     }
 }
