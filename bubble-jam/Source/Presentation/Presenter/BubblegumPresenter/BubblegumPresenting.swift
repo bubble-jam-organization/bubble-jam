@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import AVFAudio
 
 protocol BubblegumPresenting {
+    var player: AVAudioPlayer { get }
     func initChallengeDownload() async
+    func initializePlayer()
     func playAudio()
     func stopAudio()
     func forcePlayAudio()
     func pauseAudio()
-    func audioDuration() -> String?
 }

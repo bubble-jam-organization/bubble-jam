@@ -89,6 +89,7 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     }
     
     @objc func frameFunc() {
+        presenter.initializePlayer()
         presenter.playAudio()
 
     }

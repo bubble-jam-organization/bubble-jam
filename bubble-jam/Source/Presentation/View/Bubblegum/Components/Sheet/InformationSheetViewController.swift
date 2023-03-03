@@ -84,12 +84,10 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     }()
     
     private lazy var playerBar: CustomPlayer = {
-        let customPlayer = CustomPlayer()
+        let customPlayer = CustomPlayer(frame: .zero, player: presenter.player)
         customPlayer.translatesAutoresizingMaskIntoConstraints = false
         customPlayer.playButtonTapped = presenter.forcePlayAudio
         customPlayer.pauseButtonTapepd = presenter.pauseAudio
-        customPlayer.duration = presenter.audioDuration()
-        customPlayer.isPlaying = true
         return customPlayer
     }()
     

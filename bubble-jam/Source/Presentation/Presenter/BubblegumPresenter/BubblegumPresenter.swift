@@ -10,14 +10,11 @@ import AVFoundation
 
 class BubblegumPresenter: NSObject, BubblegumPresenting {
     private(set) var currentChallenge: Challenge?
-    private(set) var player: AVAudioPlayer!
+    var player: AVAudioPlayer
     var downloadAudioUseCase: DownloadAudioRoutineUseCase
     weak var viewDelegate: BubblegumViewDelegate?
     
-    init(
-        downloadAudioUseCase: DownloadAudioRoutineUseCase,
-        player: AVAudioPlayer = AVAudioPlayer()
-    ) {
+    init(downloadAudioUseCase: DownloadAudioRoutineUseCase, player: AVAudioPlayer = AVAudioPlayer()) {
         self.downloadAudioUseCase = downloadAudioUseCase
         self.player = player
     }
@@ -26,62 +23,45 @@ class BubblegumPresenter: NSObject, BubblegumPresenting {
         viewDelegate?.startLoading()
         await downloadAudioUseCase.execute()
     }
-
-    func playAudio() {
+    
+    func initializePlayer() {
         if let challenge = currentChallenge {
             do {
                 let audioData = try Data(contentsOf: challenge.audio.path)
                 player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
-                player.delegate = self
-                player.numberOfLoops = 0
-                player.prepareToPlay()
-                if player.play() { viewDelegate?.audioIsPlaying(challenge: challenge) }
+                
             } catch {
                 print("Erro: \(error.localizedDescription)")
             }
+        }
+    }
+
+    func playAudio() {
+        if let challenge = currentChallenge {
+            player.numberOfLoops = 0
+            player.prepareToPlay()
+            if player.play() { viewDelegate?.audioIsPlaying(challenge: challenge) }
         }
     }
     
     func forcePlayAudio() {
-        if let challenge = currentChallenge {
-            do {
-                let audioData = try Data(contentsOf: challenge.audio.path)
-                AVAudioSession.sharedInstance()
-                player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
-                player.delegate = self
-                player.numberOfLoops = 0
-                player.prepareToPlay()
-                player.play()
-            } catch {
-                print("Erro: \(error.localizedDescription)")
-            }
-        }
-
+        player.numberOfLoops = 0
+        player.prepareToPlay()
+        player.play()
     }
     
     func stopAudio() {
-        if let player = player, player.isPlaying {
+        if player.isPlaying {
             player.stop()
         }
     }
     
     func pauseAudio() {
-        if let player = player, player.isPlaying {
+        if player.isPlaying {
             player.pause()
         }
     }
-    
-    func audioDuration() -> String? {
-        guard let duration = player?.duration else { return nil }
-        let date = Date(timeIntervalSinceReferenceDate: duration)
-        let format = DateFormatter()
-        format.dateFormat = "mm:ss"
-        
-        return format.string(from: date)
-    }
 }
-
-extension BubblegumPresenter: AVAudioPlayerDelegate {}
 
 extension BubblegumPresenter: DownloadAudioRoutineOutput {
     func successfullyLoadChallenge(_ challenge: Challenge) {

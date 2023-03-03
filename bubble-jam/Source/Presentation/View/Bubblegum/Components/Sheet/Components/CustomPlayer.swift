@@ -6,23 +6,13 @@
 //
 
 import UIKit
+import AVFAudio
 
 class CustomPlayer: UIView {
-    var isPlaying = false {
-        didSet {
-            if isPlaying {
-                playButtonTapped?()
-                buttonIcon.image = UIImage(systemName: "pause.fill")
-                return
-            }
-            pauseButtonTapepd?()
-            buttonIcon.image = UIImage(systemName: "play.fill")
-        }
-    }
-    
-    var duration: String? { didSet { audioDuration.text = duration } }
     var playButtonTapped: (() -> Void)?
     var pauseButtonTapepd: (() -> Void)?
+    var player: AVAudioPlayer
+    private var displayLink: CADisplayLink?
 
     private lazy var playButton: UIButton = {
         let button = UIButton()
@@ -44,7 +34,6 @@ class CustomPlayer: UIView {
     
     let buttonIcon: UIImageView = {
         let icon = UIImageView()
-        icon.image = UIImage(systemName: "play.fill")
         icon.contentMode = .scaleAspectFit
         icon.tintColor = .black
         icon.translatesAutoresizingMaskIntoConstraints = false
@@ -53,20 +42,75 @@ class CustomPlayer: UIView {
     
     let progressBar: UISlider = {
         let slider = UISlider()
-        slider.minimumTrackTintColor = .red
+        slider.minimumTrackTintColor = #colorLiteral(red: 0.368627451, green: 0, blue: 0.5960784314, alpha: 0.5)
         slider.setThumbImage(UIImage(), for: .normal)
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
     
-    @objc func toggleState() { isPlaying.toggle() }
+    @objc func updateProgress() {
+        let currentDuration = player.duration - player.currentTime
+        let playbackProgress = Float(player.currentTime / player.duration)
+        updatePlayerDuration(currentDuration)
+        progressBar.setValue(playbackProgress, animated: true)
+    }
     
-    override init(frame: CGRect) {
+    func startUpdatingPlaybackStatus() {
+         displayLink = CADisplayLink(target: self, selector: #selector(updateProgress))
+         displayLink!.add(to: .main, forMode: .common)
+     }
+
+     func stopUpdatingPlaybackStatus() {
+         displayLink?.invalidate()
+     }
+
+    func updatePlayerDuration(_ value: TimeInterval) {
+        let date = Date(timeIntervalSinceReferenceDate: value)
+        let format = DateFormatter()
+        format.dateFormat = "mm:ss"
+        audioDuration.text = format.string(from: date)
+    }
+    
+    func clearPlayer() {
+        displayLink?.invalidate()
+        displayLink = nil
+        buttonIcon.image = UIImage(systemName: "play.fill")
+        player.stop()
+    }
+    
+    @objc func toggleState() {
+        if player.isPlaying {
+            pauseButtonTapepd?()
+            stopUpdatingPlaybackStatus()
+            buttonIcon.image = UIImage(systemName: "play.fill")
+            return
+        }
+        playButtonTapped?()
+        startUpdatingPlaybackStatus()
+        buttonIcon.image = UIImage(systemName: "pause.fill")
+    }
+    
+    init(frame: CGRect, player: AVAudioPlayer) {
+        self.player = player
         super.init(frame: .zero)
         buildLayout()
     }
     
     required init?(coder: NSCoder) { nil }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updatePlayerDuration(player.duration)
+        startUpdatingPlaybackStatus()
+        buttonIcon.image = UIImage(systemName: player.isPlaying ? "pause.fill" : "play.fill")
+        player.delegate = self
+    }
+}
+
+extension CustomPlayer: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        clearPlayer()
+    }
 }
 
 extension CustomPlayer: ViewCoding {
