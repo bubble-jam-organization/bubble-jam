@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol DraftCellDelegate: AnyObject {
+    func playDraftAudio(draft: Draft)
+    func stopDraftAudio()
+}
+
 class DraftTableViewCell: UITableViewCell {
     static let cellID = "DraftCellID"
+    weak var delegate: DraftCellDelegate?
     
     var draft: DraftViewModel? {
         didSet {
@@ -20,9 +26,11 @@ class DraftTableViewCell: UITableViewCell {
     var buttonState: Bool = false {
         didSet {
             if !buttonState {
-                playStateButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+                playStateButton.setImage(getCellSymbol(imageName: "play.circle"), for: .normal)
+                delegate?.stopDraftAudio()
             } else {
-                playStateButton.setImage(UIImage(systemName: "play.circle"), for: .normal)
+                playStateButton.setImage(getCellSymbol(imageName: "pause.circle"), for: .normal)
+                delegate?.playDraftAudio(draft: Draft(audio: draft!.audioPath))
             }
 
         }
@@ -68,13 +76,17 @@ class DraftTableViewCell: UITableViewCell {
     
     private lazy var playStateButton: UIButton = {
         let button = UIButton()
-        let config = UIImage.SymbolConfiguration(pointSize: 24.0)
-        let image = UIImage(systemName: "play.circle", withConfiguration: config)
-        button.setImage(image, for: .normal)
+        button.setImage(getCellSymbol(imageName: "play.circle"), for: .normal)
         button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
         button.tintColor = .black
         return button
     }()
+    
+    func getCellSymbol(imageName: String) -> UIImage? {
+        let config = UIImage.SymbolConfiguration(pointSize: 24.0)
+        let image = UIImage(systemName: imageName, withConfiguration: config)
+        return image
+    }
     
     @objc func pressed() {
         buttonState.toggle()
@@ -138,3 +150,4 @@ extension DraftTableViewCell: ViewCoding {
         ])
     }
 }
+

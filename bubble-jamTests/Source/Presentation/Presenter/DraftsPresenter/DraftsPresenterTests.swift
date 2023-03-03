@@ -16,7 +16,7 @@ final class DraftsPresenterTests: XCTestCase {
     override func setUp() {
         (sut, (useCase, view)) = makeSUT()
         XCTAssertNotNil(useCase.output)
-        XCTAssertNotNil(sut.view)
+        XCTAssertNotNil(sut.viewDelegate)
     }
     func test_uploadJam_when_useCase_succeded_should_call_view_correctly() async {
         let inputDraft = Draft(audio: generateMockedResourceUrl())

@@ -48,7 +48,7 @@ class DraftsViewController: UIViewController, AlertPresentable {
             .strokeColor: UIColor.white,
             .foregroundColor: #colorLiteral(red: 0.9254901961, green: 0.3921568627, blue: 0.7058823529, alpha: 1),
             .strokeWidth: -4.0,
-            .font: UIFont.preferredFont(for: .largeTitle, weight: .heavy),
+            .font: UIFont.preferredFont(for: .largeTitle, weight: .heavy)
         ]
         label.attributedText = NSMutableAttributedString(string: "Jams", attributes: strokeTextAttr)
         label.adjustsFontForContentSizeCategory = true
@@ -133,7 +133,7 @@ extension DraftsViewController: ViewCoding {
         view.addGestureRecognizer(swipeGesture)
         draftsTableView.dataSource = self
         draftsTableView.delegate = self
-//        dataSource = DraftViewModel.mock
+        dataSource = DraftViewModel.mock
         micButton.addJamButtonTap = loadUserAudios
     }
     
@@ -143,24 +143,21 @@ extension DraftsViewController: ViewCoding {
         view.addSubview(micButton)
         view.addSubview(tableViewHeader)
         view.addSubview(titleLabel)
-        
         view.addSubview(loadingView)
         
-        if UIAccessibility.isVoiceOverRunning == true {
+        if UIAccessibility.isVoiceOverRunning {
             view.addSubview(returnButton)
         }
     }
     
     func setupConstraints() {
         
-        let returnButtonConstraints = [
-            returnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            returnButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
-            returnButton.heightAnchor.constraint(equalToConstant: returnButton.radius! * 3)
-        ]
-        
-        if UIAccessibility.isVoiceOverRunning == true {
-            NSLayoutConstraint.activate(returnButtonConstraints)
+        if UIAccessibility.isVoiceOverRunning {
+            NSLayoutConstraint.activate([
+                returnButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                returnButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+                returnButton.heightAnchor.constraint(equalToConstant: returnButton.radius! * 3)
+            ])
         }
         
         NSLayoutConstraint.activate([
@@ -219,11 +216,14 @@ extension DraftsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.draft = dataSource[indexPath.row]
+        cell.delegate = self
+        cell.selectionStyle = .none
         return cell
     }
 }
 
 extension DraftsViewController: DraftViewDelegate {
+    
     func draftHasBeenDownloaded(_ jam: Draft) {
         dataSource = [DraftViewModel(audioPath: jam.audio, audioName: "Most recent jam", audioDuration: "")]
         DispatchQueue.main.async { [weak self] in self?.draftsTableView.reloadData() }
@@ -258,4 +258,16 @@ extension DraftsViewController: DraftViewDelegate {
             self?.showAlert(title: "Presenter says error", message: error.localizedDescription)
         }
     }
+}
+
+extension DraftsViewController: DraftCellDelegate {
+    
+    func playDraftAudio(draft: Draft) {
+        presenter.playAudio(draft: draft)
+    }
+    
+    func stopDraftAudio() {
+        presenter.stopAudio()
+    }
+    
 }

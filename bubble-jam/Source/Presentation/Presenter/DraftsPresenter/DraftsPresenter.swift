@@ -6,48 +6,70 @@
 //
 
 import Foundation
+import AVFoundation
 
 class DraftsPresenter: DraftsPresenting {
+    
     private var uploadJamUseCase: any UploadJamUseCaseProtocol
     private var downloadJamUseCase: DownloadJamUseCase
-    weak var view: DraftViewDelegate?
+    private var player: AVAudioPlayer!
+    weak var viewDelegate: DraftViewDelegate?
     
-    init(uploadJamUseCase: any UploadJamUseCaseProtocol, downloadJamUseCase: DownloadJamUseCase) {
+    init(uploadJamUseCase: any UploadJamUseCaseProtocol, downloadJamUseCase: DownloadJamUseCase, player: AVAudioPlayer = AVAudioPlayer()) {
         self.uploadJamUseCase = uploadJamUseCase
         self.downloadJamUseCase = downloadJamUseCase
+        self.player = player
     }
     
     func uploadJam(draft: Draft) async {
-        view?.startLoading()
+        viewDelegate?.startLoading()
         uploadJamUseCase.input = draft
         await uploadJamUseCase.execute()
-        view?.hideLoading()
+        viewDelegate?.hideLoading()
     }
     
     func downloadJam() async {
-        view?.startLoading()
+        viewDelegate?.startLoading()
         await downloadJamUseCase.execute()
-        view?.hideLoading()
+        viewDelegate?.hideLoading()
+    }
+    
+    func playAudio(draft: Draft) {
+        do {
+            let audioData = try Data(contentsOf: draft.audio)
+            player = try AVAudioPlayer(data: audioData, fileTypeHint: AVFileType.m4a.rawValue)
+            player.numberOfLoops = 0
+            player.prepareToPlay()
+            player.play()
+        } catch {
+            print("Erro: \(error.localizedDescription)")
+        }
+    }
+    
+    func stopAudio() {
+        if let player = player, player.isPlaying {
+            player.stop()
+        }
     }
     
 }
 
 extension DraftsPresenter: UploadJamUseCaseOutput {
     func successfulyUploadJam(_ jam: Draft) {
-        view?.succesfullyUploadDraft(jam)
+        viewDelegate?.succesfullyUploadDraft(jam)
     }
     
     func failWhileUploadingJam(_ error: Error) {
-        view?.failWhileUploadingDraft(error)
+        viewDelegate?.failWhileUploadingDraft(error)
     }
 }
 
 extension DraftsPresenter: DownloadJamUseCaseOutput {
     func sucessfullyDownloadJams(_ jam: Draft) {
-        view?.draftHasBeenDownloaded(jam)
+        viewDelegate?.draftHasBeenDownloaded(jam)
     }
     
     func failWhileDownloadingJam(_ error: Error) {
-        view?.failWhileDownloadingDraft(error)
+        viewDelegate?.failWhileDownloadingDraft(error)
     }
 }

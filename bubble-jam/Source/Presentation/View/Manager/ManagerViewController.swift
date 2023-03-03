@@ -49,7 +49,7 @@ class ManagerViewController: UIViewController {
         
         uploadUseCase.output = [presenter]
         downloadUseCase.output = [presenter]
-        presenter.view = view
+        presenter.viewDelegate = view
         
         return view
     }()
