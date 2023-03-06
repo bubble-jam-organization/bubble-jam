@@ -9,6 +9,7 @@ import Foundation
 import CloudKit
 
 class DraftRepository: DraftRepositoryProtocol {
+    
     var database: Database
     var mapper: any DraftMapperProtocol
     
@@ -50,5 +51,18 @@ class DraftRepository: DraftRepositoryProtocol {
             }
             throw error
         }
+    }
+    
+    func downloadDraft(for challenge: Challenge) async throws -> Draft {
+        let predicate = NSPredicate(format: "challenge==%@", CKRecord.ID(recordName: challenge.id.uuidString))
+        let query = CKQuery(.draftType, predicate: predicate)
+        
+        do {
+            let result = try await database.records(matching: query, inZoneWith: nil)
+            print(result)
+        } catch {
+            print(error.localizedDescription)
+        }
+        return Draft(audio: URL(string: "")!)
     }
 }

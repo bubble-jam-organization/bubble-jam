@@ -9,7 +9,7 @@ import Foundation
 
 protocol DraftsPresenting {
     func uploadJam(draft: Draft) async
-    func downloadJam() async
+    func downloadJam(for challenge: Challenge) async
     func playAudio(draft: Draft)
     func stopAudio()
 }

@@ -9,4 +9,5 @@ import Foundation
 
 protocol DownloadJamUseCaseProtocol: UseCase where
 UseCaseOutput == [DownloadJamUseCaseOutput],
+UseCaseInput == Challenge,
 Gateway == DraftRepositoryProtocol {}

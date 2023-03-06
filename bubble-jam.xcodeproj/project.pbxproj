@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		001596D429B0D93100C0282A /* CustomPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001596D329B0D93100C0282A /* CustomPlayer.swift */; };
+		001596D929B62E3B00C0282A /* DownloadChallengeJamsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001596D829B62E3B00C0282A /* DownloadChallengeJamsUseCase.swift */; };
 		00523CDC299BD5890075393A /* CloudKitQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CDB299BD5890075393A /* CloudKitQueryType.swift */; };
 		00523CDF299BD61E0075393A /* ChallengeRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CDE299BD61E0075393A /* ChallengeRecordType.swift */; };
 		00523CE1299BD7410075393A /* DraftRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523CE0299BD7410075393A /* DraftRecordType.swift */; };
@@ -136,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		001596D329B0D93100C0282A /* CustomPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlayer.swift; sourceTree = "<group>"; };
+		001596D829B62E3B00C0282A /* DownloadChallengeJamsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadChallengeJamsUseCase.swift; sourceTree = "<group>"; };
 		00523CDB299BD5890075393A /* CloudKitQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitQueryType.swift; sourceTree = "<group>"; };
 		00523CDE299BD61E0075393A /* ChallengeRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRecordType.swift; sourceTree = "<group>"; };
 		00523CE0299BD7410075393A /* DraftRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftRecordType.swift; sourceTree = "<group>"; };
@@ -894,6 +896,7 @@
 		D6C3FF9729A8E2B100D81D90 /* DownloadJam */ = {
 			isa = PBXGroup;
 			children = (
+				001596D829B62E3B00C0282A /* DownloadChallengeJamsUseCase.swift */,
 				D6C3FF9829A8E2C800D81D90 /* DownloadJamUseCase.swift */,
 				D6C3FF9A29A8E2F500D81D90 /* DownloadJamUseCaseProtocol.swift */,
 				D6C3FF9C29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift */,
@@ -1159,6 +1162,7 @@
 				00523CE7299D08790075393A /* PillButtonComponent.swift in Sources */,
 				00523CE9299ECAD30075393A /* DraftEmptyStateViewCell.swift in Sources */,
 				007869CB29966F420018B384 /* ErrorExtension.swift in Sources */,
+				001596D929B62E3B00C0282A /* DownloadChallengeJamsUseCase.swift in Sources */,
 				001596D429B0D93100C0282A /* CustomPlayer.swift in Sources */,
 				D6C3FFA029A8E8F300D81D90 /* DraftMapperProtocol.swift in Sources */,
 				00523CEB299FB5C80075393A /* AudioAndPropetiesRecordType.swift in Sources */,

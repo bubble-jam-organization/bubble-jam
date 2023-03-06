@@ -10,6 +10,7 @@ import AVFAudio
 
 protocol BubblegumPresenting {
     var player: AVAudioPlayer { get }
+    var currentChallenge: Challenge? { get }
     func initChallengeDownload() async
     func initializePlayer()
     func playAudio()

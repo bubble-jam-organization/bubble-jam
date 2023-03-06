@@ -19,10 +19,10 @@ class DownloadJamUseCase {
         do {
             let draft = try await repository.downloadDraft()
             print("sending output")
-            output?.forEach{$0.sucessfullyDownloadJams(draft)}
+            output?.forEach { $0.sucessfullyDownloadJams(draft) }
         } catch {
             print(error)
-            output?.forEach{$0.failWhileDownloadingJam(error)}
+            output?.forEach { $0.failWhileDownloadingJam(error) }
         }
     }
 }

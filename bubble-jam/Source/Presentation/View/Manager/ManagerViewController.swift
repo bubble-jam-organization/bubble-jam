@@ -11,6 +11,7 @@ import CloudKit
 protocol ManagerDelegate: AnyObject {
     func scrollToTop()
     func scrollToBottom()
+    func composeWithChallenge(_ challenge: Challenge)
 }
 
 class ManagerViewController: UIViewController {
@@ -44,11 +45,17 @@ class ManagerViewController: UIViewController {
         let repository = DraftRepository(database: database, mapper: mapper)
         let uploadUseCase = UploadJamUseCase(repository: repository)
         let downloadUseCase = DownloadJamUseCase(repository: repository)
-        let presenter = DraftsPresenter(uploadJamUseCase: uploadUseCase, downloadJamUseCase: downloadUseCase)
+        let downloadChallengeJamUseCase = DownloadChallengeJamsUseCase(repository: repository)
+        let presenter = DraftsPresenter(
+            uploadJamUseCase: uploadUseCase,
+            downloadJamUseCase: downloadUseCase,
+            downloadChallengeJamUseCase: downloadChallengeJamUseCase
+        )
         let view = DraftsViewController(managerDelegate: self, presenter: presenter)
         
         uploadUseCase.output = [presenter]
         downloadUseCase.output = [presenter]
+        downloadChallengeJamUseCase.output = [presenter]
         presenter.viewDelegate = view
         
         return view
@@ -72,6 +79,9 @@ class ManagerViewController: UIViewController {
 }
 
 extension ManagerViewController: ManagerDelegate {
+    func composeWithChallenge(_ challenge: Challenge) {
+        draftView.challenge = challenge
+    }
     
     func scrollToTop() {
         managerScrollView.scrollToTop()

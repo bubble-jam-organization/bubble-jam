@@ -20,8 +20,14 @@ protocol DraftViewDelegate: AnyObject {
 class DraftsViewController: UIViewController, AlertPresentable {
     weak var managerDelegate: ManagerDelegate?
     private let presenter: DraftsPresenting
-    
     var dataSource = [DraftViewModel]()
+    var challenge: Challenge? {
+        didSet {
+            Task {
+                _ = await presenter.downloadJam(for: challenge!)
+            }
+        }
+    }
     
     init(managerDelegate: ManagerDelegate, presenter: DraftsPresenting) {
         self.managerDelegate = managerDelegate
@@ -99,9 +105,6 @@ class DraftsViewController: UIViewController, AlertPresentable {
     override func viewDidLoad() {
         super.viewDidLoad()
         buildLayout()
-        Task {
-            _ = await presenter.downloadJam()
-        }
     }
     
    @objc func onSwipeDown() { managerDelegate?.scrollToTop() }
