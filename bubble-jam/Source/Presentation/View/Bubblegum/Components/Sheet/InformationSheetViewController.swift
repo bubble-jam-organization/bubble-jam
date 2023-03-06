@@ -83,6 +83,14 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return box
     }()
     
+    private lazy var playerBar: CustomPlayer = {
+        let customPlayer = CustomPlayer(frame: .zero, player: presenter.player)
+        customPlayer.translatesAutoresizingMaskIntoConstraints = false
+        customPlayer.playButtonTapped = presenter.forcePlayAudio
+        customPlayer.pauseButtonTapepd = presenter.pauseAudio
+        return customPlayer
+    }()
+    
     @objc func downloadFunc() {
         let filePath = challenge.audio.path
         let newPath = filePath.appendingPathExtension(challenge.audio.format.rawValue)
@@ -100,7 +108,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
     @objc func toggleAudio() {
         if isPlaying {
             presenter.forcePlayAudio()
-        }else{
+        } else {
             presenter.stopAudio()
         }
         isPlaying.toggle()
@@ -123,10 +131,9 @@ extension InformationSheetViewController: ViewCoding {
         view.addSubview(challengeBanner)
         view.addSubview(information)
         view.addSubview(downloadBox)
-        if UIAccessibility.isVoiceOverRunning{
-            view.addSubview(playButton)
-        }
         view.addSubview(scrollInformations)
+        view.addSubview(playerBar)
+        if UIAccessibility.isVoiceOverRunning { view.addSubview(playButton) }
         verticalStack.addArrangedSubview(information)
         verticalStack.addArrangedSubview(downloadBox)
         scrollInformations.addSubview(verticalStack)
@@ -139,7 +146,12 @@ extension InformationSheetViewController: ViewCoding {
             challengeBanner.widthAnchor.constraint(equalTo: view.widthAnchor),
             challengeBanner.heightAnchor.constraint(equalToConstant: CGFloat(view.frame.width * 0.5625)),
             
-            scrollInformations.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 16),
+            playerBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -8),
+            playerBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -14),
+            playerBar.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 10),
+            playerBar.heightAnchor.constraint(equalToConstant: 60),
+
+            scrollInformations.topAnchor.constraint(equalTo: playerBar.bottomAnchor, constant: 12),
             scrollInformations.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             scrollInformations.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             scrollInformations.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
@@ -150,6 +162,7 @@ extension InformationSheetViewController: ViewCoding {
             verticalStack.bottomAnchor.constraint(equalTo: scrollInformations.bottomAnchor),
             verticalStack.widthAnchor.constraint(equalTo: scrollInformations.widthAnchor)
         ])
+        
         if UIAccessibility.isVoiceOverRunning {
             NSLayoutConstraint.activate([
                 playButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
