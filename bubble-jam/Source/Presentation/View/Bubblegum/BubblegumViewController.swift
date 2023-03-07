@@ -91,7 +91,6 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     @objc func frameFunc() {
         presenter.initializePlayer()
         presenter.playAudio()
-
     }
     
     @objc func pillFunc() {
@@ -101,7 +100,9 @@ class BubblegumViewController: UIViewController, AlertPresentable {
 
 extension BubblegumViewController: BubblegumViewDelegate {
     func errorWhenLoadingChallenge(title: String, description: String) {
-        showAlert(title: title, message: description)
+        DispatchQueue.main.async { [weak self] in
+            self?.showAlert(title: title, message: description)
+        }
     }
     
     func audioIsPlaying(challenge: Challenge) {
@@ -121,6 +122,9 @@ extension BubblegumViewController: BubblegumViewDelegate {
             self?.loadingIndicator.stopAnimating()
             self?.titleLabels.nameOfChallenge = title
             self?.titleLabels.descriptionOfChallenge = daysLeft
+            if let challenge = self?.presenter.currentChallenge {
+                self?.managerDelegate?.composeWithChallenge(challenge)
+            }
         }
     }
     

@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 
 class BubblegumPresenter: NSObject, BubblegumPresenting {
-    private(set) var currentChallenge: Challenge?
+    var currentChallenge: Challenge?
     var player: AVAudioPlayer
     var downloadAudioUseCase: DownloadAudioRoutineUseCase
     weak var viewDelegate: BubblegumViewDelegate?

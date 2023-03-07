@@ -11,13 +11,18 @@ import AVFoundation
 class DraftsPresenter: DraftsPresenting {
     
     private var uploadJamUseCase: any UploadJamUseCaseProtocol
-    private var downloadJamUseCase: DownloadJamUseCase
+    private var downloadChallengeJamUseCase: any DownloadJamUseCaseProtocol
+    
     private var player: AVAudioPlayer!
     weak var viewDelegate: DraftViewDelegate?
     
-    init(uploadJamUseCase: any UploadJamUseCaseProtocol, downloadJamUseCase: DownloadJamUseCase, player: AVAudioPlayer = AVAudioPlayer()) {
+    init(
+        uploadJamUseCase: any UploadJamUseCaseProtocol,
+        downloadChallengeJamUseCase: any DownloadJamUseCaseProtocol,
+        player: AVAudioPlayer = AVAudioPlayer()
+    ) {
         self.uploadJamUseCase = uploadJamUseCase
-        self.downloadJamUseCase = downloadJamUseCase
+        self.downloadChallengeJamUseCase = downloadChallengeJamUseCase
         self.player = player
     }
     
@@ -28,9 +33,10 @@ class DraftsPresenter: DraftsPresenting {
         viewDelegate?.hideLoading()
     }
     
-    func downloadJam() async {
+    func downloadJam(for challenge: Challenge) async {
         viewDelegate?.startLoading()
-        await downloadJamUseCase.execute()
+        downloadChallengeJamUseCase.input = challenge
+        await downloadChallengeJamUseCase.execute()
         viewDelegate?.hideLoading()
     }
     
