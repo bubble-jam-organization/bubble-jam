@@ -11,7 +11,6 @@ import AVFoundation
 class DraftsPresenter: DraftsPresenting {
     
     private var uploadJamUseCase: any UploadJamUseCaseProtocol
-    private var downloadJamUseCase: DownloadJamUseCase
     private var downloadChallengeJamUseCase: any DownloadJamUseCaseProtocol
     
     private var player: AVAudioPlayer!
@@ -19,13 +18,11 @@ class DraftsPresenter: DraftsPresenting {
     
     init(
         uploadJamUseCase: any UploadJamUseCaseProtocol,
-        downloadJamUseCase: DownloadJamUseCase,
         downloadChallengeJamUseCase: any DownloadJamUseCaseProtocol,
         player: AVAudioPlayer = AVAudioPlayer()
     ) {
         self.uploadJamUseCase = uploadJamUseCase
         self.downloadChallengeJamUseCase = downloadChallengeJamUseCase
-        self.downloadJamUseCase = downloadJamUseCase
         self.player = player
     }
     

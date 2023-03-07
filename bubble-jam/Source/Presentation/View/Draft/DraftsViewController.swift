@@ -257,7 +257,7 @@ extension DraftsViewController: DraftViewDelegate {
     
     func failWhileUploadingDraft(_ error: Error) {
         DispatchQueue.main.async { [weak self] in
-            self?.showAlert(title: "Presenter says error", message: error.localizedDescription)
+            self?.showAlert(title: "Error", message: error.localizedDescription)
         }
     }
 }

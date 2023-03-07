@@ -44,17 +44,14 @@ class ManagerViewController: UIViewController {
         let mapper = DraftMapper()
         let repository = DraftRepository(database: database, mapper: mapper)
         let uploadUseCase = UploadJamUseCase(repository: repository)
-        let downloadUseCase = DownloadJamUseCase(repository: repository)
         let downloadChallengeJamUseCase = DownloadChallengeJamsUseCase(repository: repository)
         let presenter = DraftsPresenter(
             uploadJamUseCase: uploadUseCase,
-            downloadJamUseCase: downloadUseCase,
             downloadChallengeJamUseCase: downloadChallengeJamUseCase
         )
         let view = DraftsViewController(managerDelegate: self, presenter: presenter)
         
         uploadUseCase.output = [presenter]
-        downloadUseCase.output = [presenter]
         downloadChallengeJamUseCase.output = [presenter]
         presenter.viewDelegate = view
         
