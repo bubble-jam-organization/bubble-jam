@@ -8,7 +8,6 @@
 import Foundation
 
 struct Challenge: Equatable {
-    let id: UUID
     let title: String
     let description: String
     let banner: URL

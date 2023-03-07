@@ -13,8 +13,8 @@ class ChallengeMapper: ChallengeMapperProtocol {
     required init(database: Database) { self.database = database }
     
     func mapToDomain(_ dto: CKRecord) async throws -> Challenge {
-        if let id = UUID(uuidString: dto.recordID.recordName),
-           let title = dto["title"] as? String,
+
+     if let title = dto["title"] as? String,
            let description = dto["description"] as? String,
            let banner = dto["banner"] as? CKAsset,
            let rules = dto["rules"] as? [String],
@@ -22,7 +22,7 @@ class ChallengeMapper: ChallengeMapperProtocol {
            let deadline = dto["deadline"] as? Date,
            let audio = dto["audio"] as? CKRecord.Reference {
             return Challenge(
-                id: id,
+
                 title: title,
                 description: description,
                 banner: banner.fileURL!,
@@ -40,7 +40,7 @@ class ChallengeMapper: ChallengeMapperProtocol {
         if let dataAsset = audioRecord["data"] as? CKAsset,
            let format = audioRecord["format"] as? String,
            let notes = audioRecord["notes"] as? [String],
-           let bpm = audioRecord ["bpm"] as? UInt {
+           let bpm = audioRecord["bpm"] as? UInt {
             guard let dataURL = dataAsset.fileURL else { throw MapperError.couldNotMapData }
         
             return AudioAndPropeties(

@@ -10,6 +10,7 @@ import CloudKit
 
 class DraftRepository: DraftRepositoryProtocol {
     
+    
     var database: Database
     var mapper: any DraftMapperProtocol
     
@@ -54,15 +55,23 @@ class DraftRepository: DraftRepositoryProtocol {
     }
     
     func downloadDraft(for challenge: Challenge) async throws -> Draft {
-        let predicate = NSPredicate(format: "challenge==%@", CKRecord.ID(recordName: challenge.id.uuidString))
+        let predicate = NSPredicate(value: true)
         let query = CKQuery(.draftType, predicate: predicate)
         
+        query.sortDescriptors = [NSSortDescriptor(key: "modificationDate", ascending: true)]
         do {
             let result = try await database.records(matching: query, inZoneWith: nil)
-            print(result)
+            let filteredResults = result.filter { $0.creationDate! >= challenge.initialDate && $0.creationDate! <= challenge.deadline }
+            if let mostRecentDraft = result.last {
+                let domainEntity = try await mapper.mapToDomain(mostRecentDraft)
+                return domainEntity
+            }
+            throw RepositoryError.draftNotFound
         } catch {
-            print(error.localizedDescription)
+            if let error = error as? CKError {
+                throw DataSourceErrorHandler.handleError(error)
+            }
+            throw error
         }
-        return Draft(audio: URL(string: "")!)
     }
 }
