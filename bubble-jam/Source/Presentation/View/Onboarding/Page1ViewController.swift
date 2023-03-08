@@ -81,7 +81,7 @@ extension Page1ViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             tutorialImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialImage.widthAnchor.constraint(equalTo: tutorialImage.widthAnchor),
             tutorialImage.heightAnchor.constraint(equalTo: tutorialImage.heightAnchor),

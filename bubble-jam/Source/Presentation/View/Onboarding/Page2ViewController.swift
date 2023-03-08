@@ -72,10 +72,10 @@ extension Page2ViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             tutorialImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialImage.widthAnchor.constraint(equalToConstant: 240),
-            tutorialImage.heightAnchor.constraint(equalToConstant: 240),
+            tutorialImage.heightAnchor.constraint(equalToConstant: 200),
             tutorialTitle.topAnchor.constraint(equalTo: tutorialImage.bottomAnchor, constant: 20),
             tutorialTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialTitle.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor),

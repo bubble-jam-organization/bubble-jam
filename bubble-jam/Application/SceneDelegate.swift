@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             window?.rootViewController = ManagerViewController()
         }
-
+        let onboarding = OnboardingViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+        window?.rootViewController = UINavigationController(rootViewController: onboarding)
         window?.makeKeyAndVisible()
     }
 

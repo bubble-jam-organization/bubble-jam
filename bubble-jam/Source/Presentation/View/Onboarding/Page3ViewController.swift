@@ -92,10 +92,10 @@ extension Page3ViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
+            tutorialImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             tutorialImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialImage.widthAnchor.constraint(equalToConstant: 240),
-            tutorialImage.heightAnchor.constraint(equalToConstant: 240),
+            tutorialImage.heightAnchor.constraint(equalToConstant: 140),
             tutorialTitle.topAnchor.constraint(equalTo: tutorialImage.bottomAnchor, constant: 10),
             tutorialTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialTitle.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -12),
@@ -104,7 +104,7 @@ extension Page3ViewController: ViewCoding {
             tutorialText.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
             tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialText.heightAnchor.constraint(equalToConstant: 150),
-            goToMainScreenButton.topAnchor.constraint(equalTo: tutorialText.bottomAnchor, constant: 20),
+            goToMainScreenButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             goToMainScreenButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             goToMainScreenButton.heightAnchor.constraint(equalToConstant: ((goToMainScreenButton.radius ?? 20) * 3))
 
