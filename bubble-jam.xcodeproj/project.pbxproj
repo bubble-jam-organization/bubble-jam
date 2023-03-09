@@ -100,7 +100,6 @@
 		D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C9612940C8F400C6B207 /* BackToSample.swift */; };
 		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
 		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
-		D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C7293629340057095A /* DraftPillButton.swift */; };
 		D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C9293629590057095A /* SamplerPlayButton.swift */; };
 		D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */; };
 		D6ADD8CE293629B40057095A /* SamplerTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CD293629B40057095A /* SamplerTexture.swift */; };
@@ -234,7 +233,6 @@
 		D673C9612940C8F400C6B207 /* BackToSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToSample.swift; sourceTree = "<group>"; };
 		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
-		D6ADD8C7293629340057095A /* DraftPillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftPillButton.swift; sourceTree = "<group>"; };
 		D6ADD8C9293629590057095A /* SamplerPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayButton.swift; sourceTree = "<group>"; };
 		D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayerFrame.swift; sourceTree = "<group>"; };
 		D6ADD8CD293629B40057095A /* SamplerTexture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerTexture.swift; sourceTree = "<group>"; };
@@ -878,7 +876,6 @@
 			isa = PBXGroup;
 			children = (
 				D657FED9293781A4005ADD07 /* Sheet */,
-				D6ADD8C7293629340057095A /* DraftPillButton.swift */,
 				D6ADD8C9293629590057095A /* SamplerPlayButton.swift */,
 				D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */,
 				D6ADD8CD293629B40057095A /* SamplerTexture.swift */,
@@ -1147,7 +1144,6 @@
 				29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */,
 				007869A929929DEE0018B384 /* AudioAndPropeties.swift in Sources */,
 				D657FEE029378F0E005ADD07 /* ChallengeBanner.swift in Sources */,
-				D6ADD8C8293629340057095A /* DraftPillButton.swift in Sources */,
 				0078699C2992950E0018B384 /* DatabaseProtocol.swift in Sources */,
 				007869A729929DAF0018B384 /* Challenge.swift in Sources */,
 				007869C429953D4D0018B384 /* MapperError.swift in Sources */,
