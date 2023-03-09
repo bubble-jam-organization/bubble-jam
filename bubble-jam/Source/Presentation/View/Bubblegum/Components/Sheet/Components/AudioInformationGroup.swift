@@ -117,16 +117,16 @@ extension AudioInformationGroup: ViewCoding {
     func setupHierarchy() {
         self.addSubview(audioLabel)
         self.addSubview(audioDescription)
-        self.addSubview(audioBPM)
-        self.addSubview(audioNotes)
         self.addSubview(rulesLabel)
         self.addSubview(rulesDescription)
+        self.addSubview(audioBPM)
+        self.addSubview(audioNotes)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
             audioLabel.topAnchor.constraint(equalTo: self.topAnchor),
-        
+    
             audioDescription.topAnchor.constraint(equalTo: audioLabel.bottomAnchor, constant: 10),
             audioDescription.widthAnchor.constraint(equalTo: self.widthAnchor),
             
@@ -137,7 +137,8 @@ extension AudioInformationGroup: ViewCoding {
  
             audioBPM.topAnchor.constraint(equalTo: rulesDescription.bottomAnchor, constant: 12),
             
-            audioNotes.topAnchor.constraint(equalTo: audioBPM.bottomAnchor, constant: 4)
+            audioNotes.topAnchor.constraint(equalTo: audioBPM.bottomAnchor, constant: 4),
+            audioNotes.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -6)
         ])
     }
     
