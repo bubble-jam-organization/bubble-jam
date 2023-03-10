@@ -104,7 +104,7 @@ extension Page3ViewController: ViewCoding {
             tutorialText.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20),
             tutorialText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             tutorialText.heightAnchor.constraint(equalToConstant: 150),
-            goToMainScreenButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            goToMainScreenButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(view.frame.height * 0.14)),
             goToMainScreenButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             goToMainScreenButton.heightAnchor.constraint(equalToConstant: ((goToMainScreenButton.radius ?? 20) * 3))
 
