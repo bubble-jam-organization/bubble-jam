@@ -20,7 +20,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         }
     }
     
-    
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.frame = CGRect()
@@ -45,12 +44,11 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
     @objc private func pageControllerHandle(sender: UIPageControl) {
         if pageControl.currentPage > self.pages.firstIndex(of: (self.viewControllers?.first)!)! {
             setViewControllers([pages[pageControl.currentPage]], direction: .forward, animated: true)
-        }else {
+        } else {
             setViewControllers([pages[pageControl.currentPage]], direction: .reverse, animated: true)
         }
     }
 
-    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let viewControllerIndex = self.pages.firstIndex(of: viewController) {
@@ -63,7 +61,6 @@ class OnboardingViewController: UIPageViewController, UIPageViewControllerDataSo
         return nil
         
     }
-    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let viewContollerIndex = self.pages.firstIndex(of: viewController) {
@@ -116,7 +113,7 @@ extension OnboardingViewController: ViewCoding {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30),
+            pageControl.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             pageControl.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -60),
             pageControl.heightAnchor.constraint(equalToConstant: 30),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
