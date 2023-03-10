@@ -45,10 +45,11 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         return stackView
     }()
     
-    private let scrollInformations: InformationsScrollView = {
-        let scroll = InformationsScrollView()
-        scroll.translatesAutoresizingMaskIntoConstraints = false
-        return scroll
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isScrollEnabled = true
+        return scrollView
     }()
     
     private lazy var backgroundImage: UIImageView = {
@@ -113,6 +114,7 @@ class InformationSheetViewController: UIViewController, AlertPresentable {
         }
         isPlaying.toggle()
     }
+    
     func downloadBannerImage(_ url: URL) -> UIImage? {
         guard let data = try? Data(contentsOf: url) else { return nil }
         let image = UIImage(data: data)
@@ -129,14 +131,12 @@ extension InformationSheetViewController: ViewCoding {
     func setupHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(challengeBanner)
-        view.addSubview(information)
-        view.addSubview(downloadBox)
-        view.addSubview(scrollInformations)
         view.addSubview(playerBar)
-        if UIAccessibility.isVoiceOverRunning { view.addSubview(playButton) }
+        view.addSubview(scrollView)
+        scrollView.addSubview(verticalStack)
         verticalStack.addArrangedSubview(information)
         verticalStack.addArrangedSubview(downloadBox)
-        scrollInformations.addSubview(verticalStack)
+        if UIAccessibility.isVoiceOverRunning { view.addSubview(playButton) }
     }
     
     func setupConstraints() {
@@ -151,16 +151,16 @@ extension InformationSheetViewController: ViewCoding {
             playerBar.topAnchor.constraint(equalTo: challengeBanner.bottomAnchor, constant: 10),
             playerBar.heightAnchor.constraint(equalToConstant: 60),
 
-            scrollInformations.topAnchor.constraint(equalTo: playerBar.bottomAnchor, constant: 12),
-            scrollInformations.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            scrollInformations.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            scrollInformations.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            scrollView.topAnchor.constraint(equalTo: playerBar.bottomAnchor, constant: 14),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            verticalStack.topAnchor.constraint(equalTo: scrollInformations.topAnchor),
-            verticalStack.leadingAnchor.constraint(equalTo: scrollInformations.leadingAnchor),
-            verticalStack.trailingAnchor.constraint(equalTo: scrollInformations.trailingAnchor),
-            verticalStack.bottomAnchor.constraint(equalTo: scrollInformations.bottomAnchor),
-            verticalStack.widthAnchor.constraint(equalTo: scrollInformations.widthAnchor)
+            verticalStack.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            verticalStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            verticalStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            verticalStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            verticalStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
         if UIAccessibility.isVoiceOverRunning {
