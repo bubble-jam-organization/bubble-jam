@@ -56,7 +56,6 @@
 		0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */; };
 		0087CBC7293935B500404615 /* BubblegumPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC6293935B500404615 /* BubblegumPresenterTest.swift */; };
 		0087CBC92939367D00404615 /* AudioServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC82939367D00404615 /* AudioServiceSpy.swift */; };
-		0087CBCD293936C200404615 /* AudioServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBCC293936C200404615 /* AudioServicing.swift */; };
 		0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */; };
 		0087CBD7293E337900404615 /* DownloadServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBD6293E337900404615 /* DownloadServiceSpy.swift */; };
 		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
@@ -74,7 +73,6 @@
 		29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A472940DC30004F82DB /* OnboardingViewController.swift */; };
 		29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A492940DC76004F82DB /* Page1ViewController.swift */; };
 		29788A4C2940DCC1004F82DB /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A4B2940DCC1004F82DB /* Page2ViewController.swift */; };
-		29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC5292F921C0092FD1F /* AudioService.swift */; };
 		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
 		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
 		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
@@ -184,7 +182,6 @@
 		0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInformationGroup.swift; sourceTree = "<group>"; };
 		0087CBC6293935B500404615 /* BubblegumPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenterTest.swift; sourceTree = "<group>"; };
 		0087CBC82939367D00404615 /* AudioServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceSpy.swift; sourceTree = "<group>"; };
-		0087CBCC293936C200404615 /* AudioServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServicing.swift; sourceTree = "<group>"; };
 		0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewDelegateSpy.swift; sourceTree = "<group>"; };
 		0087CBD6293E337900404615 /* DownloadServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceSpy.swift; sourceTree = "<group>"; };
 		00B68BC22931210700126314 /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
@@ -207,7 +204,6 @@
 		29788A472940DC30004F82DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		29788A492940DC76004F82DB /* Page1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1ViewController.swift; sourceTree = "<group>"; };
 		29788A4B2940DCC1004F82DB /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
-		29B34BC5292F921C0092FD1F /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
 		29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamAudioServiceTests.swift"; sourceTree = "<group>"; };
 		29B34BCA292F9B9D0092FD1F /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioQueueExtensions.swift; sourceTree = "<group>"; };
@@ -602,15 +598,6 @@
 			path = Doubles;
 			sourceTree = "<group>";
 		};
-		0087CBCA293936AA00404615 /* AudioService */ = {
-			isa = PBXGroup;
-			children = (
-				29B34BC5292F921C0092FD1F /* AudioService.swift */,
-				0087CBCC293936C200404615 /* AudioServicing.swift */,
-			);
-			path = AudioService;
-			sourceTree = "<group>";
-		};
 		0087CBCE293938D300404615 /* BubblegumPresenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,7 +729,6 @@
 			isa = PBXGroup;
 			children = (
 				29788A39293F7FAC004F82DB /* DatetimeService */,
-				0087CBCA293936AA00404615 /* AudioService */,
 				29B34BD5292FB9040092FD1F /* ServiceErrors */,
 			);
 			path = Services;
@@ -1085,7 +1071,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29B34BC6292F921C0092FD1F /* AudioService.swift in Sources */,
 				D673C95B2940C5F700C6B207 /* ScrollViewExtensions.swift in Sources */,
 				00754A962A7084A200A13685 /* DraftViewControllerAssembler.swift in Sources */,
 				007869B529951F480018B384 /* ChallengeMapperProtocol.swift in Sources */,
@@ -1145,7 +1130,6 @@
 				00754A942A70839100A13685 /* Assembler.swift in Sources */,
 				29F60108299BAF2700AAE025 /* DraftGumView.swift in Sources */,
 				29F60113299E57DE00AAE025 /* DraftsViewModel.swift in Sources */,
-				0087CBCD293936C200404615 /* AudioServicing.swift in Sources */,
 				D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */,
 				D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */,
 				D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */,
