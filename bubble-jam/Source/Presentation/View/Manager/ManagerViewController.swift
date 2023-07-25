@@ -25,37 +25,15 @@ class ManagerViewController: UIViewController {
     }
     
     private lazy var bubblegumView: BubblegumViewController = {
-        let datetimeService = DatetimeService()
-        let database = CKContainer(identifier: Constants.containerIdentifier).publicCloudDatabase
-        let mapper = ChallengeMapper(database: database)
-        let repository = ChallengeRepository(database: database, mapper: mapper)
-        let downloadUseCase = DownloadAudioRoutineUseCase(repository: repository)
-        let presenter = BubblegumPresenter(downloadAudioUseCase: downloadUseCase)
-        let viewController = BubblegumViewController(presenter: presenter, managerDelegate: self)
-        
-        presenter.viewDelegate = viewController
-        downloadUseCase.output = [presenter]
-    
+        let viewController = BubbleGumViewControllerAssembler.make()
+        viewController.managerDelegate = self
         return viewController
     }()
     
     private lazy var draftView: DraftsViewController = {
-        let database = CKContainer(identifier: Constants.containerIdentifier).privateCloudDatabase
-        let mapper = DraftMapper()
-        let repository = DraftRepository(database: database, mapper: mapper)
-        let uploadUseCase = UploadJamUseCase(repository: repository)
-        let downloadChallengeJamUseCase = DownloadChallengeJamsUseCase(repository: repository)
-        let presenter = DraftsPresenter(
-            uploadJamUseCase: uploadUseCase,
-            downloadChallengeJamUseCase: downloadChallengeJamUseCase
-        )
-        let view = DraftsViewController(managerDelegate: self, presenter: presenter)
-        
-        uploadUseCase.output = [presenter]
-        downloadChallengeJamUseCase.output = [presenter]
-        presenter.viewDelegate = view
-        
-        return view
+        let viewController = DraftViewControllerAssembler.make()
+        viewController.managerDelegate = self
+        return viewController
     }()
     
     private lazy var managerScrollView: UIScrollView = {

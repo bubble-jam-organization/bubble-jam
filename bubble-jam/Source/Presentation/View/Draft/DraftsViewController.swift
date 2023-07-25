@@ -29,8 +29,7 @@ class DraftsViewController: UIViewController, AlertPresentable {
         }
     }
     
-    init(managerDelegate: ManagerDelegate, presenter: DraftsPresenting) {
-        self.managerDelegate = managerDelegate
+    init(presenter: DraftsPresenting) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
