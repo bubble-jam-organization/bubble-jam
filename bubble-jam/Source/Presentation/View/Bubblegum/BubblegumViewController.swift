@@ -74,9 +74,8 @@ class BubblegumViewController: UIViewController, AlertPresentable {
         return image
     }()
     
-    init(presenter: BubblegumPresenting, managerDelegate: ManagerDelegate) {
+    init(presenter: BubblegumPresenting) {
         self.presenter = presenter
-        self.managerDelegate = managerDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
