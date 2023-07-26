@@ -7,7 +7,7 @@
 
 import XCTest
 import CloudKit
-@testable import bubble_jam
+@testable import BubbleJam
 
 final class ChallengeMapperTests: XCTestCase {
     func test_mapToDomain_should_map_data_correctly() async throws {
@@ -110,6 +110,7 @@ extension ChallengeMapperTests {
             return Challenge(
                 title: title,
                 description: description,
+                banner: URL(string: "")!,
                 rules: rules,
                 initialDate: initDate,
                 deadline: deadline,
@@ -124,8 +125,8 @@ extension ChallengeMapperTests {
         let bundle = Bundle(for: type(of: self))
         let dataAsset = CKAsset(fileURL: bundle.url(forResource: "song", withExtension: "m4a")!)
         let bpm: UInt = 0
-        let format = "m4a"
-        let notes = ["c", "a"]
+        let format = AudioFormat.m4a
+        let notes = [Note.C, Note.A]
         
         func generateDTO() -> CKRecord {
             let inputRecord = CKRecord(.audioAndPropetiesType)

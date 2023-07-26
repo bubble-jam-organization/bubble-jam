@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import bubble_jam
+@testable import BubbleJam
 
 class UploadJamUseCaseDummy: UploadJamUseCaseProtocol {
     var repository: DraftRepositoryProtocol

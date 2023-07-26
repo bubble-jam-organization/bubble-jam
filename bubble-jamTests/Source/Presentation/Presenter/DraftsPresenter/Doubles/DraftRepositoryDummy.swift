@@ -6,14 +6,19 @@
 //
 
 import Foundation
-@testable import bubble_jam
+@testable import BubbleJam
 
 class DraftRepositoryDummy: DraftRepositoryProtocol {
+    func downloadDraft(for challenge: Challenge) async throws -> Draft {
+        return Draft(audio: URL(string: "song.m4a")!)
+    }
+    
+    required init(database: Database, mapper: any DraftMapperProtocol) {
+        self.database = database
+        self.mapper = mapper
+    }
+    var mapper: any DraftMapperProtocol
     var database: Database
     
     func uploadDraft(_ draft: Draft) async throws { }
-    
-    required init(database: Database) {
-        self.database = database
-    }
 }

@@ -55,9 +55,7 @@
 		0087CBBF2938E8C600404615 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */; };
 		0087CBC7293935B500404615 /* BubblegumPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC6293935B500404615 /* BubblegumPresenterTest.swift */; };
-		0087CBC92939367D00404615 /* AudioServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBC82939367D00404615 /* AudioServiceSpy.swift */; };
 		0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */; };
-		0087CBD7293E337900404615 /* DownloadServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBD6293E337900404615 /* DownloadServiceSpy.swift */; };
 		00B68BC32931210700126314 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
 		00B82E5D292BBE9C0088996B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5C292BBE9C0088996B /* AppDelegate.swift */; };
 		00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B82E5E292BBE9C0088996B /* SceneDelegate.swift */; };
@@ -73,10 +71,8 @@
 		29788A482940DC30004F82DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A472940DC30004F82DB /* OnboardingViewController.swift */; };
 		29788A4A2940DC76004F82DB /* Page1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A492940DC76004F82DB /* Page1ViewController.swift */; };
 		29788A4C2940DCC1004F82DB /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29788A4B2940DCC1004F82DB /* Page2ViewController.swift */; };
-		29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */; };
 		29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */; };
 		29B34BD4292FB8640092FD1F /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BD3292FB8640092FD1F /* Testing.swift */; };
-		29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */; };
 		29F60102299A57D700AAE025 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60101299A57D700AAE025 /* UIFontExtension.swift */; };
 		29F60108299BAF2700AAE025 /* DraftGumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60107299BAF2700AAE025 /* DraftGumView.swift */; };
 		29F6010A299BB1B200AAE025 /* UploadButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F60109299BB1B200AAE025 /* UploadButtonView.swift */; };
@@ -153,6 +149,7 @@
 		00754A902A7082B700A13685 /* BubbleGumViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumViewControllerAssembler.swift; sourceTree = "<group>"; };
 		00754A932A70839100A13685 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		00754A952A7084A200A13685 /* DraftViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewControllerAssembler.swift; sourceTree = "<group>"; };
+		00754A972A70884D00A13685 /* bubble-jam.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = "bubble-jam.xctestplan"; path = "../bubble-jam.xctestplan"; sourceTree = "<group>"; };
 		00786975299145780018B384 /* DownloadAudioRoutineUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadAudioRoutineUseCase.swift; sourceTree = "<group>"; };
 		00786978299145D30018B384 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0078697A299146CB0018B384 /* bubble-jam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "bubble-jam.entitlements"; sourceTree = "<group>"; };
@@ -179,9 +176,7 @@
 		0087CBBA2938E27800404615 /* BubblegumPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenter.swift; sourceTree = "<group>"; };
 		0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInformationGroup.swift; sourceTree = "<group>"; };
 		0087CBC6293935B500404615 /* BubblegumPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenterTest.swift; sourceTree = "<group>"; };
-		0087CBC82939367D00404615 /* AudioServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioServiceSpy.swift; sourceTree = "<group>"; };
 		0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewDelegateSpy.swift; sourceTree = "<group>"; };
-		0087CBD6293E337900404615 /* DownloadServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceSpy.swift; sourceTree = "<group>"; };
 		00B68BC22931210700126314 /* song.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song.m4a; sourceTree = "<group>"; };
 		00B82E59292BBE9C0088996B /* BubbleJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B82E5C292BBE9C0088996B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,11 +197,9 @@
 		29788A472940DC30004F82DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		29788A492940DC76004F82DB /* Page1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page1ViewController.swift; sourceTree = "<group>"; };
 		29788A4B2940DCC1004F82DB /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
-		29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamAudioServiceTests.swift"; sourceTree = "<group>"; };
 		29B34BCA292F9B9D0092FD1F /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
 		29B34BD0292FB62D0092FD1F /* AVAudioQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVAudioQueueExtensions.swift; sourceTree = "<group>"; };
 		29B34BD3292FB8640092FD1F /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
-		29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bubble-jamDownloadServiceTests.swift"; sourceTree = "<group>"; };
 		29F60101299A57D700AAE025 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		29F60107299BAF2700AAE025 /* DraftGumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftGumView.swift; sourceTree = "<group>"; };
 		29F60109299BB1B200AAE025 /* UploadButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadButtonView.swift; sourceTree = "<group>"; };
@@ -434,7 +427,6 @@
 		0078698229928B8E0018B384 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				29B34BC7292F95A40092FD1F /* Service */,
 				0087CBC42939356500404615 /* Presenter */,
 			);
 			path = Presentation;
@@ -587,9 +579,7 @@
 		0087CBC52939359200404615 /* Doubles */ = {
 			isa = PBXGroup;
 			children = (
-				0087CBC82939367D00404615 /* AudioServiceSpy.swift */,
 				0087CBCF293938FC00404615 /* BubblegumViewDelegateSpy.swift */,
-				0087CBD6293E337900404615 /* DownloadServiceSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -606,6 +596,7 @@
 		00B82E50292BBE9C0088996B = {
 			isa = PBXGroup;
 			children = (
+				00754A972A70884D00A13685 /* bubble-jam.xctestplan */,
 				00B82E5B292BBE9C0088996B /* bubble-jam */,
 				00B82E72292BBE9D0088996B /* bubble-jamTests */,
 				00B82E7C292BBE9D0088996B /* bubble-jamUITests */,
@@ -727,15 +718,6 @@
 				29788A39293F7FAC004F82DB /* DatetimeService */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		29B34BC7292F95A40092FD1F /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				29B34BC8292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift */,
-				29B34BDD2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		29B34BCC292FB09B0092FD1F /* Resources */ = {
@@ -1151,11 +1133,7 @@
 				29B34BD4292FB8640092FD1F /* Testing.swift in Sources */,
 				00523D0629A1A2350075393A /* UploadJamUseCaseDummy.swift in Sources */,
 				0087CBD0293938FC00404615 /* BubblegumViewDelegateSpy.swift in Sources */,
-				29B34BC9292F95BA0092FD1F /* bubble-jamAudioServiceTests.swift in Sources */,
-				0087CBD7293E337900404615 /* DownloadServiceSpy.swift in Sources */,
-				0087CBC92939367D00404615 /* AudioServiceSpy.swift in Sources */,
 				00523CFC29A194670075393A /* DraftsViewDelegateSpy.swift in Sources */,
-				29B34BDE2930FE630092FD1F /* bubble-jamDownloadServiceTests.swift in Sources */,
 				00523CFE29A1947B0075393A /* DraftRepositoryDummy.swift in Sources */,
 				00523D0029A1948B0075393A /* DatabaseStub.swift in Sources */,
 			);
@@ -1397,7 +1375,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8YQ35HP37L;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -1406,7 +1384,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bubble-jam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/bubble-jam";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BubbleJam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BubbleJam";
 			};
 			name = Debug;
 		};
@@ -1417,7 +1395,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8YQ35HP37L;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MARKETING_VERSION = 1.0;
@@ -1426,7 +1404,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bubble-jam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/bubble-jam";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BubbleJam.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BubbleJam";
 			};
 			name = Release;
 		};
@@ -1436,7 +1414,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8YQ35HP37L;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;

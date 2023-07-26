@@ -7,7 +7,7 @@
 
 import XCTest
 import CloudKit
-@testable import bubble_jam
+@testable import BubbleJam
 
 final class DraftRepositoryTests: XCTestCase {
     
@@ -59,12 +59,17 @@ final class DraftRepositoryTests: XCTestCase {
 }
 
 extension DraftRepositoryTests: Testing {
-    
     typealias SutAndDoubles = (DraftRepository, DatabaseSpy)
     func makeSUT() -> SutAndDoubles {
         let databaseSpy = DatabaseSpy()
-        let sut = DraftRepository(database: databaseSpy)
+        let mapperDummy = DraftMapperDummy()
+        let sut = DraftRepository(database: databaseSpy, mapper: mapperDummy)
         return (sut, databaseSpy)
     }
-    
+}
+
+final class DraftMapperDummy: DraftMapperProtocol {
+    func mapToDomain(_ dto: CKRecord) async throws -> Draft {
+        return Draft(audio: URL(string: "song.m4a")!)
+    }
 }
