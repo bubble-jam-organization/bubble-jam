@@ -26,6 +26,8 @@
 		00523D0229A19C250075393A /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0129A19C250075393A /* UseCaseProtocol.swift */; };
 		00523D0429A19CFA0075393A /* UploadJamUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0329A19CFA0075393A /* UploadJamUseCaseProtocol.swift */; };
 		00523D0629A1A2350075393A /* UploadJamUseCaseDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00523D0529A1A2350075393A /* UploadJamUseCaseDummy.swift */; };
+		006AE89D2A70CB510067DE13 /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AE89B2A70CB510067DE13 /* ViewCoding.swift */; };
+		006AE89E2A70CB510067DE13 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AE89C2A70CB510067DE13 /* AlertPresentable.swift */; };
 		00754A912A7082B700A13685 /* BubbleGumViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00754A902A7082B700A13685 /* BubbleGumViewControllerAssembler.swift */; };
 		00754A942A70839100A13685 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00754A932A70839100A13685 /* Assembler.swift */; };
 		00754A962A7084A200A13685 /* DraftViewControllerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00754A952A7084A200A13685 /* DraftViewControllerAssembler.swift */; };
@@ -49,7 +51,6 @@
 		007869C929966A370018B384 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869C829966A370018B384 /* ErrorHandler.swift */; };
 		007869CB29966F420018B384 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007869CA29966F420018B384 /* ErrorExtension.swift */; };
 		0087CB762931214600404615 /* song2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0087CB752931214600404615 /* song2.m4a */; };
-		0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB42938E1C500404615 /* AlertPresentable.swift */; };
 		0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBB82938E26F00404615 /* BubblegumPresenting.swift */; };
 		0087CBBB2938E27800404615 /* BubblegumPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0087CBBA2938E27800404615 /* BubblegumPresenter.swift */; };
 		0087CBBF2938E8C600404615 /* song.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 00B68BC22931210700126314 /* song.m4a */; };
@@ -91,7 +92,6 @@
 		D673C95D2940C60900C6B207 /* ScrollMovement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95C2940C60900C6B207 /* ScrollMovement.swift */; };
 		D673C9602940C62A00C6B207 /* ManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C95F2940C62A00C6B207 /* ManagerViewController.swift */; };
 		D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = D673C9612940C8F400C6B207 /* BackToSample.swift */; };
-		D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C2293628F40057095A /* ViewCoding.swift */; };
 		D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C42936290B0057095A /* BubblegumViewController.swift */; };
 		D6ADD8CA293629590057095A /* SamplerPlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8C9293629590057095A /* SamplerPlayButton.swift */; };
 		D6ADD8CC293629820057095A /* SamplerPlayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */; };
@@ -146,6 +146,8 @@
 		00523D0129A19C250075393A /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
 		00523D0329A19CFA0075393A /* UploadJamUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadJamUseCaseProtocol.swift; sourceTree = "<group>"; };
 		00523D0529A1A2350075393A /* UploadJamUseCaseDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadJamUseCaseDummy.swift; sourceTree = "<group>"; };
+		006AE89B2A70CB510067DE13 /* ViewCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
+		006AE89C2A70CB510067DE13 /* AlertPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		00754A902A7082B700A13685 /* BubbleGumViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleGumViewControllerAssembler.swift; sourceTree = "<group>"; };
 		00754A932A70839100A13685 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		00754A952A7084A200A13685 /* DraftViewControllerAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftViewControllerAssembler.swift; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 		007869C829966A370018B384 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		007869CA29966F420018B384 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		0087CB752931214600404615 /* song2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = song2.m4a; sourceTree = "<group>"; };
-		0087CBB42938E1C500404615 /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 		0087CBB82938E26F00404615 /* BubblegumPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenting.swift; sourceTree = "<group>"; };
 		0087CBBA2938E27800404615 /* BubblegumPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumPresenter.swift; sourceTree = "<group>"; };
 		0087CBC22938ED2C00404615 /* AudioInformationGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInformationGroup.swift; sourceTree = "<group>"; };
@@ -218,7 +219,6 @@
 		D673C95C2940C60900C6B207 /* ScrollMovement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollMovement.swift; sourceTree = "<group>"; };
 		D673C95F2940C62A00C6B207 /* ManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerViewController.swift; sourceTree = "<group>"; };
 		D673C9612940C8F400C6B207 /* BackToSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToSample.swift; sourceTree = "<group>"; };
-		D6ADD8C2293628F40057095A /* ViewCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
 		D6ADD8C42936290B0057095A /* BubblegumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblegumViewController.swift; sourceTree = "<group>"; };
 		D6ADD8C9293629590057095A /* SamplerPlayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayButton.swift; sourceTree = "<group>"; };
 		D6ADD8CB293629820057095A /* SamplerPlayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplerPlayerFrame.swift; sourceTree = "<group>"; };
@@ -334,6 +334,15 @@
 				00523D0529A1A2350075393A /* UploadJamUseCaseDummy.swift */,
 			);
 			path = Doubles;
+			sourceTree = "<group>";
+		};
+		006AE89A2A70CB510067DE13 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				006AE89B2A70CB510067DE13 /* ViewCoding.swift */,
+				006AE89C2A70CB510067DE13 /* AlertPresentable.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		00754A8F2A70820900A13685 /* Main */ = {
@@ -670,7 +679,7 @@
 		00B82E8E292BBEB80088996B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D6ADD8C1293628D00057095A /* Protocol */,
+				006AE89A2A70CB510067DE13 /* Protocol */,
 				007869A529929DA40018B384 /* Entity */,
 				00786977299145BE0018B384 /* Data */,
 				00786973299144780018B384 /* Domain */,
@@ -826,15 +835,6 @@
 				D6ADD8C42936290B0057095A /* BubblegumViewController.swift */,
 			);
 			path = Bubblegum;
-			sourceTree = "<group>";
-		};
-		D6ADD8C1293628D00057095A /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				D6ADD8C2293628F40057095A /* ViewCoding.swift */,
-				0087CBB42938E1C500404615 /* AlertPresentable.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		D6ADD8C62936291E0057095A /* Components */ = {
@@ -1075,14 +1075,15 @@
 				00523CF1299FC7A70075393A /* UploadJamUseCaseOutput.swift in Sources */,
 				0078698029928B390018B384 /* ChallengeRepositoryProtocol.swift in Sources */,
 				D6ADD8C52936290B0057095A /* BubblegumViewController.swift in Sources */,
-				D6ADD8C3293628F40057095A /* ViewCoding.swift in Sources */,
 				007869B829951F5F0018B384 /* ChallengeMapper.swift in Sources */,
 				29B34BD1292FB62D0092FD1F /* AVAudioQueueExtensions.swift in Sources */,
 				00786976299145780018B384 /* DownloadAudioRoutineUseCase.swift in Sources */,
+				006AE89D2A70CB510067DE13 /* ViewCoding.swift in Sources */,
 				D673C9622940C8F400C6B207 /* BackToSample.swift in Sources */,
 				0087CBC32938ED2C00404615 /* AudioInformationGroup.swift in Sources */,
 				0087CBB92938E26F00404615 /* BubblegumPresenting.swift in Sources */,
 				0078697D29928B030018B384 /* ChallengeRepository.swift in Sources */,
+				006AE89E2A70CB510067DE13 /* AlertPresentable.swift in Sources */,
 				D65CA2FC293E1C6B008DF1B2 /* PacksTexture.swift in Sources */,
 				00523CF4299FCCDD0075393A /* DraftsPresenting.swift in Sources */,
 				007869C72996672F0018B384 /* RepositoryError.swift in Sources */,
@@ -1090,7 +1091,6 @@
 				D6C3FF9D29A8E34900D81D90 /* DownloadJamUseCaseOutput.swift in Sources */,
 				D657FEDE293786CF005ADD07 /* Background.swift in Sources */,
 				D6F3458B299A7FE500E11E92 /* DraftRepository.swift in Sources */,
-				0087CBB52938E1C500404615 /* AlertPresentable.swift in Sources */,
 				007869AD2993F9CD0018B384 /* CloudKitDatabaseExtension.swift in Sources */,
 				00B82E5F292BBE9C0088996B /* SceneDelegate.swift in Sources */,
 				00754A942A70839100A13685 /* Assembler.swift in Sources */,

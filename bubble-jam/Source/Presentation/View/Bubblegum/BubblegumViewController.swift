@@ -95,6 +95,8 @@ class BubblegumViewController: UIViewController, AlertPresentable {
     @objc func pillFunc() {
         self.managerDelegate?.scrollToBottom()
     }
+    
+    @objc func onSwipeUp() { managerDelegate?.scrollToBottom() }
 }
 
 extension BubblegumViewController: BubblegumViewDelegate {
@@ -139,6 +141,9 @@ extension BubblegumViewController: ViewCoding {
     func setupView() {
         view.backgroundColor = .clear
         navigationController?.setNavigationBarHidden(true, animated: true)
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipeUp))
+        swipeGesture.direction = .up
+        view.addGestureRecognizer(swipeGesture)
     }
     
     func setupHierarchy() {
