@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import bubble_jam
+@testable import BubbleJam
 import CloudKit
 
 class ChallengeMapperSpy: ChallengeMapperProtocol {
@@ -28,6 +28,11 @@ class ChallengeMapperSpy: ChallengeMapperProtocol {
     }
 
     func fetchChallengeAudio(reference: CKRecord.Reference) async throws -> AudioAndPropeties {
-        return AudioAndPropeties(path: URL(filePath: "song"), format: "m4a", notes: [], bpm: 0)
+        return AudioAndPropeties(
+            path: URL(filePath: "song"),
+            format: .m4a,
+            notes: [],
+            bpm: 0
+        )
     }
 }

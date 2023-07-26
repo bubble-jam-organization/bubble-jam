@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import bubble_jam
+@testable import BubbleJam
 
 final class DraftsPresenterTests: XCTestCase {
     var sut: DraftsPresenter!
@@ -58,14 +58,30 @@ extension DraftsPresenterTests: Testing {
     
     func makeSUT() -> SutAndDoubles {
         let database = DatabaseStub()
-        let repository = DraftRepositoryDummy(database: database)
+        let mapperDummy = DraftMapperDummy()
+        let repository = DraftRepositoryDummy(database: database, mapper: mapperDummy)
         let useCase = UploadJamUseCaseDummy(repository: repository)
-        let sut = DraftsPresenter(uploadJamUseCase: useCase)
+        let downloadUseCase = DownloadJamUseCaseDummy(repository: repository)
+        let sut = DraftsPresenter(uploadJamUseCase: useCase, downloadChallengeJamUseCase: downloadUseCase)
         let viewDelegate = DraftViewDelegateSpy()
         
-        sut.view = viewDelegate
+        sut.viewDelegate = viewDelegate
         useCase.output = [sut]
         
         return (sut, (useCase, viewDelegate))
+    }
+    
+    final class DownloadJamUseCaseDummy: DownloadJamUseCaseProtocol {
+        var repository: BubbleJam.DraftRepositoryProtocol
+        
+        var output: [DownloadJamUseCaseOutput]?
+        
+        var input: BubbleJam.Challenge?
+        
+        init(repository: BubbleJam.DraftRepositoryProtocol) {
+            self.repository = repository
+        }
+        
+        func execute() async { }
     }
 }

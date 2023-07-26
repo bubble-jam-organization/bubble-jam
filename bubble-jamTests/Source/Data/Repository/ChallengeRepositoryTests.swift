@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import bubble_jam
+@testable import BubbleJam
 import CloudKit
 
 final class ChallengeRepositoryTests: XCTestCase {
@@ -106,12 +106,13 @@ extension ChallengeRepositoryTests {
         return Challenge(
             title: "",
             description: "",
+            banner: URL(string: "")!,
             rules: [],
             initialDate: Date.now,
             deadline: Date.distantFuture,
             audio: AudioAndPropeties(
                 path: fileUrl!,
-                format: "",
+                format: .m4a,
                 notes: [],
                 bpm: 0
             )

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CloudKit
 
 protocol ManagerDelegate: AnyObject {
     func scrollToTop()

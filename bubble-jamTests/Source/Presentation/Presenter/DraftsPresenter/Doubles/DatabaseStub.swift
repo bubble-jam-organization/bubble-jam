@@ -7,7 +7,7 @@
 
 import Foundation
 import CloudKit
-@testable import bubble_jam
+@testable import BubbleJam
 
 class DatabaseStub: Database {
     func records(matching query: CKQuery, inZoneWith zoneID: CKRecordZone.ID?) async throws -> [CKRecord] {

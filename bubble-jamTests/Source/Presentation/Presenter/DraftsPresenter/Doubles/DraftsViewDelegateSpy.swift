@@ -6,9 +6,17 @@
 //
 
 import Foundation
-@testable import bubble_jam
+@testable import BubbleJam
 
 class DraftViewDelegateSpy: DraftViewDelegate {
+    func draftHasBeenDownloaded(_ jam: BubbleJam.Draft) {
+        
+    }
+    
+    func failWhileDownloadingDraft(_ error: Error) {
+        
+    }
+    
     private(set) var receivedMessages: [DraftViewMessage] = [DraftViewMessage]()
     
     enum DraftViewMessage: Equatable, CustomStringConvertible {

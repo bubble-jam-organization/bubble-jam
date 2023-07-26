@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import bubble_jam
+@testable import BubbleJam
 
 class BubblegumViewDelegateSpy {
     private(set) var receivedMessages: [Message] = [Message]()
@@ -34,11 +34,23 @@ class BubblegumViewDelegateSpy {
 }
 
 extension BubblegumViewDelegateSpy: BubblegumViewDelegate {
+    func audioIsPlaying(challenge: Challenge) {
+        
+    }
+    
+    func showChallenge(title: String, daysLeft: String) {
+            
+    }
+    
+    func errorWhenLoadingChallenge(title: String, description: String) {
+        
+    }
+    
     func audioHasBeenLoaded() {
         receivedMessages.append(.audioHasBeenLoaded)
     }
     
-    func audioIsPlaying(_ audio: bubble_jam.Audio) {
+    func audioIsPlaying() {
         receivedMessages.append(.isPlaying)
     }
     

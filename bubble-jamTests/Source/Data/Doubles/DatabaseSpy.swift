@@ -7,7 +7,7 @@
 
 import Foundation
 import CloudKit
-@testable import bubble_jam
+@testable import BubbleJam
 
 class DatabaseSpy: Database {
     private(set) var fetchRecordsCalled = 0
